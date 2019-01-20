@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entityName: Rat
   healthPoints: 10
-  attack: 1
+  attack: 3
   defense: 0
   hitChance: 0.4
   dodgeChance: 0.8

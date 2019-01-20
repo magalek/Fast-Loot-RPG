@@ -36,35 +36,52 @@ public class GameManager : MonoBehaviour {
     {
         while (player.healthPoints > 0 && enemy.healthPoints > 0)
         {
-            int enemyDamage = enemy.CalculateDamage(enemy, player);
-            player.healthPoints -= enemyDamage;
-            battleLogText.text = enemy.entityName + " hit you for " + enemyDamage;
+            HandleTurn(enemy, player);
+
             yield return new WaitForSeconds(2f);
+
             if (player.healthPoints <= 0)
                 break;
-            int playerDamage = player.CalculateDamage(player, enemy);
-            enemy.healthPoints -= playerDamage;
-            battleLogText.text = "You hit " + enemy.entityName + " for " + playerDamage;
+
+            HandleTurn(player, enemy);
+
             yield return new WaitForSeconds(2f);
         }
         if (enemy.healthPoints <= 0)
         {
             Item loot = enemy.DropLoot(enemy);
-            if (loot != null)
-            {
-                Inventory.Instance.AddToInventory(loot);
-                if (loot.rarity == Rarity.Legendary)
-                    battleLogText.text = "You got <color=\"orange\">" + loot.name + "</color>";
-                else
-                    battleLogText.text = "You got " + loot.name;
-            }
-            else
-                battleLogText.text = "You got nothing";
+
+            HandleLootUIText(loot);
+
             enemy.Kill();
             yield return new WaitForSeconds(2f);
             Battle();
         }
         else battleWon = false;
         
+    }
+
+    private void HandleTurn(Entity attacker, Entity target)
+    {
+        int attackerDamage = attacker.CalculateDamage(attacker, target);
+        target.healthPoints -= attackerDamage;
+        if (attacker is Enemy)
+            battleLogText.text = attacker.entityName + " hit you for " + attackerDamage;
+        else
+            battleLogText.text = "You hit " + enemy.entityName + " for " + attackerDamage;
+    }
+
+    private void HandleLootUIText(Item loot)
+    {
+        if (loot != null)
+        {
+            Inventory.Instance.AddToInventory(loot);
+            if (loot.rarity == Rarity.Legendary)
+                battleLogText.text = "You got <color=\"orange\">" + loot.name + "</color>";
+            else
+                battleLogText.text = "You got " + loot.name;
+        }
+        else
+            battleLogText.text = "You got nothing";
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Entity : MonoBehaviour {
 
     public string entityName;
+
     public int healthPoints = 0;
     public int attack = 0;
     public float defense = 0;
@@ -33,5 +34,41 @@ public class Entity : MonoBehaviour {
     {
         Player.killCount++;
         Destroy(gameObject);
+    }
+
+    public void AddStatistics(
+        Entity entity,
+        Item item = null,
+        int healthPoints = 0, 
+        int attack = 0, 
+        float defense = 0, 
+        float hitChance = 0, 
+        float dodgeChance = 0,
+        float criticalChance = 0,
+        float criticalDamage = 0
+        )
+    {
+        if (item == null)
+        {
+            entity.healthPoints     += healthPoints;
+            entity.attack           += attack;
+            entity.defense          += defense;
+            entity.hitChance        += hitChance;
+            entity.dodgeChance      += dodgeChance;
+            entity.criticalChance   += criticalChance;
+            entity.criticalDamage   += criticalDamage;
+        }
+        else
+        {
+            entity.healthPoints     += item.healthPoints;
+            entity.attack           += item.attack;
+            entity.defense          += item.defense;
+            entity.hitChance        += item.hitChance;
+            entity.dodgeChance      += item.dodgeChance;
+            entity.criticalChance   += item.criticalChance;
+            entity.criticalDamage   += item.criticalDamage;
+        }
+
+        
     }
 }

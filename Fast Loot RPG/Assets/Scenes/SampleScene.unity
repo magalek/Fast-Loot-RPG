@@ -2791,7 +2791,7 @@ MonoBehaviour:
   hitChance: 0.8
   dodgeChance: 0.5
   blockChance: 0
-  criticalChance: 0.5
+  criticalChance: 0.05
   criticalDamage: 2
   inventory: {fileID: 0}
   killCountText: {fileID: 549561353}
