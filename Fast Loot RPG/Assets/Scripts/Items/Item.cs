@@ -7,7 +7,8 @@ using UnityEngine;
 public class Item : ScriptableObject {
 
     public int cost;
-    public Rarity rarity;
+    public ItemRarity rarity;
+    public ItemType type;
 
     public int healthPoints = 0;
     public int attack = 0;
@@ -19,9 +20,15 @@ public class Item : ScriptableObject {
     public float criticalDamage = 0;
 }
 
-public enum Rarity
+public enum ItemRarity
 {
     Common,
     Legendary
 }
 
+public enum ItemType
+{
+    Weapon,
+    Armor,
+    Shield
+}

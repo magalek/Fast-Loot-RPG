@@ -19,7 +19,7 @@ public class ItemManager : MonoBehaviour {
         if (legendaryChance > Random.value)
         {
             Item item = items[Random.Range(0, items.Length)];
-            item.rarity = Rarity.Legendary;
+            item.rarity = ItemRarity.Legendary;
             return item;
         }
         else

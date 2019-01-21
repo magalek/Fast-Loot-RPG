@@ -21,4 +21,9 @@ public class Inventory : MonoBehaviour {
         if (items.Count <= slotCount)
             items.Add(item);
     }
+
+    public void RemoveFromInventory(Item item)
+    {
+        items.Remove(item);
+    }
 }
