@@ -12,4 +12,13 @@ MonoBehaviour:
   m_Name: Shield of Wrath
   m_EditorClassIdentifier: 
   cost: 200
-  rarity: 0
+  rarity: 1
+  type: 2
+  healthPoints: 0
+  attack: 0
+  defense: 0.4
+  hitChance: 0
+  dodgeChance: 0
+  blockChance: 0
+  criticalChance: 0
+  criticalDamage: 0

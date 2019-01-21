@@ -13,3 +13,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 20
   rarity: 1
+  type: 0
+  healthPoints: 0
+  attack: 3
+  defense: 0
+  hitChance: 0
+  dodgeChance: 0
+  blockChance: 0
+  criticalChance: 0
+  criticalDamage: 0

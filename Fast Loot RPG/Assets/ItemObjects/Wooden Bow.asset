@@ -12,4 +12,13 @@ MonoBehaviour:
   m_Name: Wooden Bow
   m_EditorClassIdentifier: 
   cost: 60
-  rarity: 0
+  rarity: 1
+  type: 0
+  healthPoints: 0
+  attack: 2
+  defense: 0
+  hitChance: 0
+  dodgeChance: 0.1
+  blockChance: 0
+  criticalChance: 0
+  criticalDamage: 0
