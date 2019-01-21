@@ -81,5 +81,7 @@ public class GameManager : MonoBehaviour {
         }
         else
             battleLogText.text = "You got nothing";
+
+        if (loot != null) Debug.Log(loot.itemLevel);
     }
 }

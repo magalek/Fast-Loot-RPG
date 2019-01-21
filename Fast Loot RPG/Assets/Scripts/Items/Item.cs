@@ -3,21 +3,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]
-public class Item : ScriptableObject {
+public class Item : MonoBehaviour {
 
-    public int cost;
+    public Sprite itemSprite;
+
+    [Space]
+
+    public int healthPoints;
+    public int attack;
+    public float defense;
+    public float hitChance;
+    public float dodgeChance;
+    public float blockChance;
+    public float criticalChance;
+    public float criticalDamage;
+
     public ItemRarity rarity;
     public ItemType type;
 
-    public int healthPoints = 0;
-    public int attack = 0;
-    public float defense = 0;
-    public float hitChance = 0;
-    public float dodgeChance = 0;
-    public float blockChance = 0;
-    public float criticalChance = 0;
-    public float criticalDamage = 0;
+    public int itemLevel;
+
+    private void Awake()
+    {
+        CalculateItemLevel();
+    }
+
+
+    public void CalculateItemLevel()
+    {
+        itemLevel += healthPoints;
+        itemLevel += attack;
+    }
 }
 
 public enum ItemRarity
