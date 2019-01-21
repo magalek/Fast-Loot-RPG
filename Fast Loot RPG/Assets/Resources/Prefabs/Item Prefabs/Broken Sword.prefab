@@ -9,55 +9,57 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1441251780949838}
+  m_RootGameObject: {fileID: 1114534584971930}
   m_IsPrefabAsset: 1
---- !u!1 &1441251780949838
+--- !u!1 &1114534584971930
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4449783876708618}
-  - component: {fileID: 114061161916870746}
+  - component: {fileID: 4349133327884178}
+  - component: {fileID: 114954745931878416}
   m_Layer: 0
-  m_Name: Rat
+  m_Name: Broken Sword
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2800000, guid: cc358a1e1ece9204a9fb9451a3fb2e76, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4449783876708618
+--- !u!4 &4349133327884178
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1441251780949838}
+  m_GameObject: {fileID: 1114534584971930}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 187.69061, y: 233.4581, z: 0}
+  m_LocalPosition: {x: 89.91138, y: 6.2789397, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114061161916870746
+--- !u!114 &114954745931878416
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1441251780949838}
+  m_GameObject: {fileID: 1114534584971930}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2de4cf64bef365d4381eaf18f4dda67e, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ed14c9f04beb1c48a5c213542604669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entityName: <color="red">Rat</color>
-  healthPoints: 10
+  sprite: {fileID: 21300000, guid: cc358a1e1ece9204a9fb9451a3fb2e76, type: 3}
+  healthPoints: 0
   attack: 3
   defense: 0
-  hitChance: 0.4
-  dodgeChance: 0.8
+  hitChance: 0
+  dodgeChance: 0
   blockChance: 0
-  criticalChance: 0.3
-  criticalDamage: 2.5
-  lootChance: 0.8
+  criticalChance: 0
+  criticalDamage: 0
+  rarity: 1
+  type: 0
+  itemLevel: 0

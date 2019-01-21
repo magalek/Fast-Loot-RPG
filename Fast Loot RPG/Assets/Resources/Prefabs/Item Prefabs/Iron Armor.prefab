@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4349133327884178}
   - component: {fileID: 114954745931878416}
   m_Layer: 0
-  m_Name: Item Template
+  m_Name: Iron Armor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,8 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed14c9f04beb1c48a5c213542604669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 0}
-  healthPoints: 0
+  sprite: {fileID: 21300028, guid: 82ea7d6fc23dfa8408ec42fdb21b70a9, type: 3}
+  healthPoints: 50
   attack: 0
   defense: 0
   hitChance: 0
@@ -60,6 +60,6 @@ MonoBehaviour:
   blockChance: 0
   criticalChance: 0
   criticalDamage: 0
-  rarity: 0
-  type: 0
+  rarity: 1
+  type: 1
   itemLevel: 0

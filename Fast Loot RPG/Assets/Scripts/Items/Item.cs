@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour {
 
-    public Sprite itemSprite;
+    public Sprite sprite;
 
     [Space]
 
@@ -26,6 +26,7 @@ public class Item : MonoBehaviour {
     private void Awake()
     {
         CalculateItemLevel();
+        rarity = ItemRarity.Common;
     }
 
 

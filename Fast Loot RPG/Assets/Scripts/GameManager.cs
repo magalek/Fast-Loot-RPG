@@ -8,10 +8,17 @@ public class GameManager : MonoBehaviour {
 
     [SerializeField] TextMeshProUGUI battleLogText;
     [SerializeField] Player player;   
-    [SerializeField] GameObject enemyPrefab;
+    [SerializeField] [Range(0.1f, 2f)] float turnTime = 1f;
+    [SerializeField] Enemy[] enemyPrefabs;
+
 
     bool battleWon;
     Enemy enemy;
+
+    private void Awake()
+    {
+        enemyPrefabs = Resources.LoadAll<Enemy>("Prefabs/Enemy Prefabs");
+    }
 
     private void Start()
     {
@@ -28,8 +35,8 @@ public class GameManager : MonoBehaviour {
 
     private void Battle()
     {
-        enemy = Instantiate(enemyPrefab,transform).GetComponent<Enemy>();
-        StartCoroutine(BattleCoroutine(player, enemy, 1f));
+        enemy = Instantiate(enemyPrefabs[UnityEngine.Random.Range(0,enemyPrefabs.Length)],transform).GetComponent<Enemy>();
+        StartCoroutine(BattleCoroutine(player, enemy, turnTime));
     }
 
     IEnumerator BattleCoroutine(Player player, Enemy enemy, float turnTime)

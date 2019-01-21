@@ -7,12 +7,17 @@ public class Inventory : MonoBehaviour {
 
     public static Inventory Instance;
 
+    //public delegate void InventoryAction();
+    //public static event InventoryAction OnItemAdded;
+    //public static event InventoryAction OnItemRemoved;
+
     [SerializeField] GameObject slotPrefab;
     [SerializeField] Transform gridTransform;
 
     public int slotCount;
 
-    public List<Item> items;
+    public List<Item> itemList;
+    public List<InventorySlot> inventorySlots;
 
     public void Start()
     {
@@ -25,20 +30,35 @@ public class Inventory : MonoBehaviour {
     {
         for (int i = 0; i < slotCount; i++)
         {
-            Instantiate(slotPrefab, gridTransform);
+            var inventorySlotGameObject = Instantiate(slotPrefab, gridTransform);
+            inventorySlots.Add(inventorySlotGameObject.GetComponent<InventorySlot>());
         }
+    }
+
+    InventorySlot GetFirstEmptySlot()
+    {
+        for (int i = 0; i < inventorySlots.Count; i++)
+        {
+            if (inventorySlots[i].isEmpty)
+                return inventorySlots[i];
+        }
+        return null;
     }
 
     public void AddToInventory(Item item)
     {
-        if (items.Count <= slotCount)
-            items.Add(item);
-        items = items.OrderByDescending(o => o.itemLevel).ToList();
+        InventorySlot firstEmptySlot = GetFirstEmptySlot();
+        if (firstEmptySlot != null)
+        {
+            firstEmptySlot.item = item;
+            firstEmptySlot.HandleAddedItem();
+        }
+        //items = items.OrderByDescending(o => o.itemLevel).ToList();
     }
 
-    public void RemoveFromInventory(Item item)
+    public void RemoveFromInventory(InventorySlot inventorySlot)
     {
-        items.Remove(item);
-        items = items.OrderByDescending(o => o.itemLevel).ToList();
+        inventorySlot.item = null;
+        inventorySlot.HandleRemovedItem();
     }
 }
