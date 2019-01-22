@@ -6,6 +6,7 @@ public class Entity : MonoBehaviour {
 
     public string entityName;
 
+    #region Stats
     public int healthPoints = 0;
     public int attack = 0;
     public float defense = 0;
@@ -14,6 +15,7 @@ public class Entity : MonoBehaviour {
     public float blockChance = 0;
     public float criticalChance = 0;
     public float criticalDamage = 0;
+    #endregion
 
     public int CalculateDamage(Entity attacker, Entity defender)
     {
@@ -32,7 +34,6 @@ public class Entity : MonoBehaviour {
 
     public void Kill()
     {
-        Player.killCount++;
         Destroy(gameObject);
     }
 

@@ -36,8 +36,7 @@ public class Equipment : MonoBehaviour {
         EquipmentSlot correctSlot = GetCorrectSlot(item);
         if (correctSlot.isEmpty)
         {
-            correctSlot.item = item;
-            correctSlot.HandleAddedItem();
+            correctSlot.HandleAddedItem(item);
             player.AddStatistics(player, item);
             return true;
         }

@@ -37,6 +37,7 @@ public class ItemManager : MonoBehaviour {
         {
             Item item = Instantiate(randomItemFromDatabase, transform);
             item.name = randomItemFromDatabase.name;
+            item.rarity = ItemRarity.Common;
             return item;
         }
     }

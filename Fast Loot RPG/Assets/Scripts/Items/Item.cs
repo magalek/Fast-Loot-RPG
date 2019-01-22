@@ -6,6 +6,7 @@ using UnityEngine;
 public class Item : MonoBehaviour {
 
     public Sprite sprite;
+    [ColorUsage(showAlpha:false)] public Color color;
 
     [Space]
 
@@ -26,9 +27,23 @@ public class Item : MonoBehaviour {
     private void Awake()
     {
         CalculateItemLevel();
-        rarity = ItemRarity.Common;
+        CheckItemRarity();
     }
 
+    private void CheckItemRarity()
+    {
+        switch (rarity)
+        {
+            case ItemRarity.Common:
+                color = Color.green;
+                break;
+            case ItemRarity.Legendary:
+                color = Color.yellow;
+                break;
+            default:
+                break;
+        }
+    }
 
     public void CalculateItemLevel()
     {

@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSpriteSlot: {fileID: 1381834731088684}
+  slotBorder: {fileID: 114935149886420340}
   isEmpty: 0
   item: {fileID: 0}
 --- !u!114 &114157157884897054

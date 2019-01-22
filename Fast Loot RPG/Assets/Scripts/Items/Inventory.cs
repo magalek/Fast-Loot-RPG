@@ -50,8 +50,7 @@ public class Inventory : MonoBehaviour {
         InventorySlot firstEmptySlot = GetFirstEmptySlot();
         if (firstEmptySlot != null)
         {
-            firstEmptySlot.item = item;
-            firstEmptySlot.HandleAddedItem();
+            firstEmptySlot.HandleAddedItem(item);
         }
         //items = items.OrderByDescending(o => o.itemLevel).ToList();
     }
