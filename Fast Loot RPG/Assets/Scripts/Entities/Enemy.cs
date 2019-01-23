@@ -19,7 +19,7 @@ public class Enemy : Entity {
         hpText.text = "Enemy HP: " + healthPoints;
     }
 
-    public Item DropLoot(Enemy enemy = null, float chance = 0)
+    public Item DropItem(Enemy enemy = null, float chance = 0)
     {
         if (enemy != null && enemy.lootChance > Random.value)
         {

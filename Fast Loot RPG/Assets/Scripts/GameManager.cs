@@ -17,12 +17,13 @@ public class GameManager : MonoBehaviour {
 
     private void Awake()
     {
-        enemyPrefabs = Resources.LoadAll<Enemy>("Prefabs/Enemy Prefabs");
+        DontDestroyOnLoad(this);
+        InitializeEnemyDatabase();
     }
 
     private void Start()
     {
-        battleWon = true;
+        battleWon = true;        
         Battle();
     }
 
@@ -56,9 +57,9 @@ public class GameManager : MonoBehaviour {
         }
         if (enemy.healthPoints <= 0)
         {
-            Item loot = enemy.DropLoot(enemy);
+            Item item = enemy.DropItem(enemy);
 
-            HandleLootUIText(loot);
+            HandleLootUIText(item);
 
             enemy.Kill();
             yield return new WaitForSeconds(turnTime);
@@ -76,19 +77,25 @@ public class GameManager : MonoBehaviour {
 
     }
 
-    private void HandleLootUIText(Item loot)
+    private void HandleLootUIText(Item item)
     {
-        if (loot != null)
+        if (item != null)
         {
-            Inventory.Instance.AddToInventory(loot);
-            if (loot.rarity == ItemRarity.Legendary)
-                battleLogText.text = "You got <color=\"orange\">" + loot.name + "</color>";
-            else
-                battleLogText.text = "You got " + loot.name;
+            Inventory.Instance.AddToInventory(item);
+            //if (item.rarity == ItemRarity.Legendary)
+            //    battleLogText.text = $"You got <color=\"{(item.rarity == ItemRarity.Common ? "white" : "orange") }\"> + {item.name} + </color>";
+            //else
+            //    battleLogText.text = "You got " + item.name;
+            battleLogText.text = $"You got <color=\"{(item.rarity == ItemRarity.Common ? "green" : "yellow") }\">{item.name}</color>";
         }
         else
             battleLogText.text = "You got nothing";
 
-        if (loot != null) Debug.Log(loot.itemLevel);
+        if (item != null) Debug.Log(item.itemLevel);
+    }
+
+    private void InitializeEnemyDatabase()
+    {
+        enemyPrefabs = Resources.LoadAll<Enemy>("Prefabs/Enemy Prefabs");
     }
 }

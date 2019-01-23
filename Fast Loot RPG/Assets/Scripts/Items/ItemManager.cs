@@ -14,6 +14,7 @@ public class ItemManager : MonoBehaviour {
         if (Instance == null)
             Instance = this;
 
+        DontDestroyOnLoad(this);
         InitializeItemDatabase();
     }
 
