@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -24,20 +25,35 @@ public class GameManager : MonoBehaviour {
     private void Start()
     {
         battleWon = true;        
-        Battle();
+        //Battle();
     }
 
     private void Update()
     {
         if (!battleWon)
             battleLogText.text = "You lost";
+    }
 
+    public void LoadLocation()
+    {
+        SceneManager.LoadScene(1);
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode arg1)
+    {
+        Battle();
     }
 
     private void Battle()
     {
         enemy = Instantiate(enemyPrefabs[UnityEngine.Random.Range(0,enemyPrefabs.Length)],transform).GetComponent<Enemy>();
-        StartCoroutine(BattleCoroutine(player, enemy, turnTime));
+        StartCoroutine(BattleCoroutine(player, enemy, turnTime));        
     }
 
     IEnumerator BattleCoroutine(Player player, Enemy enemy, float turnTime)
@@ -65,8 +81,11 @@ public class GameManager : MonoBehaviour {
             yield return new WaitForSeconds(turnTime);
             Battle();
         }
-        else battleWon = false;
-        
+        else
+        {
+            LoadMenu();
+            StopCoroutine("BattleCoroutine");
+        }
     }
 
     private void HandleTurn(Entity attacker, Entity target)
