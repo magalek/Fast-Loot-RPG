@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityName: <color="red">Rat</color>
+  maxHealthPoints: 10
   healthPoints: 10
   attack: 3
   defense: 0

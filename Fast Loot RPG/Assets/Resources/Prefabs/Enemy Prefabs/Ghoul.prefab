@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityName: <color="red">Ghoul</color>
+  maxHealthPoints: 20
   healthPoints: 20
   attack: 4
   defense: 0

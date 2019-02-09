@@ -23,6 +23,8 @@ public class Inventory : MonoBehaviour {
     {
         if (Instance == null)
             Instance = this;
+        else
+            Destroy(gameObject);
         InitializeInventoryGrid();
     }
 

@@ -12,20 +12,25 @@ public class GameManager : MonoBehaviour {
     [SerializeField] [Range(0.1f, 2f)] float turnTime = 1f;
     [SerializeField] Enemy[] enemyPrefabs;
 
+    public static GameManager Instance;
+
 
     bool battleWon;
     Enemy enemy;
 
     private void Awake()
     {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
         DontDestroyOnLoad(this);
         InitializeEnemyDatabase();
     }
 
     private void Start()
     {
-        battleWon = true;        
-        //Battle();
+        battleWon = true;
     }
 
     private void Update()
@@ -43,20 +48,22 @@ public class GameManager : MonoBehaviour {
     public void LoadMenu()
     {
         SceneManager.LoadScene(0);
+        Player.Instance.healthPoints = Player.Instance.maxHealthPoints;
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode arg1)
     {
-        Battle();
+        if (scene.buildIndex == 1)
+            Battle();
     }
 
     private void Battle()
     {
         enemy = Instantiate(enemyPrefabs[UnityEngine.Random.Range(0,enemyPrefabs.Length)],transform).GetComponent<Enemy>();
-        StartCoroutine(BattleCoroutine(player, enemy, turnTime));        
+        StartCoroutine(BattleCoroutine(player, enemy));        
     }
 
-    IEnumerator BattleCoroutine(Player player, Enemy enemy, float turnTime)
+    IEnumerator BattleCoroutine(Player player, Enemy enemy)
     {
         while (player.healthPoints > 0 && enemy.healthPoints > 0)
         {
@@ -83,8 +90,7 @@ public class GameManager : MonoBehaviour {
         }
         else
         {
-            LoadMenu();
-            StopCoroutine("BattleCoroutine");
+            LoadMenu();            
         }
     }
 
@@ -116,5 +122,10 @@ public class GameManager : MonoBehaviour {
     private void InitializeEnemyDatabase()
     {
         enemyPrefabs = Resources.LoadAll<Enemy>("Prefabs/Enemy Prefabs");
+    }
+
+    public void ChangeTurnTime(float value)
+    {
+        turnTime = value;
     }
 }

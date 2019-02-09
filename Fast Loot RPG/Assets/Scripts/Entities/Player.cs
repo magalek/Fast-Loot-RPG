@@ -13,6 +13,8 @@ public class Player : Entity {
     {
         if (Instance == null)
             Instance = this;
+        else
+            Destroy(gameObject);
 
         DontDestroyOnLoad(this);
 
@@ -22,7 +24,7 @@ public class Player : Entity {
     private void Update()
     {
         if (hpText != null)
-            hpText.text = "Your HP: " + healthPoints;
+            hpText.text = $"{maxHealthPoints} / {healthPoints}";
     }
 
 }

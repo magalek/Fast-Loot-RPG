@@ -7,6 +7,7 @@ public class Entity : MonoBehaviour {
     public string entityName;
 
     #region Stats
+    public int maxHealthPoints = 0;
     public int healthPoints = 0;
     public int attack = 0;
     public float defense = 0;
@@ -51,6 +52,7 @@ public class Entity : MonoBehaviour {
     {
         if (item == null)
         {
+            entity.maxHealthPoints  += healthPoints;
             entity.healthPoints     += healthPoints;
             entity.attack           += attack;
             entity.defense          += defense;
@@ -61,6 +63,7 @@ public class Entity : MonoBehaviour {
         }
         else
         {
+            entity.maxHealthPoints  += item.healthPoints;
             entity.healthPoints     += item.healthPoints;
             entity.attack           += item.attack;
             entity.defense          += item.defense;
@@ -85,6 +88,7 @@ public class Entity : MonoBehaviour {
     {
         if (item == null)
         {
+            entity.maxHealthPoints  -= healthPoints;
             entity.healthPoints     -= healthPoints;
             entity.attack           -= attack;
             entity.defense          -= defense;
@@ -95,6 +99,7 @@ public class Entity : MonoBehaviour {
         }
         else
         {
+            entity.maxHealthPoints  -= item.healthPoints;
             entity.healthPoints     -= item.healthPoints;
             entity.attack           -= item.attack;
             entity.defense          -= item.defense;

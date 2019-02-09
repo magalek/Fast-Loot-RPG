@@ -17,6 +17,8 @@ public class Equipment : MonoBehaviour {
     {
         if (Instance == null)
             Instance = this;
+        else
+            Destroy(gameObject);
 
         player = FindObjectOfType<Player>();
 
