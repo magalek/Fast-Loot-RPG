@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager Instance;
 
+    public int killCount;
 
     bool battleWon;
     Enemy enemy;
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour {
             Destroy(gameObject);
         DontDestroyOnLoad(this);
         InitializeEnemyDatabase();
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void Start()
@@ -41,26 +43,26 @@ public class GameManager : MonoBehaviour {
 
     public void LoadLocation()
     {
-        SceneManager.LoadScene(1);
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.LoadScene(1);        
     }
 
     public void LoadMenu()
     {
         SceneManager.LoadScene(0);
-        Player.Instance.healthPoints = Player.Instance.maxHealthPoints;
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode arg1)
     {
         if (scene.buildIndex == 1)
             Battle();
+        if (scene.buildIndex == 0)
+            Player.Instance.healthPoints = Player.Instance.maxHealthPoints;
     }
 
     private void Battle()
     {
-        enemy = Instantiate(enemyPrefabs[UnityEngine.Random.Range(0,enemyPrefabs.Length)],transform).GetComponent<Enemy>();
-        StartCoroutine(BattleCoroutine(player, enemy));        
+        enemy = HandleEnemySpawn();
+        StartCoroutine(BattleCoroutine(player, enemy));     
     }
 
     IEnumerator BattleCoroutine(Player player, Enemy enemy)
@@ -90,6 +92,7 @@ public class GameManager : MonoBehaviour {
         }
         else
         {
+            enemy.Kill();
             LoadMenu();            
         }
     }
@@ -107,10 +110,6 @@ public class GameManager : MonoBehaviour {
         if (item != null)
         {
             Inventory.Instance.AddToInventory(item);
-            //if (item.rarity == ItemRarity.Legendary)
-            //    battleLogText.text = $"You got <color=\"{(item.rarity == ItemRarity.Common ? "white" : "orange") }\"> + {item.name} + </color>";
-            //else
-            //    battleLogText.text = "You got " + item.name;
             battleLogText.text = $"You got <color=\"{(item.rarity == ItemRarity.Common ? "green" : "yellow") }\">{item.name}</color>";
         }
         else
@@ -127,5 +126,10 @@ public class GameManager : MonoBehaviour {
     public void ChangeTurnTime(float value)
     {
         turnTime = value;
+    }
+
+    Enemy HandleEnemySpawn()
+    {
+        return Instantiate(enemyPrefabs[UnityEngine.Random.Range(0, enemyPrefabs.Length)], transform).GetComponent<Enemy>();
     }
 }

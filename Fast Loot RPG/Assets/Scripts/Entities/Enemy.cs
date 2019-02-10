@@ -32,4 +32,9 @@ public class Enemy : Entity {
         else
             return null;
     }
+
+    private void OnDestroy()
+    {
+        hpText.text = "Dead";
+    }
 }
