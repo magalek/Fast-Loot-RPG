@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
-    [SerializeField] TextMeshProUGUI battleLogText;
     [SerializeField] Player player;   
     [SerializeField] [Range(0.1f, 2f)] float turnTime = 1f;
     [SerializeField] Enemy[] enemyPrefabs;
@@ -25,8 +24,10 @@ public class GameManager : MonoBehaviour {
             Instance = this;
         else
             Destroy(gameObject);
+
         DontDestroyOnLoad(this);
         InitializeEnemyDatabase();
+
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -38,7 +39,7 @@ public class GameManager : MonoBehaviour {
     private void Update()
     {
         if (!battleWon)
-            battleLogText.text = "You lost";
+            BattleLog.Instance.SendMessageToBattleLog("You lost");
     }
 
     public void LoadLocation()
@@ -56,7 +57,7 @@ public class GameManager : MonoBehaviour {
         if (scene.buildIndex == 1)
             Battle();
         if (scene.buildIndex == 0)
-            Player.Instance.healthPoints = Player.Instance.maxHealthPoints;
+            Player.Instance.statistics.healthPoints = Player.Instance.statistics.maxHealthPoints;
     }
 
     private void Battle()
@@ -67,20 +68,22 @@ public class GameManager : MonoBehaviour {
 
     IEnumerator BattleCoroutine(Player player, Enemy enemy)
     {
-        while (player.healthPoints > 0 && enemy.healthPoints > 0)
+        while (player.statistics.healthPoints > 0 && enemy.statistics.healthPoints > 0)
         {
             HandleTurn(enemy, player);
 
             yield return new WaitForSeconds(turnTime);
 
-            if (player.healthPoints <= 0)
+            if (player.statistics.healthPoints <= 0)
                 break;
 
             HandleTurn(player, enemy);
 
             yield return new WaitForSeconds(turnTime);
+            enemy.abilityManager.RefreshCooldowns();
+            player.abilityManager.RefreshCooldowns();
         }
-        if (enemy.healthPoints <= 0)
+        if (enemy.statistics.healthPoints <= 0)
         {
             Item item = enemy.DropItem(enemy);
 
@@ -99,10 +102,7 @@ public class GameManager : MonoBehaviour {
 
     private void HandleTurn(Entity attacker, Entity target)
     {
-        int attackerDamage = attacker.CalculateDamage(attacker, target);
-        target.healthPoints -= attackerDamage;
-        battleLogText.text = attacker.entityName + " hit " + target.entityName + " for " + attackerDamage;
-
+        attacker.abilityManager.GetAbility().Execute(attacker, target);
     }
 
     private void HandleLootUIText(Item item)
@@ -110,10 +110,10 @@ public class GameManager : MonoBehaviour {
         if (item != null)
         {
             Inventory.Instance.AddToInventory(item);
-            battleLogText.text = $"You got <color=\"{(item.rarity == ItemRarity.Common ? "green" : "yellow") }\">{item.name}</color>";
+            BattleLog.Instance.SendMessageToBattleLog($"You got <color=\"{(item.rarity == ItemRarity.Common ? "green" : "yellow") }\">{item.name}</color>");
         }
         else
-            battleLogText.text = "You got nothing";
+            BattleLog.Instance.SendMessageToBattleLog("You got nothing");
 
         if (item != null) Debug.Log(item.itemLevel);
     }
@@ -132,4 +132,5 @@ public class GameManager : MonoBehaviour {
     {
         return Instantiate(enemyPrefabs[UnityEngine.Random.Range(0, enemyPrefabs.Length)], transform).GetComponent<Enemy>();
     }
+
 }

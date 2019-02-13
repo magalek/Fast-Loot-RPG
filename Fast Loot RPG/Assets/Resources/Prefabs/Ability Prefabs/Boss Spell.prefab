@@ -9,59 +9,58 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1114534584971930}
+  m_RootGameObject: {fileID: 1489874539082356}
   m_IsPrefabAsset: 1
---- !u!1 &1114534584971930
+--- !u!1 &1489874539082356
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4349133327884178}
-  - component: {fileID: 114954745931878416}
+  - component: {fileID: 4830526456468706}
+  - component: {fileID: 114001000717512634}
   m_Layer: 0
-  m_Name: Broken Sword
+  m_Name: Boss Spell
   m_TagString: Untagged
-  m_Icon: {fileID: 2800000, guid: cc358a1e1ece9204a9fb9451a3fb2e76, type: 3}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4349133327884178
+--- !u!4 &4830526456468706
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1114534584971930}
+  m_GameObject: {fileID: 1489874539082356}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 89.91138, y: 6.2789397, z: -4}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114954745931878416
+--- !u!114 &114001000717512634
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1114534584971930}
+  m_GameObject: {fileID: 1489874539082356}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ed14c9f04beb1c48a5c213542604669, type: 3}
+  m_Script: {fileID: 11500000, guid: 47922e2aad563f540b3139e7e4548d97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: cc358a1e1ece9204a9fb9451a3fb2e76, type: 3}
+  abilityName: Steal Attack
   statistics:
     maxHealthPoints: 0
     healthPoints: 0
-    attack: 10
+    attack: -2
     defense: 0
     hitChance: 0
     dodgeChance: 0
     blockChance: 0
     criticalChance: 0
     criticalDamage: 0
-  rarity: 0
-  type: 0
-  itemLevel: 0
+  cooldown: 4
+  maxCooldown: 5

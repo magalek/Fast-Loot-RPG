@@ -39,7 +39,7 @@ public class Equipment : MonoBehaviour {
         if (correctSlot.isEmpty)
         {
             correctSlot.HandleAddedItem(item);
-            player.AddStatistics(player, item);
+            player.statistics += item.statistics;
             return true;
         }
         return false;
@@ -47,7 +47,7 @@ public class Equipment : MonoBehaviour {
 
     public void UnequipItem(Item item, EquipmentSlot equipmentSlot)
     {
-        player.RemoveStatistics(player, item);
+        player.statistics -= item.statistics;
         Inventory.Instance.AddToInventory(item);
         equipmentSlot.item = null;
     }

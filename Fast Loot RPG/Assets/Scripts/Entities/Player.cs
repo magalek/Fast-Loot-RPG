@@ -19,12 +19,13 @@ public class Player : Entity {
         DontDestroyOnLoad(this);
 
         hpText = GameObject.Find("Player HP")?.GetComponent<TextMeshProUGUI>();
+
     }
 
     private void Update()
     {
         if (hpText != null)
-            hpText.text = $"{maxHealthPoints} / {healthPoints}";
+            hpText.text = $"{statistics.maxHealthPoints} / {statistics.healthPoints}";
     }
 
 }

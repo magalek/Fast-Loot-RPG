@@ -16,7 +16,7 @@ public class Enemy : Entity {
 
     private void Update()
     {
-        hpText.text = $"{maxHealthPoints} / {healthPoints}";
+        hpText.text = $"{statistics.maxHealthPoints} / {statistics.healthPoints}";
     }
 
     public Item DropItem(Enemy enemy = null, float chance = 0)

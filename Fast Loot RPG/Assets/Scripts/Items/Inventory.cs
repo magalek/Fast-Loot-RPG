@@ -7,10 +7,6 @@ public class Inventory : MonoBehaviour {
 
     public static Inventory Instance;
 
-    //public delegate void InventoryAction();
-    //public static event InventoryAction OnItemAdded;
-    //public static event InventoryAction OnItemRemoved;
-
     [SerializeField] GameObject slotPrefab;
     [SerializeField] Transform gridTransform;
 
@@ -39,21 +35,16 @@ public class Inventory : MonoBehaviour {
 
     InventorySlot GetFirstEmptySlot()
     {
-        for (int i = 0; i < inventorySlots.Count; i++)
-        {
-            if (inventorySlots[i].isEmpty)
-                return inventorySlots[i];
-        }
-        return null;
+        return inventorySlots.FirstOrDefault(s => s.isEmpty);
     }
 
     public void AddToInventory(Item item)
     {
         InventorySlot firstEmptySlot = GetFirstEmptySlot();
         if (firstEmptySlot != null)
-        {
             firstEmptySlot.HandleAddedItem(item);
-        }
+        else
+            Destroy(item.gameObject);
         //items = items.OrderByDescending(o => o.itemLevel).ToList();
     }
 
@@ -63,3 +54,5 @@ public class Inventory : MonoBehaviour {
         inventorySlot.HandleRemovedItem();
     }
 }
+
+

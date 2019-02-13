@@ -21,14 +21,7 @@ public class Item : MonoBehaviour {
 
     [Space]
 
-    public int healthPoints;
-    public int attack;
-    public float defense;
-    public float hitChance;
-    public float dodgeChance;
-    public float blockChance;
-    public float criticalChance;
-    public float criticalDamage;
+    public Statistics statistics;
 
     public ItemRarity rarity;
     public ItemType type;
@@ -58,8 +51,8 @@ public class Item : MonoBehaviour {
 
     public void CalculateItemLevel()
     {
-        itemLevel += healthPoints;
-        itemLevel += attack;
+        itemLevel += statistics.healthPoints;
+        itemLevel += statistics.attack;
     }
 }
 
