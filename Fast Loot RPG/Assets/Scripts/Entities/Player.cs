@@ -7,8 +7,6 @@ using TMPro;
 public class Player : Entity {
     public static Player Instance;
 
-    [SerializeField] TextMeshProUGUI hpText;
-
     private void Awake()
     {
         if (Instance == null)
@@ -18,14 +16,7 @@ public class Player : Entity {
 
         DontDestroyOnLoad(this);
 
-        hpText = GameObject.Find("Player HP")?.GetComponent<TextMeshProUGUI>();
-
-    }
-
-    private void Update()
-    {
-        if (hpText != null)
-            hpText.text = $"{statistics.maxHealthPoints} / {statistics.healthPoints}";
+        //PlayerEventHandler.PlayerHit += statistics.Checkstats;
     }
 
 }

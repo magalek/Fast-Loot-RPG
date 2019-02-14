@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Ability : MonoBehaviour {    
 
-    public virtual void Execute(Entity performer, Entity target)
-    {
+    public virtual void Execute(Entity performer, Entity target) { }
 
-    }
 }

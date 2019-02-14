@@ -14,7 +14,7 @@ public class Entity : MonoBehaviour {
     {
         var chance = attacker.statistics.hitChance - (attacker.statistics.hitChance * defender.statistics.dodgeChance);
 
-        if (chance <= Random.value && defender.statistics.blockChance <= Random.value)
+        if (chance >= Random.value && defender.statistics.blockChance <= Random.value)
         {
             if (attacker.statistics.criticalChance >= Random.value)
                 return (int)(attacker.statistics.attack * attacker.statistics.criticalDamage);
@@ -25,7 +25,8 @@ public class Entity : MonoBehaviour {
             return 0;
     }
 
-    public void Kill()
+
+    public virtual void Kill()
     {
         Destroy(gameObject);
     }

@@ -7,6 +7,7 @@ public class AttackAbility : Ability {
     public override void Execute(Entity performer, Entity target)
     {
         int attackerDamage = performer.CalculateDamage(performer, target);
+        //Debug.Log(attackerDamage);
         target.statistics.healthPoints -= attackerDamage;
 
         BattleLog.Instance.SendMessageToBattleLog($"{performer.entityName} hit {target.entityName} for {attackerDamage}");

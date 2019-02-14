@@ -55,9 +55,9 @@ MonoBehaviour:
   statistics:
     maxHealthPoints: 10
     healthPoints: 10
-    attack: 1
+    attack: 0
     defense: 0
-    hitChance: 0.4
+    hitChance: 0
     dodgeChance: 0
     blockChance: 0
     criticalChance: 0

@@ -7,16 +7,9 @@ public class Enemy : Entity {
 
     public float lootChance;
 
-    TextMeshProUGUI hpText;
-
     private void Awake()
     {
-        hpText = GameObject.Find("Enemy HP").GetComponent<TextMeshProUGUI>();
-    }
-
-    private void Update()
-    {
-        hpText.text = $"{statistics.maxHealthPoints} / {statistics.healthPoints}";
+        //EnemyEventHandler.EnemyHit += statistics.Checkstats;
     }
 
     public Item DropItem(Enemy enemy = null, float chance = 0)
@@ -33,8 +26,10 @@ public class Enemy : Entity {
             return null;
     }
 
-    private void OnDestroy()
+    public override void Kill()
     {
-        hpText.text = "Dead";
+        EnemyEventHandler.OnEnemyKilled(this);
+        //hpText.text = "Dead";
+        base.Kill();        
     }
 }

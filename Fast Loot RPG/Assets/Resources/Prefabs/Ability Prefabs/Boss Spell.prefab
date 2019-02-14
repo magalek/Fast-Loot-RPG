@@ -55,12 +55,12 @@ MonoBehaviour:
   statistics:
     maxHealthPoints: 0
     healthPoints: 0
-    attack: -2
+    attack: -3
     defense: 0
     hitChance: 0
     dodgeChance: 0
     blockChance: 0
     criticalChance: 0
     criticalDamage: 0
-  cooldown: 4
+  cooldown: 0
   maxCooldown: 5

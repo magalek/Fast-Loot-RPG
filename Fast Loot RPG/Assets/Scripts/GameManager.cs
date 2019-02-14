@@ -63,14 +63,16 @@ public class GameManager : MonoBehaviour {
     private void Battle()
     {
         enemy = HandleEnemySpawn();
+        BattleEventHandler.OnBattleStart(player, enemy);
         StartCoroutine(BattleCoroutine(player, enemy));     
     }
 
     IEnumerator BattleCoroutine(Player player, Enemy enemy)
     {
         while (player.statistics.healthPoints > 0 && enemy.statistics.healthPoints > 0)
-        {
+        {            
             HandleTurn(enemy, player);
+            PlayerEventHandler.OnPlayerHit(player);
 
             yield return new WaitForSeconds(turnTime);
 
@@ -78,6 +80,7 @@ public class GameManager : MonoBehaviour {
                 break;
 
             HandleTurn(player, enemy);
+            EnemyEventHandler.OnEnemyHit(enemy);
 
             yield return new WaitForSeconds(turnTime);
             enemy.abilityManager.RefreshCooldowns();
