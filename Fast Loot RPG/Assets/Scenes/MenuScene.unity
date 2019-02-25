@@ -541,16 +541,6 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114190836608260468, guid: b8fda51d6f0259147bcce5272b66882c,
-        type: 2}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114190836608260468, guid: b8fda51d6f0259147bcce5272b66882c,
-        type: 2}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114628350517247458, guid: b8fda51d6f0259147bcce5272b66882c,
         type: 2}
       propertyPath: m_havePropertiesChanged
@@ -561,9 +551,15 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1825038650531082, guid: b8fda51d6f0259147bcce5272b66882c, type: 2}
-      propertyPath: m_Name
-      value: 'Player HP Panel '
+    - target: {fileID: 114190836608260468, guid: b8fda51d6f0259147bcce5272b66882c,
+        type: 2}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114190836608260468, guid: b8fda51d6f0259147bcce5272b66882c,
+        type: 2}
+      propertyPath: m_isInputParsingRequired
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8fda51d6f0259147bcce5272b66882c, type: 2}
@@ -610,29 +606,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16ea9ab6fbccb47498185a6cc8168edd, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &618113156 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1462624036800922, guid: b8fda51d6f0259147bcce5272b66882c,
-    type: 2}
-  m_PrefabInternal: {fileID: 468709323}
---- !u!114 &618113160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 618113156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b937191204c203d4e9d27100fbb88394, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  battleLogText: {fileID: 769337838}
---- !u!114 &769337838 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114628350517247458, guid: b8fda51d6f0259147bcce5272b66882c,
-    type: 2}
-  m_PrefabInternal: {fileID: 468709323}
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
 --- !u!1 &1408424969
 GameObject:
   m_ObjectHideFlags: 0
@@ -714,22 +687,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 394965391}
   m_Script: {fileID: 11500000, guid: aefa1aa4edbe8b34ab513e0a8f43c3ff, type: 3}
---- !u!1 &1673468629 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1939449553732890, guid: b8fda51d6f0259147bcce5272b66882c,
-    type: 2}
-  m_PrefabInternal: {fileID: 468709323}
---- !u!114 &1673468633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1673468629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98f386e83886ff74dbc914083f065c20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1754591716
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,22 +781,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1896493149 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1328822560137514, guid: b8fda51d6f0259147bcce5272b66882c,
-    type: 2}
-  m_PrefabInternal: {fileID: 468709323}
---- !u!114 &1896493151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1896493149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee3866cfb492ef840aa80839b6cdb8b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2023887945
 GameObject:
   m_ObjectHideFlags: 0

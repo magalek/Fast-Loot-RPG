@@ -31,23 +31,7 @@ public class Item : MonoBehaviour {
     private void Awake()
     {
         CalculateItemLevel();
-        //CheckItemRarity();
     }
-
-    //private void CheckItemRarity()
-    //{
-    //    switch (rarity)
-    //    {
-    //        case ItemRarity.Common:
-    //            color = Color.green;
-    //            break;
-    //        case ItemRarity.Legendary:
-    //            color = Color.yellow;
-    //            break;
-    //        default:
-    //            break;
-    //    }
-    //}
 
     public void CalculateItemLevel()
     {

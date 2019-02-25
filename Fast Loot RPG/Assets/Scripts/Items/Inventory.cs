@@ -63,16 +63,13 @@ public class Inventory : MonoBehaviour {
 
         allItems.OrderByDescending(s => s.itemLevel);
 
-
-        foreach (var slot in inventorySlots)
+        for (int i = 0; i < inventorySlots.Count; i++)
         {
-            RemoveFromInventory(slot);
+            var itemToChange = inventorySlots[i].item;
+            RemoveFromInventory(inventorySlots[i]);
+            AddToInventory(itemToChange);
         }
-
-        foreach (var item in allItems)
-        {
-            AddToInventory(item);
-        }
+        allItems.Clear();
     }
 }
 

@@ -105,11 +105,14 @@ public class GameManager : MonoBehaviour {
             HandleLootUIText(item);
 
             // DO POPRAWY BO CALY CZAS GDZIES NULL JEST
-            //Inventory.Instance.SortItems();
+            Inventory.Instance.SortItems();
 
             enemy.Kill();
             killCount++;
-            yield return new WaitForSeconds(turnTime);
+
+            if (!instantBattle)
+                yield return new WaitForSeconds(turnTime);
+
             Battle();
         }
         else
@@ -155,7 +158,7 @@ public class GameManager : MonoBehaviour {
     Enemy HandleEnemySpawn()
     {
         if (killCount >= 100 && UnityEngine.Random.value <= 0.04f)
-            return Instantiate(bossPrefabs[UnityEngine.Random.Range(0, enemyPrefabs.Length)], transform).GetComponent<Enemy>();
+            return Instantiate(bossPrefabs[UnityEngine.Random.Range(0, bossPrefabs.Length)], transform).GetComponent<Enemy>();
         else
             return Instantiate(enemyPrefabs[UnityEngine.Random.Range(0, enemyPrefabs.Length)], transform).GetComponent<Enemy>();
     }
