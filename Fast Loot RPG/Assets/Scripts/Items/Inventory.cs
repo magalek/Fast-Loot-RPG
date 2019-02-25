@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour {
 
     public int slotCount;
 
-    public List<Item> itemList;
+    public List<Item> allItems;
     public List<InventorySlot> inventorySlots;
 
     public void Start()
@@ -43,7 +43,7 @@ public class Inventory : MonoBehaviour {
         InventorySlot firstEmptySlot = GetFirstEmptySlot();
         if (firstEmptySlot != null)
             firstEmptySlot.HandleAddedItem(item);
-        else
+        else if (item != null)
             Destroy(item.gameObject);
         //items = items.OrderByDescending(o => o.itemLevel).ToList();
     }
@@ -52,6 +52,27 @@ public class Inventory : MonoBehaviour {
     {
         inventorySlot.item = null;
         inventorySlot.HandleRemovedItem();
+    }
+
+    public void SortItems()
+    {
+        foreach (var slot in inventorySlots)
+        {
+            allItems.Add(slot.item);
+        }
+
+        allItems.OrderByDescending(s => s.itemLevel);
+
+
+        foreach (var slot in inventorySlots)
+        {
+            RemoveFromInventory(slot);
+        }
+
+        foreach (var item in allItems)
+        {
+            AddToInventory(item);
+        }
     }
 }
 
