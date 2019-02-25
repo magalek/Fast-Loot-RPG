@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour {
 
     public int killCount;
 
+    bool instantBattle;
     bool battleWon;
     Enemy enemy;
 
@@ -64,7 +65,10 @@ public class GameManager : MonoBehaviour {
     {
         enemy = HandleEnemySpawn();
         BattleEventHandler.OnBattleStart(player, enemy);
-        StartCoroutine(BattleCoroutine(player, enemy));     
+
+        StartCoroutine(BattleCoroutine(player, enemy));
+
+            
     }
 
     IEnumerator BattleCoroutine(Player player, Enemy enemy)
@@ -74,7 +78,8 @@ public class GameManager : MonoBehaviour {
             HandleTurn(enemy, player);
             PlayerEventHandler.OnPlayerHit(player);
 
-            yield return new WaitForSeconds(turnTime);
+            if (!instantBattle)
+                yield return new WaitForSeconds(turnTime);
 
             if (player.statistics.healthPoints <= 0)
                 break;
@@ -82,7 +87,9 @@ public class GameManager : MonoBehaviour {
             HandleTurn(player, enemy);
             EnemyEventHandler.OnEnemyHit(enemy);
 
-            yield return new WaitForSeconds(turnTime);
+            if (!instantBattle)
+                yield return new WaitForSeconds(turnTime);
+
             enemy.abilityManager.RefreshCooldowns();
             player.abilityManager.RefreshCooldowns();
         }
@@ -129,6 +136,11 @@ public class GameManager : MonoBehaviour {
     public void ChangeTurnTime(float value)
     {
         turnTime = value;
+    }
+
+    public void ToggleInstantBattle(bool toggled)
+    {
+        instantBattle = toggled;
     }
 
     Enemy HandleEnemySpawn()
