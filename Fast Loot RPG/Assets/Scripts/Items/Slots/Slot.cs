@@ -16,8 +16,11 @@ public class Slot : MonoBehaviour {
     {
         isEmpty = false;
         item = addedItem;
-        itemSpriteSlot.GetComponent<SpriteRenderer>().sprite = item.sprite;
-        slotBorder.color = addedItem.color;
+        if (item != null)
+        {
+            itemSpriteSlot.GetComponent<SpriteRenderer>().sprite = item?.sprite;
+            slotBorder.color = item.color;
+        }
     }
 
     public void HandleRemovedItem()

@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] Player player;   
     [SerializeField] [Range(0.1f, 2f)] float turnTime = 1f;
     [SerializeField] Enemy[] enemyPrefabs;
+    [SerializeField] Enemy[] bossPrefabs;
 
     public static GameManager Instance;
 
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour {
         InitializeEnemyDatabase();
 
         SceneManager.sceneLoaded += OnSceneLoaded;
+        Debug.Log("awake");
     }
 
     private void Start()
@@ -90,9 +92,16 @@ public class GameManager : MonoBehaviour {
         {
             Item item = enemy.DropItem(enemy);
 
+            if (item != null)
+                Inventory.Instance.AddToInventory(item);
+
             HandleLootUIText(item);
 
+            // DO POPRAWY BO CALY CZAS GDZIES NULL JEST
+            //Inventory.Instance.SortItems();
+
             enemy.Kill();
+            killCount++;
             yield return new WaitForSeconds(turnTime);
             Battle();
         }
@@ -112,7 +121,6 @@ public class GameManager : MonoBehaviour {
     {
         if (item != null)
         {
-            Inventory.Instance.AddToInventory(item);
             BattleLog.Instance.SendMessageToBattleLog($"You got <color=\"{(item.rarity == ItemRarity.Common ? "green" : "yellow") }\">{item.name}</color>");
         }
         else
@@ -123,7 +131,8 @@ public class GameManager : MonoBehaviour {
 
     private void InitializeEnemyDatabase()
     {
-        enemyPrefabs = Resources.LoadAll<Enemy>("Prefabs/Enemy Prefabs");
+        enemyPrefabs = Resources.LoadAll<Enemy>("Prefabs/Enemy Prefabs/Normal");
+        bossPrefabs = Resources.LoadAll<Enemy>("Prefabs/Enemy Prefabs/Bosses");
     }
 
     public void ChangeTurnTime(float value)
@@ -133,7 +142,10 @@ public class GameManager : MonoBehaviour {
 
     Enemy HandleEnemySpawn()
     {
-        return Instantiate(enemyPrefabs[UnityEngine.Random.Range(0, enemyPrefabs.Length)], transform).GetComponent<Enemy>();
+        if (killCount >= 100 && UnityEngine.Random.value <= 0.04f)
+            return Instantiate(bossPrefabs[UnityEngine.Random.Range(0, enemyPrefabs.Length)], transform).GetComponent<Enemy>();
+        else
+            return Instantiate(enemyPrefabs[UnityEngine.Random.Range(0, enemyPrefabs.Length)], transform).GetComponent<Enemy>();
     }
 
 }
