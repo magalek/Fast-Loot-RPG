@@ -48,7 +48,7 @@ public class Equipment : MonoBehaviour {
     public void UnequipItem(Item item, EquipmentSlot equipmentSlot)
     {
         player.statistics -= item.statistics;
-        Inventory.Instance.AddToInventory(item);
+        Inventory.Instance.AddItem(item);
         equipmentSlot.item = null;
     }
 

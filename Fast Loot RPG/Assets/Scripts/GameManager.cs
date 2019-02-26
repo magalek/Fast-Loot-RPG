@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour {
             Item item = enemy.DropItem(enemy);
 
             if (item != null)
-                Inventory.Instance.AddToInventory(item);
+                Inventory.Instance.AddItem(item);
 
             HandleLootUIText(item);
 

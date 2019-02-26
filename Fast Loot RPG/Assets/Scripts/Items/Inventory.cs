@@ -38,17 +38,16 @@ public class Inventory : MonoBehaviour {
         return inventorySlots.FirstOrDefault(s => s.isEmpty);
     }
 
-    public void AddToInventory(Item item)
+    public void AddItem(Item item)
     {
         InventorySlot firstEmptySlot = GetFirstEmptySlot();
         if (firstEmptySlot != null)
             firstEmptySlot.HandleAddedItem(item);
         else if (item != null)
             Destroy(item.gameObject);
-        //items = items.OrderByDescending(o => o.itemLevel).ToList();
     }
 
-    public void RemoveFromInventory(InventorySlot inventorySlot)
+    public void RemoveItem(InventorySlot inventorySlot)
     {
         inventorySlot.item = null;
         inventorySlot.HandleRemovedItem();
@@ -61,14 +60,14 @@ public class Inventory : MonoBehaviour {
             allItems.Add(slot.item);
         }
 
-        allItems.OrderByDescending(s => s.itemLevel);
+        allItems.OrderByDescending(i => i.itemLevel);
 
         for (int i = 0; i < inventorySlots.Count; i++)
         {
-            var itemToChange = inventorySlots[i].item;
-            RemoveFromInventory(inventorySlots[i]);
-            AddToInventory(itemToChange);
+            //inventorySlots[i].HandleRemovedItem();
+            //inventorySlots[i].HandleAddedItem(allItems[i]);
         }
+
         allItems.Clear();
     }
 }
