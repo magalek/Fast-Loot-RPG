@@ -53,10 +53,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300028, guid: 82ea7d6fc23dfa8408ec42fdb21b70a9, type: 3}
   statistics:
-    maxHealthPoints: 10
-    healthPoints: 10
+    maxHealthPoints: 20
+    healthPoints: 20
     attack: 0
-    defense: 5
+    defense: 3
     hitChance: 0
     dodgeChance: 0
     blockChance: 0

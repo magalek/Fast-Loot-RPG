@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour {
         InitializeEnemyDatabase();
 
         SceneManager.sceneLoaded += OnSceneLoaded;
-        Debug.Log("awake");
+        //Debug.Log("awake");
     }
 
     private void Start()
@@ -136,7 +136,7 @@ public class GameManager : MonoBehaviour {
         else
             BattleLog.Instance.SendMessageToBattleLog("You got nothing");
 
-        if (item != null) Debug.Log(item.itemLevel);
+        if (item != null) ; //Debug.Log(item.itemLevel);
     }
 
     private void InitializeEnemyDatabase()

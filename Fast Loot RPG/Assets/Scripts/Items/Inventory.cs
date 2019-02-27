@@ -57,17 +57,22 @@ public class Inventory : MonoBehaviour {
     {
         foreach (var slot in inventorySlots)
         {
-            allItems.Add(slot.item);
+            allItems.Add(slot.item);            
         }
 
-        allItems.OrderByDescending(i => i.itemLevel);
+        allItems = allItems.OrderBy(i => i.itemLevel).ToList();
+
+        foreach (var item in allItems)
+        {
+            Debug.Log(item?.name);
+        }
 
         for (int i = 0; i < inventorySlots.Count; i++)
         {
-            //inventorySlots[i].HandleRemovedItem();
-            //inventorySlots[i].HandleAddedItem(allItems[i]);
+            inventorySlots[i].HandleRemovedItem();
+            if (allItems[i] != null)
+                inventorySlots[i].HandleAddedItem(allItems[i]);
         }
-
         allItems.Clear();
     }
 }
