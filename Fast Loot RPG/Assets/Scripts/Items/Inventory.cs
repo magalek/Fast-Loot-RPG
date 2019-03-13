@@ -60,16 +60,15 @@ public class Inventory : MonoBehaviour {
             allItems.Add(slot.item);            
         }
 
-        allItems = allItems.OrderBy(i => i.itemLevel).ToList();
+        allItems = allItems.OrderByDescending(i => i?.itemLevel).ToList();
 
-        foreach (var item in allItems)
-        {
-            Debug.Log(item?.name);
-        }
+        
 
         for (int i = 0; i < inventorySlots.Count; i++)
         {
-            inventorySlots[i].HandleRemovedItem();
+            if (inventorySlots[i] != null)
+                inventorySlots[i].HandleRemovedItem();
+
             if (allItems[i] != null)
                 inventorySlots[i].HandleAddedItem(allItems[i]);
         }
