@@ -22,8 +22,5 @@ public class InventorySlot : Slot {
             if (Equipment.Instance.EquipItem(item))
                 Inventory.Instance.RemoveItem(this);
         }
-
     }
 }
-
-

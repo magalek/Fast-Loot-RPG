@@ -31,7 +31,6 @@ public class GameManager : MonoBehaviour {
         InitializeEnemyDatabase();
 
         SceneManager.sceneLoaded += OnSceneLoaded;
-        //Debug.Log("awake");
     }
 
     private void Start()
@@ -68,9 +67,7 @@ public class GameManager : MonoBehaviour {
         enemy = HandleEnemySpawn();
         BattleEventHandler.OnBattleStart(player, enemy);
 
-        StartCoroutine(BattleCoroutine(player, enemy));
-
-            
+        StartCoroutine(BattleCoroutine(player, enemy));       
     }
 
     IEnumerator BattleCoroutine(Player player, Enemy enemy)
@@ -104,7 +101,6 @@ public class GameManager : MonoBehaviour {
 
             HandleLootUIText(item);
 
-            // DO POPRAWY BO CALY CZAS GDZIES NULL JEST
             InventoryEventHandler.OnInventoryChange();
 
             enemy.Kill();
@@ -136,7 +132,6 @@ public class GameManager : MonoBehaviour {
         else
             BattleLog.Instance.SendMessageToBattleLog("You got nothing");
 
-        if (item != null) ; //Debug.Log(item.itemLevel);
     }
 
     private void InitializeEnemyDatabase()
