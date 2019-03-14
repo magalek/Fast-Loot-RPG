@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour {
             HandleLootUIText(item);
 
             // DO POPRAWY BO CALY CZAS GDZIES NULL JEST
-            Inventory.Instance.SortItems();
+            InventoryEventHandler.OnInventoryChange();
 
             enemy.Kill();
             killCount++;

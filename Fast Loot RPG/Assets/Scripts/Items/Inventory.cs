@@ -15,6 +15,11 @@ public class Inventory : MonoBehaviour {
     public List<Item> allItems;
     public List<InventorySlot> inventorySlots;
 
+    private void Awake()
+    {
+        InventoryEventHandler.InventoryChange += SortItems;
+    }
+
     public void Start()
     {
         if (Instance == null)
@@ -61,8 +66,6 @@ public class Inventory : MonoBehaviour {
         }
 
         allItems = allItems.OrderByDescending(i => i?.itemLevel).ToList();
-
-        
 
         for (int i = 0; i < inventorySlots.Count; i++)
         {
