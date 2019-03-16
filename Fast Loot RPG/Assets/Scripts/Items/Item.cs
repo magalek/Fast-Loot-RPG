@@ -28,6 +28,8 @@ public class Item : MonoBehaviour {
 
     public int itemLevel;
 
+    public bool equipped;
+
     private void Awake()
     {
         CalculateItemLevel();
@@ -37,6 +39,30 @@ public class Item : MonoBehaviour {
     {
         itemLevel += statistics.healthPoints;
         itemLevel += statistics.attack;
+    }
+
+    public void AddLegendaryAbility()
+    {
+        switch (type)
+        {
+            case ItemType.Sword:
+                gameObject.AddComponent<LegendarySwordAbility>();
+                break;
+            case ItemType.Mace:
+                break;
+            case ItemType.Dagger:
+                break;
+            case ItemType.Armor:
+                break;
+            case ItemType.Helmet:
+                break;
+            case ItemType.Pants:
+                break;
+            case ItemType.Shield:
+                break;
+            default:
+                break;
+        }
     }
 }
 
@@ -48,7 +74,11 @@ public enum ItemRarity
 
 public enum ItemType
 {
-    Weapon,
+    Sword,
+    Mace,
+    Dagger,
     Armor,
+    Helmet,
+    Pants,
     Shield
 }

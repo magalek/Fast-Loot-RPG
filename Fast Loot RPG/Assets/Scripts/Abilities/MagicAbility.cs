@@ -11,12 +11,13 @@ public class MagicAbility : Ability {
     public int cooldown = 0;
     public int maxCooldown;
 
-    public override void Execute(Entity performer, Entity target)
+    public override AttackInfo Invoke(Entity performer, Entity target)
     {
         target.statistics += statistics;
 
         BattleLog.Instance.SendMessageToBattleLog($"{performer.entityName} used {abilityName}");
         cooldown = maxCooldown;
+        return AttackInfo.Spell;
     }
 
     

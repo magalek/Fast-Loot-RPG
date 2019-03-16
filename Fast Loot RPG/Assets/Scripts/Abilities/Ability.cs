@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Ability : MonoBehaviour {    
 
-    public virtual void Execute(Entity performer, Entity target) { }
+    public virtual AttackInfo Invoke(Entity performer = null, Entity target = null) { return AttackInfo.None; }
 
+}
+
+public enum AttackInfo
+{
+    None,
+    Normal,   
+    Critical,
+    Spell
 }

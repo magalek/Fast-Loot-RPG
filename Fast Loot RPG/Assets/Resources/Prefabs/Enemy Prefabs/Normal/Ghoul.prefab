@@ -58,7 +58,7 @@ MonoBehaviour:
     attack: 2
     defense: 0
     hitChance: 1
-    dodgeChance: 0
+    dodgeChance: 0.1
     blockChance: 0
     criticalChance: 0
     criticalDamage: 0

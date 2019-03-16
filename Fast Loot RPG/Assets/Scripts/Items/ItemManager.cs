@@ -34,6 +34,7 @@ public class ItemManager : MonoBehaviour {
             Item item = Instantiate(randomItemFromDatabase, transform);
             item.name = randomItemFromDatabase.name;
             item.rarity = ItemRarity.Legendary;
+            item.AddLegendaryAbility();
             return item;
         }
         else

@@ -120,7 +120,7 @@ public class GameManager : MonoBehaviour {
 
     private void HandleTurn(Entity attacker, Entity target)
     {
-        attacker.abilityManager.GetAbility().Execute(attacker, target);
+        attacker.abilityManager.GetAbility().Invoke(attacker, target);
     }
 
     private void HandleLootUIText(Item item)

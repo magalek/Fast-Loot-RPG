@@ -41,6 +41,7 @@ public class Equipment : MonoBehaviour {
             correctSlot.HandleAddedItem(item);
             player.statistics += item.statistics;
             InventoryEventHandler.OnInventoryChange();
+            item.equipped = true;
             return true;
         }
         return false;
@@ -52,6 +53,7 @@ public class Equipment : MonoBehaviour {
         Inventory.Instance.AddItem(item);
         equipmentSlot.item = null;
         InventoryEventHandler.OnInventoryChange();
+        item.equipped = false;
     }
 
     private EquipmentSlot GetCorrectSlot(Item itemToEquip)

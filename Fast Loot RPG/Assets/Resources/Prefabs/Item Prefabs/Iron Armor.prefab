@@ -63,5 +63,6 @@ MonoBehaviour:
     criticalChance: 0
     criticalDamage: 0
   rarity: 0
-  type: 1
+  type: 3
   itemLevel: 0
+  equipped: 0
