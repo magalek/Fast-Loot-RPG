@@ -1142,7 +1142,7 @@ MonoBehaviour:
     attack: 5
     defense: 0
     hitChance: 1
-    dodgeChance: 0
+    dodgeChance: 0.1
     blockChance: 0
     criticalChance: 0
     criticalDamage: 0
@@ -1539,7 +1539,7 @@ MonoBehaviour:
   slotPrefab: {fileID: 1446561508291512, guid: 4c27ffe5010a2734c9531589703fe790, type: 2}
   gridTransform: {fileID: 224949628941672782}
   slotCount: 16
-  itemList: []
+  allItems: []
   inventorySlots: []
 --- !u!212 &212148889768023290
 SpriteRenderer:

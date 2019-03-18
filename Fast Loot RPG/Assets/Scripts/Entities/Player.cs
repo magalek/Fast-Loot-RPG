@@ -18,5 +18,4 @@ public class Player : Entity {
 
         //PlayerEventHandler.PlayerHit += statistics.Checkstats;
     }
-
 }

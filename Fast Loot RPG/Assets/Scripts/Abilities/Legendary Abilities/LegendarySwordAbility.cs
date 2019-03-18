@@ -4,26 +4,31 @@ using UnityEngine;
 
 public class LegendarySwordAbility : LegendaryAbility {
 
-    private void Update()
+    private void Start()
     {
-        if (GetComponent<Item>().equipped)
-        {
-            if (CheckCondition() && activated == false)
-            {
-                Activate();
-            }
-            else if (activated == true)
-                Deactivate();
-        } 
+        GetComponent<Item>().ItemEquipped += ActivateCoroutine;
+        GetComponent<Item>().ItemUnequipped += DeactivateCoroutine;
     }
 
-    public override void Activate()
+    public void ActivateCoroutine()
+    {
+        StartCoroutine(CheckIfActivated());
+    }
+
+    public void DeactivateCoroutine()
+    {
+        StopAllCoroutines();
+        if (activated)
+            DeactivateEffect();
+    }
+
+    public override void ActivateEffect()
     {
         Player.Instance.statistics.dodgeChance *= 2;
         activated = true;
     }
 
-    public override void Deactivate()
+    public override void DeactivateEffect()
     {
         Player.Instance.statistics.dodgeChance /= 2;
         activated = false;
@@ -34,5 +39,16 @@ public class LegendarySwordAbility : LegendaryAbility {
         if (Player.Instance.statistics.healthPoints >= (int)(Player.Instance.statistics.maxHealthPoints * 0.75))
             return true;
         return false;
+    }
+
+    IEnumerator CheckIfActivated()
+    {
+        while (true)
+        {
+            yield return new WaitUntil(() => CheckCondition());
+            ActivateEffect();
+            yield return new WaitWhile(() => CheckCondition());
+            DeactivateEffect();
+        }
     }
 }

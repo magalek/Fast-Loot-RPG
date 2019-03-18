@@ -11,12 +11,12 @@ public class LegendaryAbility : Ability {
         return false;
     }
 
-    public virtual void Activate()
+    public virtual void ActivateEffect()
     {
         activated = true;
     }
 
-    public virtual void Deactivate()
+    public virtual void DeactivateEffect()
     {
         activated = false;
     }

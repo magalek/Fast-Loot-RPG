@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour {
 
     private void Battle()
     {
-        enemy = HandleEnemySpawn();
+        enemy = GetEnemy();
         BattleEventHandler.OnBattleStart(player, enemy);
 
         StartCoroutine(BattleCoroutine(player, enemy));       
@@ -131,7 +131,6 @@ public class GameManager : MonoBehaviour {
         }
         else
             BattleLog.Instance.SendMessageToBattleLog("You got nothing");
-
     }
 
     private void InitializeEnemyDatabase()
@@ -150,7 +149,7 @@ public class GameManager : MonoBehaviour {
         instantBattle = toggled;
     }
 
-    Enemy HandleEnemySpawn()
+    Enemy GetEnemy()
     {
         if (killCount >= 100 && UnityEngine.Random.value <= 0.04f)
             return Instantiate(bossPrefabs[UnityEngine.Random.Range(0, bossPrefabs.Length)], transform).GetComponent<Enemy>();

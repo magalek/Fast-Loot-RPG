@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class Item : MonoBehaviour {
 
+    public delegate void ItemDelegate();
+    public event ItemDelegate ItemEquipped;
+    public event ItemDelegate ItemUnequipped;
+
     public Sprite sprite;
     public Color color { get
         {
@@ -35,6 +39,16 @@ public class Item : MonoBehaviour {
         CalculateItemLevel();
     }
 
+    public void OnItemEquipped()
+    {
+        ItemEquipped?.Invoke();
+    }
+
+    public void OnItemUnequipped()
+    {
+        ItemUnequipped?.Invoke();
+    }
+
     public void CalculateItemLevel()
     {
         itemLevel += statistics.healthPoints;
@@ -46,7 +60,7 @@ public class Item : MonoBehaviour {
         switch (type)
         {
             case ItemType.Sword:
-                gameObject.AddComponent<LegendarySwordAbility>();
+                gameObject.AddComponent<LegendarySwordAbility>();                
                 break;
             case ItemType.Mace:
                 break;
