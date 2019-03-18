@@ -8,8 +8,7 @@ public class LegendaryAbility : Ability {
 
     private void Start()
     {
-        GetComponent<Item>().ItemEquipped += ActivateCoroutine;
-        GetComponent<Item>().ItemUnequipped += DeactivateCoroutine;
+        InitializeEvents();
     }
 
     public virtual void ActivateCoroutine()
@@ -48,5 +47,11 @@ public class LegendaryAbility : Ability {
             yield return new WaitWhile(() => CheckCondition());
             DeactivateEffect();
         }
+    }
+
+    public virtual void InitializeEvents()
+    {
+        GetComponent<Item>().ItemEquipped += ActivateCoroutine;
+        GetComponent<Item>().ItemUnequipped += DeactivateCoroutine;
     }
 }

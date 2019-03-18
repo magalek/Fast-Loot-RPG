@@ -15,9 +15,10 @@ public class GameManager : MonoBehaviour {
     public static GameManager Instance;
 
     public int killCount;
+    public List<Battle> battles;
 
     bool instantBattle;
-    bool battleWon;
+    bool battleWon = true;
     Enemy enemy;
 
     private void Awake()
@@ -31,11 +32,6 @@ public class GameManager : MonoBehaviour {
         InitializeEnemyDatabase();
 
         SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void Start()
-    {
-        battleWon = true;
     }
 
     private void Update()
@@ -57,14 +53,17 @@ public class GameManager : MonoBehaviour {
     private void OnSceneLoaded(Scene scene, LoadSceneMode arg1)
     {
         if (scene.buildIndex == 1)
-            Battle();
+            StartBattle();
         if (scene.buildIndex == 0)
             Player.Instance.statistics.healthPoints = Player.Instance.statistics.maxHealthPoints;
     }
 
-    private void Battle()
+    private void StartBattle()
     {
+        Battle battle = new Battle();
         enemy = GetEnemy();
+        Battle.Actual.enemy = enemy;
+
         BattleEventHandler.OnBattleStart(player, enemy);
 
         StartCoroutine(BattleCoroutine(player, enemy));       
@@ -109,7 +108,7 @@ public class GameManager : MonoBehaviour {
             if (!instantBattle)
                 yield return new WaitForSeconds(turnTime);
 
-            Battle();
+            StartBattle();
         }
         else
         {
@@ -120,7 +119,8 @@ public class GameManager : MonoBehaviour {
 
     private void HandleTurn(Entity attacker, Entity target)
     {
-        attacker.abilityManager.GetAbility().Invoke(attacker, target);
+        AttackInfo attackInfo = attacker.abilityManager.GetAbility().Invoke(attacker, target);
+        Battle.Actual.turns.Add(new Turn(attacker, target, attackInfo));
     }
 
     private void HandleLootUIText(Item item)

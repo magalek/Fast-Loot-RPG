@@ -23,8 +23,9 @@ public class Item : MonoBehaviour {
             }
         }}
 
-    [Space]
+    [Header("Stats")]
 
+    public ItemStatistics statRanges;
     public Statistics statistics;
 
     public ItemRarity rarity;
@@ -63,6 +64,7 @@ public class Item : MonoBehaviour {
                 gameObject.AddComponent<LegendarySwordAbility>();                
                 break;
             case ItemType.Mace:
+                gameObject.AddComponent<LegendaryMaceAbility>();
                 break;
             case ItemType.Dagger:
                 break;
