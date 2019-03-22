@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LegendaryAbility : Ability {
 
-    public bool activated = false;
+    public bool activated = false;    
 
     private void Start()
     {
@@ -20,32 +20,25 @@ public class LegendaryAbility : Ability {
     {
         StopAllCoroutines();
         if (activated)
-            DeactivateEffect();
+            Deactivate();
     }
 
-    public virtual bool CheckCondition()
-    {
-        return false;
-    }
+    public virtual bool CheckCondition() { return true; }
+        
+    public virtual void Activate() { activated = true; }
 
-    public virtual void ActivateEffect()
-    {
-        activated = true;
-    }
+    public virtual void Deactivate() { activated = false; }
 
-    public virtual void DeactivateEffect()
-    {
-        activated = false;
-    }
+    public virtual void Apply(Entity performer, AttackInfo attackInfo) { }
 
     public virtual IEnumerator CheckIfActivated()
     {
         while (true)
         {
             yield return new WaitUntil(() => CheckCondition());
-            ActivateEffect();
+            Activate();
             yield return new WaitWhile(() => CheckCondition());
-            DeactivateEffect();
+            Deactivate();
         }
     }
 

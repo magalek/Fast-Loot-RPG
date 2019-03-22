@@ -27,12 +27,15 @@ public class AbilityManager {
         }
     }
 
-	public void RefreshCooldowns()
+	public void RefreshCooldowns(int amount = 0, bool max = false)
     {
         var abilitiesToRefresh = abilities.Where(a => a is MagicAbility && ((MagicAbility)a).cooldown > 0);
         foreach (var ability in abilitiesToRefresh)
         {
-            ((MagicAbility)ability).cooldown--;            
+            if (max)
+                ((MagicAbility)ability).cooldown = 0;
+            else
+                ((MagicAbility)ability).cooldown -= amount;
         }
     }
 }

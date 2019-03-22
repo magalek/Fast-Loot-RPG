@@ -11,7 +11,7 @@ public class EnemyHealthBar : MonoBehaviour {
     {
         hpText = GetComponent<TextMeshProUGUI>();
         BattleEventHandler.BattleStart += ChangeHealthText;
-        EnemyEventHandler.EnemyHit += ChangeHealthText;
+        EnemyEventHandler.EnemyHit += ChangeHealthText;        
     }
 
     public void ChangeHealthText(Enemy enemy)
@@ -23,4 +23,6 @@ public class EnemyHealthBar : MonoBehaviour {
     {
         hpText.text = $"{enemy.statistics.maxHealthPoints} / {enemy.statistics.healthPoints}";
     }
+
+
 }

@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class LegendarySwordAbility : LegendaryAbility {
 
-    public override void ActivateEffect()
+    public override void Activate()
     {
         Player.Instance.statistics.dodgeChance *= 2;
-        base.ActivateEffect();
+        base.Activate();
     }
 
-    public override void DeactivateEffect()
+    public override void Deactivate()
     {
         Player.Instance.statistics.dodgeChance /= 2;
-        base.DeactivateEffect();
+        base.Deactivate();
     }
 
     public override bool CheckCondition()

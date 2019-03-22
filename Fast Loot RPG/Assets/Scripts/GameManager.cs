@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour {
 
     bool instantBattle;
     bool battleWon = true;
-    Enemy enemy;
+    public static Enemy enemy;
 
     private void Awake()
     {
@@ -60,9 +60,9 @@ public class GameManager : MonoBehaviour {
 
     private void StartBattle()
     {
-        Battle battle = new Battle();
+        //Battle battle = new Battle();
         enemy = GetEnemy();
-        Battle.Actual.enemy = enemy;
+        //Battle.Actual.enemy = enemy;
 
         BattleEventHandler.OnBattleStart(player, enemy);
 
@@ -80,7 +80,10 @@ public class GameManager : MonoBehaviour {
                 yield return new WaitForSeconds(turnTime);
 
             if (player.statistics.healthPoints <= 0)
+            {
+                player.abilityManager.RefreshCooldowns(max: true);
                 break;
+            }
 
             HandleTurn(player, enemy);
             EnemyEventHandler.OnEnemyHit(enemy);
@@ -88,9 +91,10 @@ public class GameManager : MonoBehaviour {
             if (!instantBattle)
                 yield return new WaitForSeconds(turnTime);
 
-            enemy.abilityManager.RefreshCooldowns();
-            player.abilityManager.RefreshCooldowns();
+            enemy.abilityManager.RefreshCooldowns(amount: 1);
+            player.abilityManager.RefreshCooldowns(amount: 1);
         }
+
         if (enemy.statistics.healthPoints <= 0)
         {
             Item item = enemy.DropItem(enemy);
@@ -120,15 +124,16 @@ public class GameManager : MonoBehaviour {
     private void HandleTurn(Entity attacker, Entity target)
     {
         AttackInfo attackInfo = attacker.abilityManager.GetAbility().Invoke(attacker, target);
-        Battle.Actual.turns.Add(new Turn(attacker, target, attackInfo));
+
+        BattleEventHandler.OnActionDone(attacker, attackInfo);
+        
+        //Battle.Actual.turns.Add(new Turn(attacker, target, attackInfo));
     }
 
     private void HandleLootUIText(Item item)
     {
         if (item != null)
-        {
             BattleLog.Instance.SendMessageToBattleLog($"You got <color=\"{(item.rarity == ItemRarity.Common ? "green" : "yellow") }\">{item.name}</color>");
-        }
         else
             BattleLog.Instance.SendMessageToBattleLog("You got nothing");
     }

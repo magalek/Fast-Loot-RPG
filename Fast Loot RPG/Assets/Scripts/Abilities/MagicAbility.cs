@@ -17,7 +17,7 @@ public class MagicAbility : Ability {
 
         BattleLog.Instance.SendMessageToBattleLog($"{performer.entityName} used {abilityName}");
         cooldown = maxCooldown;
-        return AttackInfo.Spell;
+        return new AttackInfo(0, AttackType.Spell, target);
     }
 
     

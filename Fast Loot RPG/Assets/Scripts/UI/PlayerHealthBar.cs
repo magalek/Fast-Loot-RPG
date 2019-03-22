@@ -12,6 +12,12 @@ public class PlayerHealthBar : MonoBehaviour {
         hpText = GetComponent<TextMeshProUGUI>();
         PlayerEventHandler.PlayerHit += ChangeHealthText;
         BattleEventHandler.BattleStart += ChangeHealthText;
+        InventoryEventHandler.InventoryChange += ChangeHealthText;
+    }
+
+    public void ChangeHealthText()
+    {
+        hpText.text = $"{Player.Instance.statistics.maxHealthPoints} / {Player.Instance.statistics.healthPoints}";
     }
 
     public void ChangeHealthText(Player player)

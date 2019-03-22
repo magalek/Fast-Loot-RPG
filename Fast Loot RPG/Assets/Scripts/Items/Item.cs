@@ -69,6 +69,7 @@ public class Item : MonoBehaviour {
             case ItemType.Dagger:
                 break;
             case ItemType.Armor:
+                gameObject.AddComponent<LegendaryArmorAbility>();
                 break;
             case ItemType.Helmet:
                 break;

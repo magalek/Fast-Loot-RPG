@@ -24,18 +24,25 @@ public class AttackAbility : Ability {
         {
             if (attacker.statistics.criticalChance >= Random.value)
             {
-                attackInfo = AttackInfo.Critical;
-                return (int)(attacker.statistics.attack * attacker.statistics.criticalDamage);
+                int damage = (int)(attacker.statistics.attack * attacker.statistics.criticalDamage);
+
+                attackInfo = new AttackInfo(damage, AttackType.Critical, target);
+
+                return damage;
             }
             else
             {
-                attackInfo = AttackInfo.Normal;
-                return attacker.statistics.attack;
+                int damage = attacker.statistics.attack;
+
+                attackInfo = new AttackInfo(damage, AttackType.Normal, target);
+
+                return damage;
             }
         }
         else
         {
-            attackInfo = AttackInfo.None;
+            attackInfo = new AttackInfo(0, AttackType.Normal, target);
+
             return 0;
         }
     }

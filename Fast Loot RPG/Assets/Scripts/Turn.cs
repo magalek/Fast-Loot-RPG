@@ -9,10 +9,10 @@ public class Turn {
 
     public Entity attacker;
     public Entity target;
-    public AttackInfo attackInfo;
+    public AttackType attackInfo;
     public int turnNumber = 0;
 
-    public Turn(Entity attacker, Entity target, AttackInfo attackInfo)
+    public Turn(Entity attacker, Entity target, AttackType attackInfo)
     {
         this.attacker = attacker;
         this.target = target;

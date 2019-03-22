@@ -5,18 +5,19 @@ using UnityEngine;
 public class BattleEventHandler {
 
     public delegate void BattleDelegate(Player player, Enemy enemy);
-    public delegate void DamageDelegate(Entity performer, AttackInfo attackInfo);
+    public delegate void ActionDelegate(Entity performer, AttackInfo attackInfo);
 
     public static event BattleDelegate BattleStart;
-    public static event DamageDelegate DamageDone;
+    public static event ActionDelegate ActionDone;
 
     public static void OnBattleStart(Player player, Enemy enemy)
     {
         BattleStart?.Invoke(player, enemy);
     }
 
-    public static void OnDamageDone(Entity performer, AttackInfo attackInfo)
+    public static void OnActionDone(Entity performer, AttackInfo attackInfo)
     {
-        DamageDone?.Invoke(performer, attackInfo);
+        ActionDone?.Invoke(performer, attackInfo);
     }
+
 }
