@@ -133,7 +133,7 @@ public class GameManager : MonoBehaviour {
     private void HandleLootUIText(Item item)
     {
         if (item != null)
-            BattleLog.Instance.SendMessageToBattleLog($"You got <color=\"{(item.rarity == ItemRarity.Common ? "green" : "yellow") }\">{item.name}</color>");
+            BattleLog.Instance.SendMessageToBattleLog($"You got <color=#{ColorUtility.ToHtmlStringRGB(item.color)}>{item.name}</color>");
         else
             BattleLog.Instance.SendMessageToBattleLog("You got nothing");
     }

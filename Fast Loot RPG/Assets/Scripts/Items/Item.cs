@@ -15,9 +15,9 @@ public class Item : MonoBehaviour {
             switch (rarity)
             {
                 case ItemRarity.Common:
-                    return Color.green;
+                    return Color.white;
                 case ItemRarity.Legendary:
-                    return Color.yellow;
+                    return Color.magenta;
                 default:
                     return Color.white;
             }
