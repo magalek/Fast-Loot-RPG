@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-[System.Serializable]
-public class Turn {
+﻿[System.Serializable]
+public class Turn
+{
 
     public static int allTurnsNumbers;
 

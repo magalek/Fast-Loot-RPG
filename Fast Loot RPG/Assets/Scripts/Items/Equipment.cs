@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Equipment : MonoBehaviour {
+public class Equipment : MonoBehaviour
+{
 
     public static Equipment Instance;
 

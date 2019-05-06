@@ -1,10 +1,10 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class LegendaryAbility : Ability {
+public class LegendaryAbility : Ability
+{
 
-    public bool activated = false;    
+    public bool activated = false;
 
     private void Start()
     {
@@ -24,7 +24,7 @@ public class LegendaryAbility : Ability {
     }
 
     public virtual bool CheckCondition() { return true; }
-        
+
     public virtual void Activate() { activated = true; }
 
     public virtual void Deactivate() { activated = false; }

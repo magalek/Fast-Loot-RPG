@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using TMPro;
 using UnityEngine;
-using TMPro;
 
-public class EnemyHealthBar : MonoBehaviour {
+public class EnemyHealthBar : MonoBehaviour
+{
 
     TextMeshProUGUI hpText;
 
@@ -11,7 +10,7 @@ public class EnemyHealthBar : MonoBehaviour {
     {
         hpText = GetComponent<TextMeshProUGUI>();
         BattleEventHandler.BattleStart += ChangeHealthText;
-        EnemyEventHandler.EnemyHit += ChangeHealthText;        
+        EnemyEventHandler.EnemyHit += ChangeHealthText;
     }
 
     public void ChangeHealthText(Enemy enemy)

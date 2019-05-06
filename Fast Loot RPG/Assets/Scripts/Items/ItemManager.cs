@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class ItemManager : MonoBehaviour {
+public class ItemManager : MonoBehaviour
+{
 
     public static ItemManager Instance;
 
@@ -20,16 +18,13 @@ public class ItemManager : MonoBehaviour {
         InitializeItemDatabase();
     }
 
-    private void InitializeItemDatabase()
-    {
-        itemPrefabs = Resources.LoadAll<Item>("Prefabs/Item Prefabs");
-    }
+    private void InitializeItemDatabase() => itemPrefabs = Resources.LoadAll<Item>("Prefabs/Item Prefabs");
 
     public Item GenerateItem(float legendaryChance = 0.4f)
     {
-        Item randomItemFromDatabase = itemPrefabs[UnityEngine.Random.Range(0, itemPrefabs.Length)];
+        Item randomItemFromDatabase = itemPrefabs[Random.Range(0, itemPrefabs.Length)];
 
-        if (legendaryChance > UnityEngine.Random.value)
+        if (legendaryChance > Random.value)
         {
             Item item = Instantiate(randomItemFromDatabase, transform);
             item.name = randomItemFromDatabase.name;

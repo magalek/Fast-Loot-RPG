@@ -1,9 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System.Linq;
-
-[System.Serializable]
+﻿[System.Serializable]
 public struct Statistics
 {
     public int maxHealthPoints;

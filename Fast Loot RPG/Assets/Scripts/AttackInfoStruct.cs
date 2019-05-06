@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public struct AttackInfo
+﻿public struct AttackInfo
 {
     public int damage;
     public AttackType type;

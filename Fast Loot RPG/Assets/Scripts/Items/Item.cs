@@ -40,15 +40,8 @@ public class Item : MonoBehaviour {
         CalculateItemLevel();
     }
 
-    public void OnItemEquipped()
-    {
-        ItemEquipped?.Invoke();
-    }
-
-    public void OnItemUnequipped()
-    {
-        ItemUnequipped?.Invoke();
-    }
+    public void OnItemEquipped() => ItemEquipped?.Invoke();
+    public void OnItemUnequipped() => ItemUnequipped?.Invoke();
 
     public void CalculateItemLevel()
     {

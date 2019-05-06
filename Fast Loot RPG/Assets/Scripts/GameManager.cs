@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
 
-    [SerializeField] Player player;   
+    [SerializeField] Player player;
     [SerializeField] [Range(0.1f, 2f)] float turnTime = 1f;
     [SerializeField] Enemy[] enemyPrefabs;
     [SerializeField] Enemy[] bossPrefabs;
@@ -40,15 +39,8 @@ public class GameManager : MonoBehaviour {
             BattleLog.Instance.SendMessageToBattleLog("You lost");
     }
 
-    public void LoadLocation()
-    {
-        SceneManager.LoadScene(1);        
-    }
-
-    public void LoadMenu()
-    {
-        SceneManager.LoadScene(0);
-    }
+    public void LoadLocation() => SceneManager.LoadScene(1);
+    public void LoadMenu() => SceneManager.LoadScene(0);
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode arg1)
     {
@@ -66,13 +58,13 @@ public class GameManager : MonoBehaviour {
 
         BattleEventHandler.OnBattleStart(player, enemy);
 
-        StartCoroutine(BattleCoroutine(player, enemy));       
+        StartCoroutine(BattleCoroutine(player, enemy));
     }
 
     IEnumerator BattleCoroutine(Player player, Enemy enemy)
     {
         while (player.statistics.healthPoints > 0 && enemy.statistics.healthPoints > 0)
-        {            
+        {
             HandleTurn(enemy, player);
             PlayerEventHandler.OnPlayerHit(player);
 
@@ -117,7 +109,7 @@ public class GameManager : MonoBehaviour {
         else
         {
             enemy.Kill();
-            LoadMenu();            
+            LoadMenu();
         }
     }
 
@@ -126,7 +118,7 @@ public class GameManager : MonoBehaviour {
         AttackInfo attackInfo = attacker.abilityManager.GetAbility().Invoke(attacker, target);
 
         BattleEventHandler.OnActionDone(attacker, attackInfo);
-        
+
         //Battle.Actual.turns.Add(new Turn(attacker, target, attackInfo));
     }
 
@@ -144,15 +136,9 @@ public class GameManager : MonoBehaviour {
         bossPrefabs = Resources.LoadAll<Enemy>("Prefabs/Enemy Prefabs/Bosses");
     }
 
-    public void ChangeTurnTime(float value)
-    {
-        turnTime = value;
-    }
+    public void ChangeTurnTime(float value) => turnTime = value;
 
-    public void ToggleInstantBattle(bool toggled)
-    {
-        instantBattle = toggled;
-    }
+    public void ToggleInstantBattle(bool toggled) => instantBattle = toggled;
 
     Enemy GetEnemy()
     {

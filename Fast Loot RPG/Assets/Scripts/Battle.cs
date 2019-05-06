@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 
 [System.Serializable]
-public class Battle {
+public class Battle
+{
 
     public static Battle Actual;
 
@@ -16,5 +15,5 @@ public class Battle {
         Actual = this;
         GameManager.Instance.battles.Add(this);
         Turn.allTurnsNumbers = 0;
-    }    
+    }
 }

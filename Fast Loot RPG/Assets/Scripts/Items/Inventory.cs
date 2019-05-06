@@ -38,10 +38,7 @@ public class Inventory : MonoBehaviour {
         }
     }
 
-    InventorySlot GetFirstEmptySlot()
-    {
-        return inventorySlots.FirstOrDefault(s => s.isEmpty);
-    }
+    InventorySlot GetFirstEmptySlot() => inventorySlots.FirstOrDefault(s => s.isEmpty);
 
     public void AddItem(Item item)
     {
