@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class InventoryEventHandler {
 
-    public delegate void InventoryDelegate();
+    public delegate void InventoryDelegate(Item item);
 
     public static event InventoryDelegate InventoryChange;
 
-    public static void OnInventoryChange()
-    {
-        InventoryChange?.Invoke();
-    }
-
+    public static void OnInventoryChange(Item item) => InventoryChange?.Invoke(item);
 }

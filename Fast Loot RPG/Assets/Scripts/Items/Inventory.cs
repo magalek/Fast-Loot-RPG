@@ -8,12 +8,14 @@ public class Inventory : MonoBehaviour {
     public static Inventory Instance;
 
     [SerializeField] GameObject slotPrefab;
-    [SerializeField] Transform gridTransform;
+    [SerializeField] Transform gridTabsParent;
+
+    public static List<ItemTab> itemTabs = new List<ItemTab>();
 
     public int slotCount;
 
-    public List<Item> allItems;
-    public List<InventorySlot> inventorySlots;
+    public static List<Item> allItems = new List<Item>();
+    //public static List<InventorySlot> inventorySlots = new List<InventorySlot>();
 
     private void Awake()
     {
@@ -22,57 +24,77 @@ public class Inventory : MonoBehaviour {
 
     public void Start()
     {
-        if (Instance == null)
+        if (Instance == null)       
             Instance = this;
-        else
+        else if (Instance != this)
             Destroy(gameObject);
-        InitializeInventoryGrid();
+        InitializeInventoryGrids();
     }
 
-    private void InitializeInventoryGrid()
+    private void InitializeInventoryGrids()
     {
-        for (int i = 0; i < slotCount; i++)
+        itemTabs = gridTabsParent.GetComponentsInChildren<ItemTab>().ToList();
+
+        for (int i = 0; i < itemTabs.Count; i++)
         {
-            var inventorySlotGameObject = Instantiate(slotPrefab, gridTransform);
-            inventorySlots.Add(inventorySlotGameObject.GetComponent<InventorySlot>());
+            for (int j = 0; j < slotCount; j++)
+            {
+                var inventorySlotGameObject = Instantiate(slotPrefab, itemTabs[i].transform);
+                itemTabs[i].inventorySlots.Add(inventorySlotGameObject.GetComponent<InventorySlot>());
+            }
         }
-    }
 
-    InventorySlot GetFirstEmptySlot() => inventorySlots.FirstOrDefault(s => s.isEmpty);
+        foreach (var tab in itemTabs)
+        {
+            tab.gameObject.SetActive(false);
+        }
 
-    public void AddItem(Item item)
+        itemTabs[0].gameObject.SetActive(true);
+    }    
+
+    static ItemTab GetProperItemTab(ItemType itemType) 
+        => itemTabs.FirstOrDefault(i => i.type == itemType);
+
+    public static void AddItem(Item item)
     {
-        InventorySlot firstEmptySlot = GetFirstEmptySlot();
+        ItemTab itemTab = GetProperItemTab(item.type);
+
+        InventorySlot firstEmptySlot = itemTab.GetFirstEmptySlot();
         if (firstEmptySlot != null)
             firstEmptySlot.HandleAddedItem(item);
         else if (item != null)
             Destroy(item.gameObject);
     }
 
-    public void RemoveItem(InventorySlot inventorySlot)
+    public static void RemoveItem(InventorySlot inventorySlot)
     {
         inventorySlot.item = null;
         inventorySlot.HandleRemovedItem();
     }
 
-    public void SortItems()
+    public static void SortItems(Item addedItem)
     {
-        foreach (var slot in inventorySlots)
+        if (addedItem)
         {
-            allItems.Add(slot.item);            
+            ItemTab itemTab = GetProperItemTab(addedItem.type);
+
+            foreach (var slot in itemTab.inventorySlots)
+            {
+                allItems.Add(slot.item);
+            }
+
+            allItems = allItems.OrderByDescending(i => i?.itemLevel).ToList();
+
+            for (int i = 0; i < itemTab.inventorySlots.Count; i++)
+            {
+                if (itemTab.inventorySlots[i] != null)
+                    itemTab.inventorySlots[i].HandleRemovedItem();
+
+                if (allItems[i] != null)
+                    itemTab.inventorySlots[i].HandleAddedItem(allItems[i]);
+            }
+            allItems.Clear();
         }
-
-        allItems = allItems.OrderByDescending(i => i?.itemLevel).ToList();
-
-        for (int i = 0; i < inventorySlots.Count; i++)
-        {
-            if (inventorySlots[i] != null)
-                inventorySlots[i].HandleRemovedItem();
-
-            if (allItems[i] != null)
-                inventorySlots[i].HandleAddedItem(allItems[i]);
-        }
-        allItems.Clear();
     }
 }
 

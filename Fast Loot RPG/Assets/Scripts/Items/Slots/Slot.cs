@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class Slot : MonoBehaviour {
+public class Slot : MonoBehaviour
+{
 
     [SerializeField] GameObject itemSpriteSlot;
     [SerializeField] Image slotBorder;
@@ -30,8 +29,6 @@ public class Slot : MonoBehaviour {
         slotBorder.color = Color.black;
     }
 
-    public virtual void SlotClick()
-    {
+    public virtual void SlotClick() { }
 
-    }
 }

@@ -7,15 +7,15 @@ public class Equipment : MonoBehaviour
 
     [SerializeField] Transform equipmentGridTransform;
 
-    EquipmentSlot[] equipmentSlots;
+    static EquipmentSlot[] equipmentSlots;
 
-    Player player;
+    static Player player;
 
     private void Awake()
     {
         if (Instance == null)
             Instance = this;
-        else
+        else if (Instance != this)
             Destroy(gameObject);
 
         player = FindObjectOfType<Player>();
@@ -31,14 +31,14 @@ public class Equipment : MonoBehaviour
         }
     }
 
-    public bool EquipItem(Item item)
+    public static bool EquipItem(Item item)
     {
         EquipmentSlot correctSlot = GetCorrectSlot(item);
         if (correctSlot && correctSlot.isEmpty)
         {
             correctSlot.HandleAddedItem(item);
             player.statistics += item.statistics;
-            InventoryEventHandler.OnInventoryChange();
+            InventoryEventHandler.OnInventoryChange(item);
             item.equipped = true;
             item.OnItemEquipped();
             return true;
@@ -46,17 +46,17 @@ public class Equipment : MonoBehaviour
         return false;
     }
 
-    public void UnequipItem(Item item, EquipmentSlot equipmentSlot)
+    public static void UnequipItem(Item item, EquipmentSlot equipmentSlot)
     {
         player.statistics -= item.statistics;
-        Inventory.Instance.AddItem(item);
+        Inventory.AddItem(item);
         equipmentSlot.item = null;
-        InventoryEventHandler.OnInventoryChange();
+        InventoryEventHandler.OnInventoryChange(item);
         item.equipped = false;
         item.OnItemUnequipped();
     }
 
-    private EquipmentSlot GetCorrectSlot(Item itemToEquip)
+    static EquipmentSlot GetCorrectSlot(Item itemToEquip)
     {
         foreach (EquipmentSlot slot in equipmentSlots)
         {

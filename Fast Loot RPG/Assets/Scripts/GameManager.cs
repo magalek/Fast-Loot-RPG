@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Enemy[] enemyPrefabs;
     [SerializeField] Enemy[] bossPrefabs;
 
-    public static GameManager Instance;
+    public static GameManager Instance = null;
 
     public int killCount;
     public List<Battle> battles;
@@ -24,19 +24,25 @@ public class GameManager : MonoBehaviour
     {
         if (Instance == null)
             Instance = this;
-        else
+        else if (Instance != this)
             Destroy(gameObject);
 
-        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(gameObject);        
+
         InitializeEnemyDatabase();
 
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+    private void Start()
+    {
+        player = Player.Instance;
+    }
+
     private void Update()
     {
         if (!battleWon)
-            BattleLog.Instance.SendMessageToBattleLog("You lost");
+            BattleLog.SendMessageToBattleLog("You lost");
     }
 
     public void LoadLocation() => SceneManager.LoadScene(1);
@@ -92,11 +98,11 @@ public class GameManager : MonoBehaviour
             Item item = enemy.DropItem(enemy);
 
             if (item != null)
-                Inventory.Instance.AddItem(item);
+                Inventory.AddItem(item);
 
             HandleLootUIText(item);
 
-            InventoryEventHandler.OnInventoryChange();
+            InventoryEventHandler.OnInventoryChange(item);
 
             enemy.Kill();
             killCount++;
@@ -125,9 +131,9 @@ public class GameManager : MonoBehaviour
     private void HandleLootUIText(Item item)
     {
         if (item != null)
-            BattleLog.Instance.SendMessageToBattleLog($"You got <color=#{ColorUtility.ToHtmlStringRGB(item.color)}>{item.name}</color>");
+            BattleLog.SendMessageToBattleLog($"You got <color=#{ColorUtility.ToHtmlStringRGB(item.color)}>{item.name}</color>");
         else
-            BattleLog.Instance.SendMessageToBattleLog("You got nothing");
+            BattleLog.SendMessageToBattleLog("You got nothing");
     }
 
     private void InitializeEnemyDatabase()
@@ -142,10 +148,10 @@ public class GameManager : MonoBehaviour
 
     Enemy GetEnemy()
     {
-        if (killCount >= 100 && UnityEngine.Random.value <= 0.04f)
-            return Instantiate(bossPrefabs[UnityEngine.Random.Range(0, bossPrefabs.Length)], transform).GetComponent<Enemy>();
+        if (killCount >= 100 && Random.value <= 0.04f)
+            return Instantiate(bossPrefabs[Random.Range(0, bossPrefabs.Length)], transform).GetComponent<Enemy>();
         else
-            return Instantiate(enemyPrefabs[UnityEngine.Random.Range(0, enemyPrefabs.Length)], transform).GetComponent<Enemy>();
+            return Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], transform).GetComponent<Enemy>();
     }
 
 }

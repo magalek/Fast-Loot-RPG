@@ -23,7 +23,7 @@ public class LegendaryAbility : Ability
             Deactivate();
     }
 
-    public virtual bool CheckCondition() { return true; }
+    public virtual bool CheckCondition() => true;
 
     public virtual void Activate() { activated = true; }
 

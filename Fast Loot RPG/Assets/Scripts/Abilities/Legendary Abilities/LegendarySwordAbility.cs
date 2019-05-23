@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class LegendarySwordAbility : LegendaryAbility {
+﻿public class LegendarySwordAbility : LegendaryAbility
+{
 
     public override void Activate()
     {
@@ -18,7 +15,8 @@ public class LegendarySwordAbility : LegendaryAbility {
 
     public override bool CheckCondition()
     {
-        if (Player.Instance.statistics.healthPoints >= (int)(Player.Instance.statistics.maxHealthPoints * 0.75))
+        if (Player.Instance.statistics.healthPoints >= 
+            (int)(Player.Instance.statistics.maxHealthPoints * 0.75))
             return true;
         return false;
     }

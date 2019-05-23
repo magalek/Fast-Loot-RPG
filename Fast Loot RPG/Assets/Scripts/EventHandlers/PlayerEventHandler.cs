@@ -8,8 +8,5 @@ public class PlayerEventHandler : EntityEventHandler {
 
     public static event PlayerDelegate PlayerHit;
 
-    public static void OnPlayerHit(Player player)
-    {
-        PlayerHit?.Invoke(player);
-    }
+    public static void OnPlayerHit(Player player) => PlayerHit?.Invoke(player);
 }

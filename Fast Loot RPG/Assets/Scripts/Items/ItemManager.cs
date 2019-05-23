@@ -11,33 +11,37 @@ public class ItemManager : MonoBehaviour
     {
         if (Instance == null)
             Instance = this;
-        else
+        else if (Instance != this)
             Destroy(gameObject);
 
         DontDestroyOnLoad(this);
         InitializeItemDatabase();
     }
 
-    private void InitializeItemDatabase() => itemPrefabs = Resources.LoadAll<Item>("Prefabs/Item Prefabs");
-
-    public Item GenerateItem(float legendaryChance = 0.4f)
+    public Item CreateNewItem(float legendaryChance = 0.4f)
     {
-        Item randomItemFromDatabase = itemPrefabs[Random.Range(0, itemPrefabs.Length)];
+        Item randomItem = itemPrefabs[Random.Range(0, itemPrefabs.Length)];
 
         if (legendaryChance > Random.value)
         {
-            Item item = Instantiate(randomItemFromDatabase, transform);
-            item.name = randomItemFromDatabase.name;
-            item.rarity = ItemRarity.Legendary;
+            Item item = GenerateItem(randomItem, ItemRarity.Legendary);
             item.AddLegendaryAbility();
             return item;
         }
         else
         {
-            Item item = Instantiate(randomItemFromDatabase, transform);
-            item.name = randomItemFromDatabase.name;
-            item.rarity = ItemRarity.Common;
+            Item item = GenerateItem(randomItem, ItemRarity.Common);
             return item;
         }
     }
+
+    Item GenerateItem(Item itemToGenerate, ItemRarity rarity)
+    {
+        Item item = Instantiate(itemToGenerate, transform);
+        item.name = itemToGenerate.name;
+        item.rarity = rarity;
+        return item;
+    }
+
+    private void InitializeItemDatabase() => itemPrefabs = Resources.LoadAll<Item>("Prefabs/Item Prefabs");
 }

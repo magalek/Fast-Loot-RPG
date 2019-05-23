@@ -19,8 +19,8 @@ public class InventorySlot : Slot {
     {
         if (item != null)
         {
-            if (Equipment.Instance.EquipItem(item))
-                Inventory.Instance.RemoveItem(this);
+            if (Equipment.EquipItem(item))
+                Inventory.RemoveItem(this);
         }
     }
 }

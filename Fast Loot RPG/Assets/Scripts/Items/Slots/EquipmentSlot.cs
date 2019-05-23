@@ -21,7 +21,7 @@ public class EquipmentSlot : Slot {
     {
         if (item != null)
         {
-            Equipment.Instance.UnequipItem(item, this);
+            Equipment.UnequipItem(item, this);
             HandleRemovedItem();
         }
     }

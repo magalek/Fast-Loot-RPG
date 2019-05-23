@@ -1059,7 +1059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b937191204c203d4e9d27100fbb88394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleLogText: {fileID: 114628350517247458}
+  battleLogTextObject: {fileID: 114628350517247458}
 --- !u!1 &1586941641601600
 GameObject:
   m_ObjectHideFlags: 0

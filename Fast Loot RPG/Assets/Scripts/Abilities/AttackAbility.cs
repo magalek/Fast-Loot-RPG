@@ -11,7 +11,7 @@ public class AttackAbility : Ability {
 
         target.statistics.healthPoints -= attackerDamage;
 
-        BattleLog.Instance.SendMessageToBattleLog($"{performer.entityName} hit {target.entityName} for {attackerDamage}");
+        BattleLog.SendMessageToBattleLog($"{performer.entityName} hit {target.entityName} for {attackerDamage}");
 
         return attackInfo;
     }

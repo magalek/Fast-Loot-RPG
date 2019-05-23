@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
+﻿using UnityEngine;
 
-public class Enemy : Entity {
+public class Enemy : Entity
+{
 
     public float lootChance;
 
@@ -16,11 +14,11 @@ public class Enemy : Entity {
     {
         if (enemy != null && enemy.lootChance > Random.value)
         {
-            return ItemManager.Instance.GenerateItem();
+            return ItemManager.Instance.CreateNewItem();
         }
         else if (enemy == null && chance > Random.value)
         {
-            return ItemManager.Instance.GenerateItem();
+            return ItemManager.Instance.CreateNewItem();
         }
         else
             return null;
@@ -30,6 +28,6 @@ public class Enemy : Entity {
     {
         EnemyEventHandler.OnEnemyKilled(this);
         //hpText.text = "Dead";
-        base.Kill();        
+        base.Kill();
     }
 }

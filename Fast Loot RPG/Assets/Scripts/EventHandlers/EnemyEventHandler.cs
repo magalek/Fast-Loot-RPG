@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class EnemyEventHandler : EntityEventHandler{
+﻿public class EnemyEventHandler : EntityEventHandler
+{
 
     public delegate void EnemyDelegate(Enemy enemy);
 

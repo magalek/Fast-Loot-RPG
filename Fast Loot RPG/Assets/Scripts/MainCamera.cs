@@ -9,7 +9,7 @@ public class MainCamera : MonoBehaviour
     {
         if (Instance == null)
             Instance = this;
-        else
+        else if (Instance != this)
             Destroy(gameObject);
 
         DontDestroyOnLoad(this);

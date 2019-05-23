@@ -6,7 +6,9 @@ public class BattleLog : MonoBehaviour
 
     public static BattleLog Instance;
 
-    [SerializeField] TextMeshProUGUI battleLogText;
+    [SerializeField] TextMeshProUGUI battleLogTextObject;
+
+    static TextMeshProUGUI battleLogText;
 
     private void Awake()
     {
@@ -14,10 +16,9 @@ public class BattleLog : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
+
+        battleLogText = battleLogTextObject;
     }
 
-    public void SendMessageToBattleLog(string message)
-    {
-        battleLogText.text = message;
-    }
+    public static void SendMessageToBattleLog(string message) => battleLogText.text = message;
 }
