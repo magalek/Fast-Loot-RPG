@@ -50,5 +50,16 @@ public struct Statistics
         if (criticalDamage < 0) criticalDamage = 0;
     }
 
-
+    public override string ToString()
+    {
+        return
+            $"Health Points: {healthPoints}\n" +
+            $"Attack: {attack}\n" +
+            $"Defense: {defense}\n" +
+            $"Hit Chance: {hitChance}\n" +
+            $"Dodge Chance: {dodgeChance}\n" +
+            $"Block Chance: {blockChance}\n" +
+            $"Critical Chance: {criticalChance}\n" +
+            $"Critical Damage: {criticalDamage}\n";        
+    }
 }

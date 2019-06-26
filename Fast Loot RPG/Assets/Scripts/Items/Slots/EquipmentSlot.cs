@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class EquipmentSlot : Slot {
@@ -11,13 +12,13 @@ public class EquipmentSlot : Slot {
 
     private void Awake()
     {
-        slotButton = GetComponent<Button>();
-        slotButton.onClick.AddListener(SlotClick);
+        //slotButton = GetComponent<Button>();
+        //slotButton.onClick.AddListener(SlotRightButtonClick);
         isEmpty = true;
         item = null;
     }
 
-    public override void SlotClick()
+    public override void SlotLeftButtonClick()
     {
         if (item != null)
         {

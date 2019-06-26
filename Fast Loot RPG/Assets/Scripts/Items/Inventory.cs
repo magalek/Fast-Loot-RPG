@@ -66,8 +66,9 @@ public class Inventory : MonoBehaviour {
             Destroy(item.gameObject);
     }
 
-    public static void RemoveItem(InventorySlot inventorySlot)
+    public static void RemoveItemFromSlot(InventorySlot inventorySlot)
     {
+        //InventoryEventHandler.OnInventoryChange(inventorySlot.item);
         inventorySlot.item = null;
         inventorySlot.HandleRemovedItem();
     }

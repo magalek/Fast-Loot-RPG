@@ -37,7 +37,7 @@ public class Item : MonoBehaviour {
 
     private void Awake()
     {
-        CalculateItemLevel();
+        CalculateItemLevel();      
     }
 
     public void OnItemEquipped() => ItemEquipped?.Invoke();

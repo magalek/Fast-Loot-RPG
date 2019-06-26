@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
-public class Slot : MonoBehaviour
+public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
 
     [SerializeField] GameObject itemSpriteSlot;
@@ -29,6 +31,27 @@ public class Slot : MonoBehaviour
         slotBorder.color = Color.black;
     }
 
-    public virtual void SlotClick() { }
+    public virtual void SlotLeftButtonClick() { }
+    public virtual void SlotRightButtonClick() { }
+    public virtual void SlotMiddleButtonClick() { }
 
+    public virtual void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Left)
+            SlotLeftButtonClick();
+        else if (eventData.button == PointerEventData.InputButton.Middle)
+            SlotMiddleButtonClick();
+        else if (eventData.button == PointerEventData.InputButton.Right)
+            SlotRightButtonClick();
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        Debug.Log(item?.statistics.ToString());
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        Debug.Log("Exited");
+    }
 }

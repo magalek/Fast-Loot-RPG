@@ -10,6 +10,7 @@ public class ItemTab : MonoBehaviour
 
     public ItemType type;
     public List<InventorySlot> inventorySlots = new List<InventorySlot>();
+
     public InventorySlot GetFirstEmptySlot() => inventorySlots.FirstOrDefault(s => s.isEmpty);
 
     private void Awake()
