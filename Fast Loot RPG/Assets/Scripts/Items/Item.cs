@@ -37,6 +37,7 @@ public class Item : MonoBehaviour {
 
     private void Awake()
     {
+        statistics = statRanges.GetRandomStats();
         CalculateItemLevel();      
     }
 

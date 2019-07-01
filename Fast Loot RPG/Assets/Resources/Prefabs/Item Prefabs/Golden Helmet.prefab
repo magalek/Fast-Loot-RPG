@@ -45,9 +45,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300056, guid: 82ea7d6fc23dfa8408ec42fdb21b70a9, type: 3}
   statRanges:
-    healthPoints: {x: 0, y: 0}
+    healthPoints: {x: 15, y: 30}
     attack: {x: 0, y: 0}
-    defense: {x: 0, y: 0}
+    defense: {x: 1, y: 3}
     hitChance: {x: 0, y: 0}
     dodgeChance: {x: 0, y: 0}
     blockChance: {x: 0, y: 0}

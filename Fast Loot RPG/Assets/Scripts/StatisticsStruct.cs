@@ -55,11 +55,11 @@ public struct Statistics
         return
             $"Health Points: {healthPoints}\n" +
             $"Attack: {attack}\n" +
-            $"Defense: {defense}\n" +
-            $"Hit Chance: {hitChance}\n" +
-            $"Dodge Chance: {dodgeChance}\n" +
-            $"Block Chance: {blockChance}\n" +
-            $"Critical Chance: {criticalChance}\n" +
-            $"Critical Damage: {criticalDamage}\n";        
+            $"Defense: {defense.ToString("0.00")}\n" +
+            $"Hit Chance: {hitChance.ToString("0.00")}\n" +
+            $"Dodge Chance: {dodgeChance.ToString("0.00")}\n" +
+            $"Block Chance: {blockChance.ToString("0.00")}\n" +
+            $"Critical Chance: {criticalChance.ToString("0.00")}\n" +
+            $"Critical Damage: {criticalDamage.ToString("0.00")}\n";        
     }
 }
