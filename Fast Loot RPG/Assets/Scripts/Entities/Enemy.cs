@@ -2,24 +2,14 @@
 
 public class Enemy : Entity
 {
-
     public float lootChance;
-
-    private void Awake()
-    {
-        //EnemyEventHandler.EnemyHit += statistics.Checkstats;
-    }
 
     public Item DropItem(Enemy enemy = null, float chance = 0)
     {
         if (enemy != null && enemy.lootChance > Random.value)
-        {
             return ItemManager.Instance.CreateNewItem();
-        }
         else if (enemy == null && chance > Random.value)
-        {
             return ItemManager.Instance.CreateNewItem();
-        }
         else
             return null;
     }

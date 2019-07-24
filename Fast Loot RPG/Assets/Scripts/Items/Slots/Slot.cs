@@ -31,11 +31,11 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
         }
     }
 
-    public void HandleRemovedItem()
+    public void HandleRemovedItem(bool destroy = false)
     {
         isEmpty = true;
         itemSpriteSlot.GetComponent<SpriteRenderer>().sprite = null;
-        slotBorder.color = Color.black;
+        slotBorder.color = Color.black;        
     }
 
     public virtual void SlotLeftButtonClick() { }

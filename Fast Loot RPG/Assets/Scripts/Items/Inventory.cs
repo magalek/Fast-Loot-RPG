@@ -14,8 +14,7 @@ public class Inventory : MonoBehaviour {
 
     public int slotCount;
 
-    public static List<Item> allItems = new List<Item>();
-    //public static List<InventorySlot> inventorySlots = new List<InventorySlot>();
+    //public static List<Item> allItemsInTab = new List<Item>();    
 
     private void Awake()
     {
@@ -55,47 +54,51 @@ public class Inventory : MonoBehaviour {
     static ItemTab GetProperItemTab(ItemType itemType) 
         => itemTabs.FirstOrDefault(i => i.type == itemType);
 
-    public static void AddItem(Item item)
+    public static void AddItem(Item addedItem, bool sendInventoryEvent = true)
     {
-        ItemTab itemTab = GetProperItemTab(item.type);
+        ItemTab itemTab = GetProperItemTab(addedItem.type);
 
         InventorySlot firstEmptySlot = itemTab.GetFirstEmptySlot();
         if (firstEmptySlot != null)
-            firstEmptySlot.HandleAddedItem(item);
-        else if (item != null)
-            Destroy(item.gameObject);
+        {
+            firstEmptySlot.HandleAddedItem(addedItem);
+            if (sendInventoryEvent)
+                InventoryEventHandler.OnInventoryChange(addedItem.type);
+        }
+        else if (addedItem != null)
+            Destroy(addedItem.gameObject);
     }
 
-    public static void RemoveItemFromSlot(InventorySlot inventorySlot)
+    public static void RemoveItem(Item removedItem, bool sendInventoryEvent = true)
     {
-        //InventoryEventHandler.OnInventoryChange(inventorySlot.item);
+        ItemTab itemTab = GetProperItemTab(removedItem.type);
+
+        InventorySlot inventorySlot = itemTab.FindItemSlot(removedItem);
+
         inventorySlot.item = null;
         inventorySlot.HandleRemovedItem();
-    }
 
-    public static void SortItems(Item addedItem)
+        if (sendInventoryEvent)
+            InventoryEventHandler.OnInventoryChange(removedItem.type);
+    }  
+
+    public static void SortItems(ItemType addedItemType)
     {
-        if (addedItem)
+        List<Item> allItemsInTab = new List<Item>();
+
+        ItemTab itemTab = GetProperItemTab(addedItemType);
+
+        foreach (var slot in itemTab.inventorySlots)
         {
-            ItemTab itemTab = GetProperItemTab(addedItem.type);
-
-            foreach (var slot in itemTab.inventorySlots)
-            {
-                allItems.Add(slot.item);
-            }
-
-            allItems = allItems.OrderByDescending(i => i?.itemLevel).ToList();
-
-            for (int i = 0; i < itemTab.inventorySlots.Count; i++)
-            {
-                if (itemTab.inventorySlots[i] != null)
-                    itemTab.inventorySlots[i].HandleRemovedItem();
-
-                if (allItems[i] != null)
-                    itemTab.inventorySlots[i].HandleAddedItem(allItems[i]);
-            }
-            allItems.Clear();
+            if (slot?.item)
+                allItemsInTab.Add(slot.item);
+            else continue;
         }
+
+        allItemsInTab = allItemsInTab.OrderByDescending(i => i?.itemLevel).ToList();
+
+        itemTab.RemoveItemsInTab();
+        itemTab.AddItemsToTab(allItemsInTab);
     }
 }
 

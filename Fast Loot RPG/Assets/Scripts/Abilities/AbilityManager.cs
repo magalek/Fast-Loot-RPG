@@ -17,13 +17,9 @@ public class AbilityManager {
             randomAbility = abilities[Random.Range(0, abilities.Length)];
 
             if (randomAbility is AttackAbility)
-            {
                 return randomAbility;
-            }
             else if (randomAbility is MagicAbility && ((MagicAbility)randomAbility).cooldown == 0 )
-            {
                 return randomAbility;
-            }
         }
     }
 

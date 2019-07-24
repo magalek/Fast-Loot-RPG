@@ -10,8 +10,6 @@ public class InventorySlot : Slot {
 
     private void Awake()
     {
-        //slotButton = GetComponent<Button>();
-        //slotButton.onClick.AddListener(SlotClick);
         isEmpty = true;
         item = null;
     }
@@ -19,18 +17,20 @@ public class InventorySlot : Slot {
     public override void SlotLeftButtonClick()
     {
         if (item != null)
-        {
             if (Equipment.EquipItem(item))
-                Inventory.RemoveItemFromSlot(this);
-        }
+                Inventory.RemoveItem(item);
     }
-
+    //TODO: fix the same item going into two slots
     public override void SlotRightButtonClick()
     {
         if (item != null)
         {
-            Inventory.RemoveItemFromSlot(this);
-            Destroy(item);
+            GameObject itemGameObject = item.gameObject;
+
+            Inventory.RemoveItem(item);
+            Destroy(itemGameObject);
+
+            ItemTooltip.ChangeTooltip("");
         }
     }
 }

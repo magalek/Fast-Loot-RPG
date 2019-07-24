@@ -26,9 +26,7 @@ public class Equipment : MonoBehaviour
     private void InitializeEquipmentSlots()
     {
         for (int i = 0; i < equipmentGridTransform.childCount; i++)
-        {
             equipmentSlots = equipmentGridTransform.GetComponentsInChildren<EquipmentSlot>();
-        }
     }
 
     public static bool EquipItem(Item item)
@@ -37,10 +35,10 @@ public class Equipment : MonoBehaviour
         if (correctSlot && correctSlot.isEmpty)
         {
             correctSlot.HandleAddedItem(item);
-            player.statistics += item.statistics;
-            InventoryEventHandler.OnInventoryChange(item);
+            player.statistics += item.statistics;           
             item.equipped = true;
             item.OnItemEquipped();
+            InventoryEventHandler.OnInventoryChange(item.type);
             return true;
         }
         return false;
@@ -49,20 +47,18 @@ public class Equipment : MonoBehaviour
     public static void UnequipItem(Item item, EquipmentSlot equipmentSlot)
     {
         player.statistics -= item.statistics;
-        Inventory.AddItem(item);
-        equipmentSlot.item = null;
-        InventoryEventHandler.OnInventoryChange(item);
+        Inventory.AddItem(item, false);
+        equipmentSlot.item = null;        
         item.equipped = false;
         item.OnItemUnequipped();
+        InventoryEventHandler.OnInventoryChange(item.type);
     }
 
     static EquipmentSlot GetCorrectSlot(Item itemToEquip)
     {
         foreach (EquipmentSlot slot in equipmentSlots)
-        {
             if (slot.slotItemType == itemToEquip.type)
                 return slot;
-        }
         return null;
     }
 }

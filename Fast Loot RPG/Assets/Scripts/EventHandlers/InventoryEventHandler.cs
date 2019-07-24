@@ -1,12 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class InventoryEventHandler {
 
-    public delegate void InventoryDelegate(Item item);
+    public static event Action<ItemType> InventoryChange;
+    public static event Action<Item> ItemDestroyed;
 
-    public static event InventoryDelegate InventoryChange;
-
-    public static void OnInventoryChange(Item item) => InventoryChange?.Invoke(item);
+    public static void OnInventoryChange(ItemType itemType) => InventoryChange?.Invoke(itemType);
+    public static void OnItemDestroyed(Item item) => ItemDestroyed?.Invoke(item);
 }

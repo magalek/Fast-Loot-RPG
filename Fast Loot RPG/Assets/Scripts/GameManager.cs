@@ -102,8 +102,6 @@ public class GameManager : MonoBehaviour
 
             HandleLootUIText(item);
 
-            InventoryEventHandler.OnInventoryChange(item);
-
             enemy.Kill();
             killCount++;
 

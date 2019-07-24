@@ -7,6 +7,8 @@ public class ItemManager : MonoBehaviour
 
     [SerializeField] Item[] itemPrefabs;
 
+    int itemNum = 0;
+
     private void Awake()
     {
         if (Instance == null)
@@ -38,8 +40,9 @@ public class ItemManager : MonoBehaviour
     Item GenerateItem(Item itemToGenerate, ItemRarity rarity)
     {
         Item item = Instantiate(itemToGenerate, transform);
-        item.name = itemToGenerate.name;
+        item.name = itemToGenerate.name + $" {itemNum}";
         item.rarity = rarity;
+        itemNum++;
         return item;
     }
 

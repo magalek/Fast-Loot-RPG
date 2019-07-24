@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//TODO: Refactor this class
 public class Item : MonoBehaviour {
 
     public delegate void ItemDelegate();

@@ -20,6 +20,6 @@ public class PlayerHealthBar : MonoBehaviour
 
     public void ChangeHealthText(Player player, Enemy enemy) => hpText.text = $"{player.statistics.maxHealthPoints} / {player.statistics.healthPoints}";
 
-    public void ChangeHealthText(Item item) => hpText.text = $"{Player.Instance.statistics.maxHealthPoints} / {Player.Instance.statistics.healthPoints}";
+    public void ChangeHealthText(ItemType itemType) => hpText.text = $"{Player.Instance.statistics.maxHealthPoints} / {Player.Instance.statistics.healthPoints}";
 
 }

@@ -18,6 +18,34 @@ public class ItemTab : MonoBehaviour
         tabButton.onClick.AddListener(ChangeTab);
     }
 
+    public void RemoveItemsInTab()
+    {
+        foreach (var slot in inventorySlots)
+        {
+            if (slot.item != null)
+                Inventory.RemoveItem(slot.item, false);
+        }
+    }
+
+    public void AddItemsToTab(List<Item> itemsToAdd)
+    {
+        for (int i = 0; i < itemsToAdd.Count; i++)
+        {
+            //inventorySlots[i].HandleAddedItem(itemsToAdd[i]);
+            Inventory.AddItem(itemsToAdd[i], false);
+        }
+    }
+
+    public InventorySlot FindItemSlot(Item itemInSlot)
+    {
+        foreach (var slot in inventorySlots)
+        {
+            if (slot.item == itemInSlot)
+                return slot;
+        }
+        return null;
+    }
+
     void ChangeTab()
     {
         foreach (var tab in Inventory.itemTabs)
