@@ -34,16 +34,11 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    private void Start()
-    {
-        player = Player.Instance;
-    }
-
-    private void Update()
-    {
-        if (!battleWon)
-            BattleLog.SendMessageToBattleLog("You lost");
-    }
+    //private void Update()
+    //{
+    //    if (!battleWon)
+    //        BattleLog.SendMessageToBattleLog("You lost");
+    //}
 
     public void LoadLocation() => SceneManager.LoadScene(1);
     public void LoadMenu() => SceneManager.LoadScene(0);
@@ -60,6 +55,7 @@ public class GameManager : MonoBehaviour
     {
         //Battle battle = new Battle();
         enemy = GetEnemy();
+        player = Player.Instance;
         //Battle.Actual.enemy = enemy;
 
         BattleEventHandler.OnBattleStart(player, enemy);

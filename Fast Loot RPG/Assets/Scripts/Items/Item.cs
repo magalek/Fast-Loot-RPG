@@ -6,9 +6,8 @@ using UnityEngine;
 //TODO: Refactor this class
 public class Item : MonoBehaviour {
 
-    public delegate void ItemDelegate();
-    public event ItemDelegate ItemEquipped;
-    public event ItemDelegate ItemUnequipped;
+    public event Action ItemEquipped;
+    public event Action ItemUnequipped;
 
     public Sprite sprite;
     public Color color { get

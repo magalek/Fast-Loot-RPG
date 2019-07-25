@@ -18,6 +18,7 @@ public class BattleLog : MonoBehaviour
             Destroy(gameObject);
 
         battleLogText = battleLogTextObject;
+        PlayerEventHandler.PlayerDeath += () => SendMessageToBattleLog("You lost");
     }
 
     public static void SendMessageToBattleLog(string message) => battleLogText.text = message;

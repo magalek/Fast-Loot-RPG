@@ -31,15 +31,18 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
         }
     }
 
-    public void HandleRemovedItem(bool destroy = false)
+    public void RemoveItem(bool destroy = false)
     {
+        item = null;
         isEmpty = true;
         itemSpriteSlot.GetComponent<SpriteRenderer>().sprite = null;
         slotBorder.color = Color.black;        
     }
 
     public virtual void SlotLeftButtonClick() { }
+
     public virtual void SlotRightButtonClick() { }
+
     public virtual void SlotMiddleButtonClick() { }
 
     public virtual void OnPointerClick(PointerEventData eventData)
@@ -57,6 +60,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
         if (item)
             ItemTooltip.ChangeTooltip(item.statistics.ToString());
     }
+
+    
 
     public void OnPointerExit(PointerEventData eventData)
     {

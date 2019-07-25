@@ -54,32 +54,31 @@ public class Inventory : MonoBehaviour {
     static ItemTab GetProperItemTab(ItemType itemType) 
         => itemTabs.FirstOrDefault(i => i.type == itemType);
 
-    public static void AddItem(Item addedItem, bool sendInventoryEvent = true)
+    public static void AddItem(Item itemToAdd, bool sendInventoryEvent = true)
     {
-        ItemTab itemTab = GetProperItemTab(addedItem.type);
+        ItemTab itemTab = GetProperItemTab(itemToAdd.type);
 
         InventorySlot firstEmptySlot = itemTab.GetFirstEmptySlot();
         if (firstEmptySlot != null)
         {
-            firstEmptySlot.HandleAddedItem(addedItem);
+            firstEmptySlot.HandleAddedItem(itemToAdd);
             if (sendInventoryEvent)
-                InventoryEventHandler.OnInventoryChange(addedItem.type);
+                InventoryEventHandler.OnInventoryChange(itemToAdd.type);
         }
-        else if (addedItem != null)
-            Destroy(addedItem.gameObject);
+        else if (itemToAdd != null)
+            Destroy(itemToAdd.gameObject);
     }
 
-    public static void RemoveItem(Item removedItem, bool sendInventoryEvent = true)
+    public static void RemoveItem(Item itemToRemove, bool sendInventoryEvent = true)
     {
-        ItemTab itemTab = GetProperItemTab(removedItem.type);
+        ItemTab itemTab = GetProperItemTab(itemToRemove.type);
 
-        InventorySlot inventorySlot = itemTab.FindItemSlot(removedItem);
+        InventorySlot inventorySlotOfItem = itemTab.FindItemSlot(itemToRemove);
 
-        inventorySlot.item = null;
-        inventorySlot.HandleRemovedItem();
+        inventorySlotOfItem.RemoveItem();
 
         if (sendInventoryEvent)
-            InventoryEventHandler.OnInventoryChange(removedItem.type);
+            InventoryEventHandler.OnInventoryChange(itemToRemove.type);
     }  
 
     public static void SortItems(ItemType addedItemType)

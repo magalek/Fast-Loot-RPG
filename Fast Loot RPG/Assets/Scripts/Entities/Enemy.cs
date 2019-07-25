@@ -17,7 +17,6 @@ public class Enemy : Entity
     public override void Kill()
     {
         EnemyEventHandler.OnEnemyKilled(this);
-        //hpText.text = "Dead";
         base.Kill();
     }
 }

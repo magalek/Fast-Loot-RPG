@@ -31,7 +31,6 @@ public class ItemTab : MonoBehaviour
     {
         for (int i = 0; i < itemsToAdd.Count; i++)
         {
-            //inventorySlots[i].HandleAddedItem(itemsToAdd[i]);
             Inventory.AddItem(itemsToAdd[i], false);
         }
     }

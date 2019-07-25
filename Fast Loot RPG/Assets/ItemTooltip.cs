@@ -19,6 +19,7 @@ public class ItemTooltip : MonoBehaviour
             Destroy(gameObject);
 
         itemTooltipText = itemTooltipTextObject;
+        InventoryEventHandler.InventoryChange += i => ChangeTooltip(""); 
     }
 
     public static void ChangeTooltip(string message) => itemTooltipText.text = message;
