@@ -1,16 +1,18 @@
 ﻿public class LegendarySwordAbility : LegendaryAbility
 {
+    float statDifference = 0;
 
-    public override void Activate()
+    public override void ActivateEffect()
     {
-        Player.Instance.statistics.dodgeChance *= 2;
-        base.Activate();
+        statDifference = Player.Instance.statistics.dodgeChance * 2;
+        Player.Instance.statistics.dodgeChance += statDifference;
+        base.ActivateEffect();
     }
 
-    public override void Deactivate()
+    public override void DeactivateEffect()
     {
-        Player.Instance.statistics.dodgeChance /= 2;
-        base.Deactivate();
+        Player.Instance.statistics.dodgeChance -= statDifference;
+        base.DeactivateEffect();
     }
 
     public override bool CheckCondition()

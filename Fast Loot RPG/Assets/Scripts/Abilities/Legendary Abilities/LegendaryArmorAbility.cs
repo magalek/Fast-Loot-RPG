@@ -6,23 +6,23 @@ public class LegendaryArmorAbility : LegendaryAbility {
 
     float chance = 0.2f;
 
-    public override void Activate()
+    public override void ActivateEffect()
     {
         BattleEventHandler.ActionDone += Apply;
 
-        base.Activate();
+        base.ActivateEffect();
     }
 
-    public override void Deactivate()
+    public override void DeactivateEffect()
     {
         BattleEventHandler.ActionDone -= Apply;
 
-        base.Deactivate();
+        base.DeactivateEffect();
     }
 
     public override IEnumerator CheckIfActivated()
     {
-        Activate();
+        ActivateEffect();
 
         yield return null;
     }

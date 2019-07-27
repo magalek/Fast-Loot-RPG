@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class LegendaryMaceAbility : LegendaryAbility {
 
-    public override void Activate()
+    public override void ActivateEffect()
     {
         Player.Instance.statistics.hitChance += 0.5f;
-        base.Activate();
+        base.ActivateEffect();
     }
 
-    public override void Deactivate()
+    public override void DeactivateEffect()
     {
         Player.Instance.statistics.dodgeChance -= 0.5f;
-        base.Deactivate();
+        base.DeactivateEffect();
     }
 
     public override bool CheckCondition()

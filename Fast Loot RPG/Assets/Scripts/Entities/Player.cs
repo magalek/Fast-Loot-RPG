@@ -10,7 +10,5 @@
             Destroy(gameObject);
 
         DontDestroyOnLoad(gameObject);
-
-        //PlayerEventHandler.PlayerHit += statistics.Checkstats;
     }
 }

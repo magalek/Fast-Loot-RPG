@@ -13,13 +13,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
 
     public Item item;
 
-    Camera main;
-
-    private void OnEnable()
-    {
-        main = Camera.main;
-    }
-
     public void HandleAddedItem(Item addedItem)
     {
         isEmpty = false;
@@ -55,15 +48,13 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
             SlotRightButtonClick();
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public virtual void OnPointerEnter(PointerEventData eventData)
     {
         if (item)
             ItemTooltip.ChangeTooltip(item.statistics.ToString());
     }
 
-    
-
-    public void OnPointerExit(PointerEventData eventData)
+    public virtual void OnPointerExit(PointerEventData eventData)
     {
         ItemTooltip.ChangeTooltip("");
     }

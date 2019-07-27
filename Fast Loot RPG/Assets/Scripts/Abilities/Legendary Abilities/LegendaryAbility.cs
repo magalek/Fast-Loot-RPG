@@ -8,7 +8,7 @@ public class LegendaryAbility : Ability
 
     private void Start()
     {
-        InitializeEvents();
+        InitializeEventSubscribers();
     }
 
     public virtual void ActivateCoroutine()
@@ -20,14 +20,14 @@ public class LegendaryAbility : Ability
     {
         StopAllCoroutines();
         if (activated)
-            Deactivate();
+            DeactivateEffect();
     }
 
     public virtual bool CheckCondition() => true;
 
-    public virtual void Activate() { activated = true; }
+    public virtual void ActivateEffect() { activated = true; }
 
-    public virtual void Deactivate() { activated = false; }
+    public virtual void DeactivateEffect() { activated = false; }
 
     public virtual void Apply(Entity performer, AttackInfo attackInfo) { }
 
@@ -36,13 +36,13 @@ public class LegendaryAbility : Ability
         while (true)
         {
             yield return new WaitUntil(() => CheckCondition());
-            Activate();
+            ActivateEffect();
             yield return new WaitWhile(() => CheckCondition());
-            Deactivate();
+            DeactivateEffect();
         }
     }
 
-    public virtual void InitializeEvents()
+    public virtual void InitializeEventSubscribers()
     {
         GetComponent<Item>().ItemEquipped += ActivateCoroutine;
         GetComponent<Item>().ItemUnequipped += DeactivateCoroutine;
