@@ -10,7 +10,5 @@
             Destroy(gameObject);
 
         DontDestroyOnLoad(gameObject);
-
-        effectManager.AddEffect(new Effect(statistics, 3, effectManager));
     }
 }
