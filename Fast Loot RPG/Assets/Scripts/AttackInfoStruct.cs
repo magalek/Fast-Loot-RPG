@@ -7,11 +7,11 @@ public struct AttackInfo
     public AttackType type;
     public Entity target;
 
-    public AttackInfo(int _damage, AttackType _type, Entity _target)
+    public AttackInfo(int damage, AttackType type, Entity target)
     {
-        damage = _damage;
-        type = _type;
-        target = _target;
+        this.damage = damage;
+        this.type = type;
+        this.target = target;
     }
 }
 

@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
 
             if (player.statistics.healthPoints <= 0)
             {
-                PlayerEventHandler.OnPlayerDeath(player);
+                player.abilityManager.RefreshCooldowns(max: true);
                 break;
             }
 
@@ -85,7 +85,8 @@ public class GameManager : MonoBehaviour
             if (!instantBattle)
                 yield return new WaitForSeconds(turnTime);
 
-            BattleEventHandler.OnTurnEnd();
+            enemy.abilityManager.RefreshCooldowns(amount: 1);
+            player.abilityManager.RefreshCooldowns(amount: 1);
         }
 
         if (enemy.statistics.healthPoints <= 0)

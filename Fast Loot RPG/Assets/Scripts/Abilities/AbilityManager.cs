@@ -8,12 +8,6 @@ public class AbilityManager {
 
     public Ability[] abilities;
 
-    public AbilityManager()
-    {
-        BattleEventHandler.TurnEnd += () => UpdateCooldowns(amount: 1);
-        PlayerEventHandler.PlayerDeath += () => UpdateCooldowns(max: true);
-    }
-
     public Ability GetAbility()
     {
         Ability randomAbility;
@@ -29,7 +23,7 @@ public class AbilityManager {
         }
     }
 
-	private void UpdateCooldowns(int amount = 0, bool max = false)
+	public void RefreshCooldowns(int amount = 0, bool max = false)
     {
         var abilitiesToRefresh = abilities.Where(a => a is MagicAbility && ((MagicAbility)a).cooldown > 0);
         foreach (var ability in abilitiesToRefresh)
@@ -39,11 +33,5 @@ public class AbilityManager {
             else
                 ((MagicAbility)ability).cooldown -= amount;
         }
-    }
-
-    public void DetachEvents()
-    {
-        BattleEventHandler.TurnEnd -= () => UpdateCooldowns(amount: 1);
-        PlayerEventHandler.PlayerDeath -= () => UpdateCooldowns(max: true);
     }
 }
