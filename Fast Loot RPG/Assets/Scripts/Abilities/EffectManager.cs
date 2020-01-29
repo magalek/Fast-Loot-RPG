@@ -6,16 +6,28 @@ using System.Linq;
 [System.Serializable]
 public class EffectManager
 {
+    private Entity _entity;
+
     public List<Effect> effects = new List<Effect>();
 
-    public EffectManager()
+    public EffectManager(Entity entity)
     {
         BattleEventHandler.TurnEnd += () => UpdateDurations(1);
+        _entity = entity;
+
     }
 
-    public void AddEffect(Effect effectToAdd) => effects.Add(effectToAdd);
+    public void AddEffect(Effect effectToAdd)
+    {
+        effects.Add(effectToAdd);
+        _entity.statistics += effectToAdd.statistics;
+    }
 
-    public void RemoveEffect(Effect effectToRemove) => effects.Remove(effectToRemove);   
+    public void RemoveEffect(Effect effectToRemove)
+    {
+        effects.Remove(effectToRemove);
+        _entity.statistics -= effectToRemove.statistics;
+    }
 
     private void UpdateDurations(int amount)
     {

@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
 public class Effect 
 {
-    private Statistics statistics;    
-    private EffectManager target;
+    public Statistics statistics;    
+    private Entity target;
     private int duration;
 
     public int Duration
@@ -18,12 +17,12 @@ public class Effect
         set
         {
             if (value == 0)
-                target.RemoveEffect(this);
+                target.effectManager.RemoveEffect(this);
             duration = value;          
         }
     }
 
-    public Effect(Statistics _statistics, int _duration, EffectManager _target)
+    public Effect(Statistics _statistics, int _duration, Entity _target)
     {
         statistics = _statistics;
         duration = _duration;

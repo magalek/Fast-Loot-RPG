@@ -8,8 +8,13 @@ public class Entity : MonoBehaviour {
 
     public Statistics statistics;
 
-    public AbilityManager abilityManager = new AbilityManager();
-    public EffectManager effectManager = new EffectManager();
+    public AbilityManager abilityManager;
+    public EffectManager effectManager;
+
+    private void Awake()
+    {
+        effectManager = new EffectManager(this);
+    }
 
     public virtual void Kill()
     {

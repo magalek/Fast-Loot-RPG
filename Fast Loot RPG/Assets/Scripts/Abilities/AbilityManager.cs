@@ -17,7 +17,7 @@ public class AbilityManager {
     public Ability GetAbility()
     {
         Ability randomAbility;
-
+        Debug.Log(abilities.Length);
         while (true)
         {
             randomAbility = abilities[Random.Range(0, abilities.Length)];
