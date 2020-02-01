@@ -4,16 +4,16 @@
     <e p="C:\Projects\Unity\Fast-Loot-RPG\Fast Loot RPG" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="EntityManager.cs" t="Include" />
         <e p="ItemTooltip.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="RPG" t="Include">
-            <e p="Abilities" t="Include">
+            <e p="Actions" t="Include">
               <e p="Ability.cs" t="Include" />
-              <e p="AbilityManager.cs" t="Include" />
+              <e p="Action.cs" t="Include" />
               <e p="AttackAbility.cs" t="Include" />
-              <e p="Effect.cs" t="Include" />
-              <e p="EffectManager.cs" t="Include" />
+              <e p="Controllers" t="Include">
+                <e p="AbilitiesController.cs" t="Include" />
+              </e>
               <e p="Legendary Abilities" t="Include">
                 <e p="LegendaryAbility.cs" t="Include" />
                 <e p="LegendaryArmorAbility.cs" t="Include" />
@@ -23,18 +23,45 @@
               <e p="MagicAbility.cs" t="Include" />
             </e>
             <e p="AttackInfoStruct.cs" t="Include" />
+            <e p="Controllers" t="Include">
+              <e p="GameController.cs" t="Include" />
+              <e p="ItemsController.cs" t="Include" />
+              <e p="ResourcesController.cs" t="Include" />
+              <e p="StateController.cs" t="Include" />
+            </e>
+            <e p="Effects" t="Include">
+              <e p="Controllers" t="Include">
+                <e p="EffectsController.cs" t="Include" />
+              </e>
+              <e p="Effect.cs" t="Include" />
+            </e>
             <e p="Entities" t="Include">
+              <e p="AnimationControllers" t="Include">
+                <e p="EnemyAnimationController.cs" t="Include" />
+                <e p="EntityAnimationController.cs" t="Include" />
+                <e p="PlayerAnimationController.cs" t="Include" />
+              </e>
               <e p="Boss.cs" t="Include" />
               <e p="Enemy.cs" t="Include" />
               <e p="Entity.cs" t="Include" />
+              <e p="IKillable.cs" t="Include" />
+              <e p="Movement" t="Include">
+                <e p="EntityController.cs" t="Include" />
+                <e p="IMoveable.cs" t="Include" />
+                <e p="PlayerController.cs" t="Include" />
+              </e>
               <e p="Player.cs" t="Include" />
             </e>
-            <e p="EventHandlers" t="Include">
-              <e p="BattleEventHandler.cs" t="Include" />
-              <e p="EnemyEventHandler.cs" t="Include" />
-              <e p="EntityEventHandler.cs" t="Include" />
-              <e p="InventoryEventHandler.cs" t="Include" />
-              <e p="PlayerEventHandler.cs" t="Include" />
+            <e p="Events" t="Include">
+              <e p="BattleEvents.cs" t="Include" />
+              <e p="EnemyEvents.cs" t="Include" />
+              <e p="EntityEvents.cs" t="Include" />
+              <e p="InventoryEvents.cs" t="Include" />
+              <e p="PlayerEvents.cs" t="Include" />
+            </e>
+            <e p="HitTriggers" t="Include">
+              <e p="EntityHitTrigger.cs" t="Include" />
+              <e p="WeaponHitTrigger.cs" t="Include" />
             </e>
             <e p="Items" t="Include">
               <e p="Equipment.cs" t="Include" />
@@ -50,20 +77,30 @@
             <e p="ItemStatisticsStruct.cs" t="Include" />
             <e p="Loader.cs" t="Include" />
             <e p="Location.cs" t="Include" />
-            <e p="MainCamera.cs" t="Include" />
-            <e p="Managers" t="Include">
-              <e p="GameManager.cs" t="Include" />
-              <e p="ItemManager.cs" t="Include" />
-              <e p="ResourceManager.cs" t="Include" />
-            </e>
             <e p="StatisticsStruct.cs" t="Include" />
             <e p="UI" t="Include">
-              <e p="BattleLog.cs" t="Include" />
-              <e p="EnemyHealthBar.cs" t="Include" />
+              <e p="BattleUI.cs" t="Include" />
+              <e p="EnemyHealthBarUI.cs" t="Include" />
               <e p="EquipmentUI.cs" t="Include" />
               <e p="InventoryUI.cs" t="Include" />
-              <e p="PlayerHealthBar.cs" t="Include" />
+              <e p="MainCamera.cs" t="Include" />
+              <e p="PlayerUI.cs" t="Include" />
               <e p="StartButton.cs" t="Include" />
+            </e>
+            <e p="Utility" t="Include">
+              <e p="Serializer.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Sprites" t="Include">
+          <e p="Kyrise's 16x16 RPG Icon Pack - V1.2" t="Include">
+            <e p="read me.txt" t="Include" />
+          </e>
+          <e p="v1.1 dungeon crawler 16x16 pixel pack" t="Include">
+            <e p="tiles" t="Include">
+              <e p="wall" t="Include">
+                <e p="obs.txt" t="Include" />
+              </e>
             </e>
           </e>
         </e>

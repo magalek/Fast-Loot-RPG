@@ -1,7 +1,8 @@
 ﻿using RPG.Entities;
+using UnityEngine.UIElements;
 
 [System.Serializable]
-public struct Statistics
+public class Statistics 
 {
     public int maxHealthPoints;
     public int healthPoints;
@@ -15,29 +16,31 @@ public struct Statistics
 
     public static Statistics operator +(Statistics a, Statistics b)
     {
-        Statistics result = new Statistics();
-        result.maxHealthPoints = a.maxHealthPoints + b.healthPoints;
-        result.healthPoints = a.healthPoints + b.healthPoints;
-        result.attack = a.attack + b.attack;
-        result.defense = a.defense + b.defense;
-        result.hitChance = a.hitChance + b.hitChance;
-        result.dodgeChance = a.dodgeChance + b.dodgeChance;
-        result.criticalChance = a.criticalChance + b.criticalChance;
-        result.criticalDamage = a.criticalDamage + b.criticalDamage;
+        Statistics result = new Statistics {
+            maxHealthPoints = a.maxHealthPoints + b.healthPoints,
+            healthPoints = a.healthPoints + b.healthPoints,
+            attack = a.attack + b.attack,
+            defense = a.defense + b.defense,
+            hitChance = a.hitChance + b.hitChance,
+            dodgeChance = a.dodgeChance + b.dodgeChance,
+            criticalChance = a.criticalChance + b.criticalChance,
+            criticalDamage = a.criticalDamage + b.criticalDamage
+        };
         return result;
     }
 
     public static Statistics operator -(Statistics a, Statistics b)
     {
-        Statistics result = new Statistics();
-        result.maxHealthPoints = a.maxHealthPoints - b.healthPoints;
-        result.healthPoints = a.healthPoints - b.healthPoints;
-        result.attack = a.attack - b.attack;
-        result.defense = a.defense - b.defense;
-        result.hitChance = a.hitChance - b.hitChance;
-        result.dodgeChance = a.dodgeChance - b.dodgeChance;
-        result.criticalChance = a.criticalChance - b.criticalChance;
-        result.criticalDamage = a.criticalDamage - b.criticalDamage;
+        Statistics result = new Statistics {
+            maxHealthPoints = a.maxHealthPoints - b.healthPoints,
+            healthPoints = a.healthPoints - b.healthPoints,
+            attack = a.attack - b.attack,
+            defense = a.defense - b.defense,
+            hitChance = a.hitChance - b.hitChance,
+            dodgeChance = a.dodgeChance - b.dodgeChance,
+            criticalChance = a.criticalChance - b.criticalChance,
+            criticalDamage = a.criticalDamage - b.criticalDamage
+        };
         return result;
     }
 

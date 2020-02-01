@@ -1,23 +1,17 @@
 ﻿namespace RPG.Items.Slots
 {
     public class InventorySlot : Slot {
-        private void Awake()
-        {
-            isEmpty = true;
-            item = null;
+        
+        protected override void SlotLeftButtonClick() {
+            if (item == null) return;
+            
+            if (Equipment.EquipItem(item))
+                Inventory.RemoveItem(item);
         }
-
-        public override void SlotLeftButtonClick()
-        {
-            if (item != null)
-                if (Equipment.EquipItem(item))
-                    Inventory.RemoveItem(item);
-        }
+        
         //TODO: fix the same item going into two slots
-        public override void SlotRightButtonClick()
-        {
-            if (item == null) 
-                return;
+        protected override void SlotRightButtonClick() {
+            if (item == null) return;
 
             Inventory.RemoveItem(item);
             Destroy(item.gameObject);

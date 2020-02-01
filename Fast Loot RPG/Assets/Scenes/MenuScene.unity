@@ -399,10 +399,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3128aa67843efdd479fa1f328b458703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManagerPrefab: {fileID: 1223752658427310, guid: b8fda51d6f0259147bcce5272b66882c,
-    type: 3}
-  playerPrefab: {fileID: 1065791163048266, guid: db7853a75db3f474baa8bd33c76305f2,
-    type: 3}
 --- !u!4 &1180130480
 Transform:
   m_ObjectHideFlags: 0
@@ -649,7 +645,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 1
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -691,6 +687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3aec9da44c06d2499f2d316ab8a3f34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 0}
 --- !u!1001 &5540501863877027526
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -758,5 +755,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Entity Manager
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5134895920423668955, guid: 8f6fb576399e61945b91055e20c64a7f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8f6fb576399e61945b91055e20c64a7f, type: 3}

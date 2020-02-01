@@ -7,69 +7,139 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.9/UnityEngine.TestRunner/NUnitExtensions/Commands/EnumerableRetryTestCommand.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Loader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Events/EnemyEvents.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Events/EntityEvents.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.9/UnityEngine.TestRunner/NUnitExtensions/Commands/EnumerableTestMethodCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@1.1.4/Rider/Editor/RiderScriptEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.2d.sprite/Editor/SpriteEditor/SpriteEditorHandles.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Managers/ResourceManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Events/InventoryEvents.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Events/PlayerEvents.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/EquipmentSlot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/InventorySlot.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/HitTriggers/WeaponHitTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/Slot.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Abilities/Legendary Abilities/LegendaryAbility.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Actions/Legendary Abilities/LegendaryAbility.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Actions/Legendary Abilities/LegendaryArmorAbility.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Actions/Legendary Abilities/LegendaryMaceAbility.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Actions/Legendary Abilities/LegendarySwordAbility.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@1.1.4/Rider/Editor/UnitTesting/TestsCallback.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Actions/Action.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/AnimationControllers/EnemyAnimationController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/EntityController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/AttackInfoStruct.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/StateController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/IMoveable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/GameController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Loader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/MainCamera.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/AnimationControllers/EntityAnimationController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/ResourcesController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/StatisticsStruct.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/BattleUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/EnemyHealthBarUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/EquipmentUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/InventoryUI.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@1.1.4/Rider/Editor/UnitTesting/TestsCallback.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/PlayerHealthBar.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/PlayerUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/StartButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Equipment.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Inventory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.9/UnityEngine.TestRunner/NUnitExtensions/Runner/UnityTestExecutionContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Item.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Managers/ItemManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/ItemsController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/HitTriggers/EntityHitTrigger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/AnimationControllers/PlayerAnimationController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.9/UnityEngine.TestRunner/Utils/AssemblyProvider/AssemblyWrapper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Boss.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.2d.sprite/Editor/Interface/ITexture.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Entity.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Player.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/AttackInfoStruct.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/IKillable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Actions/Ability.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Actions/Controllers/AbilitiesController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Actions/AttackAbility.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Effects/Effect.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.2d.sprite/Editor/ShapeEditor/ShapeEditorRectSelection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Effects/Controllers/EffectsController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ItemTooltip.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Managers/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/EventHandlers/BattleEventHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Actions/MagicAbility.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Utility/Serializer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Events/BattleEvents.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Abilities/AbilityManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Items/Inventory.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Turn.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Items/ItemTab.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ResourceManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Battle.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/InventoryUI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Events/EntityEvents.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Actions/Controllers/AbilitiesController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Managers/ItemsController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Managers/ResourcesManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Managers/ResourcesController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/ItemsController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/StateController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Actions/AttackAbility.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Actions/Action.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Actions/Ability.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/BattleUI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Events/BattleEvents.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Events/PlayerEvents.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/StatisticsStruct.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Effects/Controllers/EffectsController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/ResourcesController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Loader.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Equipment.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/StartButton.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Boss.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/GameController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/PlayerUI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/MainCamera.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Triggers/WeaponTrigger.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Animations/EntityAnimations.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Animations/PlayerAnimations.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/IKillable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/EntityControl.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Actions/MagicAbility.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Effects/Effect.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/AnimationsControllers/PlayerAnimations.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/AnimationsControllers/EntityAnimationsController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/AnimationsControllers/PlayerAnimationsController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/AnimationsControllers/IAnimationController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/PlayerControl.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/AnimationControllers/EntityAnimationsController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/AnimationControllers/PlayerAnimationsController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/PlayerMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Hitboxes/WeaponHitBox.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Hitboxes/WeaponHitTrigger.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/ITag.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/HitTriggers/EntityHitTrigger.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/HitTriggers/WeaponHitTrigger.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/AnimationControllers/EnemyAnimationController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/EntityMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/AnimationControllers/EntityAnimationController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Entity.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/EntityController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Player.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/EquipmentUI.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/InventoryUI.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Managers/GameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Managers/ResourceManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Managers/ItemManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/Slot.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/EquipmentSlot.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Inventory.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Item.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/InventorySlot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/IMoveable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/AnimationControllers/PlayerAnimationController.cs" />
       </list>
     </option>
   </component>
@@ -125,6 +195,14 @@
       <updated>1580324660623</updated>
       <workItem from="1580324663663" duration="9794000" />
       <workItem from="1580335634534" duration="84000" />
+      <workItem from="1580406507526" duration="11490000" />
+      <workItem from="1580471240910" duration="963000" />
+      <workItem from="1580472746153" duration="35191000" />
+      <workItem from="1580519510369" duration="70000" />
+      <workItem from="1580519595961" duration="56000" />
+      <workItem from="1580519665214" duration="53000" />
+      <workItem from="1580519732844" duration="169000" />
+      <workItem from="1580519916557" duration="316000" />
     </task>
     <servers />
   </component>
@@ -151,13 +229,92 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="179" key="#Notifications/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580324700921" />
-    <state x="461" y="163" key="SettingsEditor" timestamp="1580325495761">
+    <state x="2156" y="35" width="1404" height="980" key="#Plugins" timestamp="1580519901288">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2156" y="35" width="1404" height="980" key="#Plugins/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1580519901288" />
+    <state x="2638" y="382" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1580519153749">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2638" y="382" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1580519153749" />
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1580483584570">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580325495761" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1580325491903">
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580483584570" />
+    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1580483584569">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580325491903" />
+    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580483584569" />
+    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1580483584569">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580483584569" />
+    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1580483584570">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580483584570" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1580483584570">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580483584570" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1580483584570">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580483584570" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1580483584570">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580483584570" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1580483584570">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580483584570" />
+    <state width="1877" height="348" key="GridCell.Tab.2.bottom" timestamp="1580483584570">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580483584570" />
+    <state width="1877" height="348" key="GridCell.Tab.2.center" timestamp="1580483584570">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.2.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580483584570" />
+    <state width="1877" height="348" key="GridCell.Tab.2.left" timestamp="1580483584570">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.2.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580483584570" />
+    <state width="1877" height="348" key="GridCell.Tab.2.right" timestamp="1580483584570">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.2.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580483584570" />
+    <state width="1877" height="348" key="GridCell.Tab.3.bottom" timestamp="1580483584570">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.3.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580483584570" />
+    <state width="1877" height="348" key="GridCell.Tab.3.center" timestamp="1580483584570">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.3.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580483584570" />
+    <state width="1877" height="348" key="GridCell.Tab.3.left" timestamp="1580483584570">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.3.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580483584570" />
+    <state width="1877" height="348" key="GridCell.Tab.3.right" timestamp="1580483584570">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.3.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580483584570" />
+    <state x="2590" y="201" key="RiderGenerateDialog" timestamp="1580510227633">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="670" y="201" key="RiderGenerateDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580485255957" />
+    <state x="2590" y="201" key="RiderGenerateDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1580510227633" />
+    <state x="2381" y="163" key="SettingsEditor" timestamp="1580519700918">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580408174202" />
+    <state x="2381" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1580519700918" />
+    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1580519810412">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580485394391" />
+    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1580519810412" />
   </component>
 </project>

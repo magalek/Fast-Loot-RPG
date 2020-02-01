@@ -1,13 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class EquipmentUI : MonoBehaviour
-{
-    [SerializeField] Canvas equipmentCanvas;
-
-    private void Start()
+namespace RPG.UI {
+    public class EquipmentUI : MonoBehaviour
     {
-        equipmentCanvas.worldCamera = MainCamera.Instance.GetComponent<Camera>();
+        [SerializeField] Canvas equipmentCanvas;
+
+        private void Start()
+        {
+            equipmentCanvas.worldCamera = MainCamera.Instance.GetComponent<Camera>();
+        }
     }
 }

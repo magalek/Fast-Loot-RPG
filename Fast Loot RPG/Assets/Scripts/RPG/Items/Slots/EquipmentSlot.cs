@@ -6,19 +6,12 @@ namespace RPG.Items.Slots
 
         public ItemType slotItemType;
 
-        private void Awake()
-        {
-            isEmpty = true;
-            item = null;
-        }
-
-        public override void SlotLeftButtonClick()
-        {
-            if (item != null)
-            {
-                Equipment.UnequipItem(item, this);
-                RemoveItem();
-            }
+        protected override void SlotLeftButtonClick() {
+            if (item == null) 
+                return;
+            
+            Equipment.UnequipItem(item, this);
+            RemoveItem();
         }
     }
 }

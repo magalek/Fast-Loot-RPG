@@ -13,15 +13,20 @@ namespace RPG.Items.Slots
         private Button slotButton;
         public Item item;
 
+        private void Awake() {
+            isEmpty = true;
+            item = null;
+        }
+        
         public void HandleAddedItem(Item addedItem)
         {
+            if (addedItem == null)
+                return;
+            
             isEmpty = false;
             item = addedItem;
-            if (item != null)
-            {
-                itemSpriteSlot.GetComponent<SpriteRenderer>().sprite = item?.sprite;
-                slotBorder.color = item.color;
-            }
+            itemSpriteSlot.GetComponent<SpriteRenderer>().sprite = item?.sprite;
+            slotBorder.color = item.color;
         }
 
         public void RemoveItem(bool destroy = false)
@@ -32,18 +37,24 @@ namespace RPG.Items.Slots
             slotBorder.color = Color.black;        
         }
 
-        public virtual void SlotLeftButtonClick() { }
-        public virtual void SlotRightButtonClick() { }
-        public virtual void SlotMiddleButtonClick() { }
+        protected virtual void SlotLeftButtonClick() { }
+        protected virtual void SlotRightButtonClick() { }
+        protected virtual void SlotMiddleButtonClick() { }
 
         public virtual void OnPointerClick(PointerEventData eventData)
         {
-            if (eventData.button == PointerEventData.InputButton.Left)
-                SlotLeftButtonClick();
-            else if (eventData.button == PointerEventData.InputButton.Middle)
-                SlotMiddleButtonClick();
-            else if (eventData.button == PointerEventData.InputButton.Right)
-                SlotRightButtonClick();
+            switch (eventData.button)
+            {
+                case PointerEventData.InputButton.Left:
+                    SlotLeftButtonClick();
+                    break;
+                case PointerEventData.InputButton.Middle:
+                    SlotMiddleButtonClick();
+                    break;
+                case PointerEventData.InputButton.Right:
+                    SlotRightButtonClick();
+                    break;
+            }
         }
 
         public virtual void OnPointerEnter(PointerEventData eventData)

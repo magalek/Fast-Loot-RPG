@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using RPG.Events;
 using RPG.Items.Slots;
 using UnityEngine;
 
@@ -20,7 +21,7 @@ namespace RPG.Items
 
         private void Awake()
         {
-            InventoryEventHandler.InventoryChange += SortItems;
+            InventoryEvents.InventoryChange += SortItems;
         }
 
         public void Start()
@@ -65,7 +66,7 @@ namespace RPG.Items
             {
                 firstEmptySlot.HandleAddedItem(itemToAdd);
                 if (sendInventoryEvent)
-                    InventoryEventHandler.OnInventoryChange(itemToAdd.type);
+                    InventoryEvents.OnInventoryChange(itemToAdd.type);
             }
             else if (itemToAdd != null)
                 Destroy(itemToAdd.gameObject);
@@ -80,7 +81,7 @@ namespace RPG.Items
             inventorySlotOfItem.RemoveItem();
 
             if (sendInventoryEvent)
-                InventoryEventHandler.OnInventoryChange(itemToRemove.type);
+                InventoryEvents.OnInventoryChange(itemToRemove.type);
         }
 
         private static void SortItems(ItemType addedItemType)

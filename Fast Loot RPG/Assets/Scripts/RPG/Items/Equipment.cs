@@ -1,4 +1,5 @@
 ﻿using RPG.Entities;
+using RPG.Events;
 using RPG.Items.Slots;
 using UnityEngine;
 
@@ -41,7 +42,7 @@ namespace RPG.Items
                 player.statistics += item.statistics;           
                 item.Equipped = true;
                 item.OnItemEquipped();
-                InventoryEventHandler.OnInventoryChange(item.type);
+                InventoryEvents.OnInventoryChange(item.type);
                 return true;
             }
             return false;
@@ -54,7 +55,7 @@ namespace RPG.Items
             equipmentSlot.item = null;        
             item.Equipped = false;
             item.OnItemUnequipped();
-            InventoryEventHandler.OnInventoryChange(item.type);
+            InventoryEvents.OnInventoryChange(item.type);
         }
 
         static EquipmentSlot GetCorrectSlot(Item itemToEquip)

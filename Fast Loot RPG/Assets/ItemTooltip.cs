@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using RPG.Events;
 using TMPro;
 using UnityEngine;
 
@@ -19,7 +20,7 @@ public class ItemTooltip : MonoBehaviour
             Destroy(gameObject);
 
         itemTooltipText = itemTooltipTextObject;
-        InventoryEventHandler.InventoryChange += i => ChangeTooltip(""); 
+        InventoryEvents.InventoryChange += i => ChangeTooltip(""); 
     }
 
     public static void ChangeTooltip(string message) => itemTooltipText.text = message;

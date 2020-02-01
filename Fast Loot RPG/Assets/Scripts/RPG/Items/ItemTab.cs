@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using RPG.Items;
 using RPG.Items.Slots;
+using RPG.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
