@@ -28,28 +28,13 @@ namespace RPG.Controllers
             
 
             DontDestroyOnLoad(gameObject);
-            
-
-            SceneManager.sceneLoaded += OnSceneLoaded;
-        }
-
-        public void LoadGame() => SceneManager.LoadScene(1);
-        private void LoadMenu() => SceneManager.LoadScene(0);
-
-        private void OnSceneLoaded(Scene scene, LoadSceneMode arg1) {
-            switch (scene.buildIndex) {
-                case 1:
-                    if (Player.Instance == null)
-                        Instantiate(ResourcesController.playerPrefab);
-                    break;
-            }
         }
         
-        private void HandleLootUIText(Item item) {
-            BattleUI.DisplayMessage(item != null
-                ? $"You got <color=#{ColorUtility.ToHtmlStringRGB(item.color)}>{item.name}</color>"
-                : "You got nothing");
-        }
+        // private void HandleLootUIText(Item item) {
+        //     BattleUI.DisplayMessage(item != null
+        //         ? $"You got <color=#{ColorUtility.ToHtmlStringRGB(item.color)}>{item.name}</color>"
+        //         : "You got nothing");
+        // }
 
         public void ChangeTurnTime(float value) => turnTime = value;
 

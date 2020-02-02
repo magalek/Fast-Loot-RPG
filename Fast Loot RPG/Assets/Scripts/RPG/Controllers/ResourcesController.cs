@@ -9,7 +9,7 @@ namespace RPG.Controllers
     {
         public static Enemy[] enemyPrefabs;
         public static Enemy[] bossPrefabs;
-        public static Item[] itemPrefabs;
+        public static GameObject[] itemObjectsPrefabs;
         public static GameObject gameControllerPrefab;
         public static GameObject playerPrefab;
         
@@ -42,6 +42,6 @@ namespace RPG.Controllers
         private static void InitialisePlayerPrefab()
             => playerPrefab = Resources.Load<GameObject>("Prefabs/Scene Prefabs/Player");
         
-        private static void InitialiseItemDatabase() => itemPrefabs = Resources.LoadAll<Item>("Prefabs/Item Prefabs");
+        private static void InitialiseItemDatabase() => itemObjectsPrefabs = Resources.LoadAll<GameObject>("Prefabs/Item Prefabs");
     }
 }

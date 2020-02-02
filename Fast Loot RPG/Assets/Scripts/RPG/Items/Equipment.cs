@@ -40,7 +40,7 @@ namespace RPG.Items
             {
                 correctSlot.HandleAddedItem(item);
                 player.statistics += item.statistics;           
-                item.Equipped = true;
+                item.IsEquipped = true;
                 item.OnItemEquipped();
                 InventoryEvents.OnInventoryChange(item.type);
                 return true;
@@ -53,7 +53,7 @@ namespace RPG.Items
             player.statistics -= item.statistics;
             Inventory.AddItem(item, false);
             equipmentSlot.item = null;        
-            item.Equipped = false;
+            item.IsEquipped = false;
             item.OnItemUnequipped();
             InventoryEvents.OnInventoryChange(item.type);
         }

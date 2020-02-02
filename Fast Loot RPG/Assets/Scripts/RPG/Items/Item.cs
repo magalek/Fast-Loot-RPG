@@ -1,52 +1,56 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using RPG.Entities;
 using UnityEngine;
 
 namespace RPG.Items
 {
-    //TODO: Refactor this class
-    public class Item : MonoBehaviour
+    [Serializable]
+    public class Item
     {
         public event Action ItemEquipped;
         public event Action ItemUnequipped;
 
-        public Sprite sprite;
+        //public Sprite sprite;
         public Color color { get
         {
             switch (rarity)
             {
                 case ItemRarity.Common:
-                    return Color.white;
+                    return Color.green;
                 case ItemRarity.Legendary:
-                    return Color.magenta;
+                    return new Color(1f, 0.45f, 0f);
                 default:
                     return Color.white;
             }
         }}
 
-        [Header("Stats")]
+        public GameObject itemObjectPrefab;
 
-        public ItemStatistics statRanges;
+        public Sprite sprite;
+        
+        [Header("Stats")]
         public Statistics statistics;
 
         public ItemRarity rarity;
         public ItemType type;
 
         public int ItemLevel;
+        public bool IsEquipped;
 
-        public bool Equipped;
-
-        private void Awake()
-        {
-            statistics = statRanges.GetRandomStats();
+        public Item(ItemObject itemObject) {
+            itemObjectPrefab = itemObject.prefab;
+            statistics = itemObject.statRanges.GetRandomStats();
+            sprite = itemObject.GetComponentInChildren<SpriteRenderer>().sprite;
+            type = itemObject.type;
             CalculateItemLevel(); 
         }
 
         public void OnItemEquipped() => ItemEquipped?.Invoke();
         public void OnItemUnequipped() => ItemUnequipped?.Invoke();
 
-        public void CalculateItemLevel()
+        private void CalculateItemLevel()
         {
             ItemLevel += statistics.healthPoints;
             ItemLevel += statistics.attack;
@@ -94,6 +98,7 @@ namespace RPG.Items
         Armor,
         Helmet,
         Pants,
-        Shield
+        Shield,
+        Other
     }
 }

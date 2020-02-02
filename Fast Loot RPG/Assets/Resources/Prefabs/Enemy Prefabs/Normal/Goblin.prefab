@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 114061161916870746}
   - component: {fileID: -4616968793854791617}
   - component: {fileID: 2837428645129453061}
+  - component: {fileID: 6778525697188804943}
   - component: {fileID: 4494947930399651340}
   - component: {fileID: 3977337770158352940}
   m_Layer: 0
@@ -112,7 +113,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.13, y: 0.15}
+  m_Size: {x: 0.11, y: 0.15}
   m_EdgeRadius: 0
 --- !u!114 &114061161916870746
 MonoBehaviour:
@@ -128,8 +129,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entityName: <color="red">Ghoul</color>
   statistics:
-    maxHealthPoints: 50
-    healthPoints: 50
+    maxHealthPoints: 10
+    healthPoints: 10
     attack: 2
     defense: 0
     hitChance: 1
@@ -166,6 +167,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityAnimationController: {fileID: 0}
+--- !u!114 &6778525697188804943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441251780949838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6ad404bb7004a06ab4ea8ab0ecc03eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &4494947930399651340
 Animator:
   serializedVersion: 3

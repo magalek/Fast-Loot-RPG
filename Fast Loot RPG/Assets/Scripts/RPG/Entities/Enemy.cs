@@ -14,18 +14,12 @@ namespace RPG.Entities
             SetTag();
             SetComponents();
         }
-
-        public Item DropItem(Enemy enemy = null, float chance = 0) {
-            if (enemy != null && enemy.lootChance > Random.value)
-                return ItemsController.Instance.CreateNewItem();
-            if (enemy == null && chance > Random.value)
-                return ItemsController.Instance.CreateNewItem();
-            return null;
-        }
-
-        protected override void Kill()
-        {
+        
+        protected override void Kill() {
             EnemyEvents.OnEnemyKilled(this);
+            if (lootChance > Random.value) {
+                ItemsController.DropItemAtPosition(transform.position);
+            }
             base.Kill();
         }
 

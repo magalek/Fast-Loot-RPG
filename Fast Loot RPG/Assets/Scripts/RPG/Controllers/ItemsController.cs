@@ -3,41 +3,31 @@ using UnityEngine;
 
 namespace RPG.Controllers
 {
-    public class ItemsController : MonoBehaviour
-    {
-        public static ItemsController Instance;
+    public class ItemsController : MonoBehaviour {
+        private static ItemObject InstantiateItemObjectAtPosition(Vector3 position, GameObject itemObjectPrefab = null) {
+            if (itemObjectPrefab == null) {
+                itemObjectPrefab = ResourcesController.itemObjectsPrefabs[Random.Range(0, ResourcesController.itemObjectsPrefabs.Length)];
+            }
 
-        private int amountOfItemsGenerated = 0;
+            ItemObject itemObject 
+                = Instantiate(itemObjectPrefab, position, Quaternion.identity).GetComponent<ItemObject>();
 
-        private void Awake()
-        {
-            if (Instance == null)
-                Instance = this;
-            else if (Instance != this)
-                Destroy(gameObject);
-
-            DontDestroyOnLoad(this);
+            itemObject.SetPrefab(itemObjectPrefab);
+            
+            Item item = new Item(itemObject);
+            itemObject.SetItem(item);
+            return itemObject;
         }
-
-        public Item CreateNewItem(float legendaryChance = 0.4f)
-        {
-            Item randomItem = ResourcesController.itemPrefabs[Random.Range(0, ResourcesController.itemPrefabs.Length)];
-
-            if (legendaryChance > Random.value)
-                return GenerateItem(randomItem, ItemRarity.Legendary);
-            else
-                return GenerateItem(randomItem, ItemRarity.Common);
-        }
-
-        private Item GenerateItem(Item itemToGenerate, ItemRarity rarity)
-        {
-            Item item = Instantiate(itemToGenerate, transform);
-            item.name = itemToGenerate.name + $" {amountOfItemsGenerated}";
-            item.rarity = rarity;
-            amountOfItemsGenerated++;
-            return item;
-        }
-
         
+        public static void DropItemAtPosition(Vector3 position, Item item = null) {
+            if (item != null) {
+                ItemObject itemObject = InstantiateItemObjectAtPosition(position, item.itemObjectPrefab);
+                itemObject.IsRecentlyDropped(true);
+            }
+            else {
+                ItemObject itemObject = InstantiateItemObjectAtPosition(position);
+            }
+            
+        }
     }
 }

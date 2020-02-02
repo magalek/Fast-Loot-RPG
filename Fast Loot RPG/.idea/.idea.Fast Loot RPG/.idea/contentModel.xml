@@ -67,6 +67,7 @@
               <e p="Equipment.cs" t="Include" />
               <e p="Inventory.cs" t="Include" />
               <e p="Item.cs" t="Include" />
+              <e p="ItemObject.cs" t="Include" />
               <e p="ItemTab.cs" t="Include" />
               <e p="Slots" t="Include">
                 <e p="EquipmentSlot.cs" t="Include" />

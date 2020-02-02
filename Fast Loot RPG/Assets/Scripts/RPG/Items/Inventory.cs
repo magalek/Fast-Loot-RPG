@@ -19,13 +19,11 @@ namespace RPG.Items
 
         //public static List<Item> allItemsInTab = new List<Item>();    
 
-        private void Awake()
-        {
+        private void Awake() {
             InventoryEvents.InventoryChange += SortItems;
         }
 
-        public void Start()
-        {
+        public void Start() {
             if (Instance == null)       
                 Instance = this;
             else if (Instance != this)
@@ -33,21 +31,17 @@ namespace RPG.Items
             InitialiseInventoryGrids();
         }
 
-        private void InitialiseInventoryGrids()
-        {
+        private void InitialiseInventoryGrids() {
             ItemTabs = gridTabsParent.GetComponentsInChildren<ItemTab>().ToList();
 
-            foreach (var tab in ItemTabs)
-            {
-                for (int j = 0; j < slotCount; j++)
-                {
+            foreach (var tab in ItemTabs) {
+                for (int j = 0; j < slotCount; j++) {
                     var inventorySlotGameObject = Instantiate(slotPrefab, tab.transform);
                     tab.inventorySlots.Add(inventorySlotGameObject.GetComponent<InventorySlot>());
                 }
             }
 
-            foreach (var tab in ItemTabs)
-            {
+            foreach (var tab in ItemTabs) {
                 tab.gameObject.SetActive(false);
             }
 
@@ -57,23 +51,19 @@ namespace RPG.Items
         private static ItemTab GetItemTabFromType(ItemType itemType) 
             => ItemTabs.FirstOrDefault(i => i.type == itemType);
 
-        public static void AddItem(Item itemToAdd, bool sendInventoryEvent = true)
-        {
+        public static void AddItem(Item itemToAdd, bool sendInventoryEvent = true) {
             ItemTab itemTab = GetItemTabFromType(itemToAdd.type);
 
             InventorySlot firstEmptySlot = itemTab.GetFirstEmptySlot();
-            if (firstEmptySlot != null)
-            {
-                firstEmptySlot.HandleAddedItem(itemToAdd);
-                if (sendInventoryEvent)
-                    InventoryEvents.OnInventoryChange(itemToAdd.type);
-            }
-            else if (itemToAdd != null)
-                Destroy(itemToAdd.gameObject);
+            if (firstEmptySlot == null) 
+                return;
+            
+            firstEmptySlot.HandleAddedItem(itemToAdd);
+            if (sendInventoryEvent)
+                InventoryEvents.OnInventoryChange(itemToAdd.type);
         }
 
-        public static void RemoveItem(Item itemToRemove, bool sendInventoryEvent = true)
-        {
+        public static void RemoveItem(Item itemToRemove, bool sendInventoryEvent = true) {
             ItemTab itemTab = GetItemTabFromType(itemToRemove.type);
 
             InventorySlot inventorySlotOfItem = itemTab.FindItemSlot(itemToRemove);
@@ -84,15 +74,13 @@ namespace RPG.Items
                 InventoryEvents.OnInventoryChange(itemToRemove.type);
         }
 
-        private static void SortItems(ItemType addedItemType)
-        {
+        private static void SortItems(ItemType addedItemType) {
             List<Item> allItemsInTab = new List<Item>();
 
             ItemTab itemTab = GetItemTabFromType(addedItemType);
 
-            foreach (var slot in itemTab.inventorySlots)
-            {
-                if (slot?.item)
+            foreach (var slot in itemTab.inventorySlots) {
+                if (slot?.item != null)
                     allItemsInTab.Add(slot.item);
             }
 

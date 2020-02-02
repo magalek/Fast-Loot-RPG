@@ -7,7 +7,7 @@ namespace RPG.UI {
         
         private void Start()
         {
-            GetComponent<Button>().onClick.AddListener(GameController.Instance.LoadGame);
+            //GetComponent<Button>().onClick.AddListener(GameController.Instance.LoadGame);
         }
     }
 }

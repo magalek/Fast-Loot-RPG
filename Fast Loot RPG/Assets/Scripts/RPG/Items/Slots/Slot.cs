@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using RPG.UI;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -16,6 +17,7 @@ namespace RPG.Items.Slots
         private void Awake() {
             isEmpty = true;
             item = null;
+            itemSpriteSlot.GetComponent<Image>().color = Color.clear;
         }
         
         public void HandleAddedItem(Item addedItem)
@@ -25,7 +27,8 @@ namespace RPG.Items.Slots
             
             isEmpty = false;
             item = addedItem;
-            itemSpriteSlot.GetComponent<SpriteRenderer>().sprite = item?.sprite;
+            itemSpriteSlot.GetComponent<Image>().sprite = item?.sprite;
+            itemSpriteSlot.GetComponent<Image>().color = Color.white;
             slotBorder.color = item.color;
         }
 
@@ -33,7 +36,8 @@ namespace RPG.Items.Slots
         {
             item = null;
             isEmpty = true;
-            itemSpriteSlot.GetComponent<SpriteRenderer>().sprite = null;
+            itemSpriteSlot.GetComponent<Image>().sprite = null;
+            itemSpriteSlot.GetComponent<Image>().color = Color.clear;
             slotBorder.color = Color.black;        
         }
 
@@ -59,7 +63,7 @@ namespace RPG.Items.Slots
 
         public virtual void OnPointerEnter(PointerEventData eventData)
         {
-            if (item)
+            if (item != null)
                 ItemTooltip.ChangeTooltip(item.statistics.ToString());
         }
 
