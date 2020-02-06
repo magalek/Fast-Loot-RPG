@@ -9,4 +9,5 @@ Remember to check them out!
 
 Apart from the sprites everything is done by me. The code is in Fast-Loot-RPG/Fast Loot RPG/Assets/Scripts/RPG directory, feel free to check it out.
 
-![Image_1](/Images/Screenshot.png)
+![Image_1](https://github.com/magalek/Fast-Loot-RPG/blob/master/Fast%20Loot%20RPG/Images/Screenshot.png)
+![Image_2](https://github.com/magalek/Fast-Loot-RPG/blob/master/Fast%20Loot%20RPG/Images/Screenshot2.png)
