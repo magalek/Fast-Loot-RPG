@@ -11,3 +11,4 @@ Apart from the sprites everything is done by me. The code is in **Fast-Loot-RPG/
 
 ![Image_1](https://github.com/magalek/Fast-Loot-RPG/blob/master/Fast%20Loot%20RPG/Images/Screenshot.png)
 ![Image_2](https://github.com/magalek/Fast-Loot-RPG/blob/master/Fast%20Loot%20RPG/Images/Screenshot2.png)
+![Image_3](https://github.com/magalek/Fast-Loot-RPG/blob/master/Fast%20Loot%20RPG/Images/Screenshot3.png)
