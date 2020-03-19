@@ -15,8 +15,7 @@ namespace RPG.Items
 
         static Player player;
 
-        private void Awake()
-        {
+        private void Awake() {
             if (Instance == null)
                 Instance = this;
             else if (Instance != this)
@@ -27,17 +26,14 @@ namespace RPG.Items
             InitializeEquipmentSlots();
         }
 
-        private void InitializeEquipmentSlots()
-        {
+        private void InitializeEquipmentSlots() {
             for (int i = 0; i < equipmentGridTransform.childCount; i++)
                 equipmentSlots = equipmentGridTransform.GetComponentsInChildren<EquipmentSlot>();
         }
 
-        public static bool EquipItem(Item item)
-        {
+        public static bool EquipItem(Item item) {
             EquipmentSlot correctSlot = GetCorrectSlot(item);
-            if (correctSlot && correctSlot.isEmpty)
-            {
+            if (correctSlot && correctSlot.isEmpty) {
                 correctSlot.HandleAddedItem(item);
                 player.statistics += item.statistics;           
                 item.IsEquipped = true;
@@ -48,8 +44,7 @@ namespace RPG.Items
             return false;
         }
 
-        public static void UnequipItem(Item item, EquipmentSlot equipmentSlot)
-        {
+        public static void UnequipItem(Item item, EquipmentSlot equipmentSlot) {
             player.statistics -= item.statistics;
             Inventory.AddItem(item, false);
             equipmentSlot.item = null;        
@@ -58,8 +53,7 @@ namespace RPG.Items
             InventoryEvents.OnInventoryChange(item.type);
         }
 
-        static EquipmentSlot GetCorrectSlot(Item itemToEquip)
-        {
+        private static EquipmentSlot GetCorrectSlot(Item itemToEquip) {
             foreach (EquipmentSlot slot in equipmentSlots)
                 if (slot.slotItemType == itemToEquip.type)
                     return slot;

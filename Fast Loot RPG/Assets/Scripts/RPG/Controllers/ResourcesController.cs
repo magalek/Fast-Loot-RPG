@@ -25,6 +25,7 @@ namespace RPG.Controllers
             }
             catch (Exception e)
             {
+                Debug.Log(e);
                 return false;
             }
             return true;

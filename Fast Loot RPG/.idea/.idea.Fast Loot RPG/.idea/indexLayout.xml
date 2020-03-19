@@ -23,6 +23,7 @@
       <Path>.idea</Path>
       <Path>.vs</Path>
       <Path>Builds</Path>
+      <Path>Images</Path>
       <Path>Library</Path>
       <Path>Logs</Path>
       <Path>Temp</Path>

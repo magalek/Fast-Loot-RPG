@@ -25,23 +25,17 @@ namespace RPG.Controllers
                 Instance = this;
             else if (Instance != this)
                 Destroy(gameObject);
-            
 
+            StartLevelGenerating(20, 1.5f);
+            
             DontDestroyOnLoad(gameObject);
         }
-        
-        // private void HandleLootUIText(Item item) {
-        //     BattleUI.DisplayMessage(item != null
-        //         ? $"You got <color=#{ColorUtility.ToHtmlStringRGB(item.color)}>{item.name}</color>"
-        //         : "You got nothing");
-        // }
 
-        public void ChangeTurnTime(float value) => turnTime = value;
+        public void StartLevelGenerating(int roomAmount, float distance) {
+            StartCoroutine(LevelController.GenerateLevel(roomAmount, distance));
+        }
 
-        public void ToggleInstantBattle(bool toggled) => InstantBattle = toggled;
-
-        private Enemy GetEnemy()
-        {
+        private Enemy GetEnemy() {
             if (killCount >= 100 && Random.value <= 0.04f)
                 return Instantiate(ResourcesController.bossPrefabs[Random.Range(0, ResourcesController.bossPrefabs.Length)], transform).GetComponent<Enemy>();
             return Instantiate(ResourcesController.enemyPrefabs[Random.Range(0, ResourcesController.enemyPrefabs.Length)], transform).GetComponent<Enemy>();

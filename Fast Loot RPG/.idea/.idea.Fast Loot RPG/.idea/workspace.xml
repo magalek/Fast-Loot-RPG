@@ -38,6 +38,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/HitTriggers/WeaponHitTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/Slot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Actions/Legendary Abilities/LegendaryAbility.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Environment/Room.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Actions/Legendary Abilities/LegendaryArmorAbility.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Actions/Legendary Abilities/LegendaryMaceAbility.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Actions/Legendary Abilities/LegendarySwordAbility.cs" root0="FORCE_HIGHLIGHTING" />
@@ -45,6 +46,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Actions/Action.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/ItemObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/AnimationControllers/EnemyAnimationController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/LevelController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/EntityController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/AttackInfoStruct.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/StateController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -56,6 +58,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/AnimationControllers/EntityAnimationController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/ResourcesController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/StatisticsStruct.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Editors/UtilityWindow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/BattleUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/EnemyHealthBarUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/EquipmentUI.cs" root0="FORCE_HIGHLIGHTING" />
@@ -83,7 +86,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Effects/Effect.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.2d.sprite/Editor/ShapeEditor/ShapeEditorRectSelection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Effects/Controllers/EffectsController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/ItemTooltip.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Actions/MagicAbility.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Utility/Serializer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Events/BattleEvents.cs" root0="FORCE_HIGHLIGHTING" />
@@ -91,11 +93,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/StateController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Actions/AttackAbility.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Actions/Action.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Actions/Ability.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/BattleUI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Events/BattleEvents.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Events/PlayerEvents.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/StatisticsStruct.cs" />
@@ -125,23 +122,28 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/EntityMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/AnimationControllers/EntityAnimationController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Entity.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/EntityController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Player.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/AnimationControllers/PlayerAnimationController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/IMoveable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/HitTriggers/EntityHitTrigger.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Loader.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/StartButton.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/GameController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Inventory.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/Slot.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/ResourcesController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/InventorySlot.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Enemy.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Item.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/ItemObject.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/ItemsController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/EntityController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Equipment.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Item.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/ResourcesController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Environment/Room.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Editors/UtilityEditor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Editors/UtilityWindow.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/GameController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/LevelController.cs" />
       </list>
     </option>
   </component>
@@ -166,10 +168,10 @@
       <option name="pid" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="31256">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="31256" />
+      <option name="pid" />
       <method v="2" />
     </configuration>
   </component>
@@ -208,6 +210,14 @@
       <workItem from="1580565441900" duration="2514000" />
       <workItem from="1580569326863" duration="1913000" />
       <workItem from="1580648878049" duration="14769000" />
+      <workItem from="1581021254471" duration="740000" />
+      <workItem from="1581173350038" duration="339000" />
+      <workItem from="1583954452126" duration="642000" />
+      <workItem from="1584126565806" duration="5926000" />
+      <workItem from="1584216923861" duration="5236000" />
+      <workItem from="1584284492275" duration="51000" />
+      <workItem from="1584372956308" duration="610000" />
+      <workItem from="1584648393079" duration="3330000" />
     </task>
     <servers />
   </component>
@@ -332,10 +342,11 @@
     </state>
     <state x="461" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580408174202" />
     <state x="2381" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1580569352938" />
-    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1580686888438">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1584221396111">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040/-1407.-1080.1920.1040@0.0.1920.1040" timestamp="1584221396111" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580684784056" />
-    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1580686888438" />
+    <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581021513405" />
   </component>
 </project>

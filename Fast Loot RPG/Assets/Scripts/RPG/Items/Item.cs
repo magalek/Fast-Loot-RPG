@@ -47,7 +47,7 @@ namespace RPG.Items
             CalculateItemLevel(); 
         }
 
-        public void OnItemEquipped() => ItemEquipped?.Invoke();
+        public void OnItemEquipped() => ItemEquipped?.Invoke(); 
         public void OnItemUnequipped() => ItemUnequipped?.Invoke();
 
         private void CalculateItemLevel()
