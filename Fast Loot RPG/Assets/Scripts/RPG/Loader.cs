@@ -11,8 +11,8 @@ namespace RPG
             ResourcesController.Initialise();
             if (GameController.Instance == null)
                 Instantiate(ResourcesController.gameControllerPrefab);
-            if (Player.Instance == null) 
-                Instantiate(ResourcesController.playerPrefab);
+            // if (Player.Instance == null) 
+            //     Instantiate(ResourcesController.playerPrefab);
         }
     }
 }

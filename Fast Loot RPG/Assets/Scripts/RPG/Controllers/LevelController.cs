@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using RPG.Entities.AnimationControllers;
 using RPG.Environment;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -12,58 +14,115 @@ namespace RPG.Controllers {
         private static GameObject roomPrefab => Resources.Load<GameObject>("Prefabs/Environment Prefabs/Room");
         private static GameObject corridorPrefab => Resources.Load<GameObject>("Prefabs/Environment Prefabs/Corridor");
 
-        private static List<Vector2> points = new List<Vector2>();
+        private static List<Vector2> roomPositions = new List<Vector2>();
         
         private static bool recentlyAddedRoom = false;
+        private static int directionCounter = 0;
 
         public static IEnumerator GenerateLevel(int roomAmount, float distance) {
 
-            RoomPosition lastPosition = RoomPosition.zero();
+            RoomPosition nextPosition = RoomPosition.Zero();
 
-            for (int i = 0; i < roomAmount; i++) {
-                Object.Instantiate(roomPrefab, lastPosition.vector2, Quaternion.identity);
-                lastPosition = GetNextPosition(lastPosition, distance);
-                yield return new WaitForSeconds(0.5f);
+            for (int i = 0; i < roomAmount - 1; i++) {
+                CreateRoom(nextPosition);
+                
+                nextPosition = GetNextPosition(nextPosition, distance);
+                
+                if (i < roomAmount - 2)
+                    RoomPosition.positions.Add(nextPosition);
+                yield return new WaitForSeconds(0.1f);
+            }
+
+            foreach (var position in RoomPosition.positions) {
+                CreateCorridor(position);
+                yield return new WaitForSeconds(0.1f);
             }
             yield return null;
         }
 
-        private static RoomPosition GetNextPosition(RoomPosition previousPosition, float distance = 6) {
-            Direction randomDirection;
-            do {
-                randomDirection = (Direction)Random.Range(1, 4);
-            } while (randomDirection == previousPosition.direction);
+        private static void CreateRoom(RoomPosition nextPosition) {
+            GameObject.Instantiate(roomPrefab, nextPosition.vector2, Quaternion.identity);
+            roomPositions.Add(nextPosition.vector2);
+        }
 
-            switch (randomDirection) {
+        private static void CreateCorridor(RoomPosition roomPosition) {
+            Vector2 corridorPosition = Vector2.zero;
+            
+            switch (roomPosition.direction) {
+                case Direction.None:
+                    break;
                 case Direction.Top:
-                    return new RoomPosition(new Vector2(previousPosition.vector2.x, previousPosition.vector2.y + 1),
-                        Direction.Top);
+                    corridorPosition = new Vector2(roomPosition.vector2.x, roomPosition.vector2.y - 0.5f);
+                    break;
                 case Direction.Right:
-                    return new RoomPosition(new Vector2(previousPosition.vector2.x + 1, previousPosition.vector2.y),
-                        Direction.Right);
+                    corridorPosition = new Vector2(roomPosition.vector2.x - 0.5f, roomPosition.vector2.y);
+                    break;
                 case Direction.Down:
-                    return new RoomPosition(new Vector2(previousPosition.vector2.x, previousPosition.vector2.y - 1),
-                        Direction.Down);
+                    corridorPosition = new Vector2(roomPosition.vector2.x, roomPosition.vector2.y + 0.5f);
+                    break;
                 case Direction.Left:
-                    return new RoomPosition(new Vector2(previousPosition.vector2.x - 1, previousPosition.vector2.y),
-                        Direction.Left);
+                    corridorPosition = new Vector2(roomPosition.vector2.x + 0.5f, roomPosition.vector2.y);
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+            
+            GameObject.Instantiate(corridorPrefab, corridorPosition, Quaternion.identity);
+        }
+
+        private static RoomPosition GetNextPosition(RoomPosition previousPosition, float distance = 6) {
+            Direction randomDirection;
+            RoomPosition positionToReturn;
+            
+            do {
+                randomDirection = (Direction)Random.Range(1, 4);
+                
+                switch (randomDirection) {
+                    case Direction.Top:
+                        positionToReturn = new RoomPosition(new Vector2(previousPosition.vector2.x, previousPosition.vector2.y + 1),
+                            Direction.Top);
+                        break;
+                    case Direction.Right:
+                        positionToReturn = new RoomPosition(new Vector2(previousPosition.vector2.x + 1, previousPosition.vector2.y),
+                            Direction.Right);
+                        break;
+                    case Direction.Down:
+                        positionToReturn = new RoomPosition(new Vector2(previousPosition.vector2.x, previousPosition.vector2.y - 1),
+                            Direction.Down);
+                        break;
+                    case Direction.Left:
+                        positionToReturn = new RoomPosition(new Vector2(previousPosition.vector2.x - 1, previousPosition.vector2.y),
+                            Direction.Left);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            } while (roomPositions.Contains(positionToReturn.vector2));
+
+            if (previousPosition.direction == randomDirection)
+                directionCounter++;
+            else
+                directionCounter = 0;
+            
+            return positionToReturn;
         }
 
         public struct RoomPosition {
+            public static List<RoomPosition> positions = new List<RoomPosition>();
+            
             public Vector2 vector2;
             public Direction direction;
-
+            
             public RoomPosition(Vector2 _vector2, Direction _direction) {
                 vector2 = _vector2;
                 direction = _direction;
             }
 
-            public static RoomPosition zero() {
+            public static RoomPosition Zero() {
                 return new RoomPosition(Vector2.zero, Direction.None);
             }
+            
+            
         }
     }
 }

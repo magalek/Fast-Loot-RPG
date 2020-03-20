@@ -32716,6 +32716,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Entity Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 6920095924236198815, guid: 8f6fb576399e61945b91055e20c64a7f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5134895920423668955, guid: 8f6fb576399e61945b91055e20c64a7f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8f6fb576399e61945b91055e20c64a7f, type: 3}

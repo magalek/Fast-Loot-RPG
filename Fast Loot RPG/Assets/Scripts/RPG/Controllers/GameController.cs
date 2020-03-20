@@ -26,7 +26,7 @@ namespace RPG.Controllers
             else if (Instance != this)
                 Destroy(gameObject);
 
-            StartLevelGenerating(20, 1.5f);
+            StartLevelGenerating(50, 1.5f);
             
             DontDestroyOnLoad(gameObject);
         }
