@@ -97,6 +97,7 @@
               <e p="StartButton.cs" t="Include" />
             </e>
             <e p="Utility" t="Include">
+              <e p="ExtensionMethods.cs" t="Include" />
               <e p="Serializer.cs" t="Include" />
             </e>
           </e>

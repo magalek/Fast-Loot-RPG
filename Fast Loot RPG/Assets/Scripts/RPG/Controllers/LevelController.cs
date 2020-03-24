@@ -4,14 +4,17 @@ using System.Collections.Generic;
 using System.Linq;
 using RPG.Entities.AnimationControllers;
 using RPG.Environment;
+using RPG.Utility;
 using UnityEngine;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
 namespace RPG.Controllers {
     public static class LevelController {
+        public static event Action GenerationCompleted;
+        
         private const float Scale = 0.125f;
-        private static GameObject roomPrefab => Resources.Load<GameObject>("Prefabs/Environment Prefabs/Room 1");
+        private static List<GameObject> roomPrefabs => Resources.LoadAll<GameObject>("Prefabs/Environment Prefabs/Rooms").ToList();
         private static GameObject horizontalCorridorPrefab => Resources.Load<GameObject>("Prefabs/Environment Prefabs/Corridor Horizontal");
         private static GameObject verticalCorridorPrefab => Resources.Load<GameObject>("Prefabs/Environment Prefabs/Corridor Vertical");
 
@@ -23,7 +26,6 @@ namespace RPG.Controllers {
         private static float roomOffset = 2;
         
         public static IEnumerator GenerateLevel(int roomAmount, float distance) {
-
             RoomPosition nextPosition = RoomPosition.Zero();
 
             for (int i = 0; i < roomAmount - 1; i++) {
@@ -40,11 +42,13 @@ namespace RPG.Controllers {
                 CreateCorridor(position);
                 yield return new WaitForSeconds(0.1f);
             }
+            
+            GenerationCompleted?.Invoke();
             yield return null;
         }
 
         private static void CreateRoom(RoomPosition nextPosition) {
-            Object.Instantiate(roomPrefab, nextPosition.vector2, Quaternion.identity);
+            Object.Instantiate(roomPrefabs.RandomObject(), nextPosition.vector2, Quaternion.identity);
             roomPositions.Add(nextPosition.vector2);
         }
 

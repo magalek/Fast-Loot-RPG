@@ -61,6 +61,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Editors/UtilityWindow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/BattleUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/EnemyHealthBarUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Utility/ExtensionMethods.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/EquipmentUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/InventoryUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/PlayerUI.cs" root0="FORCE_HIGHLIGHTING" />
@@ -94,7 +95,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Events/BattleEvents.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Events/PlayerEvents.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/StatisticsStruct.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Effects/Controllers/EffectsController.cs" />
@@ -142,9 +142,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Editors/UtilityEditor.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Editors/UtilityWindow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/GameController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/LevelController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Loader.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Loader.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Utility/ExtensionMethods.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/LevelController.cs" />
       </list>
     </option>
   </component>
@@ -221,7 +222,7 @@
       <workItem from="1584648393079" duration="3836000" />
       <workItem from="1584660589541" duration="5170000" />
       <workItem from="1584878723154" duration="118000" />
-      <workItem from="1585071328065" duration="4715000" />
+      <workItem from="1585071328065" duration="6926000" />
     </task>
     <servers />
   </component>
