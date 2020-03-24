@@ -26,12 +26,12 @@ namespace RPG.Controllers
             else if (Instance != this)
                 Destroy(gameObject);
 
-            StartLevelGenerating(50, 1.5f);
+            StartLevelGenerating(10, 1.5f);
             
             DontDestroyOnLoad(gameObject);
         }
 
-        public void StartLevelGenerating(int roomAmount, float distance) {
+        private void StartLevelGenerating(int roomAmount, float distance) {
             StartCoroutine(LevelController.GenerateLevel(roomAmount, distance));
         }
 

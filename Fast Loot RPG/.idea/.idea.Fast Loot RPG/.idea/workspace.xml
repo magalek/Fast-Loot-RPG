@@ -135,16 +135,16 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/ItemsController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/EntityController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Equipment.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Item.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/ResourcesController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Environment/Room.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Editors/UtilityEditor.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Editors/UtilityWindow.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Loader.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/GameController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/LevelController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Loader.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/PlayerController.cs" />
       </list>
     </option>
   </component>
@@ -221,7 +221,7 @@
       <workItem from="1584648393079" duration="3836000" />
       <workItem from="1584660589541" duration="5170000" />
       <workItem from="1584878723154" duration="118000" />
-      <workItem from="1585071328065" duration="1243000" />
+      <workItem from="1585071328065" duration="4715000" />
     </task>
     <servers />
   </component>
@@ -366,10 +366,10 @@
     </state>
     <state x="461" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580408174202" />
     <state x="2381" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1580569352938" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1584660983463">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1585077734898">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040/-1407.-1080.1920.1040@0.0.1920.1040" timestamp="1584660983463" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040/-1407.-1080.1920.1040@0.0.1920.1040" timestamp="1585077734898" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580684784056" />
     <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581021513405" />
   </component>

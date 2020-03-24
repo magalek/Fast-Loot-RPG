@@ -11,7 +11,7 @@ using Random = UnityEngine.Random;
 namespace RPG.Controllers {
     public static class LevelController {
         private const float Scale = 0.125f;
-        private static GameObject roomPrefab => Resources.Load<GameObject>("Prefabs/Environment Prefabs/Room");
+        private static GameObject roomPrefab => Resources.Load<GameObject>("Prefabs/Environment Prefabs/Room 1");
         private static GameObject horizontalCorridorPrefab => Resources.Load<GameObject>("Prefabs/Environment Prefabs/Corridor Horizontal");
         private static GameObject verticalCorridorPrefab => Resources.Load<GameObject>("Prefabs/Environment Prefabs/Corridor Vertical");
 
@@ -20,6 +20,8 @@ namespace RPG.Controllers {
         private static bool recentlyAddedRoom = false;
         private static int directionCounter = 0;
 
+        private static float roomOffset = 2;
+        
         public static IEnumerator GenerateLevel(int roomAmount, float distance) {
 
             RoomPosition nextPosition = RoomPosition.Zero();
@@ -48,19 +50,21 @@ namespace RPG.Controllers {
 
         private static void CreateCorridor(RoomPosition roomPosition) {
             Vector2 corridorPosition;
+
+            float corridorOffset = roomOffset / 2;
             
             switch (roomPosition.direction) {
                 case Direction.Top:
-                    corridorPosition = new Vector2(roomPosition.vector2.x, roomPosition.vector2.y - 0.5f);
+                    corridorPosition = new Vector2(roomPosition.vector2.x, roomPosition.vector2.y - corridorOffset);
                     break;
                 case Direction.Right:
-                    corridorPosition = new Vector2(roomPosition.vector2.x - 0.5f, roomPosition.vector2.y);
+                    corridorPosition = new Vector2(roomPosition.vector2.x - corridorOffset, roomPosition.vector2.y);
                     break;
                 case Direction.Down:
-                    corridorPosition = new Vector2(roomPosition.vector2.x, roomPosition.vector2.y + 0.5f);
+                    corridorPosition = new Vector2(roomPosition.vector2.x, roomPosition.vector2.y + corridorOffset);
                     break;
                 case Direction.Left:
-                    corridorPosition = new Vector2(roomPosition.vector2.x + 0.5f, roomPosition.vector2.y);
+                    corridorPosition = new Vector2(roomPosition.vector2.x + corridorOffset, roomPosition.vector2.y);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -81,25 +85,25 @@ namespace RPG.Controllers {
         private static RoomPosition GetNextPosition(RoomPosition previousPosition, float distance = 6) {
             Direction randomDirection;
             RoomPosition positionToReturn;
-            
+
             do {
                 randomDirection = (Direction)Random.Range(1, 4);
                 
                 switch (randomDirection) {
                     case Direction.Top:
-                        positionToReturn = new RoomPosition(new Vector2(previousPosition.vector2.x, previousPosition.vector2.y + 1),
+                        positionToReturn = new RoomPosition(new Vector2(previousPosition.vector2.x, previousPosition.vector2.y + roomOffset),
                             Direction.Top);
                         break;
                     case Direction.Right:
-                        positionToReturn = new RoomPosition(new Vector2(previousPosition.vector2.x + 1, previousPosition.vector2.y),
+                        positionToReturn = new RoomPosition(new Vector2(previousPosition.vector2.x + roomOffset, previousPosition.vector2.y),
                             Direction.Right);
                         break;
                     case Direction.Down:
-                        positionToReturn = new RoomPosition(new Vector2(previousPosition.vector2.x, previousPosition.vector2.y - 1),
+                        positionToReturn = new RoomPosition(new Vector2(previousPosition.vector2.x, previousPosition.vector2.y - roomOffset),
                             Direction.Down);
                         break;
                     case Direction.Left:
-                        positionToReturn = new RoomPosition(new Vector2(previousPosition.vector2.x - 1, previousPosition.vector2.y),
+                        positionToReturn = new RoomPosition(new Vector2(previousPosition.vector2.x - roomOffset, previousPosition.vector2.y),
                             Direction.Left);
                         break;
                     default:

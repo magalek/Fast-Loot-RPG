@@ -6,13 +6,17 @@ namespace RPG.Entities.Movement {
     public class PlayerController : MonoBehaviour, IMoveable {
 
         private Transform cameraTransform;
+        private Rigidbody2D rigidbody2D => GetComponent<Rigidbody2D>();
         
         private void Start() {
             cameraTransform = MainCamera.Instance.transform;
         }
 
-        private void Update() {
+        private void FixedUpdate() {
             Move();
+        }
+
+        private void Update() {
             CenterCamera();
             
             if (Input.GetMouseButtonDown(0)) 
@@ -26,7 +30,8 @@ namespace RPG.Entities.Movement {
         }
 
         private void CenterCamera() {
-            cameraTransform.position = new Vector3(transform.position.x, transform.position.y, -10);
+            var position = transform.position;
+            cameraTransform.position = new Vector3(position.x, position.y, -10);
         }
 
         public void Move() {
@@ -37,12 +42,12 @@ namespace RPG.Entities.Movement {
                 if (xAxis > 0) Player.Instance.animationController.FlipSpriteX(false);
                 if (xAxis < 0) Player.Instance.animationController.FlipSpriteX(true);
 
-                Vector2 axisMovement 
-                    = new Vector2(xAxis * 0.01f, yAxis * 0.01f);
+                Vector3 axisMovement 
+                    = new Vector3(xAxis * 0.01f, yAxis * 0.01f);
                 
                 Player.Instance.animationController.SetIsRunning(true);
                 
-                transform.Translate(axisMovement);
+                rigidbody2D.MovePosition(transform.position += axisMovement);
             }
             else
                 Player.Instance.animationController.SetIsRunning(false);
