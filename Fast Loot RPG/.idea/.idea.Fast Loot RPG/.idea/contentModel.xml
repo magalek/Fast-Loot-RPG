@@ -23,6 +23,7 @@
             </e>
             <e p="AttackInfoStruct.cs" t="Include" />
             <e p="Controllers" t="Include">
+              <e p="Direction.cs" t="Include" />
               <e p="GameController.cs" t="Include" />
               <e p="ItemsController.cs" t="Include" />
               <e p="LevelController.cs" t="Include" />

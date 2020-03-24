@@ -71,6 +71,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Item.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/ItemsController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/HitTriggers/EntityHitTrigger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/Direction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/AnimationControllers/PlayerAnimationController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.9/UnityEngine.TestRunner/Utils/AssemblyProvider/AssemblyWrapper.cs" root0="FORCE_HIGHLIGHTING" />
@@ -142,8 +143,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Editors/UtilityEditor.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Editors/UtilityWindow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Loader.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/LevelController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/GameController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/LevelController.cs" />
       </list>
     </option>
   </component>
@@ -168,10 +169,10 @@
       <option name="pid" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="10852">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="10852" />
+      <option name="pid" />
       <method v="2" />
     </configuration>
   </component>
@@ -219,6 +220,8 @@
       <workItem from="1584372956308" duration="610000" />
       <workItem from="1584648393079" duration="3836000" />
       <workItem from="1584660589541" duration="5170000" />
+      <workItem from="1584878723154" duration="118000" />
+      <workItem from="1585071328065" duration="1243000" />
     </task>
     <servers />
   </component>

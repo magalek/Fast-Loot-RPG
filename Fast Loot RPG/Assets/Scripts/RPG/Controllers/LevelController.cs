@@ -12,7 +12,8 @@ namespace RPG.Controllers {
     public static class LevelController {
         private const float Scale = 0.125f;
         private static GameObject roomPrefab => Resources.Load<GameObject>("Prefabs/Environment Prefabs/Room");
-        private static GameObject corridorPrefab => Resources.Load<GameObject>("Prefabs/Environment Prefabs/Corridor");
+        private static GameObject horizontalCorridorPrefab => Resources.Load<GameObject>("Prefabs/Environment Prefabs/Corridor Horizontal");
+        private static GameObject verticalCorridorPrefab => Resources.Load<GameObject>("Prefabs/Environment Prefabs/Corridor Vertical");
 
         private static List<Vector2> roomPositions = new List<Vector2>();
         
@@ -41,16 +42,14 @@ namespace RPG.Controllers {
         }
 
         private static void CreateRoom(RoomPosition nextPosition) {
-            GameObject.Instantiate(roomPrefab, nextPosition.vector2, Quaternion.identity);
+            Object.Instantiate(roomPrefab, nextPosition.vector2, Quaternion.identity);
             roomPositions.Add(nextPosition.vector2);
         }
 
         private static void CreateCorridor(RoomPosition roomPosition) {
-            Vector2 corridorPosition = Vector2.zero;
+            Vector2 corridorPosition;
             
             switch (roomPosition.direction) {
-                case Direction.None:
-                    break;
                 case Direction.Top:
                     corridorPosition = new Vector2(roomPosition.vector2.x, roomPosition.vector2.y - 0.5f);
                     break;
@@ -66,8 +65,17 @@ namespace RPG.Controllers {
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-            
-            GameObject.Instantiate(corridorPrefab, corridorPosition, Quaternion.identity);
+
+            switch (roomPosition.direction) {
+                case Direction.Down:
+                case Direction.Top:
+                    Object.Instantiate(verticalCorridorPrefab, corridorPosition, Quaternion.identity);
+                    break;
+                case Direction.Left:
+                case Direction.Right:
+                    Object.Instantiate(horizontalCorridorPrefab, corridorPosition, Quaternion.identity);
+                    break;
+            }
         }
 
         private static RoomPosition GetNextPosition(RoomPosition previousPosition, float distance = 6) {
@@ -125,12 +133,4 @@ namespace RPG.Controllers {
             
         }
     }
-}
-
-public enum Direction {
-    None = 0,
-    Top = 1,
-    Right = 2,
-    Down = 3,
-    Left = 4
 }
