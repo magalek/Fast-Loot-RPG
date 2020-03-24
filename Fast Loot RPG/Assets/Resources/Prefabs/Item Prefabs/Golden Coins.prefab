@@ -50,7 +50,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    itemObject: {fileID: 5094606664694725529}
+    itemObjectPrefab: {fileID: 0}
     sprite: {fileID: 21300000, guid: 1f33299738ccd094a9e5b0b5940adbb8, type: 3}
     statistics:
       maxHealthPoints: 0
@@ -179,6 +179,7 @@ MonoBehaviour:
     type: 0
     ItemLevel: 0
     IsEquipped: 0
+  prefab: {fileID: 0}
   statRanges:
     healthPoints: {x: 0, y: 0}
     attack: {x: 0, y: 0}

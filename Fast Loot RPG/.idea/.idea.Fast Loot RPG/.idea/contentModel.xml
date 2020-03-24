@@ -83,6 +83,9 @@
               </e>
             </e>
             <e p="ItemStatisticsStruct.cs" t="Include" />
+            <e p="Lighting" t="Include">
+              <e p="LightGlow.cs" t="Include" />
+            </e>
             <e p="Loader.cs" t="Include" />
             <e p="Location.cs" t="Include" />
             <e p="StatisticsStruct.cs" t="Include" />
