@@ -13,7 +13,7 @@ namespace RPG.Editors {
 
         private void OnGUI() {
             if (GUILayout.Button("Generate Level")) {
-                //LevelController.GenerateLevel();
+                //LevelGenerator.GenerateLevel();
                 Debug.Log("Lolz");
             }
         }

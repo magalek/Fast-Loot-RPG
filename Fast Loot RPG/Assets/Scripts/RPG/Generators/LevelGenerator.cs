@@ -2,54 +2,50 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using RPG.Entities.AnimationControllers;
 using RPG.Environment;
 using RPG.Utility;
 using UnityEngine;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
-namespace RPG.Controllers {
-    public static class LevelController {
+namespace RPG.Generators {
+    public static class LevelGenerator {
         public static event Action GenerationCompleted;
         
-        private const float Scale = 0.125f;
         private static List<GameObject> roomPrefabs => Resources.LoadAll<GameObject>("Prefabs/Environment Prefabs/Rooms").ToList();
         private static GameObject horizontalCorridorPrefab => Resources.Load<GameObject>("Prefabs/Environment Prefabs/Corridor Horizontal");
         private static GameObject verticalCorridorPrefab => Resources.Load<GameObject>("Prefabs/Environment Prefabs/Corridor Vertical");
 
         private static List<Vector2> roomPositions = new List<Vector2>();
-        
-        private static bool recentlyAddedRoom = false;
-        private static int directionCounter = 0;
 
         private static float roomOffset = 2;
         
         public static IEnumerator GenerateLevel(int roomAmount, float distance) {
+            RoomPosition currentPosition = RoomPosition.Zero();
+            RoomPosition previousPosition = RoomPosition.Zero();
             RoomPosition nextPosition = RoomPosition.Zero();
 
             for (int i = 0; i < roomAmount - 1; i++) {
-                CreateRoom(nextPosition);
+                currentPosition = nextPosition;
+                if (i < roomAmount - 2)
+                    nextPosition = GetNextRoomPosition(currentPosition, distance);
                 
-                nextPosition = GetNextPosition(nextPosition, distance);
+                RoomGenerator.CreateRoom(previousPosition, currentPosition, nextPosition);
+                roomPositions.Add(currentPosition.vector2);
                 
                 if (i < roomAmount - 2)
                     RoomPosition.positions.Add(nextPosition);
-                yield return new WaitForSeconds(0.1f);
+                previousPosition = currentPosition;
+                yield return new WaitForSeconds(1f);
             }
 
             foreach (var position in RoomPosition.positions) {
                 CreateCorridor(position);
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(1f);
             }
             
-            GenerationCompleted?.Invoke();
             yield return null;
-        }
-
-        private static void CreateRoom(RoomPosition nextPosition) {
-            Object.Instantiate(roomPrefabs.RandomObject(), nextPosition.vector2, Quaternion.identity);
-            roomPositions.Add(nextPosition.vector2);
+            GenerationCompleted?.Invoke();
         }
 
         private static void CreateCorridor(RoomPosition roomPosition) {
@@ -86,28 +82,27 @@ namespace RPG.Controllers {
             }
         }
 
-        private static RoomPosition GetNextPosition(RoomPosition previousPosition, float distance = 6) {
-            Direction randomDirection;
+        private static RoomPosition GetNextRoomPosition(RoomPosition currentPosition, float distance = 6) {
             RoomPosition positionToReturn;
 
             do {
-                randomDirection = (Direction)Random.Range(1, 4);
-                
+                var randomDirection = (Direction)Random.Range(1, 4);
+
                 switch (randomDirection) {
                     case Direction.Top:
-                        positionToReturn = new RoomPosition(new Vector2(previousPosition.vector2.x, previousPosition.vector2.y + roomOffset),
+                        positionToReturn = new RoomPosition(new Vector2(currentPosition.vector2.x, currentPosition.vector2.y + roomOffset),
                             Direction.Top);
                         break;
                     case Direction.Right:
-                        positionToReturn = new RoomPosition(new Vector2(previousPosition.vector2.x + roomOffset, previousPosition.vector2.y),
+                        positionToReturn = new RoomPosition(new Vector2(currentPosition.vector2.x + roomOffset, currentPosition.vector2.y),
                             Direction.Right);
                         break;
                     case Direction.Down:
-                        positionToReturn = new RoomPosition(new Vector2(previousPosition.vector2.x, previousPosition.vector2.y - roomOffset),
+                        positionToReturn = new RoomPosition(new Vector2(currentPosition.vector2.x, currentPosition.vector2.y - roomOffset),
                             Direction.Down);
                         break;
                     case Direction.Left:
-                        positionToReturn = new RoomPosition(new Vector2(previousPosition.vector2.x - roomOffset, previousPosition.vector2.y),
+                        positionToReturn = new RoomPosition(new Vector2(currentPosition.vector2.x - roomOffset, currentPosition.vector2.y),
                             Direction.Left);
                         break;
                     default:
@@ -115,30 +110,9 @@ namespace RPG.Controllers {
                 }
             } while (roomPositions.Contains(positionToReturn.vector2));
 
-            if (previousPosition.direction == randomDirection)
-                directionCounter++;
-            else
-                directionCounter = 0;
-            
             return positionToReturn;
         }
 
-        public struct RoomPosition {
-            public static List<RoomPosition> positions = new List<RoomPosition>();
-            
-            public Vector2 vector2;
-            public Direction direction;
-            
-            public RoomPosition(Vector2 _vector2, Direction _direction) {
-                vector2 = _vector2;
-                direction = _direction;
-            }
-
-            public static RoomPosition Zero() {
-                return new RoomPosition(Vector2.zero, Direction.None);
-            }
-            
-            
-        }
+        
     }
 }

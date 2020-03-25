@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using RPG.Entities;
 using RPG.Events;
+using RPG.Generators;
 using RPG.Items;
 using RPG.UI;
 using UnityEngine;
@@ -17,22 +18,21 @@ namespace RPG.Controllers
 
         public int killCount;
 
-        private bool InstantBattle;
-        private static Enemy currentEnemy;
-
         private void Awake() {
             if (Instance == null)
                 Instance = this;
             else if (Instance != this)
                 Destroy(gameObject);
 
-            StartLevelGenerating(10, 1.5f);
+            
+            StartLevelGenerating(20, 1.5f);
             
             DontDestroyOnLoad(gameObject);
         }
 
         private void StartLevelGenerating(int roomAmount, float distance) {
-            StartCoroutine(LevelController.GenerateLevel(roomAmount, distance));
+            RoomGenerator.Init();
+            StartCoroutine(LevelGenerator.GenerateLevel(roomAmount, distance));
         }
 
         private Enemy GetEnemy() {

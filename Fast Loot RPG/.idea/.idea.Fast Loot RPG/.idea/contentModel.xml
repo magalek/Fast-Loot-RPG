@@ -23,10 +23,8 @@
             </e>
             <e p="AttackInfoStruct.cs" t="Include" />
             <e p="Controllers" t="Include">
-              <e p="Direction.cs" t="Include" />
               <e p="GameController.cs" t="Include" />
               <e p="ItemsController.cs" t="Include" />
-              <e p="LevelController.cs" t="Include" />
               <e p="ResourcesController.cs" t="Include" />
               <e p="StateController.cs" t="Include" />
             </e>
@@ -57,7 +55,10 @@
               <e p="Player.cs" t="Include" />
             </e>
             <e p="Environment" t="Include">
+              <e p="Direction.cs" t="Include" />
               <e p="Room.cs" t="Include" />
+              <e p="RoomPosition.cs" t="Include" />
+              <e p="RoomVariant.cs" t="Include" />
             </e>
             <e p="Events" t="Include">
               <e p="BattleEvents.cs" t="Include" />
@@ -65,6 +66,10 @@
               <e p="EntityEvents.cs" t="Include" />
               <e p="InventoryEvents.cs" t="Include" />
               <e p="PlayerEvents.cs" t="Include" />
+            </e>
+            <e p="Generators" t="Include">
+              <e p="LevelGenerator.cs" t="Include" />
+              <e p="RoomGenerator.cs" t="Include" />
             </e>
             <e p="HitTriggers" t="Include">
               <e p="EntityHitTrigger.cs" t="Include" />

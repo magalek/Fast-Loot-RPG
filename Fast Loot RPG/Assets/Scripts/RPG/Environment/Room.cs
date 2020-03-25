@@ -1,5 +1,7 @@
 ﻿namespace RPG.Environment {
-    public class Room {
-        
+    public class Room : UnityEngine.MonoBehaviour {
+
+        public RoomVariant roomVariant;
+
     }
 }
