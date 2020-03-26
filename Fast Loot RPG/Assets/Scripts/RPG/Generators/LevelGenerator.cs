@@ -36,12 +36,12 @@ namespace RPG.Generators {
                 if (i < roomAmount - 2)
                     RoomPosition.positions.Add(nextPosition);
                 previousPosition = currentPosition;
-                yield return new WaitForSeconds(1f);
+                //yield return new WaitForSeconds(1f);
             }
 
             foreach (var position in RoomPosition.positions) {
                 CreateCorridor(position);
-                yield return new WaitForSeconds(1f);
+                //yield return new WaitForSeconds(1f);
             }
             
             yield return null;
