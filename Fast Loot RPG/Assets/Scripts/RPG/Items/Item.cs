@@ -9,8 +9,6 @@ namespace RPG.Items
     [Serializable]
     public class Item
     {
-        public event Action ItemEquipped;
-        public event Action ItemUnequipped;
 
         //public Sprite sprite;
         public Color color { get
@@ -45,53 +43,5 @@ namespace RPG.Items
             sprite = itemObject.GetComponentInChildren<SpriteRenderer>().sprite;
             type = itemObject.type;
         }
-
-        public void OnItemEquipped() => ItemEquipped?.Invoke(); 
-        public void OnItemUnequipped() => ItemUnequipped?.Invoke();
-
-        //TODO: Waiting for legendary items feature
-        // public void AddLegendaryAbility()
-        // {
-        //     switch (type)
-        //     {
-        //         case ItemType.Sword:
-        //             gameObject.AddComponent<LegendarySwordAbility>();                
-        //             break;
-        //         case ItemType.Mace:
-        //             gameObject.AddComponent<LegendaryMaceAbility>();
-        //             break;
-        //         case ItemType.Dagger:
-        //             break;
-        //         case ItemType.Armor:
-        //             gameObject.AddComponent<LegendaryArmorAbility>();
-        //             break;
-        //         case ItemType.Helmet:
-        //             break;
-        //         case ItemType.Pants:
-        //             break;
-        //         case ItemType.Shield:
-        //             break;
-        //         default:
-        //             break;
-        //     }
-        // }
-    }
-
-    public enum ItemRarity
-    {
-        Common,
-        Legendary
-    }
-
-    public enum ItemType
-    {
-        Sword,
-        Mace,
-        Dagger,
-        Armor,
-        Helmet,
-        Pants,
-        Shield,
-        Other
     }
 }

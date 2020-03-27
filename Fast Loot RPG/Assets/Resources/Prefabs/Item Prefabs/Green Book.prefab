@@ -165,9 +165,7 @@ MonoBehaviour:
   item:
     itemObjectPrefab: {fileID: 0}
     sprite: {fileID: 21300000, guid: 1f33299738ccd094a9e5b0b5940adbb8, type: 3}
-    statistics:
-      maxHealthPoints: 0
-      healthPoints: 0
+    stats:
       attack: 0
       defense: 0
       hitChance: 0
@@ -176,7 +174,7 @@ MonoBehaviour:
       criticalChance: 0
       criticalDamage: 0
     rarity: 0
-    type: 0
+    type: 7
     ItemLevel: 0
     IsEquipped: 0
   prefab: {fileID: 0}

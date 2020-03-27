@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 222563031773498576}
   - component: {fileID: 114935149886420340}
   m_Layer: 0
-  m_Name: UI Border
+  m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 4954047007518007209}
   - component: {fileID: 222945462092897112}
   m_Layer: 0
-  m_Name: Item Sprite
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -235,15 +235,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45bddb345e33d0e41873f7b48436705f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSpriteSlot: {fileID: 1381834731088684}
-  slotBorder: {fileID: 114935149886420340}
-  isEmpty: 0
+  isEmpty: 1
   item:
-    itemObject: {fileID: 0}
+    itemObjectPrefab: {fileID: 0}
     sprite: {fileID: 0}
-    statistics:
-      maxHealthPoints: 0
-      healthPoints: 0
+    stats:
       attack: 0
       defense: 0
       hitChance: 0

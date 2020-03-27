@@ -8,7 +8,7 @@ namespace RPG.Items {
 
         public GameObject prefab;
         
-        public ItemStatistics statRanges;
+        public ItemStats statRanges;
         public ItemType type;
 
         private bool recentlyDropped = false;

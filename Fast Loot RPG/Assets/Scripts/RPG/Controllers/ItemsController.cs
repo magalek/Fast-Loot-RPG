@@ -25,9 +25,8 @@ namespace RPG.Controllers
                 itemObject.IsRecentlyDropped(true);
             }
             else {
-                ItemObject itemObject = InstantiateItemObjectAtPosition(position);
+                InstantiateItemObjectAtPosition(position);
             }
-            
         }
     }
 }

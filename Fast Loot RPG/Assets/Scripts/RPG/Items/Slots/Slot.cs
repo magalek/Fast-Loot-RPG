@@ -6,42 +6,33 @@ using UnityEngine.UI;
 
 namespace RPG.Items.Slots
 {
-    public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
-    {
-        [SerializeField] GameObject itemSpriteSlot;
-        [SerializeField] Image slotBorder;
+    public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler {
 
-        public bool isEmpty;
-        private Button slotButton;
+        public bool isEmpty = true;
         public Item item;
         
         private Entity owner;
+        public SlotGraphics slotGraphics;
 
         private void Awake() {
-            isEmpty = true;
-            item = null;
-            itemSpriteSlot.GetComponent<Image>().color = Color.clear;
+            slotGraphics = new SlotGraphics(this);
         }
         
-        public void HandleAddedItem(Item addedItem)
-        {
+        public void InsertItem(Item addedItem) {
             if (addedItem == null)
                 return;
             
-            isEmpty = false;
             item = addedItem;
-            itemSpriteSlot.GetComponent<Image>().sprite = item?.sprite;
-            itemSpriteSlot.GetComponent<Image>().color = Color.white;
-            slotBorder.color = item.color;
+            isEmpty = false;
+            
+            slotGraphics.Change(addedItem);
         }
 
-        public void RemoveItem(bool destroy = false)
-        {
+        public void RemoveItem(bool destroy = false) {
             item = null;
             isEmpty = true;
-            itemSpriteSlot.GetComponent<Image>().sprite = null;
-            itemSpriteSlot.GetComponent<Image>().color = Color.clear;
-            slotBorder.color = Color.black;        
+           
+            slotGraphics.Change();
         }
 
         protected virtual void SlotLeftButtonClick() { }

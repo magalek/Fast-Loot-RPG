@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [System.Serializable]
-public struct ItemStatistics
+public struct ItemStats
 {
     public Vector2 healthPoints;
     public Vector2 attack;

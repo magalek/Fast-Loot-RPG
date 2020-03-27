@@ -11,17 +11,22 @@ using Random = UnityEngine.Random;
 namespace RPG.Generators {
     public static class LevelGenerator {
         public static event Action GenerationCompleted;
-        
-        private static List<GameObject> roomPrefabs => Resources.LoadAll<GameObject>("Prefabs/Environment Prefabs/Rooms").ToList();
         private static GameObject horizontalCorridorPrefab => Resources.Load<GameObject>("Prefabs/Environment Prefabs/Corridor Horizontal");
         private static GameObject verticalCorridorPrefab => Resources.Load<GameObject>("Prefabs/Environment Prefabs/Corridor Vertical");
 
         private static List<Vector2> roomPositions = new List<Vector2>();
 
         private static float roomOffset = 2;
+
+        private static Transform levelParent;
+
+        public static void Init() {
+            levelParent = GameObject.Find("Level").transform;
+            RoomGenerator.Init();
+        }
         
         public static IEnumerator GenerateLevel(int roomAmount, float distance) {
-            RoomPosition currentPosition = RoomPosition.Zero();
+            RoomPosition currentPosition;
             RoomPosition previousPosition = RoomPosition.Zero();
             RoomPosition nextPosition = RoomPosition.Zero();
 
@@ -30,7 +35,8 @@ namespace RPG.Generators {
                 if (i < roomAmount - 2)
                     nextPosition = GetNextRoomPosition(currentPosition, distance);
                 
-                RoomGenerator.CreateRoom(previousPosition, currentPosition, nextPosition);
+                var room = RoomGenerator.CreateRoom(previousPosition, currentPosition, nextPosition);
+                room.transform.SetParent(levelParent);
                 roomPositions.Add(currentPosition.vector2);
                 
                 if (i < roomAmount - 2)
@@ -40,7 +46,8 @@ namespace RPG.Generators {
             }
 
             foreach (var position in RoomPosition.positions) {
-                CreateCorridor(position);
+                var corridor = CreateCorridor(position);
+                corridor.transform.SetParent(levelParent);
                 //yield return new WaitForSeconds(1f);
             }
             
@@ -48,7 +55,7 @@ namespace RPG.Generators {
             GenerationCompleted?.Invoke();
         }
 
-        private static void CreateCorridor(RoomPosition roomPosition) {
+        private static GameObject CreateCorridor(RoomPosition roomPosition) {
             Vector2 corridorPosition;
 
             float corridorOffset = roomOffset / 2;
@@ -73,13 +80,12 @@ namespace RPG.Generators {
             switch (roomPosition.direction) {
                 case Direction.Down:
                 case Direction.Top:
-                    Object.Instantiate(verticalCorridorPrefab, corridorPosition, Quaternion.identity);
-                    break;
+                    return Object.Instantiate(verticalCorridorPrefab, corridorPosition, Quaternion.identity);
                 case Direction.Left:
                 case Direction.Right:
-                    Object.Instantiate(horizontalCorridorPrefab, corridorPosition, Quaternion.identity);
-                    break;
+                    return Object.Instantiate(horizontalCorridorPrefab, corridorPosition, Quaternion.identity);
             }
+            return null;
         }
 
         private static RoomPosition GetNextRoomPosition(RoomPosition currentPosition, float distance = 6) {

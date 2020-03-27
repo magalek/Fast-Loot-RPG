@@ -7,8 +7,7 @@ namespace RPG.Items.Slots
     public class EquipmentSlot : Slot  {
 
         public ItemType slotItemType;
-        
-        
+
         protected override void SlotLeftButtonClick() {
             if (item == null) 
                 return;

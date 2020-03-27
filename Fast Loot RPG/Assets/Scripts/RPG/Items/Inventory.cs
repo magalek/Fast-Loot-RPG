@@ -58,7 +58,7 @@ namespace RPG.Items
             if (firstEmptySlot == null) 
                 return;
             
-            firstEmptySlot.HandleAddedItem(itemToAdd);
+            firstEmptySlot.InsertItem(itemToAdd);
             if (sendInventoryEvent)
                 InventoryEvents.OnInventoryChange(itemToAdd.type);
         }
@@ -87,7 +87,7 @@ namespace RPG.Items
             allItemsInTab = allItemsInTab.OrderByDescending(i => i?.ItemLevel).ToList();
 
             itemTab.RemoveItemsInTab();
-            itemTab.AddItemsToTab(allItemsInTab);
+            itemTab.AddItems(allItemsInTab);
         }
     }
 }

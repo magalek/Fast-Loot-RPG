@@ -31,7 +31,7 @@ namespace RPG.Controllers
         }
 
         private void StartLevelGenerating(int roomAmount, float distance) {
-            RoomGenerator.Init();
+            LevelGenerator.Init();
             StartCoroutine(LevelGenerator.GenerateLevel(roomAmount, distance));
         }
 

@@ -67,13 +67,16 @@
               <e p="Item.cs" t="Include" />
               <e p="ItemObject.cs" t="Include" />
               <e p="ItemTab.cs" t="Include" />
+              <e p="ItemType.cs" t="Include" />
+              <e p="Rarity.cs" t="Include" />
               <e p="Slots" t="Include">
                 <e p="EquipmentSlot.cs" t="Include" />
                 <e p="InventorySlot.cs" t="Include" />
                 <e p="Slot.cs" t="Include" />
+                <e p="SlotGraphics.cs" t="Include" />
               </e>
             </e>
-            <e p="ItemStatisticsStruct.cs" t="Include" />
+            <e p="ItemStats.cs" t="Include" />
             <e p="Lighting" t="Include">
               <e p="LightGlow.cs" t="Include" />
             </e>
