@@ -1,5 +1,7 @@
 # Welcome to my project!
 
+If you want to hear more about the progress, visti my website: https://filipwalczak98.wixsite.com/website
+
 This is a very very very early version, but if you want to see what I've already done, head here https://drive.google.com/open?id=1C21ulfixBkzAaghhLIaLteQFtK2rt3pr, download, unzip and run the .exe
 
 Sprites are taken from these awesome packs:
