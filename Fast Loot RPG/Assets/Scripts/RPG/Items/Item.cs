@@ -31,7 +31,7 @@ namespace RPG.Items
         public Sprite sprite;
         
         [Header("Stats")]
-        public Statistics statistics;
+        public Stats stats;
 
         public ItemRarity rarity;
         public ItemType type;
@@ -41,20 +41,13 @@ namespace RPG.Items
 
         public Item(ItemObject itemObject) {
             itemObjectPrefab = itemObject.prefab;
-            statistics = itemObject.statRanges.GetRandomStats();
+            stats = itemObject.statRanges.GetRandomStats();
             sprite = itemObject.GetComponentInChildren<SpriteRenderer>().sprite;
             type = itemObject.type;
-            CalculateItemLevel(); 
         }
 
         public void OnItemEquipped() => ItemEquipped?.Invoke(); 
         public void OnItemUnequipped() => ItemUnequipped?.Invoke();
-
-        private void CalculateItemLevel()
-        {
-            ItemLevel += statistics.healthPoints;
-            ItemLevel += statistics.attack;
-        }
 
         //TODO: Waiting for legendary items feature
         // public void AddLegendaryAbility()

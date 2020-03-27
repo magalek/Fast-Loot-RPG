@@ -12,7 +12,6 @@ namespace RPG.Items {
         public ItemType type;
 
         private bool recentlyDropped = false;
-        
         public void SetItem(Item itemToSet) => item = itemToSet;
         public void SetPrefab(GameObject prefabToSet) => prefab = prefabToSet;
         public void IsRecentlyDropped(bool recentlyDropped) => this.recentlyDropped = recentlyDropped;

@@ -1,4 +1,5 @@
-﻿using RPG.UI;
+﻿using RPG.Entities;
+using RPG.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -13,6 +14,8 @@ namespace RPG.Items.Slots
         public bool isEmpty;
         private Button slotButton;
         public Item item;
+        
+        private Entity owner;
 
         private void Awake() {
             isEmpty = true;
@@ -64,7 +67,7 @@ namespace RPG.Items.Slots
         public virtual void OnPointerEnter(PointerEventData eventData)
         {
             if (item != null)
-                ItemTooltip.ChangeTooltip(item.statistics.ToString());
+                ItemTooltip.ChangeTooltip(item.stats.ToString());
         }
 
         public virtual void OnPointerExit(PointerEventData eventData)

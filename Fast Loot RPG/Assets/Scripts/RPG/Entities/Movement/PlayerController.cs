@@ -4,34 +4,20 @@ using UnityEngine;
 
 namespace RPG.Entities.Movement {
     public class PlayerController : MonoBehaviour, IMoveable {
-
-        private Transform cameraTransform;
         private Rigidbody2D rigidbody2D => GetComponent<Rigidbody2D>();
-        
-        private void Start() {
-            cameraTransform = MainCamera.Instance.transform;
-        }
 
         private void FixedUpdate() {
             Move();
         }
 
         private void Update() {
-            CenterCamera();
-            
             if (Input.GetMouseButtonDown(0)) 
                 Attack();
         }
 
         private void Attack() {
-            
             Player.Instance.animationController.RotateWeaponSprite();
             Player.Instance.animationController.PlayAttack();
-        }
-
-        private void CenterCamera() {
-            var position = transform.position;
-            cameraTransform.position = new Vector3(position.x, position.y, -10);
         }
 
         public void Move() {
@@ -48,6 +34,7 @@ namespace RPG.Entities.Movement {
                 Player.Instance.animationController.SetIsRunning(true);
                 
                 rigidbody2D.MovePosition(transform.position += axisMovement);
+                MainCamera.Instance.Center(transform);
             }
             else
                 Player.Instance.animationController.SetIsRunning(false);

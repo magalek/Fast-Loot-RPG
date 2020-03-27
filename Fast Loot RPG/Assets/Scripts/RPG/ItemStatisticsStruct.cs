@@ -12,11 +12,10 @@ public struct ItemStatistics
     public Vector2 criticalChance;
     public Vector2 criticalDamage;
 
-    public Statistics GetRandomStats()
+    public Stats GetRandomStats()
     {
-        return new Statistics
+        return new Stats
         {
-            maxHealthPoints = (int)Random.Range(healthPoints.x, healthPoints.y + 1),
             attack = (int)Random.Range(attack.x, attack.y + 1),
             defense = Random.Range(defense.x, defense.y),
             hitChance = Random.Range(hitChance.x, hitChance.y),

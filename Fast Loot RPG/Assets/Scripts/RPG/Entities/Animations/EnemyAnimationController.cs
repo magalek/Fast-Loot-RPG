@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace RPG.Entities.AnimationControllers {
+﻿namespace RPG.Entities.Animations {
     public class EnemyAnimationController : EntityAnimationController {
         
     }

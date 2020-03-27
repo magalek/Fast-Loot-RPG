@@ -10,11 +10,11 @@ namespace RPG.UI {
 
         private void Awake() {
             playerUICanvas.worldCamera = MainCamera.Instance.GetComponent<Camera>();
-            Player.Instance.HealthChanged += ChangePlayerHealthBar;
+            Player.Instance.health.Changed += ChangePlayerHealthBar;
         }
 
         private void ChangePlayerHealthBar()
-            => playerHealthBarImage.fillAmount = Player.Instance.healthPercentage;
+            => playerHealthBarImage.fillAmount = Player.Instance.health.percentage;
 
     }
 }

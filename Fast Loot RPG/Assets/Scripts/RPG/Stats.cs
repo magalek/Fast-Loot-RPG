@@ -2,10 +2,8 @@
 using UnityEngine.UIElements;
 
 [System.Serializable]
-public class Statistics 
+public class Stats 
 {
-    public int maxHealthPoints;
-    public int healthPoints;
     public int attack;
     public float defense;
     public float hitChance;
@@ -14,11 +12,11 @@ public class Statistics
     public float criticalChance;
     public float criticalDamage;
 
-    public static Statistics operator +(Statistics a, Statistics b)
+    public static Stats operator +(Stats a, Stats b)
     {
-        Statistics result = new Statistics {
-            maxHealthPoints = a.maxHealthPoints + b.healthPoints,
-            healthPoints = a.healthPoints + b.healthPoints,
+        Stats result = new Stats {
+            //maxHealthPoints = a.maxHealthPoints + b.healthPoints,
+            //healthPoints = a.healthPoints + b.healthPoints,
             attack = a.attack + b.attack,
             defense = a.defense + b.defense,
             hitChance = a.hitChance + b.hitChance,
@@ -29,11 +27,11 @@ public class Statistics
         return result;
     }
 
-    public static Statistics operator -(Statistics a, Statistics b)
+    public static Stats operator -(Stats a, Stats b)
     {
-        Statistics result = new Statistics {
-            maxHealthPoints = a.maxHealthPoints - b.healthPoints,
-            healthPoints = a.healthPoints - b.healthPoints,
+        Stats result = new Stats {
+            //maxHealthPoints = a.maxHealthPoints - b.healthPoints,
+            //healthPoints = a.healthPoints - b.healthPoints,
             attack = a.attack - b.attack,
             defense = a.defense - b.defense,
             hitChance = a.hitChance - b.hitChance,
@@ -46,7 +44,7 @@ public class Statistics
 
     public void Checkstats(Entity entity)
     {
-        if (healthPoints < 0) healthPoints = 0;
+        //if (healthPoints < 0) healthPoints = 0;
         if (attack < 0) attack = 0;
         if (defense < 0) defense = 0;
         if (hitChance < 0) hitChance = 0;
@@ -58,7 +56,7 @@ public class Statistics
     public override string ToString()
     {
         return
-            $"Health Points: {healthPoints}\n" +
+            //$"Health Points: {healthPoints}\n" +
             $"Attack: {attack}\n" +
             $"Defense: {defense.ToString("0.00")}\n" +
             $"Hit Chance: {hitChance.ToString("0.00")}\n" +

@@ -1,18 +1,21 @@
 ﻿using System;
 using RPG.Controllers;
+using RPG.Entities.Animations;
 using RPG.Events;
 using RPG.Items;
+using RPG.Utility;
 using Random = UnityEngine.Random;
 
 namespace RPG.Entities
 {
-    public class Enemy : Entity
-    {
+    public class Enemy : Entity, IHittable, IComponentCache {
         public float lootChance;
 
+        public EnemyAnimationController animationController;
+        
         private void Awake() {
-            SetTag();
-            SetComponents();
+            base.Awake();
+            CacheComponents();
         }
         
         protected override void Kill() {
@@ -23,8 +26,16 @@ namespace RPG.Entities
             base.Kill();
         }
 
-        protected override void SetTag() {
-            tag = "Enemy";
+        public void Hit(int damage) {
+            health.Subtract(damage);
+            animationController.PlayHit();
+            
+            if (health.zeroOrLess)
+                Kill();
+        }
+
+        public void CacheComponents() {
+            animationController = GetComponent<EnemyAnimationController>();
         }
     }
 }

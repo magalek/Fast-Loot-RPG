@@ -1,7 +1,7 @@
 ﻿using RPG.UI;
 using UnityEngine;
 
-namespace RPG.Entities.AnimationControllers {
+namespace RPG.Entities.Animations {
     public class PlayerAnimationController : EntityAnimationController {
 
         [SerializeField] public Transform weaponSpriteParent;

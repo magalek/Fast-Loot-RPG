@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+﻿using RPG.Utility;
+using UnityEngine;
 
-namespace RPG.Entities.AnimationControllers {
-    public class EntityAnimationController : MonoBehaviour {
-        
+namespace RPG.Entities.Animations {
+    public class EntityAnimationController : MonoBehaviour, IComponentCache{
         public Animator animator;
         public SpriteRenderer spriteRenderer;
 
@@ -11,10 +11,14 @@ namespace RPG.Entities.AnimationControllers {
         private static readonly int HitId = Animator.StringToHash("Hit");
         
         private void Awake() {
+            CacheComponents();
+        }
+        
+        public void CacheComponents() {
             animator = GetComponent<Animator>();
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
-        
+
         public void FlipSpriteX(bool flip) {
             spriteRenderer.flipX = flip;
         }
@@ -22,5 +26,7 @@ namespace RPG.Entities.AnimationControllers {
         public void SetIsRunning(bool animate) => animator.SetBool(IsRunningId, animate);
         public void PlayAttack() => animator.SetTrigger(AttackId);
         public void PlayHit() => animator.SetTrigger(HitId);
+        
+        
     }
 }

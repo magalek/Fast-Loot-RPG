@@ -20,13 +20,13 @@ namespace RPG.Effects.Controllers {
         public void AddEffect(Effect effectToAdd)
         {
             effects.Add(effectToAdd);
-            _entity.statistics += effectToAdd.statistics;
+            _entity.stats += effectToAdd.Stats;
         }
 
         public void RemoveEffect(Effect effectToRemove)
         {
             effects.Remove(effectToRemove);
-            _entity.statistics -= effectToRemove.statistics;
+            _entity.stats -= effectToRemove.Stats;
         }
 
         private void UpdateDurations(int amount)

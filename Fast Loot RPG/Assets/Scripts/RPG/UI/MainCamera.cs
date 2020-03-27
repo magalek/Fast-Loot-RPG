@@ -17,5 +17,9 @@ namespace RPG.UI {
             
             DontDestroyOnLoad(this);
         }
+
+        public void Center(Transform transform) {
+            this.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
+        }
     }
 }

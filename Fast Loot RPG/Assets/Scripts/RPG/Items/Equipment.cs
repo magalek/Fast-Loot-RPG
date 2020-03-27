@@ -7,21 +7,21 @@ namespace RPG.Items
 {
     public class Equipment : MonoBehaviour
     {
-        public static Equipment Instance;
+        //public static Equipment Instance;
 
         [SerializeField] Transform equipmentGridTransform;
 
         static EquipmentSlot[] equipmentSlots;
 
-        static Player player;
+        static Entity owner;
 
         private void Awake() {
-            if (Instance == null)
-                Instance = this;
-            else if (Instance != this)
-                Destroy(gameObject);
+            // if (Instance == null)
+            //     Instance = this;
+            // else if (Instance != this)
+            //     Destroy(gameObject);
 
-            player = FindObjectOfType<Player>();
+            owner = GetComponentInParent<Player>();
 
             InitializeEquipmentSlots();
         }
@@ -35,7 +35,7 @@ namespace RPG.Items
             EquipmentSlot correctSlot = GetCorrectSlot(item);
             if (correctSlot && correctSlot.isEmpty) {
                 correctSlot.HandleAddedItem(item);
-                player.statistics += item.statistics;           
+                owner.stats += item.stats;           
                 item.IsEquipped = true;
                 item.OnItemEquipped();
                 InventoryEvents.OnInventoryChange(item.type);
@@ -45,7 +45,7 @@ namespace RPG.Items
         }
 
         public static void UnequipItem(Item item, EquipmentSlot equipmentSlot) {
-            player.statistics -= item.statistics;
+            owner.stats -= item.stats;
             Inventory.AddItem(item, false);
             equipmentSlot.item = null;        
             item.IsEquipped = false;

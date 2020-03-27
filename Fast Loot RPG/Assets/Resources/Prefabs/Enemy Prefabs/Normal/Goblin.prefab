@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3100450806085328670}
   - component: {fileID: 6607082494758874316}
   - component: {fileID: 114061161916870746}
-  - component: {fileID: -4616968793854791617}
+  - component: {fileID: -920990197502649319}
   - component: {fileID: 2837428645129453061}
   - component: {fileID: 6778525697188804943}
+  - component: {fileID: -7633230284069222568}
   - component: {fileID: 4494947930399651340}
   - component: {fileID: 3977337770158352940}
   m_Layer: 0
@@ -128,19 +129,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityName: <color="red">Ghoul</color>
-  statistics:
-    maxHealthPoints: 30
-    healthPoints: 30
-    attack: 2
+  health: {fileID: 0}
+  stats:
+    attack: 0
     defense: 0
-    hitChance: 1
-    dodgeChance: 0.1
+    hitChance: 0
+    dodgeChance: 0
     blockChance: 0
     criticalChance: 0
     criticalDamage: 0
-  animationController: {fileID: 0}
   lootChance: 1
---- !u!114 &-4616968793854791617
+  animationController: {fileID: 0}
+--- !u!114 &-920990197502649319
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1441251780949838}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1f2773774224087bf15524ddf3f769a, type: 3}
+  m_Script: {fileID: 11500000, guid: e7f034f0638a4e468c526f56370353c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
@@ -179,6 +179,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ad404bb7004a06ab4ea8ab0ecc03eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7633230284069222568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441251780949838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5d4e48629ee4274b836d3132afbca8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  current: 0
+  max: 20
 --- !u!95 &4494947930399651340
 Animator:
   serializedVersion: 3
