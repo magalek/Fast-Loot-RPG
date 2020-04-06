@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 
 namespace RPG.Entities
 {
-    public class Enemy : Entity, IHittable, IComponentCache {
+    public class Enemy : Character, IHittable, IComponentCache {
         public float lootChance;
 
         public EnemyAnimationController animationController;
@@ -18,7 +18,7 @@ namespace RPG.Entities
             CacheComponents();
         }
         
-        protected override void Kill() {
+        public override void Kill() {
             EnemyEvents.OnEnemyKilled(this);
             if (lootChance > Random.value) {
                 ItemsController.DropItemAtPosition(transform.position);

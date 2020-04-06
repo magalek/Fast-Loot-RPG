@@ -22,7 +22,6 @@ namespace RPG.Items {
             foreach (var slot in inventorySlots.Where(slot => slot.item != null))
                 Inventory.RemoveItem(slot.item, false);
         }
-
         
         public void AddItems(List<Item> itemsToAdd) {
             foreach (var item in itemsToAdd)

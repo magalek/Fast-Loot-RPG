@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using RPG.Entities;
+using UnityEngine;
 
 namespace RPG.UI {
     public class MainCamera : MonoBehaviour {
@@ -18,8 +20,16 @@ namespace RPG.UI {
             DontDestroyOnLoad(this);
         }
 
+        private void Update() {
+            if (Player.Instance == null) return;
+            if (!Player.Instance.playerController.isMoving) {
+                Center(Player.Instance.transform);
+            }
+        }
+
         public void Center(Transform transform) {
-            this.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
+            this.transform.position = Vector2.Lerp(this.transform.position, new Vector3(transform.position.x, transform.position.y, -10), 0.1f);
+            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -10);
         }
     }
 }

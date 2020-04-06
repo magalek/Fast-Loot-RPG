@@ -2,10 +2,11 @@
 using RPG.Entities.Movement;
 using RPG.Items;
 using RPG.Utility;
+using UnityEngine;
 
 namespace RPG.Entities
 {
-    public class Player : Entity, IComponentCache, IHittable {
+    public class Player : Character, IComponentCache, IHittable {
         public static Player Instance;
 
         public Equipment equipment;
@@ -13,8 +14,7 @@ namespace RPG.Entities
         public PlayerController playerController;
         public PlayerAnimationController animationController;
         
-        private void Awake()
-        {
+        private void Awake() {
             base.Awake();
             
             if (Instance == null)
@@ -33,6 +33,11 @@ namespace RPG.Entities
             
             if (health.zeroOrLess)
                 Kill();
+        }
+        
+        public override void Kill() {
+            base.Kill();
+            Debug.Log("lol");
         }
 
         public void CacheComponents() {

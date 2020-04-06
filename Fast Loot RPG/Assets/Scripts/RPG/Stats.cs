@@ -42,7 +42,7 @@ public class Stats
         return result;
     }
 
-    public void Checkstats(Entity entity)
+    public void Checkstats(Character character)
     {
         //if (healthPoints < 0) healthPoints = 0;
         if (attack < 0) attack = 0;

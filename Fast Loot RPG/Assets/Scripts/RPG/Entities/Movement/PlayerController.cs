@@ -4,8 +4,10 @@ using UnityEngine;
 
 namespace RPG.Entities.Movement {
     public class PlayerController : MonoBehaviour, IMoveable {
+        
+        public bool isMoving = false;
         private Rigidbody2D rigidbody2D => GetComponent<Rigidbody2D>();
-
+        
         private void FixedUpdate() {
             Move();
         }
@@ -25,19 +27,22 @@ namespace RPG.Entities.Movement {
             float yAxis = Input.GetAxis("Vertical");
             
             if (xAxis != 0 || yAxis != 0) {
+                isMoving = true;
                 if (xAxis > 0) Player.Instance.animationController.FlipSpriteX(false);
                 if (xAxis < 0) Player.Instance.animationController.FlipSpriteX(true);
 
                 Vector3 axisMovement 
-                    = new Vector3(xAxis * 0.01f, yAxis * 0.01f);
+                    = new Vector3(xAxis, yAxis);
                 
                 Player.Instance.animationController.SetIsRunning(true);
                 
-                rigidbody2D.MovePosition(transform.position += axisMovement);
+                rigidbody2D.MovePosition(transform.position += axisMovement * (Time.deltaTime * 0.7f));
                 MainCamera.Instance.Center(transform);
             }
-            else
+            else {
+                isMoving = false;
                 Player.Instance.animationController.SetIsRunning(false);
+            }
         }
     }
 }

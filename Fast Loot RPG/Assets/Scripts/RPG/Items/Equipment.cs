@@ -13,7 +13,7 @@ namespace RPG.Items
 
         static EquipmentSlot[] equipmentSlots;
 
-        static Entity owner;
+        static Character owner;
 
         private void Awake() {
             // if (Instance == null)

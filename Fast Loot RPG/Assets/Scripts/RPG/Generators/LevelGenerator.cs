@@ -36,19 +36,18 @@ namespace RPG.Generators {
                     nextPosition = GetNextRoomPosition(currentPosition, distance);
                 
                 var room = RoomGenerator.CreateRoom(previousPosition, currentPosition, nextPosition);
+                
                 room.transform.SetParent(levelParent);
                 roomPositions.Add(currentPosition.vector2);
                 
                 if (i < roomAmount - 2)
                     RoomPosition.positions.Add(nextPosition);
                 previousPosition = currentPosition;
-                //yield return new WaitForSeconds(1f);
             }
 
             foreach (var position in RoomPosition.positions) {
                 var corridor = CreateCorridor(position);
                 corridor.transform.SetParent(levelParent);
-                //yield return new WaitForSeconds(1f);
             }
             
             yield return null;
@@ -61,17 +60,13 @@ namespace RPG.Generators {
             float corridorOffset = roomOffset / 2;
             
             switch (roomPosition.direction) {
-                case Direction.Top:
-                    corridorPosition = new Vector2(roomPosition.vector2.x, roomPosition.vector2.y - corridorOffset);
+                case Direction.Top: corridorPosition = new Vector2(roomPosition.vector2.x, roomPosition.vector2.y - corridorOffset);
                     break;
-                case Direction.Right:
-                    corridorPosition = new Vector2(roomPosition.vector2.x - corridorOffset, roomPosition.vector2.y);
+                case Direction.Right: corridorPosition = new Vector2(roomPosition.vector2.x - corridorOffset, roomPosition.vector2.y);
                     break;
-                case Direction.Down:
-                    corridorPosition = new Vector2(roomPosition.vector2.x, roomPosition.vector2.y + corridorOffset);
+                case Direction.Down: corridorPosition = new Vector2(roomPosition.vector2.x, roomPosition.vector2.y + corridorOffset);
                     break;
-                case Direction.Left:
-                    corridorPosition = new Vector2(roomPosition.vector2.x + corridorOffset, roomPosition.vector2.y);
+                case Direction.Left: corridorPosition = new Vector2(roomPosition.vector2.x + corridorOffset, roomPosition.vector2.y);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -92,7 +87,7 @@ namespace RPG.Generators {
             RoomPosition positionToReturn;
 
             do {
-                var randomDirection = (Direction)Random.Range(1, 4);
+                var randomDirection = (Direction)Mathf.Pow(2, Random.Range(0, 3));
 
                 switch (randomDirection) {
                     case Direction.Top:

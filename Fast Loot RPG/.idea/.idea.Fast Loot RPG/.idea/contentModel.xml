@@ -5,6 +5,10 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
+          <e p="Experimental" t="Include">
+            <e p="PathFinding.cs" t="Include" />
+            <e p="Target.cs" t="Include" />
+          </e>
           <e p="RPG" t="Include">
             <e p="AttackInfoStruct.cs" t="Include" />
             <e p="Controllers" t="Include">
@@ -29,8 +33,8 @@
                 <e p="PlayerAnimationController.cs" t="Include" />
               </e>
               <e p="Boss.cs" t="Include" />
+              <e p="Character.cs" t="Include" />
               <e p="Enemy.cs" t="Include" />
-              <e p="Entity.cs" t="Include" />
               <e p="Health.cs" t="Include" />
               <e p="IHittable.cs" t="Include" />
               <e p="Movement" t="Include">
@@ -43,8 +47,8 @@
             <e p="Environment" t="Include">
               <e p="Direction.cs" t="Include" />
               <e p="Room.cs" t="Include" />
+              <e p="RoomOpening.cs" t="Include" />
               <e p="RoomPosition.cs" t="Include" />
-              <e p="RoomVariant.cs" t="Include" />
             </e>
             <e p="Events" t="Include">
               <e p="BattleEvents.cs" t="Include" />
@@ -91,6 +95,7 @@
               <e p="StartButton.cs" t="Include" />
             </e>
             <e p="Utility" t="Include">
+              <e p="CachedComponent.cs" t="Include" />
               <e p="ExtensionMethods.cs" t="Include" />
               <e p="IComponentCache.cs" t="Include" />
               <e p="Serializer.cs" t="Include" />

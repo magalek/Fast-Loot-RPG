@@ -15,7 +15,7 @@ namespace RPG.Controllers
         [SerializeField] [Range(0.1f, 2f)] private float turnTime = 1f;
     
         public static GameController Instance = null;
-
+        
         public int killCount;
 
         private void Awake() {

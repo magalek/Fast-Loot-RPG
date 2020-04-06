@@ -4,7 +4,7 @@ using UnityEngine;
 namespace RPG.Entities
 {
     [RequireComponent(typeof(Health))]
-    public class Entity : MonoBehaviour {
+    public class Character : MonoBehaviour {
 
         public string entityName;
 
@@ -15,7 +15,7 @@ namespace RPG.Entities
             health = GetComponent<Health>();
         }
 
-        protected virtual void Kill() {
+        public virtual void Kill() {
             Destroy(gameObject);            
         }
     }

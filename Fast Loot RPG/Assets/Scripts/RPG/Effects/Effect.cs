@@ -4,7 +4,7 @@ namespace RPG.Effects {
     public class Effect 
     {
         public Stats Stats;    
-        private Entity target;
+        private Character target;
         private int duration;
 
         public int Duration
@@ -18,7 +18,7 @@ namespace RPG.Effects {
             }
         }
 
-        public Effect(Stats stats, int _duration, Entity _target)
+        public Effect(Stats stats, int _duration, Character _target)
         {
             Stats = stats;
             duration = _duration;

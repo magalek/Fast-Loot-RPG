@@ -7,9 +7,9 @@ public struct AttackInfo
 {
     public int damage;
     public AttackType type;
-    public Entity target;
+    public Character target;
 
-    public AttackInfo(int _damage, AttackType _type, Entity _target)
+    public AttackInfo(int _damage, AttackType _type, Character _target)
     {
         damage = _damage;
         type = _type;

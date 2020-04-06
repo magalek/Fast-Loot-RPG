@@ -6,27 +6,27 @@ namespace RPG.Effects.Controllers {
     [System.Serializable]
     public class EffectsController
     {
-        private Entity _entity;
+        private Character m_Character;
 
         public List<Effect> effects = new List<Effect>();
 
-        public EffectsController(Entity entity)
+        public EffectsController(Character character)
         {
             BattleEvents.TurnEnd += () => UpdateDurations(1);
-            _entity = entity;
+            m_Character = character;
 
         }
 
         public void AddEffect(Effect effectToAdd)
         {
             effects.Add(effectToAdd);
-            _entity.stats += effectToAdd.Stats;
+            m_Character.stats += effectToAdd.Stats;
         }
 
         public void RemoveEffect(Effect effectToRemove)
         {
             effects.Remove(effectToRemove);
-            _entity.stats -= effectToRemove.Stats;
+            m_Character.stats -= effectToRemove.Stats;
         }
 
         private void UpdateDurations(int amount)

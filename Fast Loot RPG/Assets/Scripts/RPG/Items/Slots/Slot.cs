@@ -11,7 +11,7 @@ namespace RPG.Items.Slots
         public bool isEmpty = true;
         public Item item;
         
-        private Entity owner;
+        private Character owner;
         public SlotGraphics slotGraphics;
 
         private void Awake() {
