@@ -88,6 +88,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.2d.sprite/Editor/Interface/ITexture.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Character.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/PanelFader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Player.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Health.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Effects/Effect.cs" root0="FORCE_HIGHLIGHTING" />
@@ -99,7 +100,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Statistics.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/ItemStatisticsStruct.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Health.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/HitTriggers/EntityHitTrigger.cs" />
@@ -141,8 +141,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Utility/CachedComponent.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/PlayerUI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Utility/ExtensionMethods.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/PlayerController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/MainCamera.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Generators/RoomGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Generators/LevelGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Environment/RoomOpening.cs" />
@@ -150,6 +148,9 @@
         <option value="$PROJECT_DIR$/Assets/PathFinding.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Experimental/Target.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Experimental/PathFinding.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/PanelFader.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/MainCamera.cs" />
       </list>
     </option>
   </component>
@@ -236,6 +237,7 @@
       <workItem from="1585407266539" duration="2143000" />
       <workItem from="1585416838103" duration="4421000" />
       <workItem from="1586185316302" duration="7448000" />
+      <workItem from="1586372194059" duration="2920000" />
     </task>
     <servers />
   </component>
@@ -386,11 +388,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="521" y="257" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1040/1920.0.1920.1040/-1407.-1080.1920.1040@0.0.1920.1040" timestamp="1585331731536" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1586186801154">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1586372229912">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040/-1407.-1080.1920.1040@0.0.1920.1040" timestamp="1586186801154" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580684784056" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586372229912" />
     <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581021513405" />
   </component>
   <component name="XDebuggerManager">

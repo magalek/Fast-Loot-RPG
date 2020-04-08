@@ -23,21 +23,25 @@ namespace RPG.Entities.Movement {
         }
 
         public void Move() {
-            float xAxis = Input.GetAxis("Horizontal");
-            float yAxis = Input.GetAxis("Vertical");
+            float xAxis = Input.GetAxisRaw("Horizontal");
+            float yAxis = Input.GetAxisRaw("Vertical");
             
             if (xAxis != 0 || yAxis != 0) {
                 isMoving = true;
                 if (xAxis > 0) Player.Instance.animationController.FlipSpriteX(false);
                 if (xAxis < 0) Player.Instance.animationController.FlipSpriteX(true);
 
-                Vector3 axisMovement 
+                Vector3 movementVector 
                     = new Vector3(xAxis, yAxis);
+                
+                movementVector.Normalize();
+
                 
                 Player.Instance.animationController.SetIsRunning(true);
                 
-                rigidbody2D.MovePosition(transform.position += axisMovement * (Time.deltaTime * 0.7f));
-                MainCamera.Instance.Center(transform);
+                //rigidbody2D.MovePosition(transform.position += movementVector * (Time.deltaTime * 0.7f));
+                transform.Translate(movementVector * (Time.deltaTime * 0.7f));
+                MainCamera.Instance.Center(transform, 0.1f);
             }
             else {
                 isMoving = false;
