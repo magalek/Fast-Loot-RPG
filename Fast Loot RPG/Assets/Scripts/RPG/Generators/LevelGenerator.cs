@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using RPG.Controllers;
 using RPG.Environment;
 using RPG.Utility;
 using UnityEngine;
@@ -20,6 +21,8 @@ namespace RPG.Generators {
 
         private static Transform levelParent;
 
+        private static List<Room> rooms = new List<Room>();
+
         public static void Init() {
             levelParent = GameObject.Find("Level").transform;
             RoomGenerator.Init();
@@ -36,7 +39,7 @@ namespace RPG.Generators {
                     nextPosition = GetNextRoomPosition(currentPosition, distance);
                 
                 var room = RoomGenerator.CreateRoom(previousPosition, currentPosition, nextPosition);
-                
+                rooms.Add(room.GetComponent<Room>());
                 room.transform.SetParent(levelParent);
                 roomPositions.Add(currentPosition.vector2);
                 
@@ -49,11 +52,29 @@ namespace RPG.Generators {
                 var corridor = CreateCorridor(position);
                 corridor.transform.SetParent(levelParent);
             }
+
+            rooms.RemoveAt(0);
             
+            foreach (var room in rooms) {
+                SpawnEnemies(room, 0, 4);
+            }
             yield return null;
             GenerationCompleted?.Invoke();
         }
 
+        private static void SpawnEnemies(Room room ,int minAmount, int maxAmount) {
+            int count = Random.Range(minAmount, maxAmount);
+            
+            List<SpawnPoint> spawnPoints = room.SpawnPoints;
+
+            for (int i = 0; i < count; i++) {
+                SpawnPoint spawnPoint = spawnPoints.RandomObject();
+                spawnPoints.Remove(spawnPoint);
+                GameObject enemyPrefab = ResourcesController.enemyPrefabs.RandomObject();
+                Object.Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
+            }
+        }
+        
         private static GameObject CreateCorridor(RoomPosition roomPosition) {
             Vector2 corridorPosition;
 

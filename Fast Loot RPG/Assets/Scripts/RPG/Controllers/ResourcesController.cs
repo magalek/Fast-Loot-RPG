@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using RPG.Entities;
 using RPG.Items;
 using UnityEngine;
@@ -7,7 +9,7 @@ namespace RPG.Controllers
 {
     public static class ResourcesController
     {
-        public static Enemy[] enemyPrefabs;
+        public static List<GameObject> enemyPrefabs;
         public static Enemy[] bossPrefabs;
         public static GameObject[] itemObjectsPrefabs;
         public static GameObject gameControllerPrefab;
@@ -33,7 +35,7 @@ namespace RPG.Controllers
     
         private static void InitialiseEnemyPrefabs()
         {
-            enemyPrefabs = Resources.LoadAll<Enemy>("Prefabs/Enemy Prefabs/Normal");
+            enemyPrefabs = Resources.LoadAll<GameObject>("Prefabs/Enemy Prefabs/Normal").ToList();
             bossPrefabs = Resources.LoadAll<Enemy>("Prefabs/Enemy Prefabs/Bosses");
         }
 

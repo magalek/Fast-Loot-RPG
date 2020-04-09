@@ -5,10 +5,6 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
-          <e p="Experimental" t="Include">
-            <e p="PathFinding.cs" t="Include" />
-            <e p="Target.cs" t="Include" />
-          </e>
           <e p="RPG" t="Include">
             <e p="AttackInfoStruct.cs" t="Include" />
             <e p="Controllers" t="Include">
@@ -38,7 +34,7 @@
               <e p="Health.cs" t="Include" />
               <e p="IHittable.cs" t="Include" />
               <e p="Movement" t="Include">
-                <e p="EntityController.cs" t="Include" />
+                <e p="EnemyController.cs" t="Include" />
                 <e p="IMoveable.cs" t="Include" />
                 <e p="PlayerController.cs" t="Include" />
               </e>
@@ -49,6 +45,7 @@
               <e p="Room.cs" t="Include" />
               <e p="RoomOpening.cs" t="Include" />
               <e p="RoomPosition.cs" t="Include" />
+              <e p="SpawnPoint.cs" t="Include" />
             </e>
             <e p="Events" t="Include">
               <e p="BattleEvents.cs" t="Include" />

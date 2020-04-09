@@ -6,7 +6,6 @@ namespace RPG.Entities.Movement {
     public class PlayerController : MonoBehaviour, IMoveable {
         
         public bool isMoving = false;
-        private Rigidbody2D rigidbody2D => GetComponent<Rigidbody2D>();
         
         private void FixedUpdate() {
             Move();
@@ -33,13 +32,10 @@ namespace RPG.Entities.Movement {
 
                 Vector3 movementVector 
                     = new Vector3(xAxis, yAxis);
-                
                 movementVector.Normalize();
-
                 
                 Player.Instance.animationController.SetIsRunning(true);
                 
-                //rigidbody2D.MovePosition(transform.position += movementVector * (Time.deltaTime * 0.7f));
                 transform.Translate(movementVector * (Time.deltaTime * 0.7f));
                 MainCamera.Instance.Center(transform, 0.1f);
             }

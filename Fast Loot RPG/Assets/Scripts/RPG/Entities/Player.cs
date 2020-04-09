@@ -1,4 +1,5 @@
-﻿using RPG.Entities.Animations;
+﻿using System;
+using RPG.Entities.Animations;
 using RPG.Entities.Movement;
 using RPG.Items;
 using RPG.Utility;
@@ -7,6 +8,8 @@ using UnityEngine;
 namespace RPG.Entities
 {
     public class Player : Character, IComponentCache, IHittable {
+        public static event Action Spawned;
+        
         public static Player Instance;
 
         public Equipment equipment;
@@ -25,6 +28,7 @@ namespace RPG.Entities
             CacheComponents();
 
             DontDestroyOnLoad(gameObject);
+            Spawned?.Invoke();
         }
 
         public virtual void Hit(int damage) {
