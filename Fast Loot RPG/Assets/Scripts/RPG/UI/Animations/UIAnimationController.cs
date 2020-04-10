@@ -1,8 +1,7 @@
-﻿using System;
-using RPG.Entities;
+﻿using RPG.Entities;
 using UnityEngine;
 
-namespace RPG.UI {
+namespace RPG.UI.Animations {
     public class UIAnimationController : MonoBehaviour {
 
         private Animator animator;

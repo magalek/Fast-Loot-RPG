@@ -7,10 +7,14 @@
         <e p="Scripts" t="Include">
           <e p="RPG" t="Include">
             <e p="AttackInfoStruct.cs" t="Include" />
+            <e p="Behaviours" t="Include">
+              <e p="StartGameBehaviour.cs" t="Include" />
+            </e>
             <e p="Controllers" t="Include">
               <e p="GameController.cs" t="Include" />
               <e p="ItemsController.cs" t="Include" />
               <e p="ResourcesController.cs" t="Include" />
+              <e p="SceneController.cs" t="Include" />
               <e p="StateController.cs" t="Include" />
             </e>
             <e p="Effects" t="Include">
@@ -81,6 +85,10 @@
             <e p="Loader.cs" t="Include" />
             <e p="Stats.cs" t="Include" />
             <e p="UI" t="Include">
+              <e p="Animations" t="Include">
+                <e p="MenuAnimationController.cs" t="Include" />
+                <e p="UIAnimationController.cs" t="Include" />
+              </e>
               <e p="EquipmentUI.cs" t="Include" />
               <e p="Fader.cs" t="Include" />
               <e p="InventoryUI.cs" t="Include" />
@@ -88,7 +96,6 @@
               <e p="MainCamera.cs" t="Include" />
               <e p="PlayerUI.cs" t="Include" />
               <e p="StartButton.cs" t="Include" />
-              <e p="UIAnimationController.cs" t="Include" />
             </e>
             <e p="Utility" t="Include">
               <e p="CachedComponent.cs" t="Include" />

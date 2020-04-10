@@ -40,16 +40,18 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/Slot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Utility/CachedComponent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@7.1.8/Runtime/Debugging/DebugUpdater.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/Animations/MenuAnimationController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Environment/RoomOpening.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/ItemObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/ItemTooltip.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Behaviours/StartGameBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@1.1.4/Rider/Editor/UnitTesting/TestsCallback.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Item.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Animations/EnemyAnimationController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Generators/LevelGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Environment/Room.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/SlotGraphics.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/UIAnimationController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/Animations/UIAnimationController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/EnemyController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/AttackInfoStruct.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/StateController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -94,17 +96,13 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Effects/Effect.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.2d.sprite/Editor/ShapeEditor/ShapeEditorRectSelection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Effects/Controllers/EffectsController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/SceneController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Utility/Serializer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Events/BattleEvents.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Utility/CustomAttributeTest.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Animations/PlayerAnimationController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Animations/EntityAnimationController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Actions/AttackAbility.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Actions/MagicAbility.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Actions/Controllers/AbilitiesController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Equipment.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/InventorySlot.cs" />
@@ -134,14 +132,12 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/IMoveable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Environment/SpawnPoint.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/ResourcesController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/GameController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/EntityController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Environment/Room.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Generators/LevelGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/EnemyController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Loader.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/MainCamera.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/PlayerUI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/InventoryUI.cs" />
@@ -151,6 +147,13 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/ScreenMessage.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/UIAnimationController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/Fader.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/MainCamera.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/GameController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/SceneController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/Animations/UIAnimationController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/Animations/MenuAnimationController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Behaviours/StartGameBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/StartButton.cs" />
       </list>
     </option>
   </component>
@@ -239,7 +242,7 @@
       <workItem from="1586185316302" duration="7448000" />
       <workItem from="1586372194059" duration="2920000" />
       <workItem from="1586457917209" duration="9644000" />
-      <workItem from="1586537224588" duration="7110000" />
+      <workItem from="1586537224588" duration="9390000" />
     </task>
     <servers />
   </component>
@@ -394,11 +397,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586462186683" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1586547798023">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1586550167568">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040/-1407.-1080.1920.1040@0.0.1920.1040" timestamp="1586186801154" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586547798023" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586550167568" />
     <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581021513405" />
   </component>
   <component name="XDebuggerManager">
