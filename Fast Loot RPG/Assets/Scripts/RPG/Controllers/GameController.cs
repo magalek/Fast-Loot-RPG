@@ -34,12 +34,5 @@ namespace RPG.Controllers
             LevelGenerator.Init();
             StartCoroutine(LevelGenerator.GenerateLevel(roomAmount, distance));
         }
-
-        private Enemy GetEnemy() {
-            if (killCount >= 100 && Random.value <= 0.04f)
-                return Instantiate(ResourcesController.bossPrefabs[Random.Range(0, ResourcesController.bossPrefabs.Length)], transform).GetComponent<Enemy>();
-            return Instantiate(ResourcesController.enemyPrefabs[Random.Range(0, ResourcesController.enemyPrefabs.Count)], transform).GetComponent<Enemy>();
-        }
-
     }
 }

@@ -13,9 +13,6 @@
               <e p="ResourcesController.cs" t="Include" />
               <e p="StateController.cs" t="Include" />
             </e>
-            <e p="Editors" t="Include">
-              <e p="UtilityWindow.cs" t="Include" />
-            </e>
             <e p="Effects" t="Include">
               <e p="Controllers" t="Include">
                 <e p="EffectsController.cs" t="Include" />
@@ -85,12 +82,13 @@
             <e p="Stats.cs" t="Include" />
             <e p="UI" t="Include">
               <e p="EquipmentUI.cs" t="Include" />
+              <e p="Fader.cs" t="Include" />
               <e p="InventoryUI.cs" t="Include" />
               <e p="ItemTooltip.cs" t="Include" />
               <e p="MainCamera.cs" t="Include" />
-              <e p="PanelFader.cs" t="Include" />
               <e p="PlayerUI.cs" t="Include" />
               <e p="StartButton.cs" t="Include" />
+              <e p="UIAnimationController.cs" t="Include" />
             </e>
             <e p="Utility" t="Include">
               <e p="CachedComponent.cs" t="Include" />

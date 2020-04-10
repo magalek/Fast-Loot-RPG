@@ -42,7 +42,7 @@ namespace RPG.UI {
         }
 
         private IEnumerator CenterCoroutine() {
-            while (!Player.Instance.playerController.isMoving) {
+            while (Player.Instance && !Player.Instance.playerController.isMoving) {
                 isCentering = true;
                 Center(Player.Instance.transform, 0.05f);
                 yield return new WaitForSeconds(0.01f);

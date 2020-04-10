@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace RPG.UI {
     public class EquipmentUI : MonoBehaviour
@@ -8,6 +9,7 @@ namespace RPG.UI {
         private void Start()
         {
             equipmentCanvas.worldCamera = MainCamera.Instance.GetComponent<Camera>();
+            gameObject.SetActive(false);
         }
     }
 }

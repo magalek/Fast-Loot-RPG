@@ -9,7 +9,8 @@ namespace RPG.Entities
 {
     public class Player : Character, IComponentCache, IHittable {
         public static event Action Spawned;
-        
+        public static event Action Died;
+
         public static Player Instance;
 
         public Equipment equipment;
@@ -41,7 +42,7 @@ namespace RPG.Entities
         
         public override void Kill() {
             base.Kill();
-            Debug.Log("lol");
+            Died?.Invoke();
         }
 
         public void CacheComponents() {

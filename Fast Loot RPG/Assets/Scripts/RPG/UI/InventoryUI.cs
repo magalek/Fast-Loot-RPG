@@ -8,7 +8,6 @@ namespace RPG.UI {
         [SerializeField] Scrollbar inventoryScrollbarRef;
         [SerializeField] Canvas inventoryCanvasRef;
 
-
         private static ScrollRect inventoryScrollRect;
         private static Scrollbar inventoryScrollbar;
 
@@ -17,6 +16,7 @@ namespace RPG.UI {
             inventoryScrollRect = inventoryScrollRectRef;
             inventoryScrollbar = inventoryScrollbarRef;
             inventoryCanvasRef.worldCamera = MainCamera.Instance.GetComponent<Camera>();
+            gameObject.SetActive(false);
         }
 
         public static void ChangeScrollRectContent(RectTransform rectTransform) => inventoryScrollRect.content = rectTransform;
