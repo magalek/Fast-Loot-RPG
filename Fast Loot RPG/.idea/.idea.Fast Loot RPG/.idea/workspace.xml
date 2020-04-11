@@ -152,8 +152,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/SlotGraphics.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Equipment.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/PlayerUI.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Inventory.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/InventorySlot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Inventory.cs" />
       </list>
     </option>
   </component>
