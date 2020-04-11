@@ -16,7 +16,6 @@ namespace RPG.Items.Slots {
         public void Change(Item item) {
             spriteImage.sprite = item.sprite;
             spriteImage.color = Color.white;
-            borderImage.color = item.color;
         }
 
         public void Change() {

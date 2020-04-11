@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace RPG.Items.Slots
 {
-    public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler {
+    public class Slot : MonoBehaviour, IPointerClickHandler{
 
         public bool isEmpty = true;
         public Item item;
@@ -53,17 +53,6 @@ namespace RPG.Items.Slots
                     SlotRightButtonClick();
                     break;
             }
-        }
-
-        public virtual void OnPointerEnter(PointerEventData eventData)
-        {
-            if (item != null)
-                ItemTooltip.ChangeTooltip(item.stats.ToString());
-        }
-
-        public virtual void OnPointerExit(PointerEventData eventData)
-        {
-            ItemTooltip.ChangeTooltip("");
         }
     }
 }

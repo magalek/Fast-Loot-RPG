@@ -35,8 +35,7 @@ namespace RPG.Items
             EquipmentSlot correctSlot = GetCorrectSlot(item);
             if (correctSlot && correctSlot.isEmpty) {
                 correctSlot.InsertItem(item);
-                owner.stats += item.stats;           
-                item.IsEquipped = true;
+                item.isEquipped = true;
                 InventoryEvents.OnInventoryChange(item.type);
                 return true;
             }
@@ -44,10 +43,9 @@ namespace RPG.Items
         }
 
         public static void UnequipItem(Item item, EquipmentSlot equipmentSlot) {
-            owner.stats -= item.stats;
             Inventory.AddItem(item, false);
             equipmentSlot.item = null;        
-            item.IsEquipped = false;
+            item.isEquipped = false;
             InventoryEvents.OnInventoryChange(item.type);
         }
 

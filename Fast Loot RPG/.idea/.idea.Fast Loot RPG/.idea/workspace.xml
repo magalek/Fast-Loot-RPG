@@ -34,57 +34,55 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Events/InventoryEvents.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Events/PlayerEvents.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Generators/RoomGenerator.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/EquipmentSlot.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/InventorySlot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/HitTriggers/WeaponHitTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/RestartButton.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/Slot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Utility/CachedComponent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/ExitButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@7.1.8/Runtime/Debugging/DebugUpdater.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/Animations/MenuAnimationController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Environment/RoomOpening.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/ItemObject.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/ItemTooltip.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Behaviours/StartGameBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/ItemsController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@1.1.4/Rider/Editor/UnitTesting/TestsCallback.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Item.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Animations/EnemyAnimationController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Generators/LevelGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Environment/Room.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/SlotGraphics.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/Animations/UIAnimationController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/EnemyController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/AttackInfoStruct.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/StateController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Environment/RoomPosition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/IMoveable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/SlotGraphics.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/GameController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/Slot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/ItemStats.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/InventorySlot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Loader.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/ItemType.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/EquipmentSlot.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Equipment.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/MainCamera.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Animations/EntityAnimationController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Environment/SpawnPoint.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/IHittable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/ResourcesController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Rarity.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/ItemType.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Item.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Stats.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Inventory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Rarity.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Utility/IComponentCache.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Utility/ExtensionMethods.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/EquipmentUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/ItemObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Lighting/LightGlow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/InventoryUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/PlayerUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/StartButton.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Equipment.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Text.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Inventory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.9/UnityEngine.TestRunner/NUnitExtensions/Runner/UnityTestExecutionContext.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/ItemsController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/HitTriggers/EntityHitTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Environment/Direction.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/ItemTab.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Animations/PlayerAnimationController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.9/UnityEngine.TestRunner/Utils/AssemblyProvider/AssemblyWrapper.cs" root0="FORCE_HIGHLIGHTING" />
@@ -105,13 +103,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/SlotStyle.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/EquipmentSlot.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/SlotGraphics.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/ItemGraphics.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/Slot.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/ItemObject.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Item.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/IHittable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Environment/Direction.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Entity.cs" />
@@ -151,11 +144,16 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/Animations/UIAnimationController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Generators/LevelGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/GameController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Inventory.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/PlayerUI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/EquipmentUI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/InventoryUI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Item.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/Slot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/SlotGraphics.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Equipment.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/PlayerUI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Inventory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/InventorySlot.cs" />
       </list>
     </option>
   </component>

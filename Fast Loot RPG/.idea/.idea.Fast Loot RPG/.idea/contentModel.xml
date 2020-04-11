@@ -68,7 +68,6 @@
               <e p="Inventory.cs" t="Include" />
               <e p="Item.cs" t="Include" />
               <e p="ItemObject.cs" t="Include" />
-              <e p="ItemTab.cs" t="Include" />
               <e p="ItemType.cs" t="Include" />
               <e p="Rarity.cs" t="Include" />
               <e p="Slots" t="Include">
@@ -93,7 +92,6 @@
               <e p="ExitButton.cs" t="Include" />
               <e p="Fader.cs" t="Include" />
               <e p="InventoryUI.cs" t="Include" />
-              <e p="ItemTooltip.cs" t="Include" />
               <e p="MainCamera.cs" t="Include" />
               <e p="PlayerUI.cs" t="Include" />
               <e p="RestartButton.cs" t="Include" />

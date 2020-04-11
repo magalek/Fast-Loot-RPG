@@ -18,8 +18,7 @@ namespace RPG.Items.Slots
 
             ItemsController.DropItemAtPosition(Player.Instance.transform.position, item);
             Inventory.RemoveItem(item);
-
-            ItemTooltip.ChangeTooltip("");
+            
         }
     }
 }

@@ -16,7 +16,6 @@ namespace RPG.UI {
         private void Awake() {
             inventoryGameObject = transform.parent.GetComponentInChildren<Inventory>().gameObject;
             equipmentGameObject = transform.parent.GetComponentInChildren<Equipment>().gameObject;
-            itemTooltipGameObject = transform.parent.GetComponentInChildren<ItemTooltip>().gameObject;
             
             playerUICanvas.worldCamera = MainCamera.Instance.GetComponent<Camera>();
             Player.Instance.health.Changed += ChangePlayerHealthBar;
