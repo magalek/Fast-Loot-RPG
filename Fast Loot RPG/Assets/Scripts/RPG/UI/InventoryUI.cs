@@ -16,7 +16,7 @@ namespace RPG.UI {
             inventoryScrollRect = inventoryScrollRectRef;
             inventoryScrollbar = inventoryScrollbarRef;
             inventoryCanvasRef.worldCamera = MainCamera.Instance.GetComponent<Camera>();
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
 
         public static void ChangeScrollRectContent(RectTransform rectTransform) => inventoryScrollRect.content = rectTransform;

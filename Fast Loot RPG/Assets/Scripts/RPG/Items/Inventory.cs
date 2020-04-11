@@ -17,10 +17,8 @@ namespace RPG.Items
 
         public int slotCount;
 
-        //public static List<Item> allItemsInTab = new List<Item>();    
-
         private void Awake() {
-            InventoryEvents.InventoryChange += SortItems;
+            //InventoryEvents.InventoryChange += SortItems;
         }
 
         public void Start() {
@@ -66,7 +64,7 @@ namespace RPG.Items
         public static void RemoveItem(Item itemToRemove, bool sendInventoryEvent = true) {
             ItemTab itemTab = GetItemTabFromType(itemToRemove.type);
 
-            InventorySlot inventorySlotOfItem = itemTab.FindItemSlot(itemToRemove);
+            InventorySlot inventorySlotOfItem = itemTab.GetItemSlot(itemToRemove);
 
             inventorySlotOfItem.RemoveItem();
 
@@ -74,21 +72,21 @@ namespace RPG.Items
                 InventoryEvents.OnInventoryChange(itemToRemove.type);
         }
 
-        private static void SortItems(ItemType addedItemType) {
-            List<Item> allItemsInTab = new List<Item>();
-
-            ItemTab itemTab = GetItemTabFromType(addedItemType);
-
-            foreach (var slot in itemTab.inventorySlots) {
-                if (slot?.item != null)
-                    allItemsInTab.Add(slot.item);
-            }
-
-            allItemsInTab = allItemsInTab.OrderByDescending(i => i?.ItemLevel).ToList();
-
-            itemTab.RemoveItemsInTab();
-            itemTab.AddItems(allItemsInTab);
-        }
+        // private static void SortItems(ItemType addedItemType) {
+        //     List<Item> allItemsInTab = new List<Item>();
+        //
+        //     ItemTab itemTab = GetItemTabFromType(addedItemType);
+        //
+        //     foreach (var slot in itemTab.inventorySlots) {
+        //         if (slot?.item != null)
+        //             allItemsInTab.Add(slot.item);
+        //     }
+        //
+        //     allItemsInTab = allItemsInTab.OrderByDescending(i => i?.ItemLevel).ToList();
+        //
+        //     itemTab.RemoveItemsInTab();
+        //     itemTab.AddItems(allItemsInTab);
+        // }
     }
 }
 

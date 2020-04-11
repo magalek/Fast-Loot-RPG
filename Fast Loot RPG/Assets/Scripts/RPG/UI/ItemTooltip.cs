@@ -12,7 +12,7 @@ public class ItemTooltip : MonoBehaviour
 
     static TextMeshProUGUI itemTooltipText;
 
-    private void Awake()
+    private void Start()
     {
         if (Instance == null)
             Instance = this;
@@ -21,6 +21,7 @@ public class ItemTooltip : MonoBehaviour
 
         itemTooltipText = itemTooltipTextObject;
         InventoryEvents.InventoryChange += i => ChangeTooltip(""); 
+        gameObject.SetActive(false);
     }
 
     public static void ChangeTooltip(string message) => itemTooltipText.text = message;

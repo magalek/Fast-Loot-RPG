@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using RPG.Entities;
 using RPG.Events;
 using RPG.Generators;
@@ -9,8 +10,8 @@ using UnityEngine.SceneManagement;
 
 namespace RPG.Controllers
 {
-    public class GameController : MonoBehaviour
-    {
+    public class GameController : MonoBehaviour {
+        public static event Action GameRestarted;
         [SerializeField] private Player player;
         [SerializeField] [Range(0.1f, 2f)] private float turnTime = 1f;
     
@@ -25,14 +26,20 @@ namespace RPG.Controllers
                 Destroy(gameObject);
 
             
-            StartLevelGenerating(20, 1.5f);
-            
+            if (!LevelGenerator.Initialised) 
+                LevelGenerator.Init();
+
             DontDestroyOnLoad(gameObject);
         }
 
-        private void StartLevelGenerating(int roomAmount, float distance) {
-            LevelGenerator.Init();
-            StartCoroutine(LevelGenerator.GenerateLevel(roomAmount, distance));
+        private void Start() {
+            LevelGenerator.GenerateLevel();
+        }
+
+        public void RestartGame() {
+            LevelGenerator.ClearLevel();
+            LevelGenerator.GenerateLevel();
+            GameRestarted?.Invoke();
         }
     }
 }

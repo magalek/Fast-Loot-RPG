@@ -9,7 +9,7 @@ namespace RPG.UI {
         private void Start()
         {
             equipmentCanvas.worldCamera = MainCamera.Instance.GetComponent<Camera>();
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
     }
 }

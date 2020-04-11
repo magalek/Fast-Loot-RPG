@@ -17,7 +17,6 @@ namespace RPG
             LevelGenerator.GenerationCompleted += () => {
                 Instantiate(ResourcesController.playerPrefab);
                 MainCamera.Instance.Center(Player.Instance.transform, 1);
-                StartCoroutine(MainCamera.Instance.ZoomCoroutine());
             };
         }
     }

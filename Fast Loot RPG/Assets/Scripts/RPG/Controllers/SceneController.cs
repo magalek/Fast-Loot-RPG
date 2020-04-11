@@ -7,5 +7,9 @@ namespace RPG.Controllers {
         public static void LoadGame() {
             SceneManager.LoadScene("GameScene");
         }
+
+        public static void ExitGame() {
+            Application.Quit();
+        }
     }
 }

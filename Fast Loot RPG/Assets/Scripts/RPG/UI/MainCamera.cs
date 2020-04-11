@@ -10,7 +10,6 @@ namespace RPG.UI {
         public Camera camera;
 
         public bool isCentering = false;
-        public bool isZooming;
         
         private void Awake()
         {
@@ -22,7 +21,6 @@ namespace RPG.UI {
             camera = GetComponent<Camera>();
             
             DontDestroyOnLoad(this);
-            Debug.Log(camera.orthographicSize);
         }
 
         private void Update() {
@@ -37,10 +35,6 @@ namespace RPG.UI {
             this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -10);
         }
 
-        private void Zoom(float timeFactor) {
-            camera.orthographicSize += (Mathf.Exp(timeFactor) / 1000) + 0.01f;
-        }
-
         private IEnumerator CenterCoroutine() {
             while (Player.Instance && !Player.Instance.playerController.isMoving) {
                 isCentering = true;
@@ -49,21 +43,6 @@ namespace RPG.UI {
             }
 
             isCentering = false;
-        }
-
-        public IEnumerator ZoomCoroutine() {
-            float time = 1;
-            while (camera.orthographicSize < 1) {
-                isZooming = true;
-                if (camera.orthographicSize > 0.9f)
-                    time -= Time.deltaTime * 5;
-
-                Zoom(time);
-                //yield return new WaitForSeconds(0.1f);
-                yield return null;
-            }
-
-            isZooming = false;
         }
     }
 }

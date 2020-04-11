@@ -10,7 +10,6 @@ namespace RPG.UI {
         private static Animator animator;
         private void Awake() {
             animator = GetComponent<Animator>();
-            //StartCoroutine(FadeInCoroutine());
             Player.Spawned += FadeIn;
             Player.Died += FadeOut;
         }

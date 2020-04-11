@@ -12,6 +12,12 @@ using Random = UnityEngine.Random;
 namespace RPG.Generators {
     public static class LevelGenerator {
         public static event Action GenerationCompleted;
+        
+        public static event Action LevelRestarted;
+
+        public static bool Initialised = false;
+
+        public static int DefaultRoomAmount = 20;
         private static GameObject horizontalCorridorPrefab => Resources.Load<GameObject>("Prefabs/Environment Prefabs/Corridor Horizontal");
         private static GameObject verticalCorridorPrefab => Resources.Load<GameObject>("Prefabs/Environment Prefabs/Corridor Vertical");
 
@@ -20,58 +26,91 @@ namespace RPG.Generators {
         private static float roomOffset = 2;
 
         private static Transform levelParent;
+        
+        private static Transform environmentParent;
 
+        private static Transform enemiesParent;
+        
         private static List<Room> rooms = new List<Room>();
-
+        
         public static void Init() {
-            levelParent = GameObject.Find("Level").transform;
             RoomGenerator.Init();
+            Initialised = true;
         }
         
-        public static IEnumerator GenerateLevel(int roomAmount, float distance) {
-            RoomPosition currentPosition;
-            RoomPosition previousPosition = RoomPosition.Zero();
-            RoomPosition nextPosition = RoomPosition.Zero();
-
-            for (int i = 0; i < roomAmount - 1; i++) {
-                currentPosition = nextPosition;
-                if (i < roomAmount - 2)
-                    nextPosition = GetNextRoomPosition(currentPosition, distance);
-                
-                var room = RoomGenerator.CreateRoom(previousPosition, currentPosition, nextPosition);
-                rooms.Add(room.GetComponent<Room>());
-                room.transform.SetParent(levelParent);
-                roomPositions.Add(currentPosition.vector2);
-                
-                if (i < roomAmount - 2)
-                    RoomPosition.positions.Add(nextPosition);
-                previousPosition = currentPosition;
-            }
-
-            foreach (var position in RoomPosition.positions) {
-                var corridor = CreateCorridor(position);
-                corridor.transform.SetParent(levelParent);
-            }
-
-            rooms.RemoveAt(0);
+        public static void GenerateLevel(int roomAmount = 0) {
+            if (roomAmount == 0) roomAmount = DefaultRoomAmount; 
             
-            foreach (var room in rooms) {
-                SpawnEnemies(room, 0, 4);
-            }
-            yield return null;
+            levelParent = new GameObject("Level").transform;
+            
+            environmentParent = new GameObject("Environment").transform;
+            environmentParent.SetParent(levelParent);
+            
+            enemiesParent = new GameObject("Enemies").transform;
+            enemiesParent.SetParent(levelParent);
+            
+            GenerateRooms(roomAmount);
+
+            GenerateCorridors();
+
+            GenerateEnemies(0, 4);
+
             GenerationCompleted?.Invoke();
         }
 
-        private static void SpawnEnemies(Room room ,int minAmount, int maxAmount) {
-            int count = Random.Range(minAmount, maxAmount);
-            
-            List<SpawnPoint> spawnPoints = room.SpawnPoints;
+        private static void GenerateCorridors() {
+            int index = 0;
+            foreach (var position in RoomPosition.positions) {
+                var corridor = CreateCorridor(position);
+                corridor.name = $"Corridor {index}";
+                corridor.transform.SetParent(environmentParent);
+                index++;
+            }
+        }
 
-            for (int i = 0; i < count; i++) {
-                SpawnPoint spawnPoint = spawnPoints.RandomObject();
-                spawnPoints.Remove(spawnPoint);
-                GameObject enemyPrefab = ResourcesController.enemyPrefabs.RandomObject();
-                Object.Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
+        private static void GenerateRooms(int amount) {
+            RoomPosition previousPosition = RoomPosition.Zero();
+            RoomPosition nextPosition = RoomPosition.Zero();
+
+            for (int i = 0; i < amount - 1; i++) {
+                var currentPosition = nextPosition;
+                if (i < amount - 2)
+                    nextPosition = GetNextRoomPosition(currentPosition);
+
+                var room = RoomGenerator.CreateRoom(previousPosition, currentPosition, nextPosition);
+                rooms.Add(room.GetComponent<Room>());
+                room.name = $"Room {i}";
+                room.transform.SetParent(environmentParent);
+                roomPositions.Add(currentPosition.vector2);
+
+                if (i < amount - 2)
+                    RoomPosition.positions.Add(nextPosition);
+                previousPosition = currentPosition;
+            }
+            
+            rooms.RemoveAt(0);
+        }
+
+        public static void ClearLevel() {
+            Object.Destroy(levelParent.gameObject);
+            roomPositions.Clear();
+            RoomPosition.positions.Clear();
+            rooms.Clear();
+        }
+
+        private static void GenerateEnemies(int minAmount, int maxAmount) {
+            for (int i = 1; i < rooms.Count; i++) {
+                int count = Random.Range(minAmount, maxAmount);
+                            
+                List<SpawnPoint> spawnPoints = rooms[i].SpawnPoints;
+    
+                for (int j = 0; j < count; j++) {
+                    SpawnPoint spawnPoint = spawnPoints.RandomObject();
+                    spawnPoints.Remove(spawnPoint);
+                    GameObject enemyPrefab = ResourcesController.enemyPrefabs.RandomObject();
+                    GameObject enemy =  Object.Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
+                    enemy.transform.SetParent(enemiesParent);
+                }
             }
         }
         
@@ -104,7 +143,7 @@ namespace RPG.Generators {
             return null;
         }
 
-        private static RoomPosition GetNextRoomPosition(RoomPosition currentPosition, float distance = 6) {
+        private static RoomPosition GetNextRoomPosition(RoomPosition currentPosition) {
             RoomPosition positionToReturn;
 
             do {
@@ -134,7 +173,5 @@ namespace RPG.Generators {
 
             return positionToReturn;
         }
-
-        
     }
 }

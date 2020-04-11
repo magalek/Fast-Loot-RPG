@@ -11,5 +11,6 @@ namespace RPG.Environment {
 
         public RoomOpening roomOpening;
         public List<SpawnPoint> SpawnPoints => transform.Find("Spawn Points").GetComponentsInChildren<SpawnPoint>().ToList();
+        
     }
 }

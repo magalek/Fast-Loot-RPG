@@ -13,33 +13,16 @@ namespace RPG.Items {
         public List<InventorySlot> inventorySlots = new List<InventorySlot>();
 
         private void Awake() {
-            tabButton.onClick.AddListener(ChangeTab);
+            tabButton.onClick.AddListener(Select);
         }
         
         public InventorySlot GetFirstEmptySlot() => inventorySlots.FirstOrDefault(s => s.isEmpty);
         
-        public void RemoveItemsInTab() {
-            foreach (var slot in inventorySlots.Where(slot => slot.item != null))
-                Inventory.RemoveItem(slot.item, false);
-        }
-        
-        public void AddItems(List<Item> itemsToAdd) {
-            foreach (var item in itemsToAdd)
-            {
-                Inventory.AddItem(item, false);
-            }
-        }
 
-        public InventorySlot FindItemSlot(Item itemInSlot) {
-            foreach (var slot in inventorySlots)
-            {
-                if (slot.item == itemInSlot)
-                    return slot;
-            }
-            return null;
+        public InventorySlot GetItemSlot(Item itemInSlot) {
+            return inventorySlots.FirstOrDefault(slot => slot.item == itemInSlot);
         }
-
-        private void ChangeTab() {
+        private void Select() {
             foreach (var tab in Inventory.ItemTabs)
             {
                 tab.gameObject.SetActive(false);
