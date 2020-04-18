@@ -1,4 +1,5 @@
-﻿using RPG.Entities;
+﻿using System;
+using RPG.Entities;
 using RPG.Items;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,31 +7,33 @@ using UnityEngine.UI;
 namespace RPG.UI {
     public class PlayerUI : MonoBehaviour {
 
-        [SerializeField] private Canvas playerUICanvas;
-        [SerializeField] private Image playerHealthBarImage;
+        public event Action CharacterInfoHidden;
 
-        private GameObject inventoryGameObject;
-        private GameObject equipmentGameObject;
-        private GameObject itemTooltipGameObject;
-        
+        [SerializeField] private Image hpBarImage;
+
+        private GameObject infoGameObject;
+
         private void Awake() {
-            inventoryGameObject = transform.parent.GetComponentInChildren<Inventory>().gameObject;
-            equipmentGameObject = transform.parent.GetComponentInChildren<Equipment>().gameObject;
-            
-            playerUICanvas.worldCamera = MainCamera.Instance.GetComponent<Camera>();
+            GetComponent<Canvas>().worldCamera = MainCamera.Instance.GetComponent<Camera>();
             Player.Instance.health.Changed += ChangePlayerHealthBar;
+
+            infoGameObject = transform.Find("Character Info").gameObject;
+        }
+
+        private void Start() {
+            infoGameObject.SetActive(false);
         }
 
         private void Update() {
-            // if (Input.GetKeyDown(KeyCode.E)) {
-            //     inventoryGameObject.SetActive(!inventoryGameObject.activeSelf);
-            //     equipmentGameObject.SetActive(!equipmentGameObject.activeSelf);
-            //     itemTooltipGameObject.SetActive(!itemTooltipGameObject.activeSelf);
-            // }
+            if (Input.GetKeyDown(KeyCode.E)) {
+                infoGameObject.SetActive(!infoGameObject.activeSelf);
+                if (infoGameObject.activeSelf == false)
+                    CharacterInfoHidden?.Invoke();
+            }
         }
 
         private void ChangePlayerHealthBar()
-            => playerHealthBarImage.fillAmount = Player.Instance.health.percentage;
+            => hpBarImage.fillAmount = Player.Instance.health.percentage;
 
     }
 }

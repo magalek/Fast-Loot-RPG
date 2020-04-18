@@ -9,7 +9,6 @@ namespace RPG.Entities
         public string entityName;
 
         public Health health;
-        public Stats stats;
 
         public void Awake() {
             health = GetComponent<Health>();

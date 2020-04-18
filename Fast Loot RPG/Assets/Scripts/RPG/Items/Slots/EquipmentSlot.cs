@@ -6,13 +6,19 @@ namespace RPG.Items.Slots
 {
     public class EquipmentSlot : Slot  {
 
-        public ItemType slotItemType;
+        public ItemType itemType;
+        private Equipment equipment;
 
+        private void Awake() {
+            base.Awake();
+            equipment = GetComponentInParent<Equipment>();
+        }
+        
         protected override void SlotLeftButtonClick() {
             if (item == null) 
                 return;
-            
-            Equipment.UnequipItem(item, this);
+            Player.Instance.inventory.Add(item);
+            equipment.Unequip(item);
             RemoveItem();
         }
     }

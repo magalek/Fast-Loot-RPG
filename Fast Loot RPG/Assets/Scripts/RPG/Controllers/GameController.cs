@@ -12,12 +12,8 @@ namespace RPG.Controllers
 {
     public class GameController : MonoBehaviour {
         public static event Action GameRestarted;
-        [SerializeField] private Player player;
-        [SerializeField] [Range(0.1f, 2f)] private float turnTime = 1f;
-    
-        public static GameController Instance = null;
         
-        public int killCount;
+        public static GameController Instance;
 
         private void Awake() {
             if (Instance == null)

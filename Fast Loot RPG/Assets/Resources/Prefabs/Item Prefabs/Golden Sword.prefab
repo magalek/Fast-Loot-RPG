@@ -163,30 +163,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    itemObjectPrefab: {fileID: 0}
+    prefab: {fileID: 9150242089294018674}
     sprite: {fileID: 0}
-    statistics:
-      maxHealthPoints: 0
-      healthPoints: 0
-      attack: 0
-      defense: 0
-      hitChance: 0
-      dodgeChance: 0
-      blockChance: 0
-      criticalChance: 0
-      criticalDamage: 0
-    rarity: 0
     type: 0
-    ItemLevel: 0
-    IsEquipped: 0
-  prefab: {fileID: 0}
-  statRanges:
-    healthPoints: {x: 0, y: 0}
-    attack: {x: 0, y: 0}
-    defense: {x: 0, y: 0}
-    hitChance: {x: 0, y: 0}
-    dodgeChance: {x: 0, y: 0}
-    blockChance: {x: 0, y: 0}
-    criticalChance: {x: 0, y: 0}
-    criticalDamage: {x: 0, y: 0}
+    isEquipped: 0
+  prefab: {fileID: 9150242089294018674}
   type: 0
+  recentlyDropped: 0

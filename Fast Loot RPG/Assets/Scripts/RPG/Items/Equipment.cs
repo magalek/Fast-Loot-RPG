@@ -1,5 +1,5 @@
-﻿using RPG.Entities;
-using RPG.Events;
+﻿using System.Collections.Generic;
+using System.Linq;
 using RPG.Items.Slots;
 using UnityEngine;
 
@@ -7,53 +7,27 @@ namespace RPG.Items
 {
     public class Equipment : MonoBehaviour
     {
-        //public static Equipment Instance;
-
-        [SerializeField] Transform equipmentGridTransform;
-
-        static EquipmentSlot[] equipmentSlots;
-
-        static Character owner;
-
+        private List<EquipmentSlot> slots;
+        
         private void Awake() {
-            // if (Instance == null)
-            //     Instance = this;
-            // else if (Instance != this)
-            //     Destroy(gameObject);
-
-            owner = GetComponentInParent<Player>();
-
-            InitializeEquipmentSlots();
+            slots = GetComponentsInChildren<EquipmentSlot>().ToList();
         }
 
-        private void InitializeEquipmentSlots() {
-            for (int i = 0; i < equipmentGridTransform.childCount; i++)
-                equipmentSlots = equipmentGridTransform.GetComponentsInChildren<EquipmentSlot>();
+        public bool Equip(Item item) {
+            EquipmentSlot slot = slots.FirstOrDefault(s => s.itemType == item.type);
+
+            if (slot == null || !slot.isEmpty) return false;
+
+            slot.Insert(item);
+            return true;
         }
 
-        public static bool EquipItem(Item item) {
-            EquipmentSlot correctSlot = GetCorrectSlot(item);
-            if (correctSlot && correctSlot.isEmpty) {
-                correctSlot.InsertItem(item);
-                item.isEquipped = true;
-                InventoryEvents.OnInventoryChange(item.type);
-                return true;
-            }
-            return false;
-        }
+        public void Unequip(Item item) {
+            EquipmentSlot slot = slots.FirstOrDefault(s => s.item == item);
 
-        public static void UnequipItem(Item item, EquipmentSlot equipmentSlot) {
-            Inventory.AddItem(item, false);
-            equipmentSlot.item = null;        
-            item.isEquipped = false;
-            InventoryEvents.OnInventoryChange(item.type);
-        }
+            if (slot == null) return;
 
-        private static EquipmentSlot GetCorrectSlot(Item itemToEquip) {
-            foreach (EquipmentSlot slot in equipmentSlots)
-                if (slot.slotItemType == itemToEquip.type)
-                    return slot;
-            return null;
+            slot.RemoveItem();
         }
     }
 }

@@ -14,6 +14,7 @@ namespace RPG.Entities
         public static Player Instance;
 
         public Equipment equipment;
+        public Inventory inventory;
         
         public PlayerController playerController;
         public PlayerAnimationController animationController;
@@ -48,6 +49,8 @@ namespace RPG.Entities
         public void CacheComponents() {
             playerController = GetComponent<PlayerController>();
             animationController = GetComponent<PlayerAnimationController>();
+            inventory = GetComponentInChildren<Inventory>();
+            equipment = GetComponentInChildren<Equipment>();
         }
     }
 }

@@ -21,7 +21,7 @@ namespace RPG.Entities
         public override void Kill() {
             EnemyEvents.OnEnemyKilled(this);
             if (lootChance > Random.value) {
-                ItemsController.DropItemAtPosition(transform.position);
+                ItemsController.Instance.CreateItemObject(transform.position);
             }
             base.Kill();
         }

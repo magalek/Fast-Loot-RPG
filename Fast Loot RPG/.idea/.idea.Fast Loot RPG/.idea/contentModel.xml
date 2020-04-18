@@ -6,7 +6,6 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="RPG" t="Include">
-            <e p="AttackInfoStruct.cs" t="Include" />
             <e p="Behaviours" t="Include">
               <e p="StartGameBehaviour.cs" t="Include" />
             </e>
@@ -15,13 +14,6 @@
               <e p="ItemsController.cs" t="Include" />
               <e p="ResourcesController.cs" t="Include" />
               <e p="SceneController.cs" t="Include" />
-              <e p="StateController.cs" t="Include" />
-            </e>
-            <e p="Effects" t="Include">
-              <e p="Controllers" t="Include">
-                <e p="EffectsController.cs" t="Include" />
-              </e>
-              <e p="Effect.cs" t="Include" />
             </e>
             <e p="Entities" t="Include">
               <e p="Animations" t="Include">
@@ -49,7 +41,6 @@
               <e p="SpawnPoint.cs" t="Include" />
             </e>
             <e p="Events" t="Include">
-              <e p="BattleEvents.cs" t="Include" />
               <e p="EnemyEvents.cs" t="Include" />
               <e p="EntityEvents.cs" t="Include" />
               <e p="InventoryEvents.cs" t="Include" />
@@ -77,12 +68,10 @@
                 <e p="SlotGraphics.cs" t="Include" />
               </e>
             </e>
-            <e p="ItemStats.cs" t="Include" />
             <e p="Lighting" t="Include">
               <e p="LightGlow.cs" t="Include" />
             </e>
             <e p="Loader.cs" t="Include" />
-            <e p="Stats.cs" t="Include" />
             <e p="UI" t="Include">
               <e p="Animations" t="Include">
                 <e p="MenuAnimationController.cs" t="Include" />
@@ -148,7 +137,7 @@
       <e p="Packages" t="ExcludeRecursive" />
       <e p="Temp\bin" t="ExcludeRecursive" />
     </e>
-    <e p="C:\Users\Filip\.Rider2019.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Filip\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_Fast Loot RPG.13553495.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Filip\AppData\local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Filip\AppData\local\JetBrains\Rider2020.1\resharper-host\local\Transient\ReSharperHost\v201\SolutionCaches\_Fast Loot RPG.13553495.00" t="ExcludeRecursive" />
   </component>
 </project>

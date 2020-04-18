@@ -1,9 +1,7 @@
 ﻿namespace RPG.Items {
     public enum ItemType
     {
-        Sword,
-        Mace,
-        Dagger,
+        Weapon,
         Armor,
         Helmet,
         Pants,

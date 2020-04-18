@@ -1,32 +1,42 @@
-﻿using RPG.Items;
+﻿using System.Linq;
+using RPG.Items;
+using RPG.Utility;
+using UnityEditor.UIElements;
 using UnityEngine;
 
 namespace RPG.Controllers
 {
     public class ItemsController : MonoBehaviour {
-        private static ItemObject InstantiateItemObjectAtPosition(Vector3 position, GameObject itemObjectPrefab = null) {
-            if (itemObjectPrefab == null) {
-                itemObjectPrefab = ResourcesController.itemObjectsPrefabs[Random.Range(0, ResourcesController.itemObjectsPrefabs.Length)];
-            }
+        
+        public static ItemsController Instance;
 
-            ItemObject itemObject 
-                = Instantiate(itemObjectPrefab, position, Quaternion.identity).GetComponent<ItemObject>();
-
-            itemObject.SetPrefab(itemObjectPrefab);
+        private Transform itemsParent;
+        
+        private void Awake() {
+            if (Instance == null)
+                Instance = this;
+            else if (Instance != this)
+                Destroy(gameObject);
             
-            Item item = new Item(itemObject);
-            itemObject.SetItem(item);
-            return itemObject;
+            itemsParent = new GameObject("Items").transform;
+        }
+
+        public void CreateItemObject(Vector3 position) {
+            GameObject itemPrefab = ResourcesController.itemObjectsPrefabs.RandomObject();
+            
+            ItemObject itemObject = Instantiate(itemPrefab, position, Quaternion.identity).
+                GetComponent<ItemObject>();
+            itemObject.transform.SetParent(itemsParent);
+            itemObject.prefab = itemPrefab;
+            itemObject.item = new Item(itemObject);
         }
         
-        public static void DropItemAtPosition(Vector3 position, Item item = null) {
-            if (item != null) {
-                ItemObject itemObject = InstantiateItemObjectAtPosition(position, item.itemObjectPrefab);
-                itemObject.IsRecentlyDropped(true);
-            }
-            else {
-                InstantiateItemObjectAtPosition(position);
-            }
+        public void CreateItemObject(Item item, Vector3 position) {
+            ItemObject itemObject = Instantiate(item.prefab, position, Quaternion.identity).
+                GetComponent<ItemObject>();
+            itemObject.transform.SetParent(itemsParent);
+            itemObject.item = item;
+            itemObject.recentlyDropped = true;
         }
     }
 }

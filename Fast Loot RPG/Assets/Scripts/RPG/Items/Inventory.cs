@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using RPG.Controllers;
+using RPG.Entities;
 using RPG.Events;
 using RPG.Items.Slots;
 using UnityEngine;
@@ -8,39 +11,27 @@ namespace RPG.Items
 {
     public class Inventory : MonoBehaviour {
 
-        public static Inventory Instance;
+        private List<InventorySlot> slots;
 
-        [SerializeField] private GameObject slotPrefab;
-        [SerializeField] private Transform gridTabsParent;
-
-        public int slotCount;
-
-        public void Start() {
-            if (Instance == null)       
-                Instance = this;
-            else if (Instance != this)
-                Destroy(gameObject);
-        }
-        
-        public static void AddItem(Item itemToAdd, bool sendInventoryEvent = true) {
-
-            InventorySlot firstEmptySlot = null;
-            if (firstEmptySlot == null) 
-                return;
-            
-            firstEmptySlot.InsertItem(itemToAdd);
-            if (sendInventoryEvent)
-                InventoryEvents.OnInventoryChange(itemToAdd.type);
+        private void Awake() {
+            slots = GetComponentsInChildren<InventorySlot>().ToList();
         }
 
-        public static void RemoveItem(Item itemToRemove, bool sendInventoryEvent = true) {
+        public void Add(Item item) {
+            InventorySlot slot = slots.FirstOrDefault(s => s.isEmpty);
 
-            InventorySlot inventorySlotOfItem = null;
+            if (slot == null) return;
 
-            inventorySlotOfItem.RemoveItem();
+            slot.Insert(item);
+        }
 
-            if (sendInventoryEvent)
-                InventoryEvents.OnInventoryChange(itemToRemove.type);
+        public void Remove(Item item) {
+            InventorySlot slot = slots.FirstOrDefault(s => s.item == item);
+
+            if (slot == null) return;
+
+            slot.RemoveItem();
+            ItemsController.Instance.CreateItemObject(item, Player.Instance.transform.position);
         }
     }
 }
