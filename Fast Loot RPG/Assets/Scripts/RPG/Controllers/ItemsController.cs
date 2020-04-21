@@ -1,7 +1,5 @@
-﻿using System.Linq;
-using RPG.Items;
+﻿using RPG.Items;
 using RPG.Utility;
-using UnityEditor.UIElements;
 using UnityEngine;
 
 namespace RPG.Controllers
@@ -22,7 +20,7 @@ namespace RPG.Controllers
         }
 
         public void CreateItemObject(Vector3 position) {
-            GameObject itemPrefab = ResourcesController.itemObjectsPrefabs.RandomObject();
+            GameObject itemPrefab = ResourcesController.itemObjectsPrefabs.Random();
             
             ItemObject itemObject = Instantiate(itemPrefab, position, Quaternion.identity).
                 GetComponent<ItemObject>();

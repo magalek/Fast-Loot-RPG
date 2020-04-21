@@ -10,13 +10,13 @@ namespace RPG.UI {
         public event Action CharacterInfoHidden;
 
         [SerializeField] private Image hpBarImage;
-
+        
         private GameObject infoGameObject;
 
         private void Awake() {
             GetComponent<Canvas>().worldCamera = MainCamera.Instance.GetComponent<Camera>();
             Player.Instance.health.Changed += ChangePlayerHealthBar;
-
+            
             infoGameObject = transform.Find("Character Info").gameObject;
         }
 

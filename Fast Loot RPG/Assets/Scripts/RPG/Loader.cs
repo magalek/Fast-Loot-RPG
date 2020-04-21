@@ -18,6 +18,8 @@ namespace RPG
                 Instantiate(ResourcesController.playerPrefab);
                 MainCamera.Instance.Center(Player.Instance.transform, 1);
             };
+            
+            
         }
     }
 }

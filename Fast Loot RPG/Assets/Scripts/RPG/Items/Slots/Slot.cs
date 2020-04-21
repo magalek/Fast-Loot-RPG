@@ -1,10 +1,7 @@
-﻿using System;
-using RPG.Entities;
+﻿using RPG.Entities;
 using RPG.UI;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 namespace RPG.Items.Slots
 {

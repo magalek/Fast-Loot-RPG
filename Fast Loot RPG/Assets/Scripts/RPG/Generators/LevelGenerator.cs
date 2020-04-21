@@ -69,7 +69,6 @@ namespace RPG.Generators {
         }
 
         private static void GenerateRooms(int amount) {
-            RoomPosition previousPosition = RoomPosition.Zero();
             RoomPosition nextPosition = RoomPosition.Zero();
 
             for (int i = 0; i < amount - 1; i++) {
@@ -77,7 +76,7 @@ namespace RPG.Generators {
                 if (i < amount - 2)
                     nextPosition = GetNextRoomPosition(currentPosition);
 
-                var room = RoomGenerator.CreateRoom(previousPosition, currentPosition, nextPosition);
+                var room = RoomGenerator.CreateRoom(currentPosition, nextPosition);
                 rooms.Add(room.GetComponent<Room>());
                 room.name = $"Room {i}";
                 room.transform.SetParent(environmentParent);
@@ -85,7 +84,6 @@ namespace RPG.Generators {
 
                 if (i < amount - 2)
                     RoomPosition.positions.Add(nextPosition);
-                previousPosition = currentPosition;
             }
             
             rooms.RemoveAt(0);
@@ -105,9 +103,9 @@ namespace RPG.Generators {
                 List<SpawnPoint> spawnPoints = rooms[i].SpawnPoints;
     
                 for (int j = 0; j < count; j++) {
-                    SpawnPoint spawnPoint = spawnPoints.RandomObject();
+                    SpawnPoint spawnPoint = spawnPoints.Random();
                     spawnPoints.Remove(spawnPoint);
-                    GameObject enemyPrefab = ResourcesController.enemyPrefabs.RandomObject();
+                    GameObject enemyPrefab = ResourcesController.enemyPrefabs.Random();
                     GameObject enemy =  Object.Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
                     enemy.transform.SetParent(enemiesParent);
                 }

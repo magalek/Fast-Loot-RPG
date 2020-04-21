@@ -178,16 +178,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entityName: <color="red">Ghoul</color>
   health: {fileID: 0}
-  stats:
-    attack: 0
-    defense: 0
-    hitChance: 0
-    dodgeChance: 0
-    blockChance: 0
-    criticalChance: 0
-    criticalDamage: 0
   lootChance: 1
   animationController: {fileID: 0}
+  enemyController: {fileID: 0}
 --- !u!114 &-920990197502649319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,6 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f20bb9afae6f4c01a87158b7bc611fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 0.4
   entityAnimationController: {fileID: 0}
 --- !u!114 &6778525697188804943
 MonoBehaviour:
@@ -240,7 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   current: 0
-  max: 20
+  max: 40
 --- !u!95 &4494947930399651340
 Animator:
   serializedVersion: 3

@@ -15,9 +15,12 @@ namespace RPG.Entities
 
         public Equipment equipment;
         public Inventory inventory;
+        public Weapon weapon;
         
         public PlayerController playerController;
         public PlayerAnimationController animationController;
+        
+        public bool IsHittable { get; set; }
         
         private void Awake() {
             base.Awake();
@@ -51,6 +54,7 @@ namespace RPG.Entities
             animationController = GetComponent<PlayerAnimationController>();
             inventory = GetComponentInChildren<Inventory>();
             equipment = GetComponentInChildren<Equipment>();
+            weapon = GetComponentInChildren<Weapon>();
         }
     }
 }

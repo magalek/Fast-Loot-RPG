@@ -2,6 +2,6 @@
 
 namespace RPG.Entities.Movement {
     public interface IMoveable {
-        void Move();
+        void Move(float speed, Vector3 destination);
     }
 }

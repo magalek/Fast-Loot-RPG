@@ -1,9 +1,11 @@
 ﻿using System;
 using RPG.Controllers;
 using RPG.Entities.Animations;
+using RPG.Entities.Movement;
 using RPG.Events;
 using RPG.Items;
 using RPG.Utility;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace RPG.Entities
@@ -12,7 +14,10 @@ namespace RPG.Entities
         public float lootChance;
 
         public EnemyAnimationController animationController;
-        
+        public EnemyController enemyController;
+
+        public bool IsHittable { get; set; } = true;
+
         private void Awake() {
             base.Awake();
             CacheComponents();
@@ -27,15 +32,18 @@ namespace RPG.Entities
         }
 
         public void Hit(int damage) {
+            if (!IsHittable) return;
+
             health.Subtract(damage);
             animationController.PlayHit();
-            
+            StartCoroutine(enemyController.Pushback());
+            Debug.Log("hit");
             if (health.zeroOrLess)
                 Kill();
         }
-
         public void CacheComponents() {
             animationController = GetComponent<EnemyAnimationController>();
+            enemyController = GetComponent<EnemyController>();
         }
     }
 }
