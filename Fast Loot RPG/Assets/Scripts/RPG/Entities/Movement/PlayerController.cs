@@ -2,12 +2,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using RPG.Materials;
 using RPG.UI;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.UIElements;
 
 namespace RPG.Entities.Movement {
     public class PlayerController : MonoBehaviour, IMoveable {
 
+        private float dashSpeed = 2;
+        
         private float dashCooldownTime = 2;
         
         public bool isMoving = false;
@@ -17,7 +22,13 @@ namespace RPG.Entities.Movement {
         
         private float xAxisMovement;
         private float yAxisMovement;
-        
+
+        private PlayerMaterial playerMaterial;
+
+        private void Awake() {
+            playerMaterial = GetComponent<PlayerMaterial>();
+        }
+
         private void Update() {
             xAxisMovement = Input.GetAxisRaw("Horizontal");
             yAxisMovement = Input.GetAxisRaw("Vertical");
@@ -57,44 +68,53 @@ namespace RPG.Entities.Movement {
         private void Dash() {
             canDash = false;
             
-            Vector2 movementVector 
+            Vector2 direction 
                 = new Vector2(xAxisMovement, yAxisMovement);
-            movementVector.Normalize();
-
-            Vector2 positionToDash = movementVector / 5;
+            direction.Normalize();
             
-            List<RaycastHit2D> hits = 
-                Physics2D.RaycastAll(transform.position, movementVector, Vector3.Magnitude(movementVector / 5)).ToList();
+            direction /= 2f;
 
+            Vector2 destination = (Vector2)transform.position + direction;
+            Debug.DrawLine(transform.position, destination, Color.cyan, 5);
+            List<RaycastHit2D> hits = 
+                Physics2D.RaycastAll(transform.position, direction, Vector3.Magnitude(direction)).ToList();
+            
             foreach (var hit in hits) {
                 if (!hit.transform.gameObject.CompareTag("Player")) {
-                    positionToDash = hit.point - (Vector2)transform.position;
-                    //Debug.Log(positionToDash);
+                    destination = hit.point - direction / 20;
                     break;
                 }
-
-                Debug.Log(hit.transform.name);
             }
             
-            //transform.Translate(positionToDash);
-            StartCoroutine(DashCoroutine(positionToDash / 1.5f));
+            Debug.DrawLine(transform.position, destination, Color.yellow, 5);
+
+            StartCoroutine(DashCoroutine(destination, dashSpeed));
             
             StartCoroutine(DashCooldown());
         }
 
-        private IEnumerator DashCoroutine(Vector2 to) {
+        private IEnumerator DashCoroutine(Vector2 destination, float speed = 1) {
             canMove = false;
-            float value = 0.1f;
+
+            float elapsedTime = 0;
+            Vector2 origin = transform.position;
+            float distance = Vector2.Distance(origin, destination);
             
-            for (int i = 0; i < 30; i++) {
-                var position = transform.position;
-                position = Vector2.Lerp(position, (Vector2)position + to, value * 0.1f);
-                transform.position = position;
-                value += 0.07f;
-                MainCamera.Instance.Center(transform, 0.08f);
+            playerMaterial.Set(PlayerMaterial.BlurDir, (destination - origin).normalized / 10);
+            
+            while ((Vector2)transform.position != destination) {
+                transform.position = Vector2.Lerp(origin, destination, Mathf.Tan(elapsedTime / distance)   * speed);
+                Debug.Log(Mathf.Tan(elapsedTime / distance));
+                MainCamera.Instance.Center(transform, 0.06f);
+                
+                playerMaterial.Set(PlayerMaterial.BlurAmount, elapsedTime * 50);
+                elapsedTime += Time.deltaTime;
                 yield return 1;
             }
+            playerMaterial.Set(PlayerMaterial.BlurAmount, 0);
 
+            playerMaterial.Set(PlayerMaterial.BlurDir, Vector4.zero);
+            
             canMove = true;
             yield return null;
         }
@@ -103,5 +123,6 @@ namespace RPG.Entities.Movement {
             yield return new WaitForSeconds(dashCooldownTime);
             canDash = true;
         }
+        
     }
 }

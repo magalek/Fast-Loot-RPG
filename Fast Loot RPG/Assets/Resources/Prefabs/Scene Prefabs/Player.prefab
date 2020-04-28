@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8226571959384418007}
   - component: {fileID: 6510380975621952299}
   - component: {fileID: 6137968571060364119}
+  - component: {fileID: 9017199054661191508}
   - component: {fileID: 7060732354736939796}
   m_Layer: 0
   m_Name: Player
@@ -60,7 +61,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 23a75ac229ef3a24ab6e0b81d827bceb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -206,6 +207,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   current: 0
   max: 100
+--- !u!114 &9017199054661191508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065791163048266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b2d415c41340df879761ef304db65a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &7060732354736939796
 Animator:
   serializedVersion: 3

@@ -74,6 +74,9 @@
               <e p="LightGlow.cs" t="Include" />
             </e>
             <e p="Loader.cs" t="Include" />
+            <e p="mATERIALS" t="Include">
+              <e p="PlayerMaterial.cs" t="Include" />
+            </e>
             <e p="UI" t="Include">
               <e p="Animations" t="Include">
                 <e p="MenuAnimationController.cs" t="Include" />
