@@ -4,7 +4,7 @@ namespace RPG.Materials {
     public class PlayerMaterial : MonoBehaviour {
 
         private Material material;
-
+        
         public static readonly int BlurAmount = Shader.PropertyToID("_Blur");
         public static readonly int BlurDir = Shader.PropertyToID("_BlurDir");
         

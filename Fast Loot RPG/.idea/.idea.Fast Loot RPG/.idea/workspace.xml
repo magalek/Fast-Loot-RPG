@@ -105,6 +105,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/PlayerUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/InventoryUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/StartButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Materials/PlayerMaterial.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/RestartButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/Animations/MenuAnimationController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameMenuUI.cs" root0="FORCE_HIGHLIGHTING" />
@@ -112,7 +113,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/ItemObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Inventory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Item.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Materials/PlayerMaterial.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -433,13 +433,13 @@
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586627433575" />
     <state x="3176" y="370" key="run.anything.popup/0.0.2560.1400/2560.130.1920.1040@2560.130.1920.1040" timestamp="1588014385762" />
-    <state x="3183" y="355" width="672" height="679" key="search.everywhere.popup" timestamp="1588013865541">
+    <state x="3183" y="355" width="672" height="679" key="search.everywhere.popup" timestamp="1588192023920">
       <screen x="2560" y="130" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040/-1407.-1080.1920.1040@0.0.1920.1040" timestamp="1586186801154" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587311373727" />
     <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581021513405" />
     <state x="831" y="303" width="896" height="913" key="search.everywhere.popup/0.0.2560.1400/2560.130.1920.1040@0.0.2560.1400" timestamp="1587477229743" />
-    <state x="3183" y="355" width="672" height="679" key="search.everywhere.popup/0.0.2560.1400/2560.130.1920.1040@2560.130.1920.1040" timestamp="1588013865541" />
+    <state x="3183" y="355" width="672" height="679" key="search.everywhere.popup/0.0.2560.1400/2560.130.1920.1040@2560.130.1920.1040" timestamp="1588192023920" />
   </component>
 </project>
