@@ -55,6 +55,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Events/EntityEvents.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Events/EnemyEvents.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Events/PlayerEvents.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Materials/PlayerMaterial.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Environment/RoomPosition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@7.1.8/Runtime/Debugging/DebugUpdater.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Utility/CachedComponent.cs" root0="FORCE_HIGHLIGHTING" />
@@ -100,12 +101,12 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/HitTriggers/WeaponHitTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/Fader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/EquipmentUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Utility/Cooldown.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/ExitButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/MainCamera.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/PlayerUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/InventoryUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/StartButton.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Materials/PlayerMaterial.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/RestartButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/Animations/MenuAnimationController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameMenuUI.cs" root0="FORCE_HIGHLIGHTING" />
@@ -117,7 +118,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Environment/SpawnPoint.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/EntityController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/PanelFader.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/ScreenMessage.cs" />
@@ -164,10 +164,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/PlayerUI.cs" />
         <option value="$PROJECT_DIR$/Assets/GameMenuUI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/EnemyController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Weapon.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Animations/PlayerAnimationController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Materials/PlayerMaterial.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Utility/Cooldown.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Weapon.cs" />
       </list>
     </option>
   </component>
@@ -187,7 +188,7 @@
     <property name="TWShift.4" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.smartKeys_rider" />
+    <property name="settings.editor.selected.configurable" value="editor.breadcrumbs" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
@@ -266,6 +267,7 @@
       <workItem from="1587906450033" duration="4023000" />
       <workItem from="1588012872705" duration="4989000" />
       <workItem from="1588079126061" duration="8962000" />
+      <workItem from="1588192060473" duration="1264000" />
     </task>
     <servers />
   </component>
@@ -417,12 +419,13 @@
     <state x="670" y="201" key="RiderGenerateDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587231087959" />
     <state x="2590" y="201" key="RiderGenerateDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1580510227633" />
     <state x="3230" y="331" key="RiderGenerateDialog/0.0.2560.1400/2560.130.1920.1040@2560.130.1920.1040" timestamp="1588079833409" />
-    <state x="461" y="163" key="SettingsEditor" timestamp="1585162170914">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="3021" y="293" key="SettingsEditor" timestamp="1588192433591">
+      <screen x="2560" y="130" width="1920" height="1040" />
     </state>
     <state x="461" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040/-1407.-1080.1920.1040@0.0.1920.1040" timestamp="1585162170914" />
     <state x="461" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580408174202" />
     <state x="2381" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1580569352938" />
+    <state x="3021" y="293" key="SettingsEditor/0.0.2560.1400/2560.130.1920.1040@2560.130.1920.1040" timestamp="1588192433591" />
     <state x="521" y="257" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1587233316563">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -433,13 +436,13 @@
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586627433575" />
     <state x="3176" y="370" key="run.anything.popup/0.0.2560.1400/2560.130.1920.1040@2560.130.1920.1040" timestamp="1588014385762" />
-    <state x="3183" y="355" width="672" height="679" key="search.everywhere.popup" timestamp="1588192023920">
+    <state x="3183" y="355" width="672" height="679" key="search.everywhere.popup" timestamp="1588193148748">
       <screen x="2560" y="130" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040/-1407.-1080.1920.1040@0.0.1920.1040" timestamp="1586186801154" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587311373727" />
     <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581021513405" />
     <state x="831" y="303" width="896" height="913" key="search.everywhere.popup/0.0.2560.1400/2560.130.1920.1040@0.0.2560.1400" timestamp="1587477229743" />
-    <state x="3183" y="355" width="672" height="679" key="search.everywhere.popup/0.0.2560.1400/2560.130.1920.1040@2560.130.1920.1040" timestamp="1588192023920" />
+    <state x="3183" y="355" width="672" height="679" key="search.everywhere.popup/0.0.2560.1400/2560.130.1920.1040@2560.130.1920.1040" timestamp="1588193148748" />
   </component>
 </project>

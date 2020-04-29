@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using RPG.Materials;
 using RPG.UI;
+using RPG.Utility;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UIElements;
@@ -12,8 +13,8 @@ namespace RPG.Entities.Movement {
     public class PlayerController : MonoBehaviour, IMoveable {
 
         private float dashSpeed = 2;
-        
-        private float dashCooldownTime = 2;
+
+        private Cooldown dashCooldown = new Cooldown(2);
         
         public bool isMoving = false;
         
@@ -27,6 +28,7 @@ namespace RPG.Entities.Movement {
 
         private void Awake() {
             playerMaterial = GetComponent<PlayerMaterial>();
+            dashCooldown.Ended += () => canDash = true;
         }
 
         private void Update() {
@@ -75,7 +77,6 @@ namespace RPG.Entities.Movement {
             direction /= 2f;
 
             Vector2 destination = (Vector2)transform.position + direction;
-            Debug.DrawLine(transform.position, destination, Color.cyan, 5);
             List<RaycastHit2D> hits = 
                 Physics2D.RaycastAll(transform.position, direction, Vector3.Magnitude(direction)).ToList();
             
@@ -85,12 +86,8 @@ namespace RPG.Entities.Movement {
                     break;
                 }
             }
-            
-            Debug.DrawLine(transform.position, destination, Color.yellow, 5);
-
             StartCoroutine(DashCoroutine(destination, dashSpeed));
-            
-            StartCoroutine(DashCooldown());
+            dashCooldown.Start();
         }
 
         private IEnumerator DashCoroutine(Vector2 destination, float speed = 1) {
@@ -104,7 +101,6 @@ namespace RPG.Entities.Movement {
             
             while ((Vector2)transform.position != destination) {
                 transform.position = Vector2.Lerp(origin, destination, Mathf.Tan(elapsedTime / distance)   * speed);
-                Debug.Log(Mathf.Tan(elapsedTime / distance));
                 MainCamera.Instance.Center(transform, 0.06f);
                 
                 playerMaterial.Set(PlayerMaterial.BlurAmount, elapsedTime * 50);
@@ -118,11 +114,5 @@ namespace RPG.Entities.Movement {
             canMove = true;
             yield return null;
         }
-        
-        private IEnumerator DashCooldown() {
-            yield return new WaitForSeconds(dashCooldownTime);
-            canDash = true;
-        }
-        
     }
 }

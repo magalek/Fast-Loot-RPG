@@ -1,18 +1,20 @@
 ﻿using System;
 using System.Collections;
 using RPG.UI;
+using RPG.Utility;
 using UnityEngine;
 
 namespace RPG.Entities {
     public class Weapon : MonoBehaviour {
-
-        private float attackCooldownTime = 0.4f;
-        private bool onCooldown;
+        
+        private Cooldown attackCooldown = new Cooldown(0.4f);
+        private bool canAttack = true;
         
         private Animator animator;
 
         private void Awake() {
             animator = GetComponent<Animator>();
+            attackCooldown.Ended += () => canAttack = true;
         }
         
         private void Rotate() {
@@ -25,9 +27,9 @@ namespace RPG.Entities {
         }
         
         public void Attack() {
-            if (onCooldown) return;
-            onCooldown = true;
-            StartCoroutine(WeaponCooldown());
+            if (!canAttack) return;
+            canAttack = false;
+            attackCooldown.Start();
             Rotate();
             if (Input.mousePosition.x < Screen.width / 2)
                 animator.SetTrigger(Animator.StringToHash("Attack Left"));
@@ -35,9 +37,5 @@ namespace RPG.Entities {
                 animator.SetTrigger(Animator.StringToHash("Attack Right"));
         }
 
-        private IEnumerator WeaponCooldown() {
-            yield return new WaitForSeconds(attackCooldownTime);
-            onCooldown = false;
-        }
     }
 }

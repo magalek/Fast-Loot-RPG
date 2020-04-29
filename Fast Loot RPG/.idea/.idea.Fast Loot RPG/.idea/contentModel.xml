@@ -93,6 +93,7 @@
             </e>
             <e p="Utility" t="Include">
               <e p="CachedComponent.cs" t="Include" />
+              <e p="Cooldown.cs" t="Include" />
               <e p="ExtensionMethods.cs" t="Include" />
               <e p="IComponentCache.cs" t="Include" />
               <e p="Serializer.cs" t="Include" />
