@@ -17,8 +17,8 @@ GameObject:
   - component: {fileID: -920990197502649319}
   - component: {fileID: 2837428645129453061}
   - component: {fileID: 6778525697188804943}
-  - component: {fileID: -7633230284069222568}
   - component: {fileID: 4494947930399651340}
+  - component: {fileID: 572718499976998852}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Untagged
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityName: <color="red">Ghoul</color>
-  health: {fileID: 0}
+  info: {fileID: 0}
   lootChance: 1
   animationController: {fileID: 0}
   enemyController: {fileID: 0}
@@ -221,20 +221,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ad404bb7004a06ab4ea8ab0ecc03eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-7633230284069222568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1441251780949838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5d4e48629ee4274b836d3132afbca8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  current: 0
-  max: 40
 --- !u!95 &4494947930399651340
 Animator:
   serializedVersion: 3
@@ -254,3 +240,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &572718499976998852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441251780949838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1e824ad16284650a9aad8881fd5437b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage:
+    current: 0
+  Health:
+    current: 0
+    max: 50

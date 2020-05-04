@@ -25,7 +25,6 @@
               <e p="Boss.cs" t="Include" />
               <e p="Character.cs" t="Include" />
               <e p="Enemy.cs" t="Include" />
-              <e p="Health.cs" t="Include" />
               <e p="IHittable.cs" t="Include" />
               <e p="Movement" t="Include">
                 <e p="EnemyController.cs" t="Include" />
@@ -76,6 +75,12 @@
             <e p="Loader.cs" t="Include" />
             <e p="mATERIALS" t="Include">
               <e p="PlayerMaterial.cs" t="Include" />
+            </e>
+            <e p="Statistics" t="Include">
+              <e p="Damage.cs" t="Include" />
+              <e p="Health.cs" t="Include" />
+              <e p="Info.cs" t="Include" />
+              <e p="IStatistic.cs" t="Include" />
             </e>
             <e p="UI" t="Include">
               <e p="Animations" t="Include">

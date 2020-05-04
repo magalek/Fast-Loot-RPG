@@ -47,8 +47,10 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Rarity.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Equipment.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Weapon.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Statistics/IStatistic.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/SlotGraphics.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/InventorySlot.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Statistics/Damage.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/Slot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/EquipmentSlot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Events/InventoryEvents.cs" root0="FORCE_HIGHLIGHTING" />
@@ -58,11 +60,12 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Materials/PlayerMaterial.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Environment/RoomPosition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@7.1.8/Runtime/Debugging/DebugUpdater.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Statistics/Info.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Utility/CachedComponent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Utility/IComponentCache.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Utility/ExtensionMethods.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Utility/Serializer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Health.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Statistics/Health.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Character.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@1.1.4/Rider/Editor/UnitTesting/TestsCallback.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Entities/IHittable.cs" root0="FORCE_HIGHLIGHTING" />
@@ -118,14 +121,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/EntityController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/PanelFader.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/ScreenMessage.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/UIAnimationController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/Animations/MenuAnimationController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Behaviours/StartGameBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/StartButton.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/ItemTooltip.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/ExitButton.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/SceneController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/Fader.cs" />
@@ -137,7 +132,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/InventoryUI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/SlotGraphics.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Events/BattleEvents.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Character.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/GameController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/StateController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/ResourcesController.cs" />
@@ -156,19 +150,28 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Generators/RoomGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/HitTriggers/WeaponHitTrigger.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/IHittable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/IMoveable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/ItemsController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Slots/Slot.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/PlayerUI.cs" />
         <option value="$PROJECT_DIR$/Assets/GameMenuUI.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/EnemyController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Animations/PlayerAnimationController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Materials/PlayerMaterial.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Utility/Cooldown.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Weapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Utility/Cooldown.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/EnemyController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Stats.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Health.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Statistics/Stats.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Statistics/Statistic.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Enemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/PlayerUI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Character.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Statistics/IStatistic.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Statistics/Damage.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Statistics/Health.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Statistics/Info.cs" />
       </list>
     </option>
   </component>
@@ -267,7 +270,10 @@
       <workItem from="1587906450033" duration="4023000" />
       <workItem from="1588012872705" duration="4989000" />
       <workItem from="1588079126061" duration="8962000" />
-      <workItem from="1588192060473" duration="1264000" />
+      <workItem from="1588192060473" duration="4077000" />
+      <workItem from="1588245980353" duration="450000" />
+      <workItem from="1588280521750" duration="735000" />
+      <workItem from="1588609890360" duration="1912000" />
     </task>
     <servers />
   </component>
@@ -412,13 +418,13 @@
     <state width="1876" height="295" key="GridCell.Tab.3.right/0.0.1920.1040/1920.0.1920.1040/-1407.-1080.1920.1040@0.0.1920.1040" timestamp="1585349420044" />
     <state width="1876" height="322" key="GridCell.Tab.3.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587237448329" />
     <state width="1876" height="262" key="GridCell.Tab.3.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1580687749101" />
-    <state x="3230" y="331" key="RiderGenerateDialog" timestamp="1588079833409">
+    <state x="3230" y="331" key="RiderGenerateDialog" timestamp="1588196860863">
       <screen x="2560" y="130" width="1920" height="1040" />
     </state>
     <state x="670" y="201" key="RiderGenerateDialog/0.0.1920.1040/1920.0.1920.1040/-1407.-1080.1920.1040@0.0.1920.1040" timestamp="1585307441760" />
     <state x="670" y="201" key="RiderGenerateDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587231087959" />
     <state x="2590" y="201" key="RiderGenerateDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1580510227633" />
-    <state x="3230" y="331" key="RiderGenerateDialog/0.0.2560.1400/2560.130.1920.1040@2560.130.1920.1040" timestamp="1588079833409" />
+    <state x="3230" y="331" key="RiderGenerateDialog/0.0.2560.1400/2560.130.1920.1040@2560.130.1920.1040" timestamp="1588196860863" />
     <state x="3021" y="293" key="SettingsEditor" timestamp="1588192433591">
       <screen x="2560" y="130" width="1920" height="1040" />
     </state>
@@ -436,13 +442,13 @@
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586627433575" />
     <state x="3176" y="370" key="run.anything.popup/0.0.2560.1400/2560.130.1920.1040@2560.130.1920.1040" timestamp="1588014385762" />
-    <state x="3183" y="355" width="672" height="679" key="search.everywhere.popup" timestamp="1588193148748">
+    <state x="3183" y="355" width="672" height="679" key="search.everywhere.popup" timestamp="1588610874902">
       <screen x="2560" y="130" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040/-1407.-1080.1920.1040@0.0.1920.1040" timestamp="1586186801154" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587311373727" />
     <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581021513405" />
     <state x="831" y="303" width="896" height="913" key="search.everywhere.popup/0.0.2560.1400/2560.130.1920.1040@0.0.2560.1400" timestamp="1587477229743" />
-    <state x="3183" y="355" width="672" height="679" key="search.everywhere.popup/0.0.2560.1400/2560.130.1920.1040@2560.130.1920.1040" timestamp="1588193148748" />
+    <state x="3183" y="355" width="672" height="679" key="search.everywhere.popup/0.0.2560.1400/2560.130.1920.1040@2560.130.1920.1040" timestamp="1588610874902" />
   </component>
 </project>

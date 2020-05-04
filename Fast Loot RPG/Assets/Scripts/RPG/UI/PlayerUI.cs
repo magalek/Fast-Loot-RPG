@@ -15,7 +15,7 @@ namespace RPG.UI {
 
         private void Awake() {
             GetComponent<Canvas>().worldCamera = MainCamera.Instance.GetComponent<Camera>();
-            Player.Instance.health.Changed += ChangePlayerHealthBar;
+            Player.Instance.info.Health.Changed += ChangePlayerHealthBar;
             
             infoGameObject = transform.Find("Character Info").gameObject;
         }
@@ -33,7 +33,7 @@ namespace RPG.UI {
         }
 
         private void ChangePlayerHealthBar()
-            => hpBarImage.fillAmount = Player.Instance.health.percentage;
+            => hpBarImage.fillAmount = Player.Instance.info.Health.Percentage;
 
     }
 }

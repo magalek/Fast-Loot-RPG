@@ -1,17 +1,18 @@
 ﻿using System;
+using RPG.Statistics;
 using UnityEngine;
 
 namespace RPG.Entities
 {
-    [RequireComponent(typeof(Health))]
+    [RequireComponent(typeof(Info))]
     public class Character : MonoBehaviour {
 
         public string entityName;
 
-        public Health health;
+        public Info info;
 
         public void Awake() {
-            health = GetComponent<Health>();
+            info = GetComponent<Info>();
         }
 
         public virtual void Kill() {

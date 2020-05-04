@@ -34,11 +34,10 @@ namespace RPG.Entities
         public void Hit(int damage) {
             if (!IsHittable) return;
 
-            health.Subtract(damage);
+            info.Health.Subtract(damage);
             animationController.PlayHit();
             StartCoroutine(enemyController.Pushback());
-            Debug.Log("hit");
-            if (health.zeroOrLess)
+            if (info.Health.ZeroOrLess)
                 Kill();
         }
         public void CacheComponents() {
