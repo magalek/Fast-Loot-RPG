@@ -14,11 +14,11 @@ namespace RPG.UI {
             Player.Died += FadeOut;
         }
 
-        private static void FadeIn() {
+        public static void FadeIn() {
             animator.SetTrigger(Animator.StringToHash("FadeIn"));
         }
         
-        private static void FadeOut() {
+        public static void FadeOut() {
             animator.SetTrigger(Animator.StringToHash("FadeOut"));
         }
     }

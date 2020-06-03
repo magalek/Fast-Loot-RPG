@@ -1,4 +1,5 @@
-﻿using RPG.Entities;
+﻿using System;
+using RPG.Entities;
 using RPG.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -17,9 +18,12 @@ namespace RPG.Items.Slots
             slotGraphics = new SlotGraphics(this);
             item = null;
 
+        }
+
+        private void Start() {
             Player.Instance.GetComponentInChildren<PlayerUI>().CharacterInfoHidden += () => showTooltip = false;
         }
-        
+
         public void Insert(Item addedItem) {
             if (addedItem == null)
                 return;

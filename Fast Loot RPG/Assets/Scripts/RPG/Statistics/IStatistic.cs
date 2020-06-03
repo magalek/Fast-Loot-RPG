@@ -2,11 +2,10 @@
 using UnityEngine;
 
 namespace RPG.Statistics {
-    public interface IStatistic {
+    public interface IStatistic<T> {
         event Action Changed;
-        int Current { get; set; }
+        T Current { get; set; }
         void Init();
-        void Add(int amount);
-        void Subtract(int amount);
+        void ChangeCurrentBy(T amount);
     }
 }

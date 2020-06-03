@@ -37,10 +37,10 @@ namespace RPG.Entities
         }
 
         public virtual void Hit(int damage) {
-            info.Health.Subtract(damage);
+            characterInfo.Health.ChangeCurrentBy(-damage);
             animationController.PlayHit();
             
-            if (info.Health.ZeroOrLess)
+            if (characterInfo.Health.ZeroOrLess)
                 Kill();
         }
         

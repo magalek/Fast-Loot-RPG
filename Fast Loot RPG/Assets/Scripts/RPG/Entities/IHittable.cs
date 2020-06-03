@@ -3,6 +3,6 @@
 namespace RPG.Entities {
     public interface IHittable {
         void Hit(int damage);
-        bool IsHittable { set; }
+        bool IsHittable { get; set; }
     }
 }

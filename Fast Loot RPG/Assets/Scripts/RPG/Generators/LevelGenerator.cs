@@ -18,9 +18,15 @@ namespace RPG.Generators {
         public static bool Initialised = false;
 
         public static int DefaultRoomAmount = 20;
+
+        public static int LevelNumber = 1;
+
+        public static bool GeneratingLevel = false;
         private static GameObject horizontalCorridorPrefab => Resources.Load<GameObject>("Prefabs/Environment Prefabs/Corridor Horizontal");
         private static GameObject verticalCorridorPrefab => Resources.Load<GameObject>("Prefabs/Environment Prefabs/Corridor Vertical");
 
+        private static GameObject stairsPrefab => Resources.Load<GameObject>("Prefabs/Environment Prefabs/Stairs");
+        
         private static List<Vector2> roomPositions = new List<Vector2>();
 
         private static float roomOffset = 2;
@@ -32,6 +38,7 @@ namespace RPG.Generators {
         private static Transform enemiesParent;
         
         private static List<Room> rooms = new List<Room>();
+        
         
         public static void Init() {
             RoomGenerator.Init();
@@ -53,9 +60,22 @@ namespace RPG.Generators {
 
             GenerateCorridors();
 
-            GenerateEnemies(0, 4);
+            GenerateEnemies(0, 8);
 
+            GenerateStairs();
+
+            Bounds bounds = new Bounds(roomPositions[0], Vector3.zero);
+            bounds.Encapsulate(roomPositions.Last());
+            Debug.Log(bounds.center);
+            
             GenerationCompleted?.Invoke();
+            GeneratingLevel = false;
+        }
+
+        private static void GenerateStairs() {
+            SpawnPoint spawnPoint = rooms[rooms.Count - 1].SpawnPoints.Random();
+            GameObject stairs = Object.Instantiate(stairsPrefab, spawnPoint.transform.position, Quaternion.identity);
+            stairs.transform.SetParent(levelParent);
         }
 
         private static void GenerateCorridors() {

@@ -1,15 +1,20 @@
 ﻿using System;
+using Packages.Rider.Editor.UnitTesting;
 using UnityEngine;
 
 namespace RPG.Statistics {
     [Serializable]
-    public class Health : IStatistic {
+    public class Health : IMaxStatistic<int> {
         public event Action Changed;
 
         [SerializeField] private int current;
         [SerializeField] private int max;
 
-        public int Max => max;
+        public int Max {
+            get => max;
+            set => max = value;
+        }
+
         public int Current {
             get => current;
             set {
@@ -28,12 +33,12 @@ namespace RPG.Statistics {
             current = max;
         }
 
-        public void Add(int amount) {
-            Current += amount;
+        public void ChangeMaxBy(int amount) {
+            max += amount;
         }
         
-        public void Subtract(int amount) {
-            Current -= amount;
+        public void ChangeCurrentBy(int amount) {
+            Current += amount;
         }
     }
 }

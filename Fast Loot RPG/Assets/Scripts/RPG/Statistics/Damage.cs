@@ -3,25 +3,24 @@ using UnityEngine;
 
 namespace RPG.Statistics {
     [Serializable]
-    public class Damage : IStatistic {
+    public class Damage : IStatistic<int> {
         public event Action Changed;
 
         [SerializeField] private int current;
         
         public int Current {
             get => current;
-            set => current = value;
+            set {
+                current = value;
+                Changed?.Invoke();
+            }
         }
 
         public void Init() {
         }
-
-        public void Add(int amount) {
-            throw new NotImplementedException();
-        }
-
-        public void Subtract(int amount) {
-            throw new NotImplementedException();
+        
+        public void ChangeCurrentBy(int amount) {
+            Current += amount;
         }
     }
 }

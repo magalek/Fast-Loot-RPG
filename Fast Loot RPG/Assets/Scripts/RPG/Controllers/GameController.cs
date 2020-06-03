@@ -29,12 +29,17 @@ namespace RPG.Controllers
         }
 
         private void Start() {
-            LevelGenerator.GenerateLevel();
+            Debug.Log("creating world from start");
+            LevelGenerator.GenerateLevel(3 * LevelGenerator.LevelNumber);
+            
         }
 
         public void RestartGame() {
+            if (LevelGenerator.GeneratingLevel == false) return;
+            Debug.Log("creating world from restart game");
             LevelGenerator.ClearLevel();
-            LevelGenerator.GenerateLevel();
+            LevelGenerator.GenerateLevel(3 * LevelGenerator.LevelNumber);
+            Player.Instance.transform.position = Vector3.zero;
             GameRestarted?.Invoke();
         }
     }

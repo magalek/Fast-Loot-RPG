@@ -1,21 +1,23 @@
 ﻿using System;
 using RPG.Statistics;
 using UnityEngine;
+using CharacterInfo = RPG.Statistics.CharacterInfo;
 
 namespace RPG.Entities
 {
-    [RequireComponent(typeof(Info))]
+    [RequireComponent(typeof(CharacterInfo))]
     public class Character : MonoBehaviour {
 
         public string entityName;
 
-        public Info info;
+        public CharacterInfo characterInfo;
 
         public void Awake() {
-            info = GetComponent<Info>();
+            characterInfo = GetComponent<CharacterInfo>();
         }
 
         public virtual void Kill() {
+            Score.Amount += 20;
             Destroy(gameObject);            
         }
     }
