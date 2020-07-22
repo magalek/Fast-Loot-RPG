@@ -22,21 +22,23 @@ namespace RPG {
             if (slot == null) return;
             
             slot.Insert(item);
+            
+            Score.Instance.AddScore(item.value);
         }
 
-        public override void Remove(Item item) {
-            Slot slot = slots.FirstOrDefault(s => s.item == item);
-            
-            if (slot == null) return;
-            
-            slot.RemoveItem();
-            
-            if (Target != null) {
-                Target.Add(item);
-            }
-            else {
-                ItemsController.Instance.CreateItemObject(item, Player.Instance.transform.position);
-            }
-        }
+        // public override void Remove(Item item) {
+        //     // Slot slot = slots.FirstOrDefault(s => s.item == item);
+        //     //
+        //     // if (slot == null) return;
+        //     //
+        //     // slot.RemoveItem();
+        //     //
+        //     // if (Target != null) {
+        //     //     Target.Add(item);
+        //     // }
+        //     // else {
+        //     //     ItemsController.Instance.CreateItemObject(item, Player.Instance.transform.position);
+        //     // }
+        // }
     }
 }

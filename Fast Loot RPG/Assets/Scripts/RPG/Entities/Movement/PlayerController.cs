@@ -62,7 +62,7 @@ namespace RPG.Entities.Movement {
             if (Input.GetMouseButtonDown(0)) 
                 Player.Instance.weapon.Attack();
             
-            if (Input.GetKeyDown(KeyCode.LeftShift) && CanMove && CanDash) {
+            if (Input.GetKeyDown(KeyCode.LeftShift) && isMoving && CanMove && CanDash) {
                 Dash();
             }
             dashImage.fillAmount = dashCooldown.Percentage;
