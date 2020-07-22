@@ -7,12 +7,15 @@
         <e p="EnemyHealthBar.cs" t="Include" />
         <e p="GameMenuUI.cs" t="Include" />
         <e p="MapCamera.cs" t="Include" />
+        <e p="Projectile.cs" t="Include" />
         <e p="Score.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="RPG" t="Include">
             <e p="Behaviours" t="Include">
               <e p="StartGameBehaviour.cs" t="Include" />
             </e>
+            <e p="Container.cs" t="Include" />
+            <e p="ContainerController.cs" t="Include" />
             <e p="Controllers" t="Include">
               <e p="GameController.cs" t="Include" />
               <e p="ItemsController.cs" t="Include" />
@@ -27,13 +30,16 @@
               </e>
               <e p="Boss.cs" t="Include" />
               <e p="Character.cs" t="Include" />
+              <e p="CharacterType.cs" t="Include" />
               <e p="Enemy.cs" t="Include" />
               <e p="IHittable.cs" t="Include" />
               <e p="Movement" t="Include">
                 <e p="EnemyController.cs" t="Include" />
                 <e p="IMoveable.cs" t="Include" />
+                <e p="NPCController.cs" t="Include" />
                 <e p="PlayerController.cs" t="Include" />
               </e>
+              <e p="NPC.cs" t="Include" />
               <e p="Player.cs" t="Include" />
               <e p="Weapon.cs" t="Include" />
             </e>
@@ -58,6 +64,7 @@
               <e p="EntityHitTrigger.cs" t="Include" />
               <e p="WeaponHitTrigger.cs" t="Include" />
             </e>
+            <e p="IInteractable.cs" t="Include" />
             <e p="Items" t="Include">
               <e p="Equipment.cs" t="Include" />
               <e p="Inventory.cs" t="Include" />
@@ -79,6 +86,7 @@
             <e p="mATERIALS" t="Include">
               <e p="PlayerMaterial.cs" t="Include" />
             </e>
+            <e p="NPCContainer.cs" t="Include" />
             <e p="Statistics" t="Include">
               <e p="CharacterInfo.cs" t="Include" />
               <e p="Damage.cs" t="Include" />

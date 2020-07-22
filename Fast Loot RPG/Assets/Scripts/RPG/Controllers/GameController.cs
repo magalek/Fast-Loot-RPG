@@ -35,7 +35,12 @@ namespace RPG.Controllers
         }
 
         public void RestartGame() {
-            if (LevelGenerator.GeneratingLevel == false) return;
+            if (LevelGenerator.GeneratingLevel) {
+                Debug.Log("Cannot restart");
+                return;
+            }
+
+            LevelGenerator.GeneratingLevel = true;
             Debug.Log("creating world from restart game");
             LevelGenerator.ClearLevel();
             LevelGenerator.GenerateLevel(3 * LevelGenerator.LevelNumber);

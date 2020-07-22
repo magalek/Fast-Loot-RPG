@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1840168749848476438
+--- !u!1 &2684990524905218137
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,36 +8,36 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6089617681991888933}
-  - component: {fileID: 6120695336539469049}
+  - component: {fileID: 7930363059181425371}
+  - component: {fileID: 5159044346252159741}
   m_Layer: 0
-  m_Name: Point Light 2D
+  m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6089617681991888933
+--- !u!4 &7930363059181425371
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1840168749848476438}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 2684990524905218137}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1009560941481200814}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6120695336539469049
+--- !u!114 &5159044346252159741
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1840168749848476438}
+  m_GameObject: {fileID: 2684990524905218137}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
@@ -122,7 +122,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -140,8 +140,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2016006863
+  m_SortingLayer: 1
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 1f33299738ccd094a9e5b0b5940adbb8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -185,8 +185,8 @@ GameObject:
   - component: {fileID: 8566293618407474007}
   - component: {fileID: 5094606664694725529}
   m_Layer: 0
-  m_Name: Golden Coins
-  m_TagString: Untagged
+  m_Name: Key
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -203,7 +203,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7549369035681854879}
-  - {fileID: 6089617681991888933}
+  - {fileID: 7930363059181425371}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -235,11 +235,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93ab1cb7bcf145b29eef6e3a9043eaef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  availableSprites:
+  - {fileID: 21300000, guid: a16e544322aac4b46a5edc88ae421000, type: 3}
+  - {fileID: 21300000, guid: d846b260a707bcc4a9bb0d591f819ba0, type: 3}
+  - {fileID: 21300000, guid: 96a4b732234e7e74988a78521404d8c0, type: 3}
+  - {fileID: 21300000, guid: b556b045bcc46954da77ba1afba73279, type: 3}
+  - {fileID: 21300000, guid: 2846790eb080bac409bd7d885f1b5108, type: 3}
+  - {fileID: 21300000, guid: 8ac136656b19e8343ad4eb78c5f24c9d, type: 3}
+  - {fileID: 21300000, guid: c024c781e8d07b542a9f05a66e165faa, type: 3}
+  - {fileID: 21300000, guid: 2c16728b0b3f39641b9208f23469985c, type: 3}
+  - {fileID: 21300000, guid: 70ec8012971f544438009257858660b4, type: 3}
+  - {fileID: 21300000, guid: cf765761d5a581247a2ab44d11eef1f3, type: 3}
   item:
     prefab: {fileID: 9150242089294018674}
     sprite: {fileID: 21300000, guid: 1f33299738ccd094a9e5b0b5940adbb8, type: 3}
     type: 5
-    isEquipped: 0
+    value: 0
   prefab: {fileID: 9150242089294018674}
   type: 5
   recentlyDropped: 0

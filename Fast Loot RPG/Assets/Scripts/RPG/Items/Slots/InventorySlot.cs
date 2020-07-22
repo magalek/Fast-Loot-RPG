@@ -1,6 +1,4 @@
-﻿using RPG.Entities;
-
-namespace RPG.Items.Slots
+﻿namespace RPG.Items.Slots
 {
     public class InventorySlot : Slot {
         
@@ -11,15 +9,15 @@ namespace RPG.Items.Slots
             inventory = GetComponentInParent<Inventory>();
         }
         
-        protected override void SlotLeftButtonClick() {
-            if (item == null) return;
-
-            if (Player.Instance.equipment.Equip(item))
-                RemoveItem();
-        }
+        // protected override void OnLeftMouseClick() {
+        //     if (item == null) return;
+        //
+        //     if (Player.Instance.equipment.Add(item))
+        //         RemoveItem();
+        // }
         
-        protected override void SlotRightButtonClick() {
-            inventory.Remove(item);
-        }
+        // protected override void OnRightMouseClick() {
+        //     inventory.Remove(item);
+        // }
     }
 }

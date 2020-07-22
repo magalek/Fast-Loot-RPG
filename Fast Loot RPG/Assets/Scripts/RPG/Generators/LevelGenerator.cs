@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using RPG.Controllers;
+using RPG.Entities;
 using RPG.Environment;
+using RPG.Materials;
 using RPG.Utility;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -43,9 +45,12 @@ namespace RPG.Generators {
         public static void Init() {
             RoomGenerator.Init();
             Initialised = true;
+            GenerationCompleted += () => GeneratingLevel = false;
+            Player.Died += () => LevelNumber = 1;
         }
         
         public static void GenerateLevel(int roomAmount = 0) {
+            GeneratingLevel = true;
             if (roomAmount == 0) roomAmount = DefaultRoomAmount; 
             
             levelParent = new GameObject("Level").transform;
@@ -69,7 +74,6 @@ namespace RPG.Generators {
             Debug.Log(bounds.center);
             
             GenerationCompleted?.Invoke();
-            GeneratingLevel = false;
         }
 
         private static void GenerateStairs() {

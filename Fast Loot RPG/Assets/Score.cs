@@ -5,18 +5,15 @@ using TMPro;
 using UnityEngine;
 
 public class Score : MonoBehaviour {
-    private static TextMeshProUGUI textComponent;
-    private static int amount;
+    [SerializeField] private TextMeshProUGUI textComponent;
+    [SerializeField] private int amount;
 
-    public static int Amount {
-        get => amount;
-        set {
-            amount = value;
-            textComponent.text = $"Score: {amount}";
-        }
+    private void Start() {
+        textComponent = GetComponent<TextMeshProUGUI>();
     }
 
-    private void Awake() {
-        textComponent = GetComponent<TextMeshProUGUI>();
+    public void AddScore(int amount) {
+        this.amount += amount;
+        textComponent.text = this.amount.ToString();
     }
 }

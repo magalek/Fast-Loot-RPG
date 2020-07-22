@@ -14,12 +14,13 @@ namespace RPG
             if (GameController.Instance == null)
                 Instantiate(ResourcesController.gameControllerPrefab);
             
+            GameObject containerController = new GameObject("Container Controller");
+            containerController.AddComponent<ContainerController>();
+            
             LevelGenerator.GenerationCompleted += () => {
                 Instantiate(ResourcesController.playerPrefab);
-                MainCamera.Instance.Center(Player.Instance.transform, 1);
+                MainCamera.Instance.CenterOn(Player.Instance.transform, 1);
             };
-            
-            
         }
     }
 }

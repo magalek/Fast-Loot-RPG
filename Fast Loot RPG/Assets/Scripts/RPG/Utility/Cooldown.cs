@@ -1,18 +1,26 @@
 ﻿using System;
 using System.Collections;
 using RPG.Controllers;
+using RPG.Entities.Movement;
 using UnityEngine;
 
 namespace RPG.Utility {
-    public class Cooldown {
+    public class Cooldown<T> {
 
-        public Action Started;
-        public Action Ended;
+        private readonly T calee;
         
-        private float cooldownTime;
+        private readonly float cooldownTime;
+        private float elapsedTime;
         
-        public Cooldown(float cooldownTime) {
+        public event Action<T> Ended;
+        public float Percentage => elapsedTime / (cooldownTime * 10);
+        
+        public Cooldown(T calee, float cooldownTime, params Action<T>[] callbacks) {
+            this.calee = calee;
             this.cooldownTime = cooldownTime;
+            foreach (Action<T> callback in callbacks) {
+                Ended += callback;
+            }
         }
 
         public void Start() {
@@ -20,9 +28,14 @@ namespace RPG.Utility {
         }
 
         private IEnumerator CooldownCoroutine() {
-            Started?.Invoke();
-            yield return new WaitForSeconds(cooldownTime);
-            Ended?.Invoke();
+
+            for (float i = 0; i < cooldownTime * 10; i++) {
+                yield return new WaitForSeconds(0.1f);
+                elapsedTime = i;
+            }
+
+            elapsedTime++;
+            Ended?.Invoke(calee);
         }
     }
 }

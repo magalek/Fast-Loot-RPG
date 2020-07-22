@@ -13,7 +13,7 @@ namespace RPG.Items
             slots = GetComponentsInChildren<EquipmentSlot>().ToList();
         }
 
-        public bool Equip(Item item) {
+        public bool Add(Item item) {
             EquipmentSlot slot = slots.FirstOrDefault(s => s.itemType == item.type);
 
             if (slot == null || !slot.isEmpty) return false;
@@ -22,7 +22,7 @@ namespace RPG.Items
             return true;
         }
 
-        public void Unequip(Item item) {
+        public void Remove(Item item) {
             EquipmentSlot slot = slots.FirstOrDefault(s => s.item == item);
 
             if (slot == null) return;

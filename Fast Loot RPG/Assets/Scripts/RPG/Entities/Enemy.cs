@@ -1,11 +1,8 @@
-﻿using System;
-using RPG.Controllers;
+﻿using RPG.Controllers;
 using RPG.Entities.Animations;
 using RPG.Entities.Movement;
 using RPG.Events;
-using RPG.Items;
 using RPG.Utility;
-using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace RPG.Entities

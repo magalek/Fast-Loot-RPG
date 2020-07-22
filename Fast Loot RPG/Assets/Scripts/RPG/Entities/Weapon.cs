@@ -6,15 +6,15 @@ using UnityEngine;
 
 namespace RPG.Entities {
     public class Weapon : MonoBehaviour {
-        
-        private Cooldown attackCooldown = new Cooldown(0.4f);
-        private bool canAttack = true;
-        
+
+        private Cooldown<Weapon> attackCooldown;
+        public bool CanAttack { get; set; } = true;
+
         private Animator animator;
 
         private void Awake() {
             animator = GetComponent<Animator>();
-            attackCooldown.Ended += () => canAttack = true;
+            attackCooldown = new Cooldown<Weapon>(this, 0.4f, (r) => r.CanAttack = true);
         }
         
         private void Rotate() {
@@ -27,8 +27,8 @@ namespace RPG.Entities {
         }
         
         public void Attack() {
-            if (!canAttack) return;
-            canAttack = false;
+            if (!CanAttack) return;
+            CanAttack = false;
             attackCooldown.Start();
             Rotate();
             if (Input.mousePosition.x < Screen.width / 2)

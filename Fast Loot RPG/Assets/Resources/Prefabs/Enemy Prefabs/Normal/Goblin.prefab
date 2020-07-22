@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 572718499976998852}
   m_Layer: 0
   m_Name: Goblin
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -209,6 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.4
+  type: 0
   entityAnimationController: {fileID: 0}
 --- !u!114 &6778525697188804943
 MonoBehaviour:

@@ -8,67 +8,118 @@ using RPG.Utility;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UIElements;
+using Image = UnityEngine.UI.Image;
 
 namespace RPG.Entities.Movement {
     public class PlayerController : MonoBehaviour, IMoveable {
 
-        private float dashSpeed = 2;
+        [SerializeField] private Image dashImage;
+        [SerializeField] private float dashSpeed = 2;
 
-        private Cooldown dashCooldown = new Cooldown(2);
-        
-        public bool isMoving = false;
-        
-        private bool canDash = true;
-        private bool canMove = true;
-        
+        private Cooldown<PlayerController> dashCooldown;
+
+        public event Action OnMovementStart;
+        public event Action OnMovementEnd;
+
+        public bool IsMoving {
+            get => isMoving;
+            set {
+                isMoving = value;
+                Player.Instance.animationController.SetIsRunning(isMoving);
+            }
+        }
+
+        public bool CanDash { get; set; } = true;
+        public bool CanMove { get; set; } = true;
+
         private float xAxisMovement;
         private float yAxisMovement;
 
         private PlayerMaterial playerMaterial;
 
+        private Coroutine interactionCoroutine;
+        private bool isCoroutineRunning;
+        private bool isMoving = false;
+
+        private void ChangeTest() {
+            CanDash = true;
+        }
+        
         private void Awake() {
             playerMaterial = GetComponent<PlayerMaterial>();
-            dashCooldown.Ended += () => canDash = true;
+            dashCooldown = new Cooldown<PlayerController>(this, 2, p => p.CanDash = true);
+        }
+
+        private void Start() {
+            MainCamera.Instance.CenterOn(transform, 0.2f);
+            OnMovementStart += () => Debug.Log("start");
+            OnMovementEnd += () => Debug.Log("end");
         }
 
         private void Update() {
-            xAxisMovement = Input.GetAxisRaw("Horizontal");
-            yAxisMovement = Input.GetAxisRaw("Vertical");
-
-            if (canMove)
-                Move(0.7f, Vector2.zero);
+            Move(0.7f);
             
             if (Input.GetMouseButtonDown(0)) 
                 Player.Instance.weapon.Attack();
             
-            if (Input.GetKeyDown(KeyCode.LeftShift) && canDash) {
+            if (Input.GetKeyDown(KeyCode.LeftShift) && CanMove && CanDash) {
                 Dash();
+            }
+            dashImage.fillAmount = dashCooldown.Percentage;
+        }
+
+        private void OnTriggerEnter2D(Collider2D other) {
+            if (other.isTrigger && isCoroutineRunning == false) {
+                interactionCoroutine = StartCoroutine(InteractionCoroutine(other));
+                isCoroutineRunning = true;
             }
         }
 
-        public void Move(float speed, Vector3 destination) {
+        private void OnTriggerExit2D(Collider2D other) {
+            if (other.isTrigger && isCoroutineRunning) {
+                StopCoroutine(interactionCoroutine);
+                isCoroutineRunning = false;
+            }
+        }
+
+        private IEnumerator InteractionCoroutine(Collider2D other) {
+            while (true) {
+                if (other && !other.CompareTag("Player") && other.isTrigger) {
+                    other.TryGetComponent(out IInteractable interactable);
+                    interactable?.Interact(gameObject);
+                }
+                yield return 1;
+            }
+        }
+        
+        public void Move(float speed, Vector3 destination = default) {
+            if (!CanMove) return;
+            
+            xAxisMovement = Input.GetAxisRaw("Horizontal");
+            yAxisMovement = Input.GetAxisRaw("Vertical");
+            
             if (xAxisMovement != 0 || yAxisMovement != 0) {
-                isMoving = true;
-                if (xAxisMovement > 0) Player.Instance.animationController.FlipSpriteX(false);
-                if (xAxisMovement < 0) Player.Instance.animationController.FlipSpriteX(true);
+                if (!isMoving) OnMovementStart?.Invoke();
+                IsMoving = true;
+                
+                Player.Instance.animationController.FlipSpriteX(xAxisMovement < 0);
 
                 Vector2 movementVector 
                     = new Vector2(xAxisMovement, yAxisMovement);
                 movementVector.Normalize();
-                
-                Player.Instance.animationController.SetIsRunning(true);
-                
+
                 transform.Translate(movementVector * (Time.deltaTime * speed));
-                MainCamera.Instance.Center(transform, 0.1f);
+                
+                MainCamera.Instance.CenterManually(transform, 0.1f);
             }
             else {
-                isMoving = false;
-                Player.Instance.animationController.SetIsRunning(false);
+                if (isMoving) OnMovementEnd?.Invoke();
+                IsMoving = false;
             }
         }
 
         private void Dash() {
-            canDash = false;
+            CanDash = false;
             
             Vector2 direction 
                 = new Vector2(xAxisMovement, yAxisMovement);
@@ -81,7 +132,7 @@ namespace RPG.Entities.Movement {
                 Physics2D.RaycastAll(transform.position, direction, Vector3.Magnitude(direction)).ToList();
             
             foreach (var hit in hits) {
-                if (!hit.transform.gameObject.CompareTag("Player")) {
+                if (!hit.transform.gameObject.CompareTag("Player") && !hit.transform.gameObject.CompareTag("Item")) {
                     destination = hit.point - direction / 20;
                     break;
                 }
@@ -91,7 +142,7 @@ namespace RPG.Entities.Movement {
         }
 
         private IEnumerator DashCoroutine(Vector2 destination, float speed = 1) {
-            canMove = false;
+            CanMove = false;
 
             float elapsedTime = 0;
             Vector2 origin = transform.position;
@@ -101,17 +152,19 @@ namespace RPG.Entities.Movement {
             
             while ((Vector2)transform.position != destination) {
                 transform.position = Vector2.Lerp(origin, destination, Mathf.Tan(elapsedTime / distance)   * speed);
-                MainCamera.Instance.Center(transform, 0.06f);
+                MainCamera.Instance.CenterManually(transform, 0.6f);
                 
                 playerMaterial.Set(PlayerMaterial.BlurAmount, elapsedTime * 50);
                 elapsedTime += Time.deltaTime;
+                
                 yield return 1;
             }
             playerMaterial.Set(PlayerMaterial.BlurAmount, 0);
 
             playerMaterial.Set(PlayerMaterial.BlurDir, Vector4.zero);
             
-            canMove = true;
+            CanMove = true;
+            MainCamera.Instance.CenterOn(transform, 0.2f);
             yield return null;
         }
     }

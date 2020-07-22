@@ -14,11 +14,11 @@ namespace RPG.Items.Slots
             equipment = GetComponentInParent<Equipment>();
         }
         
-        protected override void SlotLeftButtonClick() {
+        protected override void OnLeftMouseClick() {
             if (item == null) 
                 return;
             Player.Instance.inventory.Add(item);
-            equipment.Unequip(item);
+            equipment.Remove(item);
             RemoveItem();
         }
     }

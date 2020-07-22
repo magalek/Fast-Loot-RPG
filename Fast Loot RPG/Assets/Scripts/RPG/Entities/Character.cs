@@ -17,7 +17,7 @@ namespace RPG.Entities
         }
 
         public virtual void Kill() {
-            Score.Amount += 20;
+            GameObject.Find("Amount Text").GetComponent<Score>().AddScore(20);
             Destroy(gameObject);            
         }
     }

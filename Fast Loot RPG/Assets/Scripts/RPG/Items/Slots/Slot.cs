@@ -1,5 +1,4 @@
-﻿using System;
-using RPG.Entities;
+﻿using RPG.Entities;
 using RPG.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -13,15 +12,17 @@ namespace RPG.Items.Slots
         public SlotGraphics slotGraphics;
 
         private bool showTooltip = false;
+
+        private Container container;
         
         protected virtual void Awake() {
             slotGraphics = new SlotGraphics(this);
             item = null;
-
+            container = GetComponentInParent<Container>();
         }
 
         private void Start() {
-            Player.Instance.GetComponentInChildren<PlayerUI>().CharacterInfoHidden += () => showTooltip = false;
+            //Player.Instance.GetComponentInChildren<PlayerUI>().CharacterInfoHidden += () => showTooltip = false;
         }
 
         public void Insert(Item addedItem) {
@@ -41,22 +42,25 @@ namespace RPG.Items.Slots
             slotGraphics.Change();
         }
 
-        protected virtual void SlotLeftButtonClick() { }
-        protected virtual void SlotRightButtonClick() { }
-        protected virtual void SlotMiddleButtonClick() { }
+        protected virtual void OnLeftMouseClick() { }
+
+        protected virtual void OnRightMouseClick() {
+            container.Remove(item);
+        }
+        protected virtual void OnMiddleMouseClick() { }
 
         public virtual void OnPointerClick(PointerEventData eventData)
         {
             switch (eventData.button)
             {
                 case PointerEventData.InputButton.Left:
-                    SlotLeftButtonClick();
+                    OnLeftMouseClick();
                     break;
                 case PointerEventData.InputButton.Middle:
-                    SlotMiddleButtonClick();
+                    OnMiddleMouseClick();
                     break;
                 case PointerEventData.InputButton.Right:
-                    SlotRightButtonClick();
+                    OnRightMouseClick();
                     break;
             }
         }
