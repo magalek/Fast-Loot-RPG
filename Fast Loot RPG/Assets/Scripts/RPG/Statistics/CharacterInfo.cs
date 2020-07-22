@@ -7,6 +7,10 @@ namespace RPG.Statistics {
         public Health Health;
 
         private void Awake() {
+            Init();
+        }
+
+        public void Init() {
             Damage.Init();
             Health.Init();
         }

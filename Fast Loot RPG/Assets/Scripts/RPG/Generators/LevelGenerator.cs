@@ -7,7 +7,9 @@ using RPG.Entities;
 using RPG.Environment;
 using RPG.Materials;
 using RPG.Utility;
+using RPG.Statistics;
 using UnityEngine;
+using CharacterInfo = RPG.Statistics.CharacterInfo;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
@@ -26,7 +28,6 @@ namespace RPG.Generators {
         public static bool GeneratingLevel = false;
         private static GameObject horizontalCorridorPrefab => Resources.Load<GameObject>("Prefabs/Environment Prefabs/Corridor Horizontal");
         private static GameObject verticalCorridorPrefab => Resources.Load<GameObject>("Prefabs/Environment Prefabs/Corridor Vertical");
-
         private static GameObject stairsPrefab => Resources.Load<GameObject>("Prefabs/Environment Prefabs/Stairs");
         
         private static List<Vector2> roomPositions = new List<Vector2>();
@@ -131,9 +132,20 @@ namespace RPG.Generators {
                     spawnPoints.Remove(spawnPoint);
                     GameObject enemyPrefab = ResourcesController.enemyPrefabs.Random();
                     GameObject enemy =  Object.Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
+                    RandomizeEnemyStats(ref enemy.GetComponent<Enemy>().characterInfo, out float modifier);
+                    enemy.transform.localScale *= modifier;
                     enemy.transform.SetParent(enemiesParent);
                 }
             }
+        }
+
+        private static void RandomizeEnemyStats(ref CharacterInfo info, out float modifier) {
+            modifier = Random.Range(0.9f, 1.2f);
+            float value = Mathf.Pow(Mathf.Sqrt(Mathf.Pow(LevelNumber, LevelNumber)), 1/15f) * modifier;
+
+            info.Health.Max = (int)(info.Health.Max * value);
+            info.Damage.Current = (int)(info.Damage.Current * value);
+            info.Init();
         }
         
         private static GameObject CreateCorridor(RoomPosition roomPosition) {

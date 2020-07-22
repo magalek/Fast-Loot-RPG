@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -110,6 +113,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/StartButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/RestartButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/Animations/MenuAnimationController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2A73B400-2AF0-4866-B8ED-73F66C5F798F/2c/b02aa5b1/CharacterInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GameMenuUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/UI/Animations/UIAnimationController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RPG/Items/ItemObject.cs" root0="FORCE_HIGHLIGHTING" />
@@ -134,14 +138,12 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/ScoreText.cs" />
         <option value="$PROJECT_DIR$/Assets/MapCamera.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Statistics/CharacterInfo.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/UI/Fader.cs" />
         <option value="$PROJECT_DIR$/Assets/EnemyHealthBar.cs" />
         <option value="$PROJECT_DIR$/Assets/Score.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Character.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/CharacterType.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Controllers/GameController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Generators/LevelGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Statistics/Health.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/HitTriggers/WeaponHitTrigger.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Items/Item.cs" />
@@ -170,6 +172,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Weapon.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Entities/Movement/EnemyController.cs" />
         <option value="$PROJECT_DIR$/Assets/Projectile.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Statistics/CharacterInfo.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/RPG/Generators/LevelGenerator.cs" />
       </list>
     </option>
   </component>
@@ -284,7 +288,9 @@
       <workItem from="1594737284341" duration="257000" />
       <workItem from="1594745559847" duration="10924000" />
       <workItem from="1595240700269" duration="1290000" />
-      <workItem from="1595433243679" duration="2067000" />
+      <workItem from="1595433243679" duration="6311000" />
+      <workItem from="1595439889434" duration="81000" />
+      <workItem from="1595439985968" duration="693000" />
     </task>
     <servers />
   </component>
@@ -313,10 +319,19 @@
       <screen x="2560" y="130" width="1920" height="1040" />
     </state>
     <state x="3253" y="130" key="#General/0.0.2560.1400/2560.130.1920.1040@2560.130.1920.1040" timestamp="1587479285348" />
+    <state x="3214" y="383" key="#Plugins" timestamp="1595440182000">
+      <screen x="2560" y="130" width="1920" height="1040" />
+    </state>
+    <state x="872" y="341" key="#Plugins/0.0.2560.1400/2560.130.1920.1040@0.0.2560.1400" timestamp="1595439969594" />
+    <state x="3214" y="383" key="#Plugins/0.0.2560.1400/2560.130.1920.1040@2560.130.1920.1040" timestamp="1595440182000" />
     <state x="640" y="257" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1587202787437">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="640" y="257" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587202787437" />
+    <state x="3278" y="504" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1595440156655">
+      <screen x="2560" y="130" width="1920" height="1040" />
+    </state>
+    <state x="3278" y="504" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.2560.1400/2560.130.1920.1040@2560.130.1920.1040" timestamp="1595440156655" />
     <state width="876" height="466" key="DebuggerActiveHint" timestamp="1591624799572">
       <screen x="2560" y="130" width="1920" height="1040" />
     </state>
@@ -417,6 +432,10 @@
     <state width="1876" height="322" key="GridCell.Tab.3.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587237448329" />
     <state width="2516" height="445" key="GridCell.Tab.3.right/0.0.2560.1400/2560.130.1920.1040@0.0.2560.1400" timestamp="1594677828226" />
     <state width="1876" height="322" key="GridCell.Tab.3.right/0.0.2560.1400/2560.130.1920.1040@2560.130.1920.1040" timestamp="1591739422164" />
+    <state x="3250" y="485" key="MetricsReloaded.DistributionDialog" timestamp="1595440147291">
+      <screen x="2560" y="130" width="1920" height="1040" />
+    </state>
+    <state x="3250" y="485" key="MetricsReloaded.DistributionDialog/0.0.2560.1400/2560.130.1920.1040@2560.130.1920.1040" timestamp="1595440147291" />
     <state x="893" y="271" key="RiderGenerateDialog" timestamp="1594747373681">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -435,11 +454,11 @@
       <screen x="2560" y="130" width="1920" height="1040" />
     </state>
     <state x="3176" y="370" key="run.anything.popup/0.0.2560.1400/2560.130.1920.1040@2560.130.1920.1040" timestamp="1588014385762" />
-    <state x="831" y="303" width="896" height="913" key="search.everywhere.popup" timestamp="1595433292722">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="3183" y="355" width="672" height="679" key="search.everywhere.popup" timestamp="1595440161519">
+      <screen x="2560" y="130" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587311373727" />
-    <state x="831" y="303" width="896" height="913" key="search.everywhere.popup/0.0.2560.1400/2560.130.1920.1040@0.0.2560.1400" timestamp="1595433292722" />
-    <state x="3183" y="355" width="672" height="679" key="search.everywhere.popup/0.0.2560.1400/2560.130.1920.1040@2560.130.1920.1040" timestamp="1593710685122" />
+    <state x="831" y="303" width="896" height="913" key="search.everywhere.popup/0.0.2560.1400/2560.130.1920.1040@0.0.2560.1400" timestamp="1595439892334" />
+    <state x="3183" y="355" width="672" height="679" key="search.everywhere.popup/0.0.2560.1400/2560.130.1920.1040@2560.130.1920.1040" timestamp="1595440161519" />
   </component>
 </project>
