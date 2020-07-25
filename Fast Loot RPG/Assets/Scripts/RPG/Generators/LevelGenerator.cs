@@ -39,6 +39,8 @@ namespace RPG.Generators {
         private static Transform environmentParent;
 
         private static Transform enemiesParent;
+
+        private static Transform npcParent;
         
         private static List<Room> rooms = new List<Room>();
         
@@ -52,6 +54,8 @@ namespace RPG.Generators {
         
         public static void GenerateLevel(int roomAmount = 0) {
             GeneratingLevel = true;
+            ItemsController.Instance.ClearItems();
+            
             if (roomAmount == 0) roomAmount = DefaultRoomAmount; 
             
             levelParent = new GameObject("Level").transform;
@@ -62,11 +66,14 @@ namespace RPG.Generators {
             enemiesParent = new GameObject("Enemies").transform;
             enemiesParent.SetParent(levelParent);
             
+            npcParent = new GameObject("NPCs").transform;
+            npcParent.SetParent(levelParent);
+            
             GenerateRooms(roomAmount);
 
             GenerateCorridors();
 
-            GenerateEnemies(0, 8);
+            GenerateEntities(0, 8, 0.8f);
 
             GenerateStairs();
 
@@ -113,30 +120,40 @@ namespace RPG.Generators {
             
             rooms.RemoveAt(0);
         }
-
+        
+        private static void GenerateEntities(int minAmount, int maxAmount, float npcChance) {
+            int npcRoom = Random.value < npcChance ? Random.Range(0, rooms.Count) : -1; 
+            
+            for (int i = 1; i < rooms.Count; i++) {
+                if (i == npcRoom) {
+                    SpawnPoint spawnPoint = rooms[i].SpawnPoints.Random();
+                    GameObject npcPrefab = ResourcesController.npcPrefabs.Random();
+                    GameObject npc = Object.Instantiate(npcPrefab, spawnPoint.transform.position, Quaternion.identity);
+                    npc.transform.SetParent(levelParent);
+                }
+                else {
+                    int count = Random.Range(minAmount, maxAmount);
+                            
+                    List<SpawnPoint> spawnPoints = rooms[i].SpawnPoints;
+    
+                    for (int j = 0; j < count; j++) {
+                        SpawnPoint spawnPoint = spawnPoints.Random();
+                        spawnPoints.Remove(spawnPoint);
+                        GameObject enemyPrefab = ResourcesController.enemyPrefabs.Random();
+                        GameObject enemy =  Object.Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
+                        RandomizeEnemyStats(ref enemy.GetComponent<Enemy>().characterInfo, out float modifier);
+                        enemy.transform.localScale *= modifier;
+                        enemy.transform.SetParent(enemiesParent);
+                    }
+                }
+            }
+        }
+        
         public static void ClearLevel() {
             Object.Destroy(levelParent.gameObject);
             roomPositions.Clear();
             RoomPosition.positions.Clear();
             rooms.Clear();
-        }
-
-        private static void GenerateEnemies(int minAmount, int maxAmount) {
-            for (int i = 1; i < rooms.Count; i++) {
-                int count = Random.Range(minAmount, maxAmount);
-                            
-                List<SpawnPoint> spawnPoints = rooms[i].SpawnPoints;
-    
-                for (int j = 0; j < count; j++) {
-                    SpawnPoint spawnPoint = spawnPoints.Random();
-                    spawnPoints.Remove(spawnPoint);
-                    GameObject enemyPrefab = ResourcesController.enemyPrefabs.Random();
-                    GameObject enemy =  Object.Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
-                    RandomizeEnemyStats(ref enemy.GetComponent<Enemy>().characterInfo, out float modifier);
-                    enemy.transform.localScale *= modifier;
-                    enemy.transform.SetParent(enemiesParent);
-                }
-            }
         }
 
         private static void RandomizeEnemyStats(ref CharacterInfo info, out float modifier) {

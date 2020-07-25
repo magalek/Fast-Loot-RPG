@@ -22,8 +22,8 @@ namespace RPG {
             if (slot == null) return;
             
             slot.Insert(item);
-            
-            Score.Instance.AddScore(item.value);
+
+            Score.Instance.Amount += item.value;
         }
 
         // public override void Remove(Item item) {

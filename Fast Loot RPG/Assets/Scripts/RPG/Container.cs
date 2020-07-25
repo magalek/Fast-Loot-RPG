@@ -13,7 +13,12 @@ namespace RPG {
 
         public void ChangeState(bool state) => ContainerController.Instance.ChangeContainerState(this, state);
 
-        public virtual void Add(Item item) { }
-        public virtual void Remove(Item item) { }
+        public virtual void Add(Item item = null) {
+            if (Target == null) return;
+        }
+
+        public virtual void Remove(Item item = null) {
+            if (Target == null) return;
+        }
     }
 }

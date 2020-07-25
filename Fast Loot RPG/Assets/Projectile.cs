@@ -32,7 +32,7 @@ public class Projectile : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player")) {
-            other.GetComponent<IHittable>().Hit(10);
+            other.GetComponentInParent<IHittable>().Hit(10);
             ShouldDestroy?.Invoke();
         }
         if (!other.CompareTag("Enemy") && !other.CompareTag("Player") && !other.CompareTag("Item") && !other.CompareTag("Weapon")) {

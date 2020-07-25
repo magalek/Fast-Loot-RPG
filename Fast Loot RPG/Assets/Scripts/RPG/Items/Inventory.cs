@@ -9,6 +9,8 @@ namespace RPG.Items
 {
     public class Inventory : Container {
 
+        public bool isFull => slots.All(s => !s.isEmpty);
+        
         private List<InventorySlot> slots;
 
         private void Awake() {
@@ -16,6 +18,7 @@ namespace RPG.Items
         }
 
         public override void Add(Item item) {
+            base.Add();
             InventorySlot slot = slots.FirstOrDefault(s => s.isEmpty);
 
             if (slot == null) return;
@@ -24,6 +27,7 @@ namespace RPG.Items
         }
 
         public override void Remove(Item item) {
+            base.Remove();
             InventorySlot slot = slots.FirstOrDefault(s => s.item == item);
 
             if (slot == null) return;

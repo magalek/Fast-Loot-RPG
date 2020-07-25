@@ -12,12 +12,12 @@ namespace RPG.Entities
 
         public CharacterInfo characterInfo;
 
-        public void Awake() {
+        public virtual void Awake() {
             characterInfo = GetComponent<CharacterInfo>();
         }
 
         public virtual void Kill() {
-            Score.Instance.AddScore(20);
+            Score.Instance.Amount += 20;
             Destroy(gameObject);            
         }
     }

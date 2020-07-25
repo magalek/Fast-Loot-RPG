@@ -2,12 +2,14 @@
 using RPG.Entities.Animations;
 using RPG.Entities.Movement;
 using RPG.Items;
+using RPG.UI;
 using RPG.Utility;
 using UnityEngine;
 
 namespace RPG.Entities
 {
     public class Player : Character, IComponentCache, IHittable {
+        public static event Action Created;
         public static event Action Spawned;
         public static event Action Died;
 
@@ -24,9 +26,11 @@ namespace RPG.Entities
         
         private void Awake() {
             base.Awake();
-            
-            if (Instance == null)
+
+            if (Instance == null) {
                 Instance = this;
+                Created?.Invoke();
+            }
             else if (Instance != this)
                 Destroy(gameObject);
             
@@ -39,7 +43,7 @@ namespace RPG.Entities
         public virtual void Hit(int damage) {
             characterInfo.Health.ChangeCurrentBy(-damage);
             animationController.PlayHit();
-            
+
             if (characterInfo.Health.ZeroOrLess)
                 Kill();
         }

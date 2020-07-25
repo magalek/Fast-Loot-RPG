@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5701935219938695165}
   - component: {fileID: 3729056141572370698}
   - component: {fileID: 5887578883181990030}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Arrow Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 1447080536259821043}
   - component: {fileID: 8642572691863642272}
   - component: {fileID: 7436384341907683116}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stairs
   m_TagString: Untagged
   m_Icon: {fileID: 0}

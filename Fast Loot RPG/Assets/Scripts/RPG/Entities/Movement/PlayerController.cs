@@ -2,12 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using RPG.Materials;
 using RPG.UI;
 using RPG.Utility;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.UIElements;
 using Image = UnityEngine.UI.Image;
 
 namespace RPG.Entities.Movement {
@@ -37,14 +36,14 @@ namespace RPG.Entities.Movement {
 
         private PlayerMaterial playerMaterial;
 
-        private Coroutine interactionCoroutine;
-        private bool isCoroutineRunning;
-        private bool isMoving = false;
+        private IInteractable interactable;
+        private bool canInteract;
 
-        private void ChangeTest() {
-            CanDash = true;
-        }
-        
+        private bool isMoving;
+
+        private bool canUseE = true;
+        private bool eKeyPressed;
+
         private void Awake() {
             playerMaterial = GetComponent<PlayerMaterial>();
             dashCooldown = new Cooldown<PlayerController>(this, 2, p => p.CanDash = true);
@@ -52,12 +51,27 @@ namespace RPG.Entities.Movement {
 
         private void Start() {
             MainCamera.Instance.CenterOn(transform, 0.2f);
-            OnMovementStart += () => Debug.Log("start");
-            OnMovementEnd += () => Debug.Log("end");
+            
+            OnMovementStart += () => MainCamera.Instance.CenterOn(transform, 0.2f);
         }
 
         private void Update() {
             Move(0.7f);
+
+            if (canUseE && Input.GetKeyDown(KeyCode.E)) {
+                eKeyPressed = true;
+                if (eKeyPressed && interactable != null) {
+                    eKeyPressed = false;
+                    canUseE = false;
+                    Debug.Log(interactable);
+                    interactable?.Interact(gameObject);
+                    Debug.Log("stay");
+                    canUseE = true;
+                }
+            }
+            else {
+                eKeyPressed = false;
+            }
             
             if (Input.GetMouseButtonDown(0)) 
                 Player.Instance.weapon.Attack();
@@ -69,29 +83,20 @@ namespace RPG.Entities.Movement {
         }
 
         private void OnTriggerEnter2D(Collider2D other) {
-            if (other.isTrigger && isCoroutineRunning == false) {
-                interactionCoroutine = StartCoroutine(InteractionCoroutine(other));
-                isCoroutineRunning = true;
+            if (other && !other.CompareTag("Player") && other.isTrigger) {
+                other.TryGetComponent(out interactable);
+                Debug.Log("enter");
+                if (interactable != null) {
+                    canInteract = true;
+                }
             }
         }
 
         private void OnTriggerExit2D(Collider2D other) {
-            if (other.isTrigger && isCoroutineRunning) {
-                StopCoroutine(interactionCoroutine);
-                isCoroutineRunning = false;
-            }
+            canInteract = false;
+            interactable = null;
         }
 
-        private IEnumerator InteractionCoroutine(Collider2D other) {
-            while (true) {
-                if (other && !other.CompareTag("Player") && other.isTrigger) {
-                    other.TryGetComponent(out IInteractable interactable);
-                    interactable?.Interact(gameObject);
-                }
-                yield return 1;
-            }
-        }
-        
         public void Move(float speed, Vector3 destination = default) {
             if (!CanMove) return;
             

@@ -11,11 +11,13 @@ namespace RPG.UI {
 
         public bool isCentering = false;
 
+        private bool canBob = true;
+        
         private IMoveable target;
         private Transform targetTransform;
         private float centeringSpeed;
         private float zoomPower;
-        
+
         private void Awake()
         {
             if (Instance == null)
@@ -41,14 +43,13 @@ namespace RPG.UI {
             this.centeringSpeed = centeringSpeed;
             this.zoomPower = zoomPower;
         }
-        
+
         public void CenterManually(Transform transform, float centeringSpeed) {
             this.transform.position = Vector2.Lerp(this.transform.position, new Vector3(transform.position.x, transform.position.y, -10), centeringSpeed);
             camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, zoomPower, centeringSpeed);
             this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -10);
-            
         }
-
+        
         private IEnumerator CenterCoroutine() {
             while (target != null && !target.IsMoving) {
                 isCentering = true;

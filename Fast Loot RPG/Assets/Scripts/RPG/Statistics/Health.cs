@@ -29,7 +29,7 @@ namespace RPG.Statistics {
         public bool ZeroOrLess => Current <= 0;
 
         public void Init() {
-            current = max;
+            Current = max;
         }
 
         public void ChangeMaxBy(int amount) {

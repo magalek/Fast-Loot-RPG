@@ -45,7 +45,7 @@ namespace RPG.Items.Slots
         protected virtual void OnLeftMouseClick() { }
 
         protected virtual void OnRightMouseClick() {
-            container.Remove(item);
+            if (item != null) container.Remove(item);
         }
         protected virtual void OnMiddleMouseClick() { }
 

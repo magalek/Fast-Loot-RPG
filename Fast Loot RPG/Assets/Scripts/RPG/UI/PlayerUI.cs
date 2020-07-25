@@ -17,6 +17,8 @@ namespace RPG.UI {
         
         public GameObject infoGameObject;
 
+        public bool canOpenInventory = true;
+        
         private void Awake() {
             if (Instance == null)
                 Instance = this;
@@ -37,7 +39,7 @@ namespace RPG.UI {
         }
 
         private void Update() {
-            if (Input.GetKeyDown(KeyCode.I)) {
+            if (Input.GetKeyDown(KeyCode.I) && canOpenInventory) {
                 infoGameObject.SetActive(!infoGameObject.activeSelf);
                 Player.Instance.inventory.ChangeState(infoGameObject.activeSelf);
                 if (infoGameObject.activeSelf == false)

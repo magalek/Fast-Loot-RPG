@@ -10,6 +10,7 @@ namespace RPG.Controllers
     public static class ResourcesController
     {
         public static List<GameObject> enemyPrefabs;
+        public static List<GameObject> npcPrefabs;
         public static Enemy[] bossPrefabs;
         public static List<GameObject> itemObjectsPrefabs;
         public static GameObject gameControllerPrefab;
@@ -23,7 +24,7 @@ namespace RPG.Controllers
                 InitialiseItemDatabase();
                 InitialiseGameControllerPrefab();
                 InitialisePlayerPrefab();
-
+                InitialiseNPCPrefab();
             }
             catch (Exception e)
             {
@@ -37,6 +38,10 @@ namespace RPG.Controllers
         {
             enemyPrefabs = Resources.LoadAll<GameObject>("Prefabs/Enemy Prefabs/Normal").ToList();
             bossPrefabs = Resources.LoadAll<Enemy>("Prefabs/Enemy Prefabs/Bosses");
+        }
+        
+        private static void InitialiseNPCPrefab() {
+            npcPrefabs = Resources.LoadAll<GameObject>("Prefabs/NPC").ToList();
         }
 
         private static void InitialiseGameControllerPrefab()

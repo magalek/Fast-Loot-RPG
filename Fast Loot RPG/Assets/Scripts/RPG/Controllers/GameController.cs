@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using RPG.Entities;
 using RPG.Events;
 using RPG.Generators;
@@ -7,6 +9,7 @@ using RPG.Items;
 using RPG.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Object = UnityEngine.Object;
 
 namespace RPG.Controllers
 {
@@ -14,14 +17,14 @@ namespace RPG.Controllers
         public static event Action GameRestarted;
         
         public static GameController Instance;
-
+        
         private void Awake() {
             if (Instance == null)
                 Instance = this;
             else if (Instance != this)
                 Destroy(gameObject);
 
-            
+
             if (!LevelGenerator.Initialised) 
                 LevelGenerator.Init();
 
@@ -31,7 +34,6 @@ namespace RPG.Controllers
         private void Start() {
             Debug.Log("creating world from start");
             LevelGenerator.GenerateLevel(3 * LevelGenerator.LevelNumber);
-            
         }
 
         public void RestartGame() {

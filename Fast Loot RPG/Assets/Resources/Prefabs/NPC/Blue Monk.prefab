@@ -106,7 +106,7 @@ RectTransform:
   - {fileID: 675791486}
   - {fileID: 3983155353732317244}
   m_Father: {fileID: 1486262491}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: bda2c739f78b21442b9df63e07b27469, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 0
@@ -301,9 +301,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1545690628}
-  - {fileID: 3096362676835879136}
   - {fileID: 657764094}
+  - {fileID: 766444834458447146}
   m_Father: {fileID: 87493504144626604}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -397,12 +396,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1545690627}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1698304419}
-  m_Father: {fileID: 1486262491}
+  m_Father: {fileID: 766444834458447146}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
@@ -554,10 +553,10 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 600, y: 200}
-  m_Pivot: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2094024227
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -870,7 +869,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 1
-  m_Color: {r: 0.11053756, g: 0.14803182, b: 0.8679245, a: 1}
+  m_Color: {r: 0.07450981, g: 0.07450981, b: 0.31764707, a: 1}
   m_Intensity: 0
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000
@@ -923,11 +922,11 @@ GameObject:
   - component: {fileID: 3180677945213646867}
   - component: {fileID: 79327751}
   - component: {fileID: 8958351253018717901}
-  - component: {fileID: 312164520578591416}
   - component: {fileID: 79327750}
   - component: {fileID: 1427679175}
-  m_Layer: 0
-  m_Name: Monk
+  - component: {fileID: 1585943957632181006}
+  m_Layer: 9
+  m_Name: Blue Monk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1083,21 +1082,6 @@ MonoBehaviour:
   Health:
     current: 0
     max: 0
---- !u!114 &312164520578591416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 87493504144625745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c78e0e071194eecad242138cb36d13b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entityName: 
-  characterInfo: {fileID: 0}
-  NPCUI: {fileID: 1486262490}
 --- !u!114 &79327750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1122,6 +1106,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf7ac29a780422da99b87c08b4591e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1585943957632181006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87493504144625745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aced3aefa458407fad12fce18595018d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entityName: 
+  characterInfo: {fileID: 0}
+  NPCUI: {fileID: 1486262490}
 --- !u!1 &356939312918008449
 GameObject:
   m_ObjectHideFlags: 0
@@ -1303,12 +1302,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1356586836058861659}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2094024225}
-  m_Father: {fileID: 1486262491}
+  m_Father: {fileID: 766444834458447146}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
@@ -1352,6 +1351,43 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1823011535411349208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 766444834458447146}
+  m_Layer: 0
+  m_Name: Bottom Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &766444834458447146
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823011535411349208}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1545690628}
+  - {fileID: 3096362676835879136}
+  m_Father: {fileID: 1486262491}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -54, y: 0}
+  m_SizeDelta: {x: 92, y: 200}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!1 &2028995542007741123
 GameObject:
   m_ObjectHideFlags: 0
@@ -1416,7 +1452,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: bda2c739f78b21442b9df63e07b27469, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 0
@@ -1563,7 +1599,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Monk
+  m_text: Blue Monk
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 64cd498cce480974291f6af1baa715fe, type: 2}
   m_sharedMaterial: {fileID: 7225679326069757988, guid: 64cd498cce480974291f6af1baa715fe,
@@ -1633,10 +1669,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 4220232592889369825}
-    characterCount: 4
+    characterCount: 9
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 1
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
     lineCount: 1
     pageCount: 1

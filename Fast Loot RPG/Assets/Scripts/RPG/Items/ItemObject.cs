@@ -24,7 +24,7 @@ namespace RPG.Items {
         }
 
         private void OnTriggerEnter2D(Collider2D other) {
-            if (other.CompareTag("Player") && other.isTrigger && !recentlyDropped) {
+            if (other.CompareTag("Player") && other.isTrigger && !recentlyDropped && !Player.Instance.inventory.isFull) {
                 Player.Instance.inventory.Add(item);
                 Destroy(gameObject);
             }
