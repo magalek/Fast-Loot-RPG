@@ -8,28 +8,33 @@ namespace RPG.Utility {
     public class Cooldown<T> {
 
         private readonly T calee;
-        
-        private readonly float cooldownTime;
+
+        public float CooldownTime { get; set; }
         private float elapsedTime;
+
+        private bool isStarted;
         
         public event Action<T> Ended;
-        public float Percentage => elapsedTime / (cooldownTime * 10);
-        
+        public float Percentage => isStarted ? elapsedTime / (CooldownTime * 10) : 1;
+
         public Cooldown(T calee, float cooldownTime, params Action<T>[] callbacks) {
             this.calee = calee;
-            this.cooldownTime = cooldownTime;
+            CooldownTime = cooldownTime;
+            isStarted = false;
+            
             foreach (Action<T> callback in callbacks) {
                 Ended += callback;
             }
         }
 
         public void Start() {
+            isStarted = true;
             GameController.Instance.StartCoroutine(CooldownCoroutine());
         }
 
         private IEnumerator CooldownCoroutine() {
 
-            for (float i = 0; i < cooldownTime * 10; i++) {
+            for (float i = 0; i < CooldownTime * 10; i++) {
                 yield return new WaitForSeconds(0.1f);
                 elapsedTime = i;
             }

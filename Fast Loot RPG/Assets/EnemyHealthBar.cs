@@ -8,8 +8,10 @@ using UnityEngine.UI;
 
 public class EnemyHealthBar : MonoBehaviour {
     private RPG.Statistics.CharacterInfo info;
-    private Image healthImage;
-    private Image missingHealthImage;
+    [SerializeField] private Image healthImage;
+    [SerializeField] private Image missingHealthImage;
+    [SerializeField] private Image borderImage;
+    
     private void Awake() {
         Canvas canvas = GetComponentInParent<Canvas>();
         canvas.worldCamera = MainCamera.Instance.camera;
@@ -18,12 +20,9 @@ public class EnemyHealthBar : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        healthImage = GetComponent<Image>();
-        missingHealthImage = transform.parent.GetChild(0).GetComponent<Image>();
-        
         healthImage.color = Color.clear;
         missingHealthImage.color = Color.clear;
-        
+        borderImage.color = Color.clear;
         
         info = GetComponentInParent<RPG.Statistics.CharacterInfo>();
         info.Health.Changed += ChangeHealthBar;
@@ -32,7 +31,8 @@ public class EnemyHealthBar : MonoBehaviour {
     private void ChangeHealthBar() {
         healthImage.color = Color.green;
         missingHealthImage.color = Color.red;
-        
+        borderImage.color = Color.black;
+
         healthImage.fillAmount = info.Health.Percentage;
     }
 }

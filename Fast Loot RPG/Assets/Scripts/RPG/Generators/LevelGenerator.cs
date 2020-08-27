@@ -73,7 +73,7 @@ namespace RPG.Generators {
 
             GenerateCorridors();
 
-            GenerateEntities(0, 8, 0.8f);
+            if (LevelNumber > 1) GenerateEntities(1, 8, 0.8f);
 
             GenerateStairs();
 
@@ -124,23 +124,18 @@ namespace RPG.Generators {
         private static void GenerateEntities(int minAmount, int maxAmount, float npcChance) {
             int npcRoom = Random.value < npcChance ? Random.Range(0, rooms.Count) : -1; 
             
-            for (int i = 1; i < rooms.Count; i++) {
+            for (int i = 0; i < rooms.Count; i++) {
+                List<SpawnPoint> spawnPoints = rooms[i].SpawnPoints;
+
                 if (i == npcRoom) {
-                    SpawnPoint spawnPoint = rooms[i].SpawnPoints.Random();
-                    GameObject npcPrefab = ResourcesController.npcPrefabs.Random();
-                    GameObject npc = Object.Instantiate(npcPrefab, spawnPoint.transform.position, Quaternion.identity);
+                    var npc = CreateEntity(spawnPoints, ResourcesController.npcPrefabs, false);
                     npc.transform.SetParent(levelParent);
                 }
                 else {
                     int count = Random.Range(minAmount, maxAmount);
-                            
-                    List<SpawnPoint> spawnPoints = rooms[i].SpawnPoints;
-    
+
                     for (int j = 0; j < count; j++) {
-                        SpawnPoint spawnPoint = spawnPoints.Random();
-                        spawnPoints.Remove(spawnPoint);
-                        GameObject enemyPrefab = ResourcesController.enemyPrefabs.Random();
-                        GameObject enemy =  Object.Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
+                        var enemy = CreateEntity(spawnPoints, ResourcesController.enemyPrefabs);
                         RandomizeEnemyStats(ref enemy.GetComponent<Enemy>().characterInfo, out float modifier);
                         enemy.transform.localScale *= modifier;
                         enemy.transform.SetParent(enemiesParent);
@@ -149,6 +144,17 @@ namespace RPG.Generators {
             }
         }
         
+        private static GameObject CreateEntity(List<SpawnPoint> spawnPoints, List<GameObject> prefabs, bool excludePoint = true) {
+            SpawnPoint spawnPoint = spawnPoints.Random();
+
+            if (excludePoint) spawnPoints.Remove(spawnPoint);
+
+            GameObject entity = Object.Instantiate(
+                prefabs.Random(), spawnPoint.transform.position, Quaternion.identity);
+            
+            return entity;
+        }
+
         public static void ClearLevel() {
             Object.Destroy(levelParent.gameObject);
             roomPositions.Clear();

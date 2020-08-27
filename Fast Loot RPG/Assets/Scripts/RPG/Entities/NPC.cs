@@ -14,7 +14,11 @@ namespace RPG.Entities {
         internal bool IsInteracting;
         
         private void Start() {
-            GetComponentInChildren<Canvas>().worldCamera = MainCamera.Instance.camera;
+            var canvases = GetComponentsInChildren<Canvas>();
+            foreach (var canvas in canvases) {
+                canvas.worldCamera = MainCamera.Instance.camera;
+                canvas.sortingLayerName = "UI";
+            }
             textComponent = GetComponentInChildren<TextMeshProUGUI>();
             textComponent.gameObject.SetActive(false);
             IsInteracting = false;

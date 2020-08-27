@@ -17,7 +17,7 @@ namespace RPG.Entities
         }
 
         public virtual void Kill() {
-            Score.Instance.Amount += 20;
+            Score.Instance.Amount += (int)((characterInfo.Health.Max + characterInfo.Damage.Current) * 0.2f);
             Destroy(gameObject);            
         }
     }

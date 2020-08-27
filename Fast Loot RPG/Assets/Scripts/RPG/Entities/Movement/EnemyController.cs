@@ -28,6 +28,8 @@ namespace RPG.Entities.Movement {
         private bool isPushed = false;
         private bool shootingOffCooldown = true;
 
+        private GameObject projectilePrefab;
+
         private void Awake() {
             entityAnimationController = GetComponent<EntityAnimationController>();
 
@@ -36,6 +38,8 @@ namespace RPG.Entities.Movement {
             positionBeforePatrolling = transform.position;
             shootingCooldown = new Cooldown<EnemyController>(this, 2, (e) => e.shootingOffCooldown = true);
 
+            projectilePrefab = Resources.Load<GameObject>("Prefabs/Bat Projectile");
+            
             StartCoroutine(Patrol());
         }
 
@@ -65,10 +69,11 @@ namespace RPG.Entities.Movement {
             shootingOffCooldown = false;
             entityAnimationController.FlipSpriteX(transform.position.x > attackTargetTransform.position.x);
             entityAnimationController.SetIsRunning(true);
-            
-            GameObject projectileObject = Instantiate(Resources.Load<GameObject>("Prefabs/Bat Projectile"), transform.position, Quaternion.identity);
+
+            GameObject projectileObject = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
             Projectile projectile = projectileObject.GetComponent<Projectile>();
             projectile.SetTarget(attackTargetTransform.position);
+            shootingCooldown.CooldownTime = Random.Range(1.5f, 2f);
             shootingCooldown.Start();
         }
 

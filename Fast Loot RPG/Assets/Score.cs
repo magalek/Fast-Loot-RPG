@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using RPG.Entities;
+﻿using RPG.Entities;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering.RenderGraphModule;
 
 public class Score : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI textComponent;

@@ -54,14 +54,7 @@ namespace RPG.Items {
             }
 
             Color color = spriteMean / coloredPixels.Count;
-            // var colorR = color.r > color.g || color.r > color.b ? color.r *= 1.5f : color.r;
-            // var colorG = color.g > color.r || color.g > color.b ? color.g *= 1.5f : color.g;
-            // var colorB = color.b > color.r || color.b > color.g ? color.b *= 1.5f : color.b;
-            //
-            // color.r = colorR;
-            // color.g = colorG;
-            // color.b = colorB;
-            
+
             color.a = 1;
             GetComponentInChildren<Light2D>().color = color;
         }

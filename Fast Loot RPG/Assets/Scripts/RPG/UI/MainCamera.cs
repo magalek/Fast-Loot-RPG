@@ -27,7 +27,7 @@ namespace RPG.UI {
 
             camera = GetComponent<Camera>();
             
-            DontDestroyOnLoad(this);
+            DontDestroyOnLoad(gameObject);
         }
 
         private void Update() {

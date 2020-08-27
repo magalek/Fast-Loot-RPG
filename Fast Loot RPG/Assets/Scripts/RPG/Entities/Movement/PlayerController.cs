@@ -47,6 +47,7 @@ namespace RPG.Entities.Movement {
         private void Awake() {
             playerMaterial = GetComponent<PlayerMaterial>();
             dashCooldown = new Cooldown<PlayerController>(this, 2, p => p.CanDash = true);
+            dashImage.fillAmount = 0;
         }
 
         private void Start() {
@@ -79,7 +80,9 @@ namespace RPG.Entities.Movement {
             if (Input.GetKeyDown(KeyCode.LeftShift) && isMoving && CanMove && CanDash) {
                 Dash();
             }
-            dashImage.fillAmount = dashCooldown.Percentage;
+
+            dashImage.fillAmount = 1 - dashCooldown.Percentage;
+
         }
 
         private void OnTriggerEnter2D(Collider2D other) {

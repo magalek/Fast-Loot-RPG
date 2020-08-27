@@ -21,7 +21,7 @@ TagManager:
   - Map Icon
   - Trigger
   - Collider
-  - 
+  - Post Processing
   - 
   - 
   - 
@@ -51,6 +51,9 @@ TagManager:
     locked: 0
   - name: Item
     uniqueID: 2016006863
+    locked: 0
+  - name: Fog
+    uniqueID: 789060363
     locked: 0
   - name: UI
     uniqueID: 1889653297

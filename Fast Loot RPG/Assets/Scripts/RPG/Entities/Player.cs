@@ -2,11 +2,9 @@
 using RPG.Entities.Animations;
 using RPG.Entities.Movement;
 using RPG.Items;
-using RPG.UI;
 using RPG.Utility;
-using UnityEngine;
 
-namespace RPG.Entities
+namespace RPG.Entities 
 {
     public class Player : Character, IComponentCache, IHittable {
         public static event Action Created;

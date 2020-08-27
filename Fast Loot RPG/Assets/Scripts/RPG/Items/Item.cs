@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using CharacterInfo = RPG.Statistics.CharacterInfo;
 using Random = UnityEngine.Random;
 
 namespace RPG.Items
@@ -12,19 +13,19 @@ namespace RPG.Items
         public ItemType type;
 
         public int value;
-        public Item(ItemObject itemObject) {
+        public Item(ItemObject itemObject, CharacterInfo info) {
             prefab = itemObject.prefab;
             sprite = itemObject.GetComponentInChildren<SpriteRenderer>().sprite;
             type = itemObject.type;
-            value = Random.Range(10, 100);
+
+            value = info.Damage.Current + info.Health.Max;
+
+            value = Random.Range(value / 2, value);
         }
 
         public override string ToString() {
             return
-                $"{prefab.name} \t {type} \n" +
-                "\n" +
-                "\n" +
-                "\n" +
+                $"{prefab.name}\n\n" +
                 $"Sell for: {value}";
         }
     }

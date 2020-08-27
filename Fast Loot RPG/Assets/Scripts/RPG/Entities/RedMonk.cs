@@ -31,11 +31,11 @@ namespace RPG.Entities {
             ChangeTexts();
             
             DamageBought += () => {
-                damageCost = (int) (damageCost * 1.2);
+                damageCost = (int) (damageCost * 1.8);
                 ChangeTexts();
             };
             HealthBought += () => {
-                healthCost = (int) (healthCost * 1.2);
+                healthCost = (int) (healthCost * 1.8);
                 ChangeTexts();
             };
 
@@ -56,7 +56,7 @@ namespace RPG.Entities {
             Score.Instance.Amount -= healthCost;
             Player.Instance.characterInfo.Health.Max += 20;
             Player.Instance.characterInfo.Health.Current += 20;
-            DamageBought?.Invoke();
+            HealthBought?.Invoke();
         }
         
         private void AddDamage() {

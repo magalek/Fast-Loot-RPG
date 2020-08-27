@@ -11,8 +11,10 @@ namespace RPG.Items.Slots
         public Item item;
         public SlotGraphics slotGraphics;
 
-        private bool showTooltip = false;
+        private bool showTooltip;
 
+        private string tooltip;
+        
         private Container container;
         
         protected virtual void Awake() {
@@ -66,10 +68,12 @@ namespace RPG.Items.Slots
         }
 
         public void OnPointerEnter(PointerEventData eventData) {
+            tooltip = item?.ToString();
             showTooltip = true;
         }
         
         public void OnPointerExit(PointerEventData eventData) {
+            tooltip = null;
             showTooltip = false;
         }
         
@@ -82,7 +86,9 @@ namespace RPG.Items.Slots
         }
 
         private void CreateTooltip() {
-            GUIContent content = new GUIContent(item.ToString());
+            if (tooltip == null || showTooltip == false) return;
+            
+            GUIContent content = new GUIContent(tooltip);
             GUIStyle style = GUI.skin.box;
 
             style.fontSize = 18;

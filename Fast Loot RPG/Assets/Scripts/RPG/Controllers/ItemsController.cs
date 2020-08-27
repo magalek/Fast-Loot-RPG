@@ -2,6 +2,7 @@
 using RPG.Items;
 using RPG.Utility;
 using UnityEngine;
+using CharacterInfo = RPG.Statistics.CharacterInfo;
 
 namespace RPG.Controllers
 {
@@ -29,7 +30,7 @@ namespace RPG.Controllers
             itemObjects.Clear();
         }
 
-        public void CreateItemObject(Vector3 position) {
+        public void CreateItemObject(Vector3 position, CharacterInfo info) {
             GameObject itemPrefab = ResourcesController.itemObjectsPrefabs.Random();
             
             ItemObject itemObject = Instantiate(itemPrefab, position, Quaternion.identity).
@@ -37,7 +38,7 @@ namespace RPG.Controllers
             itemObjects.Add(itemObject);
             itemObject.transform.SetParent(itemsParent);
             itemObject.prefab = itemPrefab;
-            itemObject.item = new Item(itemObject);
+            itemObject.item = new Item(itemObject, info);
         }
         
         public void CreateItemObject(Item item, Vector3 position) {
