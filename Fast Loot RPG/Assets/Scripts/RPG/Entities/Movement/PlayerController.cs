@@ -17,6 +17,8 @@ namespace RPG.Entities.Movement {
 
         private Cooldown<PlayerController> dashCooldown;
 
+        private Cooldown<PlayerController> movementSoundCooldown;
+        
         public event Action OnMovementStart;
         public event Action OnMovementEnd;
 
@@ -44,10 +46,15 @@ namespace RPG.Entities.Movement {
         private bool canUseE = true;
         private bool eKeyPressed;
 
+        private bool canPlaySound = true;
+        private PlayerSounds playerSounds;
+        
         private void Awake() {
             playerMaterial = GetComponent<PlayerMaterial>();
             dashCooldown = new Cooldown<PlayerController>(this, 2, p => p.CanDash = true);
+            movementSoundCooldown = new Cooldown<PlayerController>(this, 0.3f, p => p.canPlaySound = true);
             dashImage.fillAmount = 0;
+            playerSounds = GetComponentInChildren<PlayerSounds>();
         }
 
         private void Start() {
@@ -74,7 +81,7 @@ namespace RPG.Entities.Movement {
                 eKeyPressed = false;
             }
             
-            if (Input.GetMouseButtonDown(0)) 
+            if (Input.GetMouseButton(0)) 
                 Player.Instance.weapon.Attack();
             
             if (Input.GetKeyDown(KeyCode.LeftShift) && isMoving && CanMove && CanDash) {
@@ -83,6 +90,17 @@ namespace RPG.Entities.Movement {
 
             dashImage.fillAmount = 1 - dashCooldown.Percentage;
 
+            if (isMoving) {
+                if (canPlaySound) {
+                    playerSounds.PlayMoveSound();
+                    movementSoundCooldown.Start();       
+                    canPlaySound = false;
+                }
+            }
+            else {
+                playerSounds.StopMovement();
+            }
+            
         }
 
         private void OnTriggerEnter2D(Collider2D other) {

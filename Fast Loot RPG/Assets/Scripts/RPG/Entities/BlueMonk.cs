@@ -1,9 +1,21 @@
 ﻿using RPG.Entities.Movement;
 using RPG.UI;
+using RPG.Utility;
 using UnityEngine;
 
 namespace RPG.Entities {
     public class BlueMonk : NPC, IInteractable {
+
+        private AudioSource audioSource;
+
+        [SerializeField] private AudioClip[] clips;
+        
+        public override void Awake() {
+            base.Awake();
+
+            audioSource = GetComponentInChildren<AudioSource>();
+        }
+
         public void Interact(GameObject client) {
             IsInteracting = !IsInteracting;
             if (IsInteracting) {
@@ -13,6 +25,8 @@ namespace RPG.Entities {
                 else {
                     GetComponent<SpriteRenderer>().flipX = false;
                 }
+                
+                audioSource.PlayOneShot(clips.Random());
                 
                 GetComponent<NPCContainer>().ChangeState(true);
                 

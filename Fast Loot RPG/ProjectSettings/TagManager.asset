@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - Item
   - Weapon
+  - Interactable
   layers:
   - Default
   - TransparentFX

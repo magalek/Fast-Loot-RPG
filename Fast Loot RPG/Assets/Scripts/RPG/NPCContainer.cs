@@ -23,7 +23,7 @@ namespace RPG {
             
             slot.Insert(item);
 
-            Score.Instance.Amount += item.value;
+            Currency.Instance.Amount += item.value;
         }
 
         // public override void Remove(Item item) {

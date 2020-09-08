@@ -1497,7 +1497,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 897661576256882987}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.008462049, y: -0.045366794, z: 0.9699707}
+  m_LocalPosition: {x: 0.508, y: -0.67, z: 0.9699707}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6330011477685301495}
@@ -9172,7 +9172,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4650014399861898155}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.11953795, y: 0.0816332, z: 0.9699707}
+  m_LocalPosition: {x: 0.38000003, y: -0.513, z: 0.9699707}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6330011477685301495}
@@ -10008,7 +10008,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4819602571637321771}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.049, y: 0.028, z: 0.9699707}
+  m_LocalPosition: {x: 0.54853797, y: -0.5966332, z: 0.9699707}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 6210182855051483825}
@@ -10413,7 +10413,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4941631178424356079}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.09153795, y: -0.06336679, z: 0.9699707}
+  m_LocalPosition: {x: 0.40800002, y: -0.65, z: 0.9699707}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6330011477685301495}
@@ -10602,7 +10602,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5116125175346215174}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.02146205, y: 0, z: 0.9699707}
+  m_LocalPosition: {x: 0.521, y: -0.571, z: 0.9699707}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6330011477685301495}
@@ -15280,7 +15280,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7306934028069865655}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.20646206, y: 0.031633206, z: 0.9699707}
+  m_LocalPosition: {x: 0.698, y: -0.588, z: 0.9699707}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6330011477685301495}
@@ -18739,6 +18739,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FogMask
+      objectReference: {fileID: 0}
+    - target: {fileID: 3018225921277261910, guid: 5bd2909e76f337f4da23143096656723,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3325869027511054454, guid: 5bd2909e76f337f4da23143096656723,
         type: 3}

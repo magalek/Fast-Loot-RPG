@@ -1,4 +1,5 @@
 ﻿using RPG.Entities;
+using RPG.Generators;
 using TMPro;
 using UnityEngine;
 
@@ -24,7 +25,7 @@ public class Score : MonoBehaviour {
         else if (Instance != this)
             Destroy(gameObject);
 
-        Player.Died += () => Amount = 0;
+        LevelGenerator.LevelRestarted += () => Amount = 0;
     }
 
     private void Start() {

@@ -124,9 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2de4cf64bef365d4381eaf18f4dda67e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entityName: <color="red">Ghoul</color>
   characterInfo: {fileID: 0}
-  lootChance: 1
   animationController: {fileID: 0}
   enemyController: {fileID: 0}
 --- !u!114 &-920990197502649319
@@ -238,7 +236,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds: []
-  deathSounds: []
+  deathSounds:
+  - {fileID: 8300000, guid: c09badd5c52f1214fb0a4feaed909070, type: 3}
+  hitSounds:
+  - {fileID: 8300000, guid: 25c2b72d828121e4c8c2b7f60f7cb4e2, type: 3}
+  - {fileID: 8300000, guid: e6baca5166f92fc4383e73d5a6a7c115, type: 3}
+  - {fileID: 8300000, guid: 8db7f030bccaf7f41aa2f24ae1a16c7a, type: 3}
+  - {fileID: 8300000, guid: 615bd6c28c0ca364f9f506ebb670e449, type: 3}
 --- !u!1 &3505644259476490812
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,7 +571,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.01}
-  m_Size: {x: 0.0001, y: 0.13}
+  m_Size: {x: 0.14, y: 0.1}
   m_Direction: 1
 --- !u!114 &7070176305503633373
 MonoBehaviour:

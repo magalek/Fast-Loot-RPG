@@ -9,16 +9,16 @@ using UnityEngine.Experimental.GlobalIllumination;
 public class Projectile : MonoBehaviour {
     public event Action Destroyed;
 
-    public event Action ShouldDestroy;
+    public event Action WillDestroy;
     
     private Vector3 targetDirection;
     private Cooldown<Projectile> cooldown;
     
     public void Start() {
-        cooldown = new Cooldown<Projectile>(this, 3, p => p.ShouldDestroy?.Invoke());
+        cooldown = new Cooldown<Projectile>(this, 3, p => p.WillDestroy?.Invoke());
         cooldown.Start();
         
-        ShouldDestroy += DestroyProjectile;
+        WillDestroy += DestroyProjectile;
     }
 
     private void Update() {
@@ -33,15 +33,15 @@ public class Projectile : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player")) {
             other.GetComponentInParent<IHittable>().Hit(10);
-            ShouldDestroy?.Invoke();
+            WillDestroy?.Invoke();
         }
-        if (!other.CompareTag("Enemy") && !other.CompareTag("Player") && !other.CompareTag("Item") && !other.CompareTag("Weapon")) {
-            ShouldDestroy?.Invoke();
+        if (!other.CompareTag("Enemy") && !other.CompareTag("Player") && !other.CompareTag("Item") && !other.CompareTag("Weapon") && !other.CompareTag("Interactable")) {
+            WillDestroy?.Invoke();
         }
     }
 
     private void DestroyProjectile() {
-        ShouldDestroy -= DestroyProjectile;
+        WillDestroy -= DestroyProjectile;
         Destroy(gameObject);
     }
     private void OnDestroy() {

@@ -27,7 +27,8 @@ namespace RPG.Statistics {
         
         public float Percentage => (float) Current / max;
         public bool ZeroOrLess => Current <= 0;
-
+        public bool WillDie(int damage) => current - damage <= 0;
+        
         public void Init() {
             Current = max;
         }

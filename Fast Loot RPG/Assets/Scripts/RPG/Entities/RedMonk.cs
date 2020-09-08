@@ -1,6 +1,7 @@
 ﻿using System;
 using RPG.Entities.Movement;
 using RPG.UI;
+using RPG.Utility;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,9 +18,15 @@ namespace RPG.Entities {
         [SerializeField] private int damageCost = 100;
         [SerializeField] private int healthCost = 60;
         
+        private AudioSource audioSource;
+
+        [SerializeField] private AudioClip[] clips;
+
         public override void Awake() {
             base.Awake();
-
+            
+            audioSource = GetComponentInChildren<AudioSource>();
+            
             damageSlot = GameObject.Find("Damage Slot");
             damageSlot.GetComponentInChildren<Button>().onClick.AddListener(AddDamage);
             healthSlot = GameObject.Find("Health Slot");
@@ -51,18 +58,18 @@ namespace RPG.Entities {
         }
         
         private void AddHealth() {
-            if (Score.Instance.Amount < healthCost) return;
+            if (Currency.Instance.Amount < healthCost) return;
 
-            Score.Instance.Amount -= healthCost;
+            Currency.Instance.Amount -= healthCost;
             Player.Instance.characterInfo.Health.Max += 20;
             Player.Instance.characterInfo.Health.Current += 20;
             HealthBought?.Invoke();
         }
         
         private void AddDamage() {
-            if (Score.Instance.Amount < damageCost) return;
+            if (Currency.Instance.Amount < damageCost) return;
 
-            Score.Instance.Amount -= damageCost;
+            Currency.Instance.Amount -= damageCost;
             Player.Instance.characterInfo.Damage.Current += 5;
             DamageBought?.Invoke();
         }
@@ -78,7 +85,7 @@ namespace RPG.Entities {
                 }
 
                 //GetComponent<NPCContainer>().ChangeState(true);
-
+                audioSource.PlayOneShot(clips.Random());
                 NPCUI.SetActive(true);
 
                 PlayerUI.Instance.staticUI.SetActive(false);

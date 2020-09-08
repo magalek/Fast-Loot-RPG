@@ -474,7 +474,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds: []
-  deathSounds: []
+  deathSounds:
+  - {fileID: 8300000, guid: f0dd2f70fdbea3b4b8fd8ae1379e6619, type: 3}
+  - {fileID: 8300000, guid: 49eb0c9c9a6d97547b5acfc202d91b51, type: 3}
+  hitSounds:
+  - {fileID: 8300000, guid: 5c2f0cbc4e12a9f4885a117f43f84d4f, type: 3}
+  - {fileID: 8300000, guid: e2b8e3c0ba6f56b48840a53babaa0f9e, type: 3}
+  - {fileID: 8300000, guid: 313306fbf0b5ece45b3426ff200f051c, type: 3}
+  - {fileID: 8300000, guid: 1afcf3327844afd49a51abd6820be5d4, type: 3}
+  - {fileID: 8300000, guid: 47fc92b67dfd4184abf99fc8c7b74175, type: 3}
+  - {fileID: 8300000, guid: 8a2c519e8e595c04991e97044812471a, type: 3}
+  - {fileID: 8300000, guid: 9891be4195a705c49af9da0b7691f47d, type: 3}
 --- !u!1 &6144661063552214148
 GameObject:
   m_ObjectHideFlags: 0

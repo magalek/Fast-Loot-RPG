@@ -19,6 +19,8 @@ namespace RPG.Entities
         
         public PlayerController playerController;
         public PlayerAnimationController animationController;
+
+        private PlayerSounds playerSounds;
         
         public bool IsHittable { get; set; }
         
@@ -41,12 +43,13 @@ namespace RPG.Entities
         public virtual void Hit(int damage) {
             characterInfo.Health.ChangeCurrentBy(-damage);
             animationController.PlayHit();
-
+            playerSounds.PlayHitClip();
+            
             if (characterInfo.Health.ZeroOrLess)
                 Kill();
         }
-        
-        public override void Kill() {
+
+        protected override void Kill() {
             base.Kill();
             Died?.Invoke();
         }
@@ -57,6 +60,7 @@ namespace RPG.Entities
             inventory = GetComponentInChildren<Inventory>();
             equipment = GetComponentInChildren<Equipment>();
             weapon = GetComponentInChildren<Weapon>();
+            playerSounds = GetComponentInChildren<PlayerSounds>();
         }
     }
 }
