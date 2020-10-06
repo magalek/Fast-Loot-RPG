@@ -11,9 +11,3 @@ Sprites are taken from these awesome packs:
 Remember to check them out!
 
 Apart from the sprites everything is done by me. The code is in **Fast-Loot-RPG/Fast Loot RPG/Assets/Scripts/RPG** directory, feel free to check it out.
-
-A short video showing what's in the game right now: https://youtu.be/T1Gg8iydURA
-
-![Image_1](https://github.com/magalek/Fast-Loot-RPG/blob/master/Fast%20Loot%20RPG/Images/Screenshot.png)
-![Image_2](https://github.com/magalek/Fast-Loot-RPG/blob/master/Fast%20Loot%20RPG/Images/Screenshot2.png)
-![Image_3](https://github.com/magalek/Fast-Loot-RPG/blob/master/Fast%20Loot%20RPG/Images/Screenshot3.png)
