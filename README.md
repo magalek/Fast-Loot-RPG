@@ -1,4 +1,4 @@
-# Welcome to my project!
+# Knight Hoard (Fast Loot RPG)!
 
 If you want to hear more about the progress, visti my website: https://filipwalczak98.wixsite.com/website
 
